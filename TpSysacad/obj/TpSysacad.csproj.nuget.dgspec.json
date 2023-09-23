@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\tp labo2\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj": {}
+    "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\tp labo2\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj": {
+    "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\tp labo2\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj",
+        "projectUniqueName": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj",
         "projectName": "TpSysacad",
-        "projectPath": "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\tp labo2\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj",
-        "packagesPath": "C:\\Users\\Orfhen2022\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\tp labo2\\Tp_Sysacad_grupal\\TpSysacad\\obj\\",
+        "projectPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\TpSysacad\\TpSysacad.csproj",
+        "packagesPath": "C:\\Users\\Axex Shop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\TpSysacad\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Orfhen2022\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Axex Shop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
