@@ -12,6 +12,7 @@ namespace BibliotecaCLases
 
         public AutenticacionSession()
         {
+            
             // Inicializar la lista de administradores (puedes cargarla desde una base de datos u otra fuente de datos)
             usuarios = new List<Usuario>
 

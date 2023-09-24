@@ -13,7 +13,6 @@ namespace BibliotecaCLases
         private string _correo;
         private string _dni;
         private string _clave;
-        /*se cambia algo*/
 
 
 
