@@ -1,0 +1,11 @@
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\bin\Debug\net6.0\BibliotecaCLases.deps.json
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\bin\Debug\net6.0\BibliotecaCLases.dll
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\bin\Debug\net6.0\BibliotecaCLases.pdb
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.AssemblyInfoInputs.cache
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.AssemblyInfo.cs
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.csproj.CoreCompileInputs.cache
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.dll
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\refint\BibliotecaCLases.dll
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.pdb
+C:\Users\Axex Shop\source\repos\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\ref\BibliotecaCLases.dll

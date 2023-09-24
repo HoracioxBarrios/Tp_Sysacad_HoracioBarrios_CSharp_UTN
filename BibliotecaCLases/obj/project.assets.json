@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_Alexis_Aranda\\BibliotecaCLases\\BibliotecaCLases.csproj",
+      "projectUniqueName": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj",
       "projectName": "BibliotecaCLases",
-      "projectPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_Alexis_Aranda\\BibliotecaCLases\\BibliotecaCLases.csproj",
+      "projectPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj",
       "packagesPath": "C:\\Users\\Axex Shop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_Alexis_Aranda\\BibliotecaCLases\\obj\\",
+      "outputPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Axex Shop\\AppData\\Roaming\\NuGet\\NuGet.Config",
