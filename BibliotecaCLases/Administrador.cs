@@ -13,6 +13,10 @@
 
 
 
+
+
+
+
         // Método para registrar un nuevo estudiante
         public static Estudiante RegistrarEstudiante(string nombreEstudiante, string apellidoEstudiante, string correoEstudiante, string dniEstudiante, string claveEstudiante, string direccionEstudiante, string telefonoEstudiante, string claveProvisionalEstudiante)
         {
