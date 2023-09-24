@@ -13,7 +13,7 @@ namespace BibliotecaCLases
         private string _telefono;
         private string _claveProvisional;
         private int _legajo;
-
+        /*Horaghfghgfh*/
         public Estudiante(string nombre, string apellido, string correo, string dni, string clave, string direccion, string telefono, string claveProvisional)
             : base(nombre, apellido, correo, dni, clave)
         {
