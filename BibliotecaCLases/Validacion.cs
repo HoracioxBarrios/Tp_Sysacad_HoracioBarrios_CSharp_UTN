@@ -18,6 +18,7 @@ namespace BibliotecaCLases
                 }
             }
             return true;
+            /*hora hora*/
         }
         public bool ValidarDigit(string value)
         {
