@@ -69,7 +69,7 @@
             // 
             textUsuario.Location = new Point(260, 154);
             textUsuario.Name = "textUsuario";
-            textUsuario.PlaceholderText = "Usuario";
+            textUsuario.PlaceholderText = "Usuario o Dni";
             textUsuario.Size = new Size(100, 23);
             textUsuario.TabIndex = 3;
             // 

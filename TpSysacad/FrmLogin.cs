@@ -1,4 +1,5 @@
 namespace TpSysacad
+
 {
     public partial class FrmLogin : Form
     {
@@ -9,7 +10,14 @@ namespace TpSysacad
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (textUsuario.Text == "root" && textContraseña.Text == "root")
+            string dni = textUsuario.Text; // de momento se usa el dni de usuario
+            string contraseña = textContraseña.Text;
+
+            BibliotecaCLases.AutenticacionSession autenticacion = new();
+
+            bool verificado = autenticacion.AutenticarUsuario(dni, contraseña);
+
+            if (verificado)
             {
                 FrmPanelAdmin frmPanelAdmin = new();
                 frmPanelAdmin.Show();

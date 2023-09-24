@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "TpSysacad/1.0.0": {
+        "dependencies": {
+          "BibliotecaCLases": "1.0.0"
+        },
         "runtime": {
           "TpSysacad.dll": {}
+        }
+      },
+      "BibliotecaCLases/1.0.0": {
+        "runtime": {
+          "BibliotecaCLases.dll": {}
         }
       }
     }
   },
   "libraries": {
     "TpSysacad/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BibliotecaCLases/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

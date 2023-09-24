@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             button1 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -50,13 +51,23 @@
             button1.TabIndex = 1;
             button1.Text = "Registrar Estudiante";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(128, 255);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 15);
+            label2.TabIndex = 2;
+            label2.Text = "administador Nombre";
             // 
             // FrmPanelAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
             Name = "FrmPanelAdmin";
@@ -69,5 +80,6 @@
 
         private Label label1;
         private Button button1;
+        private Label label2;
     }
 }
