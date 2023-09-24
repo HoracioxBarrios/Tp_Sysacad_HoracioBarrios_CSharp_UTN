@@ -26,7 +26,6 @@ namespace BibliotecaCLases
             //administradores.Add(new Administrador("Nuevo", "Administrador", "3333", "nuevoadmin", "333"));
 
         }
-
         public bool AutenticarUsuario(string dni, string contrasena)
         {
             // Buscar un administrador con el DNI proporcionado en la lista
@@ -37,7 +36,6 @@ namespace BibliotecaCLases
             {
                 return false;
             }
-
             // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
             if (admin.Clave == contrasena)
             {
@@ -48,8 +46,6 @@ namespace BibliotecaCLases
             // Si la contraseña no coincide, la autenticación falla
             return false;
         }
-
-
 
         // Otros métodos relacionados con la autenticación y la gestión de sesiones
 
