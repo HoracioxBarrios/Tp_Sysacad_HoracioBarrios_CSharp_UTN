@@ -22,6 +22,9 @@ namespace BibliotecaCLases
             _correo = correoElectronico;
             _clave = clave;
         }
+
+
+
         public string Nombre
         {
             get { return _nombre; }

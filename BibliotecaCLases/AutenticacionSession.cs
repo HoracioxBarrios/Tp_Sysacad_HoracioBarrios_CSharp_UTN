@@ -47,6 +47,11 @@ namespace BibliotecaCLases
             return false;
         }
 
+
+
+
+
+
         // Otros métodos relacionados con la autenticación y la gestión de sesiones
 
         // Por ejemplo, puedes tener un método para cerrar la sesión de un administrador
