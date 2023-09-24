@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj": {}
+    "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj": {
+    "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj",
+        "projectUniqueName": "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj",
         "projectName": "BibliotecaCLases",
-        "projectPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj",
-        "packagesPath": "C:\\Users\\Axex Shop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\BibliotecaCLases\\obj\\",
+        "projectPath": "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\Tp_Sysacad_grupal\\BibliotecaCLases\\BibliotecaCLases.csproj",
+        "packagesPath": "C:\\Users\\Orfhen2022\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\Tp_Sysacad_grupal\\BibliotecaCLases\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Axex Shop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Orfhen2022\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
