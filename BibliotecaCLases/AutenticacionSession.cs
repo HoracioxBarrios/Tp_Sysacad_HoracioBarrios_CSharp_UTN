@@ -12,11 +12,8 @@ namespace BibliotecaCLases
 
         public AutenticacionSession()
         {
-            
             // Inicializar la lista de administradores (puedes cargarla desde una base de datos u otra fuente de datos)
             usuarios = new List<Usuario>
-
-
         {
             new Administrador("Alexis", "Aranda", "alexisaranda", "111", "111"),
             new Administrador("Hora", "Barrios",  "horabarrios","222", "222")
@@ -31,26 +28,15 @@ namespace BibliotecaCLases
             // Buscar un administrador con el DNI proporcionado en la lista
             Usuario? admin = usuarios.FirstOrDefault(a => a.Dni == dni);
 
-            // Si no se encuentra un administrador con ese DNI, la autenticación falla
-            if (admin == null)
-            {
-                return false;
-            }
             // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
             if (admin.Clave == contrasena)
             {
                 // Autenticación exitosa
                 return true;
             }
-
             // Si la contraseña no coincide, la autenticación falla
             return false;
         }
-
-
-
-
-
 
         // Otros métodos relacionados con la autenticación y la gestión de sesiones
 

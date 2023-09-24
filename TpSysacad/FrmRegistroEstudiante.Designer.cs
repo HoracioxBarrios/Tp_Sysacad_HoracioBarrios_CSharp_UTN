@@ -32,7 +32,7 @@
             textNombre = new TextBox();
             textApellido = new TextBox();
             textDni = new TextBox();
-            textBox4 = new TextBox();
+            textDireccion = new TextBox();
             textTelefono = new TextBox();
             textEmail = new TextBox();
             btnRegistro = new Button();
@@ -73,17 +73,17 @@
             textDni.Size = new Size(100, 23);
             textDni.TabIndex = 3;
             // 
-            // textBox4
+            // textDireccion
             // 
-            textBox4.Location = new Point(284, 207);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Direccion";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 4;
+            textDireccion.Location = new Point(284, 207);
+            textDireccion.Name = "textDireccion";
+            textDireccion.PlaceholderText = "Direccion";
+            textDireccion.Size = new Size(100, 23);
+            textDireccion.TabIndex = 4;
             // 
             // textTelefono
             // 
-            textTelefono.Location = new Point(284, 247);
+            textTelefono.Location = new Point(284, 245);
             textTelefono.Name = "textTelefono";
             textTelefono.PlaceholderText = "Telefono";
             textTelefono.Size = new Size(100, 23);
@@ -124,7 +124,7 @@
             Controls.Add(btnRegistro);
             Controls.Add(textEmail);
             Controls.Add(textTelefono);
-            Controls.Add(textBox4);
+            Controls.Add(textDireccion);
             Controls.Add(textDni);
             Controls.Add(textApellido);
             Controls.Add(textNombre);
@@ -141,7 +141,7 @@
         private TextBox textNombre;
         private TextBox textApellido;
         private TextBox textDni;
-        private TextBox textBox4;
+        private TextBox textDireccion;
         private TextBox textTelefono;
         private TextBox textEmail;
         private Button btnRegistro;

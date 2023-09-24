@@ -13,7 +13,7 @@
     ],
     "additionalProbingPaths": [
       "C:\\Users\\Axex Shop\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Axex Shop\\.nuget\\packages"
+      "C:\\Users\\Orfhen2022\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

@@ -11,16 +11,16 @@ namespace BibliotecaCLases
         private static int contadorLegajos = 1;
         private string _direccion;
         private string _telefono;
-        private string _claveProvisional;
+        private string _clave;
         private int _legajo;
-        public Estudiante(string nombre, string apellido, string correo, string dni, string clave, string direccion, string telefono, string claveProvisional)
-            : base(nombre, apellido, correo, dni, clave)
+        public Estudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional)
+            : base(nombre, apellido, correo, dni, claveProvisional)
         {
             _legajo = contadorLegajos;
             contadorLegajos++;
             _direccion = direccion;
             _telefono = telefono;
-            _claveProvisional = claveProvisional;
+            _clave = claveProvisional;
         }
 
         public int Legajo
@@ -39,10 +39,10 @@ namespace BibliotecaCLases
             get { return _telefono; }
             set { _telefono = value; }
         }
-        public string ClaveProvisional
+        public string Clave
         {
-            get { return _claveProvisional; }
-            set { _claveProvisional = value; }
+            get { return _clave; }
+            set { _clave = value; }
         }
     }
 }
