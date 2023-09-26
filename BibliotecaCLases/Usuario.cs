@@ -14,18 +14,14 @@ namespace BibliotecaCLases
         private string _correo;
         private string _dni;
         private string _clave;
-        public Usuario( string nombre, string apellido, string dni, string correoElectronico, string clave)
+        public Usuario(string nombre, string apellido, string correoElectronico, string dni, string clave)
         {
-            // constructor
-       
             _nombre = nombre;
             _apellido = apellido;
             _dni = dni;
             _correo = correoElectronico;
             _clave = clave;
         }
-
-
 
         public string Nombre
         {

@@ -20,3 +20,14 @@ C:\Users\Orfhen2022\Desktop\utn 2023\programacion 2 cuatri\Tp_Sysacad_grupal\Bib
 C:\Users\Orfhen2022\Desktop\utn 2023\programacion 2 cuatri\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\refint\BibliotecaCLases.dll
 C:\Users\Orfhen2022\Desktop\utn 2023\programacion 2 cuatri\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.pdb
 C:\Users\Orfhen2022\Desktop\utn 2023\programacion 2 cuatri\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\ref\BibliotecaCLases.dll
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.AssemblyInfoInputs.cache
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.AssemblyInfo.cs
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.csproj.CoreCompileInputs.cache
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.dll
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\refint\BibliotecaCLases.dll
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\BibliotecaCLases.pdb
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\bin\Debug\net6.0\BibliotecaCLases.deps.json
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\bin\Debug\net6.0\BibliotecaCLases.dll
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\bin\Debug\net6.0\BibliotecaCLases.pdb
+C:\Users\diany\Desktop\utn\programacionII\Tp_Sysacad_grupal\BibliotecaCLases\obj\Debug\net6.0\ref\BibliotecaCLases.dll

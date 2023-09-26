@@ -56,6 +56,7 @@
             textNombre.PlaceholderText = "Nombre";
             textNombre.Size = new Size(100, 23);
             textNombre.TabIndex = 1;
+            textNombre.TextChanged += textNombre_TextChanged;
             // 
             // textApellido
             // 

@@ -20,30 +20,37 @@ namespace TpSysacad
 
         private void BtnRegistro_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string nombre = textNombre.Text;
+                string apellido = textApellido.Text;
+                string dni = textDni.Text;
+                string correo = textEmail.Text;
+                string direccion = textDireccion.Text;
+                string telefono = textTelefono.Text;
+                string claveProvisional = textContraseñaProvisional.Text;
 
-            // Captura la información del estudiante desde la interfaz de usuario
-            string nombre = textNombre.Text;
-            string apellido = textApellido.Text;
-            string dni = textDni.Text;
-            string correo = textEmail.Text;
-            string direccion = textDireccion.Text;
-            string telefono = textTelefono.Text;
-            string claveProvisional = textContraseñaProvisional.Text;
+                // Realiza las validaciones llamando al método RegistrarEstudiante de la clase CrudEstudiante
+                CrudEstudiante scrumEstudiante = new CrudEstudiante();
+                Estudiante nuevoEstudiante = scrumEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
 
-            // Crea una instancia de la clase Estudiante
+                // Notifica al usuario que el estudiante se ha registrado con éxito
+                MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                // Captura otras excepciones no controladas
+                MessageBox.Show("Ocurrió un error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            // validar datos necesarios 
+        private void textNombre_TextChanged(object sender, EventArgs e)
+        {
 
-            // Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
-
-            // Asigna un número de estudiante
-
-            // Guarda el estudiante en archivos o en una lista
-
-            // Notifica al estudiante (envía un correo electrónico, muestra un mensaje, etc.)
-
-
-            MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
         }
     }
 }
