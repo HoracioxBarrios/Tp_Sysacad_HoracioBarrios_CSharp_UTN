@@ -8,14 +8,16 @@ namespace BibliotecaCLases
 {
     public class Usuario
     {
+
         private string _nombre;
         private string _apellido;
         private string _correo;
         private string _dni;
         private string _clave;
-        public Usuario(string nombre, string apellido, string dni, string correoElectronico, string clave)
+        public Usuario( string nombre, string apellido, string dni, string correoElectronico, string clave)
         {
             // constructor
+       
             _nombre = nombre;
             _apellido = apellido;
             _dni = dni;

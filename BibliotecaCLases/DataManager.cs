@@ -70,21 +70,30 @@ namespace BibliotecaCLases
 
 
 
-
-
-        /// <summary>
-        /// Guarda un objeto de tipo genérico en formato JSON.
-        /// </summary>
-        /// <typeparam name="T">Tipo de objeto a guardar.</typeparam>
-        /// <param name="objetoAGuardar">Objeto a guardar.</param>
-        /// <param name="path">Ruta del archivo JSON.</param>
-        /// <returns>Un mensaje que indica si la operación se ha realizado con éxito.</returns>
         public static string GuardarAJson<T>(T objetoAGuardar, string path)
         {
             try
             {
-                string jsonString = JsonSerializer.Serialize(objetoAGuardar);
-                File.WriteAllText(path, jsonString);
+                List<T> objetosExistente = new List<T>();
+
+                // Verificar si el archivo ya existe y cargar sus contenidos si es así
+                if (File.Exists(path))
+                {
+                    string jsonString = File.ReadAllText(path);
+                    objetosExistente = JsonSerializer.Deserialize<List<T>>(jsonString);
+                }
+
+                // Agregar el nuevo objeto a la lista
+                objetosExistente.Add(objetoAGuardar);
+
+                // Serializar la lista completa y agregar saltos de línea entre objetos
+                string jsonStringUpdated = JsonSerializer.Serialize(objetosExistente);
+
+                // Agregar un salto de línea después de cada objeto en la lista
+                jsonStringUpdated = string.Join(Environment.NewLine, jsonStringUpdated.Split('}'));
+
+                File.WriteAllText(path, jsonStringUpdated);
+
                 return $"Se ha guardado correctamente como JSON en: {path}";
             }
             catch (Exception ex)
@@ -93,20 +102,14 @@ namespace BibliotecaCLases
             }
         }
 
-        /// <summary>
-        /// Lee un archivo JSON y lo deserializa en un objeto.
-        /// </summary>
-        /// <typeparam name="T">Tipo de objeto a deserializar.</typeparam>
-        /// <param name="path">Ruta del archivo JSON.</param>
-        /// <returns>El objeto deserializado o el valor predeterminado de su tipo si ocurre un error.</returns>
-        public static T LeerJson<T>(string path)
+        public static List<T> LeerJson<T>(string path)
         {
             if (File.Exists(path))
             {
                 try
                 {
                     string jsonString = File.ReadAllText(path);
-                    return JsonSerializer.Deserialize<T>(jsonString);
+                    return JsonSerializer.Deserialize<List<T>>(jsonString);
                 }
                 catch (Exception ex)
                 {
@@ -114,9 +117,11 @@ namespace BibliotecaCLases
                 }
             }
 
-            return default(T);
+            return new List<T>();
         }
     }
+
+    
 }
 
 

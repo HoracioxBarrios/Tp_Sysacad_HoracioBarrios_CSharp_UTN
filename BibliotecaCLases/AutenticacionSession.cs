@@ -8,19 +8,12 @@ namespace BibliotecaCLases
 {
     public class AutenticacionSession
     {
-        private readonly List<Usuario> usuarios;
+        private readonly List<Administrador> usuarios;
 
         public AutenticacionSession()
         {
-            // Inicializar la lista de administradores (puedes cargarla desde una base de datos u otra fuente de datos)
-            usuarios = new List<Usuario>
-        {
-            new Administrador("Alexis", "Aranda", "alexisaranda", "111", "111"),
-            new Administrador("Hora", "Barrios",  "horabarrios","222", "222")
-
-            // Agregar más administradores según sea necesario
-        };
-            //administradores.Add(new Administrador("Nuevo", "Administrador", "3333", "nuevoadmin", "333"));
+            string path = "C:\\Users\\Axex Shop\\source\\repos\\Tp_Sysacad_grupal\\Data\\DatosUsuarios.json";
+            usuarios = DataManager.LeerJson<Administrador>(path);
 
         }
         public bool AutenticarUsuario(string dni, string contrasena)
@@ -29,7 +22,7 @@ namespace BibliotecaCLases
             Usuario? admin = usuarios.FirstOrDefault(a => a.Dni == dni);
 
             // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
-            if (admin.Clave == contrasena)
+            if (admin != null && admin.Clave == contrasena)
             {
                 // Autenticación exitosa
                 return true;
