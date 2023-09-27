@@ -20,6 +20,10 @@ namespace TpSysacad
             if (verificado)
             {
                 FrmPanelAdmin frmPanelAdmin = new();
+                frmPanelAdmin.FormClosed += (sender, args) =>
+                {
+                    this.Close(); 
+                };
                 frmPanelAdmin.Show();
                 this.Hide();
 
@@ -32,5 +36,9 @@ namespace TpSysacad
 
             }
         }
+
+  
+
+       
     }
 }

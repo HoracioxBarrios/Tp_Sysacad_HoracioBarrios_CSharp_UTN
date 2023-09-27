@@ -19,15 +19,16 @@ namespace TpSysacad
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
             FrmRegistroEstudiante frmRegistroEstudiante = new();
+
+            frmRegistroEstudiante.FormClosed += (sender, args) =>
+            {
+                this.Close();
+            };
+
             frmRegistroEstudiante.Show();
             this.Hide();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

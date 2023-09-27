@@ -61,7 +61,7 @@
             label2.Size = new Size(124, 15);
             label2.TabIndex = 2;
             label2.Text = "administador Nombre";
-            label2.Click += label2_Click;
+          
             // 
             // FrmPanelAdmin
             // 
