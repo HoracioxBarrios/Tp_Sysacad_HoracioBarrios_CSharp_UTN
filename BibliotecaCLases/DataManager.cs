@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Text.Json;
+using System.Xml;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace BibliotecaCLases
 {
@@ -68,39 +71,24 @@ namespace BibliotecaCLases
             return default(T);
         }
 
-
-
-        public static string GuardarAJson<T>(T objetoAGuardar, string path)
+        public static void GuardarAJson<T>(List<T> objetoAGuardar, string path)
         {
             try
             {
-                List<T> objetosExistente = new List<T>();
+                // Serializar la lista a formato JSON
+                string json = JsonConvert.SerializeObject(objetoAGuardar, Newtonsoft.Json.Formatting.Indented);
 
-                // Verificar si el archivo ya existe y cargar sus contenidos si es así
-                if (File.Exists(path))
-                {
-                    string jsonString = File.ReadAllText(path);
-                    objetosExistente = JsonSerializer.Deserialize<List<T>>(jsonString);
-                }
+                // Guardar el JSON en el archivo especificado
+                File.WriteAllText(path, json);
 
-                // Agregar el nuevo objeto a la lista
-                objetosExistente.Add(objetoAGuardar);
-
-                // Serializar la lista completa y agregar saltos de línea entre objetos
-                string jsonStringUpdated = JsonSerializer.Serialize(objetosExistente);
-
-                // Agregar un salto de línea después de cada objeto en la lista
-                jsonStringUpdated = string.Join(Environment.NewLine, jsonStringUpdated.Split('}'));
-
-                File.WriteAllText(path, jsonStringUpdated);
-
-                return $"Se ha guardado correctamente como JSON en: {path}";
+                Console.WriteLine($"La lista se ha guardado correctamente como JSON en: {path}");
             }
             catch (Exception ex)
             {
-                return $"Error al guardar como JSON: {ex.Message}";
+                Console.WriteLine($"Error al guardar la lista como JSON: {ex.Message}");
             }
         }
+
 
         public static List<T> LeerJson<T>(string path)
         {
