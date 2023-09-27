@@ -35,7 +35,7 @@ namespace TpSysacad
                 Estudiante nuevoEstudiante = scrumEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
 
                 // Notifica al usuario que el estudiante se ha registrado con éxito
-                MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
+                MessageBox.Show("Estudiante registrado con éxito. esto aca Se ha enviado una notificación al estudiante.");
             }
             catch (InvalidOperationException ex)
             {
