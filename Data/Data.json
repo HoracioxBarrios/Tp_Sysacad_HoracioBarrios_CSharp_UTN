@@ -5,5 +5,12 @@
     "Correo": "correo@nuevo.com",
     "Dni": "111",
     "Clave": "111"
+  },
+  {
+    "Nombre": "Dian",
+    "Apellido": "Iry",
+    "Correo": "correo@nuevo.com",
+    "Dni": "222",
+    "Clave": "222"
   }
 ]

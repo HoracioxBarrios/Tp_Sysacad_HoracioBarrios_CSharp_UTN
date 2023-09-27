@@ -11,7 +11,14 @@ namespace TpSysacad
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLogin());
+            FrmLogin formLogin = new FrmLogin();
+            using(Form form = formLogin){
+                Application.Run(form);
+
+                formLogin.Close();
+
+            }
+            
         }
     }
 }
