@@ -11,9 +11,18 @@ namespace TpSysacad
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+
             FrmLogin formLogin = new FrmLogin();
-            using(Form form = formLogin){
-                Application.Run(form);
+            /*
+            Se instancia el form login, con using le decimos que administre la memoria,
+            luego corre la app y le pasamos este form login.
+            cuando using entienda que se paso a otro form, ejemplo:
+            desde form login a form panel adm o desde form login a form alumno si es alumno.
+            using cierra este form y libera memoria.
+             */
+            using(formLogin){
+                Application.Run(formLogin);
 
                 formLogin.Close();
 
