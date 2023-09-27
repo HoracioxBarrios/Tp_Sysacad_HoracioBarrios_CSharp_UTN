@@ -22,6 +22,7 @@ namespace TpSysacad
                 FrmPanelAdmin frmPanelAdmin = new();
                 frmPanelAdmin.Show();
                 this.Hide();
+
             }
             else
             {
