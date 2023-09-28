@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Modelo
 {
     public static class Email
     {

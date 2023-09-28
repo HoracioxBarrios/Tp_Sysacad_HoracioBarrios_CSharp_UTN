@@ -10,9 +10,9 @@ using System.Xml;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Utilidades
 {
-    public static class DataManager
+    public static class Serializador
     {
 
 
@@ -68,7 +68,7 @@ namespace BibliotecaCLases
                 }
             }
 
-            return default(T);
+            return default;
         }
 
         public static void GuardarAJson<T>(List<T> objetoAGuardar, string path)
@@ -109,7 +109,7 @@ namespace BibliotecaCLases
         }
     }
 
-    
+
 }
 
 
