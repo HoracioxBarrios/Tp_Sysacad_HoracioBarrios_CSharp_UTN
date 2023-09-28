@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Controlador
 {
 
 
@@ -23,7 +25,7 @@ namespace BibliotecaCLases
                 usuarios = new List<Administrador>(); // Inicializa la lista aquí
 
                 // Intenta leer los datos desde el archivo JSON
-                usuarios = DataManager.LeerJson<Administrador>(path);
+                usuarios = Serializador.LeerJson<Administrador>(path);
 
                 // Inicializar la lista de administradores solo si está vacía
                 if (usuarios.Count == 0)
@@ -34,9 +36,9 @@ namespace BibliotecaCLases
                     usuarios.Add(administradorDos);
 
                     // Guarda la lista completa (incluyendo los nuevos administradores) en el archivo JSON
-                    DataManager.GuardarAJson(usuarios, path);
+                    Serializador.GuardarAJson(usuarios, path);
                 }
-}
+            }
         }
 
         //public AutenticacionSession()

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Controlador
 {
     public class Validacion
     {
@@ -14,7 +14,7 @@ namespace BibliotecaCLases
         /// </summary>
         /// <param name="correo"></param>
         /// <returns>bool</returns>
-        public static bool EsCorreoValido(String correo)
+        public static bool EsCorreoValido(string correo)
         {
             if (string.IsNullOrEmpty(correo))
             {
@@ -55,7 +55,7 @@ namespace BibliotecaCLases
                 }
             }
             return true;
- 
+
         }
         public bool ValidarDigit(string value)
         {

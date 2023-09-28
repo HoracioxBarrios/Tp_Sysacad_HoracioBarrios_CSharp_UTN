@@ -1,3 +1,5 @@
+using BibliotecaCLases.Controlador;
+
 namespace TpSysacad
 
 {
@@ -13,7 +15,7 @@ namespace TpSysacad
             string dni = textUsuario.Text; // de momento se usa el dni de usuario
             string contraseña = textContraseña.Text;
 
-            BibliotecaCLases.AutenticacionSession autenticacion = new();
+            AutenticacionSession autenticacion = new();
 
             bool verificado = autenticacion.AutenticarUsuario(dni, contraseña);
 

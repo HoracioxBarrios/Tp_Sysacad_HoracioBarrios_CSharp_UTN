@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BibliotecaCLases.Modelo;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Controlador
 {
     public class CrudEstudiante
     {
@@ -19,7 +20,7 @@ namespace BibliotecaCLases
 
             Estudiante estudianteEjemplo = new Estudiante("Estudiante", "Ejemplo", "ejemplo@correo.com", "123456789", "Direccion", "12345", "clave123");
             estudiantesRegistrados.Add(estudianteEjemplo);
-            Console.WriteLine( estudiantesRegistrados);
+            Console.WriteLine(estudiantesRegistrados);
         }
 
         public Estudiante RegistrarEstudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional)
