@@ -15,9 +15,11 @@ namespace TpSysacad
             string dni = textUsuario.Text; // de momento se usa el dni de usuario
             string contraseña = textContraseña.Text;
 
-            AutenticacionSession autenticacion = new();
+            
 
-            bool verificado = autenticacion.AutenticarUsuario(dni, contraseña);
+            //verificado =  bool control login
+            ControlLogin controlLogin = new();
+            bool verificado = controlLogin.AutenticarUsuario(dni, contraseña);
 
             if (verificado)
             {
