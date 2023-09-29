@@ -6,48 +6,58 @@ namespace BibliotecaCLases.Controlador
 {
     public class ControlLogin
     {
-        List<Administrador> usuarios = new List<Administrador>();
-
+        private readonly List<Administrador> usuarios;
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase ControlLogin.
+        /// </summary>
+        /// <remarks>
+        /// Este constructor se utiliza para gestionar la carga de usuarios desde un archivo JSON.
+        /// Si el archivo no existe o está vacío, se crea una lista de usuarios predeterminada
+        /// y se guarda en el archivo JSON especificado.
+        /// </remarks>
         public ControlLogin()
         {
-            // Le paso un folder y nombre de archivo y armo la ruta
+            // Obtener la ruta del archivo JSON de usuarios
             string path = PathManager.ObtenerRuta("Data", "dataUsuarios.json");
-            VerificadorFolder verificarFolder = new VerificadorFolder(path);
 
-            if (verificarFolder.Exists())
-            {
-                // Leer el archivo JSON si existe
-                usuarios = Serializador.LeerJson<Administrador>(path);
+            // Intentar cargar la lista de usuarios desde el archivo JSON
+            usuarios = Serializador.LeerJson<Administrador>(path);
 
-                // Hacer algo con la lista de usuarios (por ejemplo, guardarla en una propiedad)
-            }
-            else
+            // Verificar si la lista está vacía o si el archivo no existe
+            if (usuarios == null || usuarios.Count == 0)
             {
-                // Si el archivo no existe, crear una lista de usuarios y guardarlo en JSON
-               
-                Administrador administrador = new Administrador("matias", "cantero", "correo@nuevo.com", "111", "111");
-                Administrador administradorDos = new Administrador("Dian", "Iry", "correo@nuevo.com", "222", "222");
+                // Inicializar una nueva lista de usuarios
+                usuarios = new List<Administrador>();
+
+                // Crear usuarios predeterminados
+                Administrador administrador = new Administrador("matias", "cantero", "correo@nuevo.com", "011", "11");
+                Administrador administradorDos = new Administrador("Dian", "Iry", "correo@nuevo.com", "022", "22");
+
+                // Agregar usuarios a la lista
                 usuarios.Add(administrador);
                 usuarios.Add(administradorDos);
+
+                // Guardar la lista de usuarios en el archivo JSON
                 Serializador.GuardarAJson(usuarios, path);
             }
-
         }
 
-
+        /// <summary>
+        /// verifica si en la lista usuarios uno que coincide con la contraseña y el dni
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <param name="contrasena"></param>
+        /// <returns></returns>
         public bool AutenticarUsuario(string dni, string contrasena)
         {
-            // Buscar un administrador con el DNI proporcionado en la lista
             Usuario? admin = usuarios.FirstOrDefault(a => a.Dni == dni);
-
-            // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
 
             if (admin != null && admin.Clave == contrasena)
             {
-                // Autenticación exitosa
+
                 return true;
             }
-            // Si la contraseña no coincide, la autenticación falla
+
             return false;
         }
 
