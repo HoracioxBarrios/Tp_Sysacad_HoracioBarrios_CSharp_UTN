@@ -8,18 +8,25 @@ namespace BibliotecaCLases.Utilidades
 {
     public class PathManager
     {
-        public static string ObtenerRuta(string nombreCarpeta, string nombreArchivo)
+        public static string ObtenerRuta(string nameFolder, string nombreArchivo)
         {
-            string directorioActual = AppDomain.CurrentDomain.BaseDirectory;
-            string path = Path.Combine(directorioActual, nombreCarpeta);
+            // Obtener el directorio de trabajo actual del programa
+            string directorioDeTrabajo = Directory.GetCurrentDirectory();
 
-            if (!Directory.Exists(nombreCarpeta))
+            // Número de niveles a retroceder en la jerarquía de directorios
+            int nivelesARetroceder = 4; // Cambia esto según la cantidad de niveles que desees retroceder
+
+            // Retroceder los niveles especificados
+            string path = directorioDeTrabajo;
+            for (int i = 0; i < nivelesARetroceder; i++)
             {
-                // Puedes manejar la situación en la que la carpeta no exista, lanzar una excepción o realizar otra acción.
-                throw new DirectoryNotFoundException($"La carpeta '{nombreCarpeta}' no existe en '{directorioActual}'.");
+                path = Directory.GetParent(path).FullName;
             }
 
-            string rutaArchivo = Path.Combine(nombreCarpeta, nombreArchivo);
+            // Agregar el nombre de la carpeta a la ruta
+            path = Path.Combine(path, nameFolder);
+            // Combinar la ruta con el nombre del archivo
+            string rutaArchivo = Path.Combine(path, nombreArchivo);
             return rutaArchivo;
 
         }
