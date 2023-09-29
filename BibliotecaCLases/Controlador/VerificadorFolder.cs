@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace BibliotecaCLases.Controlador
 {
-    public class VerificadorFolder: VerificadorFilesSystem
+    public class VerificadorFolder : VerificadorFilesSystem
     {
-        public VerificadorFolder (string path) : base(path)
+
+        public VerificadorFolder(string path) : base(path)
         {
 
         }
+
         public override bool Exists()
         {
             return Directory.Exists(path);
         }
     }
+ 
 }

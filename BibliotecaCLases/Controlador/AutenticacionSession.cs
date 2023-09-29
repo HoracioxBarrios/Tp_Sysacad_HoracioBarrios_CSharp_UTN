@@ -18,28 +18,6 @@ namespace BibliotecaCLases.Controlador
         {
 
 
-            string path = "C:\\Users\\Orfhen2022\\Desktop\\utn 2023\\programacion 2 cuatri\\Tp_Sysacad_grupal\\Data\\Data.json";
-
-            if (usuarios == null)
-            {
-                usuarios = new List<Administrador>(); // Inicializa la lista aquí
-
-                // Intenta leer los datos desde el archivo JSON
-                usuarios = Serializador.LeerJson<Administrador>(path);
-
-                // Inicializar la lista de administradores solo si está vacía
-                if (usuarios.Count == 0)
-                {
-                    Administrador administrador = new Administrador("matias", "cantero", "correo@nuevo.com", "111", "111");
-                    Administrador administradorDos = new Administrador("Dian", "Iry", "correo@nuevo.com", "222", "222");
-                    usuarios.Add(administrador);
-                    usuarios.Add(administradorDos);
-
-                    // Guarda la lista completa (incluyendo los nuevos administradores) en el archivo JSON
-                    Serializador.GuardarAJson(usuarios, path);
-                }
-            }
-        }
 
         //public AutenticacionSession()
         //{

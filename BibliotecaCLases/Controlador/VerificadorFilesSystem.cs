@@ -8,7 +8,7 @@ namespace BibliotecaCLases.Controlador
 {
     public class VerificadorFilesSystem
     {
-        protected string path;
+        public string path;
         public VerificadorFilesSystem(string path)
         {
             this.path = path;   
