@@ -107,6 +107,15 @@ namespace BibliotecaCLases.Utilidades
 
             return new List<T>();
         }
+
+        public static void ActualizarJson()//path
+        {
+            // para actializar estudiantes de momento 
+        }
+        public static void EliminarJson()//path
+        {
+            // para Eliminar estudiantes de momento 
+        }
     }
 
 

@@ -42,10 +42,21 @@ namespace BibliotecaCLases.Controlador
 
             return regex.IsMatch(nombre);
         }
+        public static bool EsApellidoValido(string nombre)
+        {
+            if (!string.IsNullOrEmpty(nombre))
+            {
+                return false;
+            }
+            string patronNombre = @"^[A-Za-z\s]{1,10}$";
+            Regex regex = new Regex(patronNombre);
+
+            return regex.IsMatch(nombre);
+        }
 
 
 
-        public bool ValidarString(string value)
+        public static bool ValidarString(string value)
         {
             foreach (char c in value)
             {
@@ -57,7 +68,7 @@ namespace BibliotecaCLases.Controlador
             return true;
 
         }
-        public bool ValidarDigit(string value)
+        public static bool ValidarDigit(string value)
         {
             foreach (char c in value)
             {
