@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaCLases.Controlador
 {
-    internal class DataManager
+    public class DataManager
     {
+        // este  va a encargarse de serializar los datos
+        // usando los serializer leer y guardar 
+
+
+
     }
 }
