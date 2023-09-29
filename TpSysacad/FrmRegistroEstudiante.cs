@@ -32,8 +32,14 @@ namespace TpSysacad
                 string claveProvisional = textContraseñaProvisional.Text;
 
                 // Realiza las validaciones llamando al método RegistrarEstudiante de la clase CrudEstudiante
-                CrudEstudiante scrumEstudiante = new CrudEstudiante();
-                Estudiante nuevoEstudiante = scrumEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
+                CrudEstudiante crudEstudiante = new CrudEstudiante();
+                bool datosverificados = false;//una ver verificado cambiar la var a true para entrar
+                if (datosverificados)
+                {
+                    string nuevoEstudiante = crudEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
+                    // ver tipo de dato
+
+                }
 
                 // Notifica al usuario que el estudiante se ha registrado con éxito
                 MessageBox.Show("Estudiante registrado con éxito. esto aca Se ha enviado una notificación al estudiante.");
