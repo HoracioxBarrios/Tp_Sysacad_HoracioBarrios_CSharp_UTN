@@ -1,6 +1,6 @@
 using BibliotecaCLases.Controlador;
 
-namespace TpSysacad
+namespace Formularios
 
 {
     public partial class FrmLogin : Form

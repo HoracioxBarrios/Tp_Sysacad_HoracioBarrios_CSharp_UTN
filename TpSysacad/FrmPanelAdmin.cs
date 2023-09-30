@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TpSysacad
+namespace Formularios
 {
     public partial class FrmPanelAdmin : Form
     {
