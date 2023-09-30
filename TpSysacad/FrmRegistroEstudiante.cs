@@ -1,13 +1,7 @@
 ﻿using BibliotecaCLases.Controlador;
 using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Formularios
@@ -29,11 +23,29 @@ namespace Formularios
             // Validar los datos y obtener un mensaje de error si falla la validación
             if (validadorDatosRegist.Validar(out string mensajeError))
             {
-                // Realiza el registro
-                // Aquí puedes agregar la lógica para guardar los datos si la validación es exitosa
-                // Por ejemplo, podrías llamar a un método de registro de estudiante aquí.
+                DialogResult resultado = MessageBox.Show("¿Desea confirmar el registro del estudiante?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    // Realizar el registro
+                    string nombre = textNombre.Text;
+                    string apellido = textApellido.Text;
+                    string correo = textEmail.Text;
+                    string dni = textDni.Text;
+                    string direccion = textDireccion.Text;
+                    string telefono = textTelefono.Text;
+                    string claveProvisional = textContraseñaProvisional.Text;
 
-                MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
+
+                    // Llama al método RegistrarEstudiante de CrudEstudiante para registrar al estudiante
+                    crudEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional, path);
+
+                    MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
+                }
+                else
+                {
+                    // El administrador eligió cancelar el registro
+                    MessageBox.Show("Registro cancelado.");
+                }
             }
             else
             {
@@ -41,11 +53,5 @@ namespace Formularios
                 MessageBox.Show("Error de validación: " + mensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void textNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }
