@@ -8,13 +8,18 @@ namespace BibliotecaCLases.Utilidades
 {
     public class PathManager
     {
-        public static string ObtenerRuta(string nameFolder, string nombreArchivo)
+        public string nombreArchivo;
+        public string nameFolder;
+
+        // Número de niveles a retroceder en la jerarquía de directorios
+        public int nivelesARetroceder; //Cambia esto según la cantidad de niveles que desees retroceder (4 para hubicar la carpeta Data)
+        public static string ObtenerRuta(string nameFolder,string nombreArchivo, int nivelesARetroceder)
         {
             // Obtener el directorio de trabajo actual del programa
             string directorioDeTrabajo = Directory.GetCurrentDirectory();
 
-            // Número de niveles a retroceder en la jerarquía de directorios
-            int nivelesARetroceder = 4; // Cambia esto según la cantidad de niveles que desees retroceder
+            
+
 
             // Retroceder los niveles especificados
             string path = directorioDeTrabajo;

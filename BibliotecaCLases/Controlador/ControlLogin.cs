@@ -17,8 +17,9 @@ namespace BibliotecaCLases.Controlador
         /// </remarks>
         public ControlLogin()
         {
+            int nivelesARetroceder = 4; // para hubicar la carperta data
             // Obtener la ruta del archivo JSON de usuarios
-            string path = PathManager.ObtenerRuta("Data", "dataUsuarios.json");
+            string path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
 
             // Intentar cargar la lista de usuarios desde el archivo JSON
             usuarios = Serializador.LeerJson<Administrador>(path);
