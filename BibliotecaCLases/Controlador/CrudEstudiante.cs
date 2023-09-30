@@ -1,25 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 
 namespace BibliotecaCLases.Controlador
 {
     public class CrudEstudiante
     {
-        //private readonly List<Usuario> usuarios;
         private readonly List<Estudiante> estudiantesRegistrados;
+        string nombre;
+        string apellido;
+        string correo;
+        string dni;
+        string direccion;
+        string telefono;
+        string claveProvisional;
         private static int contadorLegajos = 1;
 
         public CrudEstudiante()
         {
             estudiantesRegistrados = new List<Estudiante>();
-
-
         }
-        public string VerificarDatosEstudiantes(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional)
+        public CrudEstudiante()
+        {
+            estudiantesRegistrados = new List<Estudiante>();
+        }
+
+        public string VerificarDatosEstudiante(string correo, string dni)
         {
             if (estudiantesRegistrados.Any(est => est.Correo == correo))
             {
@@ -30,26 +38,28 @@ namespace BibliotecaCLases.Controlador
             {
                 return "El número de identificación (DNI) ya está registrado.";
             }
-            return "Datos son Validos";
+            return "Datos son válidos";
         }
 
-        public string RegistrarEstudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional)
+        public void RegistrarEstudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional, string pathJson)
         {
-
-
             Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
-
             nuevoEstudiante.Legajo = contadorLegajos;
             contadorLegajos++;
 
             // Se agrega nuevoEstudiante a una lista o una base de datos de estudiantes registrados.
             estudiantesRegistrados.Add(nuevoEstudiante);
-            // hay que serializar la lista a json ---- no necesariamente en este metodo
-            return "Se creo";
-          
+
+            // Serializar el nuevo estudiante a JSON y guardarlo en un archivo JSON.
+            Serializador.GuardarAJson(estudiantesRegistrados, pathJson);
         }
 
-        public static void ModificarEstudiante(Estudiante estudiante)
+        public List<Estudiante> ObtenerEstudiantesRegistrados()
+        {
+            return estudiantesRegistrados;
+        }
+
+        public void ModificarEstudiante(Estudiante estudiante)
         {
             if (estudiante is null)
             {
@@ -57,10 +67,15 @@ namespace BibliotecaCLases.Controlador
             }
             // Realiza aquí las operaciones de modificación del estudiante.
         }
-        public static void EliminarEstudiante()
-        {
-            // eliminar
-        }
 
+        public void EliminarEstudiante(Estudiante estudiante)
+        {
+            if (estudiante is null)
+            {
+                throw new ArgumentNullException(nameof(estudiante));
+            }
+            // Realiza aquí las operaciones de eliminación del estudiante.
+            estudiantesRegistrados.Remove(estudiante);
+        }
     }
 }
