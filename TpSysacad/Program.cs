@@ -1,4 +1,4 @@
-namespace TpSysacad
+namespace Formularios
 {
     internal static class Program
     {

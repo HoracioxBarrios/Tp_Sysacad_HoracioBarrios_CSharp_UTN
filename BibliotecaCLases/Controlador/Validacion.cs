@@ -33,9 +33,9 @@ namespace BibliotecaCLases.Controlador
         /// <returns>bool</returns>
         public static bool EsNombreValido(string nombre)
         {
-            if (!string.IsNullOrEmpty(nombre))
+            if (string.IsNullOrEmpty(nombre))
             {
-                return false;
+                return false; // El nombre no puede estar vacío o nulo
             }
             string patronNombre = @"^[A-Za-z\s]{1,10}$";
             Regex regex = new Regex(patronNombre);
@@ -44,9 +44,9 @@ namespace BibliotecaCLases.Controlador
         }
         public static bool EsApellidoValido(string nombre)
         {
-            if (!string.IsNullOrEmpty(nombre))
+            if (string.IsNullOrEmpty(nombre))
             {
-                return false;
+                return false; // El nombre no puede estar vacío o nulo
             }
             string patronNombre = @"^[A-Za-z\s]{1,10}$";
             Regex regex = new Regex(patronNombre);

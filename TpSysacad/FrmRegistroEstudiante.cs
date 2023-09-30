@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TpSysacad
+namespace Formularios
 {
     public partial class FrmRegistroEstudiante : Form
     {
@@ -21,37 +21,24 @@ namespace TpSysacad
 
         private void BtnRegistro_Click(object sender, EventArgs e)
         {
-            try
+            // Crear una instancia del ValidadorDatosRegistro y pasar los valores del formulario
+            ValidadorDatosRegistro validadorDatosRegist = new ValidadorDatosRegistro(
+                textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
+                textTelefono.Text, textContraseñaProvisional.Text);
+
+            // Validar los datos y obtener un mensaje de error si falla la validación
+            if (validadorDatosRegist.Validar(out string mensajeError))
             {
-                string nombre = textNombre.Text;
-                string apellido = textApellido.Text;
-                string dni = textDni.Text;
-                string correo = textEmail.Text;
-                string direccion = textDireccion.Text;
-                string telefono = textTelefono.Text;
-                string claveProvisional = textContraseñaProvisional.Text;
+                // Realiza el registro
+                // Aquí puedes agregar la lógica para guardar los datos si la validación es exitosa
+                // Por ejemplo, podrías llamar a un método de registro de estudiante aquí.
 
-                // Realiza las validaciones llamando al método RegistrarEstudiante de la clase CrudEstudiante
-                CrudEstudiante crudEstudiante = new CrudEstudiante();
-                bool datosverificados = false;//una ver verificado cambiar la var a true para entrar
-                if (datosverificados)
-                {
-                    string nuevoEstudiante = crudEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
-                    // ver tipo de dato
-
-                }
-
-                // Notifica al usuario que el estudiante se ha registrado con éxito
-                MessageBox.Show("Estudiante registrado con éxito. esto aca Se ha enviado una notificación al estudiante.");
+                MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
             }
-            catch (InvalidOperationException ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                // Captura otras excepciones no controladas
-                MessageBox.Show("Ocurrió un error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Muestra el mensaje de error al usuario
+                MessageBox.Show("Error de validación: " + mensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -59,7 +46,6 @@ namespace TpSysacad
         {
 
         }
-
-
     }
+
 }
