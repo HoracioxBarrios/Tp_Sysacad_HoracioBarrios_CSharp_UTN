@@ -14,9 +14,10 @@ namespace BibliotecaCLases.Modelo
         private string _clave;
         private int _legajo;
 
-        public Estudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional)
-            : base(nombre, apellido, correo, dni, claveProvisional)
+        public Estudiante(string nombre, string apellido,string dni, string correo, string direccion, string telefono, string claveProvisional)
+            : base(nombre, apellido, dni, correo, claveProvisional)
         {
+           
             _legajo = contadorLegajos;
             contadorLegajos++;
             _direccion = direccion;

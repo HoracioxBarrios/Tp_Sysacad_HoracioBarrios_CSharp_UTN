@@ -14,12 +14,13 @@ namespace BibliotecaCLases.Modelo
         private string _correo;
         private string _dni;
         private string _clave;
-        public Usuario(string nombre, string apellido, string correoElectronico, string dni, string clave)
+        public Usuario(string nombre, string apellido, string dni, string correo, string clave)
         {
+           
             _nombre = nombre;
             _apellido = apellido;
             _dni = dni;
-            _correo = correoElectronico;
+            _correo = correo;
             _clave = clave;
         }
 
