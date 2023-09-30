@@ -18,32 +18,33 @@ namespace BibliotecaCLases.Controlador
         string claveProvisional;
         private static int contadorLegajos = 1;
 
+
         public CrudEstudiante()
         {
             estudiantesRegistrados = new List<Estudiante>();
-        }
-        public CrudEstudiante()
-        {
-            estudiantesRegistrados = new List<Estudiante>();
+
         }
 
-        public string VerificarDatosEstudiante(string correo, string dni)
+        public int VerificarDatosEstudiante(string correo, string dni)
         {
+
             if (estudiantesRegistrados.Any(est => est.Correo == correo))
-            {
-                return "El correo electrónico ya está registrado.";
+            {   
+                return 1;
             }
-
             if (estudiantesRegistrados.Any(est => est.Dni == dni))
-            {
-                return "El número de identificación (DNI) ya está registrado.";
+            {   
+                return 2;
             }
-            return "Datos son válidos";
+            return 0;
+
         }
 
-        public void RegistrarEstudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional, string pathJson)
-        {
-            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
+        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional)
+        {                       
+            string pathEstudiante = PathManager.ObtenerRuta("Data","Estudiante.json");
+
+            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional);
             nuevoEstudiante.Legajo = contadorLegajos;
             contadorLegajos++;
 
@@ -51,7 +52,7 @@ namespace BibliotecaCLases.Controlador
             estudiantesRegistrados.Add(nuevoEstudiante);
 
             // Serializar el nuevo estudiante a JSON y guardarlo en un archivo JSON.
-            Serializador.GuardarAJson(estudiantesRegistrados, pathJson);
+            Serializador.GuardarAJson(estudiantesRegistrados, pathEstudiante);
         }
 
         public List<Estudiante> ObtenerEstudiantesRegistrados()

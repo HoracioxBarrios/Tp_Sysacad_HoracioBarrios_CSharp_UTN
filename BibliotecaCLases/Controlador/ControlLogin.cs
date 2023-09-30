@@ -31,8 +31,8 @@ namespace BibliotecaCLases.Controlador
                 usuarios = new List<Administrador>();
 
                 // Crear usuarios predeterminados
-                Administrador administrador = new Administrador("matias", "cantero", "correo@nuevo.com", "011", "11");
-                Administrador administradorDos = new Administrador("Dian", "Iry", "correo@nuevo.com", "022", "22");
+                Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
+                Administrador administradorDos = new Administrador("Dian", "Iry", "022", "correo@nuevo.com", "22");
 
                 // Agregar usuarios a la lista
                 usuarios.Add(administrador);
