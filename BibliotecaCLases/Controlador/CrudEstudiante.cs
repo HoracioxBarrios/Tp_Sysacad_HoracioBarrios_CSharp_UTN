@@ -39,7 +39,7 @@ namespace BibliotecaCLases.Controlador
             {   
                 return 2;
             }
-            return 0;
+                return 0;
 
         }
         private void EncuentraUltimolegajo()
@@ -52,12 +52,12 @@ namespace BibliotecaCLases.Controlador
             }
 
         }
-        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional)
+        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional,bool debeCambiar)
         {
             this.EncuentraUltimolegajo();
             string pathEstudiante = PathManager.ObtenerRuta("Data","Estudiante.json");
 
-            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional);
+            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
             contadorLegajos++;
             nuevoEstudiante.Legajo = contadorLegajos;
 

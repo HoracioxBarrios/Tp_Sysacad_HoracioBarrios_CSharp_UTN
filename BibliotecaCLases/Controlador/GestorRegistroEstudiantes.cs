@@ -11,7 +11,7 @@ namespace BibliotecaCLases.Controlador
 {
     public class GestorRegistroEstudiantes
     {
-        private readonly CrudEstudiante crudEstudiante = new CrudEstudiante();
+        private CrudEstudiante crudEstudiante;
         private bool _validado;
         private string _nombre;
         private string _apellido;
@@ -24,19 +24,20 @@ namespace BibliotecaCLases.Controlador
         private string _mensajeError;
         //private string _mensajeErrorDatosExistente;
 
-        public GestorRegistroEstudiantes(string nombre ,string apellido ,string correo ,string dni ,string direccion,string telefono , string claveProvisional)
+        public GestorRegistroEstudiantes(string nombre ,string apellido ,string dni, string correo, string direccion,string telefono , string claveProvisional)
         {
             // aca tener todos los datos mientras vemos si son correctos 
-             validadorDatosRegistro =  new ValidadorDatosRegistro(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
+             validadorDatosRegistro =  new ValidadorDatosRegistro(nombre, apellido,dni, correo, direccion, telefono, claveProvisional);
 
             _validado = validadorDatosRegistro.Validar(out string mensajeError);
          
-            if (_validado)
-            {   
+            if (this.Validado)
+            {
+                crudEstudiante = new CrudEstudiante();
                 _nombre = nombre;
                 _apellido = apellido;
-                _correo = correo;
                 _dni = dni;
+                _correo = correo;
                 _direccion = direccion;
                 _telefono = telefono;
                 _claveProvisional = claveProvisional;
@@ -56,10 +57,6 @@ namespace BibliotecaCLases.Controlador
         {
             get { return _mensajeError; }
         }
-        //public string MensajeErrorDatosExistentes
-        //{
-        //    get { return _mensajeErrorDatosExistente; }
-        //}
 
         public bool verificardatosExistentes()
         {
@@ -78,11 +75,10 @@ namespace BibliotecaCLases.Controlador
 
             return true ;
             }
-
-        public void RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, string claveProvisional)
+        public void RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
         {
             
-            crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional);
+            crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
         }
 
         public List<Estudiante> ObtenerEstudiantesRegistrados()

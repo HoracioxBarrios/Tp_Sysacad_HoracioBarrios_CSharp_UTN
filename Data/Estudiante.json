@@ -1,32 +1,13 @@
 [
   {
+    "Debecambiar": true,
     "Legajo": 1,
     "Direccion": "calle 123",
-    "Telefono": "1123",
-    "Clave": "45",
-    "Nombre": "alexis",
-    "Apellido": "aranda",
-    "Correo": "aranda@gmail.com",
-    "Dni": "45"
-  },
-  {
-    "Legajo": 2,
-    "Direccion": "calle 79",
-    "Telefono": "1145",
-    "Clave": "97",
+    "Telefono": "11444",
+    "Clave": "444",
     "Nombre": "hora",
     "Apellido": "barrios",
     "Correo": "barrios@gmail.com",
-    "Dni": "46"
-  },
-  {
-    "Legajo": 3,
-    "Direccion": "calle 67",
-    "Telefono": "1123",
-    "Clave": "48",
-    "Nombre": "Cristian",
-    "Apellido": "tu papi",
-    "Correo": "tupapi@gmail.com",
-    "Dni": "48"
+    "Dni": "444"
   }
 ]

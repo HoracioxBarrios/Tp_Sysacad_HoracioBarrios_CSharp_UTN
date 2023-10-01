@@ -13,7 +13,7 @@ namespace BibliotecaCLases.Modelo
         /// </summary> ------------ FALTA LA LOGICA --------------
         /// <param name="texto"></param>
         /// <returns>string</returns>
-        public static string EnviarMail(string texto)
+        public static string Enviar(string texto)
         {
             return texto;
         }
