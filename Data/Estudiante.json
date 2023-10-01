@@ -1,12 +1,32 @@
 [
   {
     "Legajo": 1,
-    "Direccion": "putalandia",
-    "Telefono": "7800",
-    "Clave": "12",
-    "Nombre": "cristian",
-    "Apellido": "putita",
-    "Correo": "cristan@gmail.com",
-    "Dni": "12"
+    "Direccion": "calle 123",
+    "Telefono": "1123",
+    "Clave": "45",
+    "Nombre": "alexis",
+    "Apellido": "aranda",
+    "Correo": "aranda@gmail.com",
+    "Dni": "45"
+  },
+  {
+    "Legajo": 2,
+    "Direccion": "calle 79",
+    "Telefono": "1145",
+    "Clave": "97",
+    "Nombre": "hora",
+    "Apellido": "barrios",
+    "Correo": "barrios@gmail.com",
+    "Dni": "46"
+  },
+  {
+    "Legajo": 3,
+    "Direccion": "calle 67",
+    "Telefono": "1123",
+    "Clave": "48",
+    "Nombre": "Cristian",
+    "Apellido": "tu papi",
+    "Correo": "tupapi@gmail.com",
+    "Dni": "48"
   }
 ]

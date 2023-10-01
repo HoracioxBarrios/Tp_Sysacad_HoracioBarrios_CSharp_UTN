@@ -16,13 +16,16 @@ namespace BibliotecaCLases.Controlador
         string direccion;
         string telefono;
         string claveProvisional;
-        private static int contadorLegajos = 1;
+        private static int contadorLegajos = 0;
 
 
         public CrudEstudiante()
         {
             estudiantesRegistrados = new List<Estudiante>();
 
+            string path = PathManager.ObtenerRuta("Data", "Estudiante.json");
+            estudiantesRegistrados = Serializador.LeerJson<Estudiante>(path);
+        
         }
 
         public int VerificarDatosEstudiante(string correo, string dni)
@@ -39,20 +42,30 @@ namespace BibliotecaCLases.Controlador
             return 0;
 
         }
+        private void EncuentraUltimolegajo()
+        {
+            if (estudiantesRegistrados.Count > 0)
+            {
+                Estudiante ultimoEstudiante = estudiantesRegistrados[estudiantesRegistrados.Count - 1];
+                int legajo =ultimoEstudiante.Legajo;
+                contadorLegajos = legajo;
+            }
 
+        }
         public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional)
-        {                       
+        {
+            this.EncuentraUltimolegajo();
             string pathEstudiante = PathManager.ObtenerRuta("Data","Estudiante.json");
 
             Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional);
-            nuevoEstudiante.Legajo = contadorLegajos;
             contadorLegajos++;
+            nuevoEstudiante.Legajo = contadorLegajos;
 
             // Se agrega nuevoEstudiante a una lista o una base de datos de estudiantes registrados.
             estudiantesRegistrados.Add(nuevoEstudiante);
 
             // Serializar el nuevo estudiante a JSON y guardarlo en un archivo JSON.
-            Serializador.GuardarAJson(estudiantesRegistrados, pathEstudiante);
+            Serializador.AgregarUltimoAJson(nuevoEstudiante, pathEstudiante);
         }
 
         public List<Estudiante> ObtenerEstudiantesRegistrados()
