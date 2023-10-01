@@ -30,5 +30,19 @@ namespace Formularios
             this.Hide();
         }
 
+        private void BtnGestionarCursos_Click(object sender, EventArgs e)
+        {
+            FrmGestionarCursos frmGestionarCursos = new();
+
+            frmGestionarCursos.FormClosed += (sender, args) =>
+            {
+                this.Close();
+            };
+
+            frmGestionarCursos.Show();
+            this.Hide();
+
+
+        }
     }
 }

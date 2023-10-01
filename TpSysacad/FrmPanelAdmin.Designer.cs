@@ -33,6 +33,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            BtnGestionarCursos = new Button();
             SuspendLayout();
             // 
             // label1
@@ -85,11 +86,22 @@
             label4.TabIndex = 4;
             label4.Text = "Nombre";
             // 
+            // BtnGestionarCursos
+            // 
+            BtnGestionarCursos.Location = new Point(12, 151);
+            BtnGestionarCursos.Name = "BtnGestionarCursos";
+            BtnGestionarCursos.Size = new Size(151, 23);
+            BtnGestionarCursos.TabIndex = 5;
+            BtnGestionarCursos.Text = "Gestionar Cursos";
+            BtnGestionarCursos.UseVisualStyleBackColor = true;
+            BtnGestionarCursos.Click += BtnGestionarCursos_Click;
+            // 
             // FrmPanelAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnGestionarCursos);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -108,5 +120,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Button BtnGestionarCursos;
     }
 }
