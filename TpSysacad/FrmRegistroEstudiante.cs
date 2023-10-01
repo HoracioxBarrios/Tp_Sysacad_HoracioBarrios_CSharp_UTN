@@ -1,56 +1,64 @@
-﻿using BibliotecaCLases;
+﻿using BibliotecaCLases.Controlador;
+using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TpSysacad
+namespace Formularios
 {
     public partial class FrmRegistroEstudiante : Form
     {
+        private bool _debeCambiar;
         public FrmRegistroEstudiante()
         {
             InitializeComponent();
-        }
 
+            _debeCambiar = false;
+        }
+        public bool DebeCambiar { get => _debeCambiar; } 
         private void BtnRegistro_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string nombre = textNombre.Text;
-                string apellido = textApellido.Text;
-                string dni = textDni.Text;
-                string correo = textEmail.Text;
-                string direccion = textDireccion.Text;
-                string telefono = textTelefono.Text;
-                string claveProvisional = textContraseñaProvisional.Text;
+            GestorRegistroEstudiantes gestorEstudiantes = new GestorRegistroEstudiantes(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
+                textTelefono.Text, textContraseñaProvisional.Text);
 
-                // Realiza las validaciones llamando al método RegistrarEstudiante de la clase CrudEstudiante
-                CrudEstudiante scrumEstudiante = new CrudEstudiante();
-                Estudiante nuevoEstudiante = scrumEstudiante.RegistrarEstudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
+            // Validar los datos y obtener un mensaje de error si falla la validación
+            if (gestorEstudiantes.Validado)
+            {
+                if (gestorEstudiantes.verificardatosExistentes())
+                {
+                    DialogResult resultado = MessageBox.Show("¿Desea confirmar el registro del estudiante?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        // Llama al método RegistrarEstudiante de CrudEstudiante para registrar al estudiante
+                        gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
+                        textTelefono.Text, textContraseñaProvisional.Text, this.DebeCambiar);
+                        MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
+                        Email.Enviar("se te acaba de registrar en el sysacad");
+                        MessageBox.Show("Email entregado.");
+                    }
+                    else
+                    {
+                        // El administrador eligió cancelar el registro
+                        MessageBox.Show("Registro cancelado.");
+                    }
 
-                // Notifica al usuario que el estudiante se ha registrado con éxito
-                MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
+                }
+                else
+                {
+                    MessageBox.Show("Error de validación: " + gestorEstudiantes.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
-            catch (InvalidOperationException ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                // Captura otras excepciones no controladas
-                MessageBox.Show("Ocurrió un error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Muestra el mensaje de error al usuario
+                MessageBox.Show("Error de validación: " + gestorEstudiantes.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void textNombre_TextChanged(object sender, EventArgs e)
+        private void RbtnCambiarcontrasenia_CheckedChanged(object sender, EventArgs e)
         {
-
+            _debeCambiar = true;
         }
     }
 }

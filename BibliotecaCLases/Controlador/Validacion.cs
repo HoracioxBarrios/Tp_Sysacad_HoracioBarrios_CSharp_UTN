@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Controlador
 {
     public class Validacion
     {
@@ -14,7 +14,7 @@ namespace BibliotecaCLases
         /// </summary>
         /// <param name="correo"></param>
         /// <returns>bool</returns>
-        public static bool EsCorreoValido(String correo)
+        public static bool EsCorreoValido(string correo)
         {
             if (string.IsNullOrEmpty(correo))
             {
@@ -33,9 +33,20 @@ namespace BibliotecaCLases
         /// <returns>bool</returns>
         public static bool EsNombreValido(string nombre)
         {
-            if (!string.IsNullOrEmpty(nombre))
+            if (string.IsNullOrEmpty(nombre))
             {
-                return false;
+                return false; // El nombre no puede estar vacío o nulo
+            }
+            string patronNombre = @"^[A-Za-z\s]{1,10}$";
+            Regex regex = new Regex(patronNombre);
+
+            return regex.IsMatch(nombre);
+        }
+        public static bool EsApellidoValido(string nombre)
+        {
+            if (string.IsNullOrEmpty(nombre))
+            {
+                return false; // El nombre no puede estar vacío o nulo
             }
             string patronNombre = @"^[A-Za-z\s]{1,10}$";
             Regex regex = new Regex(patronNombre);
@@ -45,7 +56,7 @@ namespace BibliotecaCLases
 
 
 
-        public bool ValidarString(string value)
+        public static bool ValidarString(string value)
         {
             foreach (char c in value)
             {
@@ -55,9 +66,9 @@ namespace BibliotecaCLases
                 }
             }
             return true;
- 
+
         }
-        public bool ValidarDigit(string value)
+        public static bool ValidarDigit(string value)
         {
             foreach (char c in value)
             {

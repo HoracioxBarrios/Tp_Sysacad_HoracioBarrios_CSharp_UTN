@@ -34,5 +34,17 @@
     "Correo": "dian@hotmail.com",
     "Dni": "123",
     "TipoUsuario": "estudiante"
+  },
+  {
+    "Debecambiar": false,
+    "Legajo": 4,
+    "Direccion": "dianye",
+    "Telefono": "11111",
+    "Clave": "1234",
+    "Nombre": "nuevo",
+    "Apellido": "estudiante",
+    "Correo": "nuevo@gmail.com",
+    "Dni": "1234",
+    "TipoUsuario": "estudiante"
   }
 ]

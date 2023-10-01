@@ -1,4 +1,4 @@
-﻿namespace TpSysacad
+﻿namespace Formularios
 {
     partial class FrmLogin
     {
@@ -44,16 +44,19 @@
             label1.Size = new Size(417, 37);
             label1.TabIndex = 0;
             label1.Text = "Universidad Tecnológica Nacional";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.HotTrack;
             label2.Location = new Point(235, 56);
             label2.Name = "label2";
             label2.Size = new Size(217, 21);
             label2.TabIndex = 1;
             label2.Text = "Sistema Académico SYSACAD";
+            label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // BtnLogin
             // 
@@ -69,7 +72,7 @@
             // 
             textUsuario.Location = new Point(260, 154);
             textUsuario.Name = "textUsuario";
-            textUsuario.PlaceholderText = "Usuario o Dni";
+            textUsuario.PlaceholderText = "Usuario";
             textUsuario.Size = new Size(100, 23);
             textUsuario.TabIndex = 3;
             // 

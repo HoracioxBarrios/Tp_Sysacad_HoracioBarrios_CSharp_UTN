@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Modelo
 {
     public class Usuario
     {
@@ -16,6 +16,7 @@ namespace BibliotecaCLases
         private string _tipoUsuario;
         public Usuario(string nombre, string apellido, string dni, string correo, string clave, string tipoUsuario)
         {
+           
             _nombre = nombre;
             _apellido = apellido;
             _dni = dni;

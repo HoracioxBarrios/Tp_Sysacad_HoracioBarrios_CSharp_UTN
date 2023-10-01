@@ -1,4 +1,6 @@
-namespace TpSysacad
+using BibliotecaCLases.Controlador;
+
+namespace Formularios
 
 {
     public partial class FrmLogin : Form
@@ -13,15 +15,22 @@ namespace TpSysacad
             string dni = textUsuario.Text; // de momento se usa el dni de usuario
             string contraseña = textContraseña.Text;
 
-            BibliotecaCLases.AutenticacionSession autenticacion = new();
+            
 
-            bool verificado = autenticacion.AutenticarUsuario(dni, contraseña);
+            //verificado =  bool control login
+            ControlLogin controlLogin = new();
+            bool verificado = controlLogin.AutenticarUsuario(dni, contraseña);
 
             if (verificado)
             {
                 FrmPanelAdmin frmPanelAdmin = new();
+                frmPanelAdmin.FormClosed += (sender, args) =>
+                {
+                    this.Close();
+                };
                 frmPanelAdmin.Show();
                 this.Hide();
+
             }
             else
             {
@@ -31,5 +40,9 @@ namespace TpSysacad
 
             }
         }
+
+
+
+
     }
 }

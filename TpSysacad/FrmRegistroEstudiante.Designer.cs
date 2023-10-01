@@ -1,4 +1,4 @@
-﻿namespace TpSysacad
+﻿namespace Formularios
 {
     partial class FrmRegistroEstudiante
     {
@@ -37,6 +37,7 @@
             textEmail = new TextBox();
             btnRegistro = new Button();
             textContraseñaProvisional = new TextBox();
+            RbtnCambiarcontrasenia = new RadioButton();
             SuspendLayout();
             // 
             // label1
@@ -56,7 +57,6 @@
             textNombre.PlaceholderText = "Nombre";
             textNombre.Size = new Size(100, 23);
             textNombre.TabIndex = 1;
-            textNombre.TextChanged += textNombre_TextChanged;
             // 
             // textApellido
             // 
@@ -116,11 +116,24 @@
             textContraseñaProvisional.Size = new Size(137, 23);
             textContraseñaProvisional.TabIndex = 8;
             // 
+            // RbtnCambiarcontrasenia
+            // 
+            RbtnCambiarcontrasenia.AutoSize = true;
+            RbtnCambiarcontrasenia.Location = new Point(451, 328);
+            RbtnCambiarcontrasenia.Name = "RbtnCambiarcontrasenia";
+            RbtnCambiarcontrasenia.Size = new Size(122, 19);
+            RbtnCambiarcontrasenia.TabIndex = 9;
+            RbtnCambiarcontrasenia.TabStop = true;
+            RbtnCambiarcontrasenia.Text = "Cambiar Contraña";
+            RbtnCambiarcontrasenia.UseVisualStyleBackColor = true;
+            RbtnCambiarcontrasenia.CheckedChanged += RbtnCambiarcontrasenia_CheckedChanged;
+            // 
             // FrmRegistroEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(RbtnCambiarcontrasenia);
             Controls.Add(textContraseñaProvisional);
             Controls.Add(btnRegistro);
             Controls.Add(textEmail);
@@ -147,5 +160,6 @@
         private TextBox textEmail;
         private Button btnRegistro;
         private TextBox textContraseñaProvisional;
+        private RadioButton RbtnCambiarcontrasenia;
     }
 }

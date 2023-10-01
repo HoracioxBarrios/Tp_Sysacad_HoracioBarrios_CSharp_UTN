@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaCLases
+namespace BibliotecaCLases.Modelo
 {
     public class Estudiante : Usuario
     {
@@ -15,15 +15,22 @@ namespace BibliotecaCLases
         private int _legajo;
         private bool _debecambiar;
 
-
         public Estudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
             : base(nombre, apellido, dni, correo, claveProvisional, "estudiante")
         {
+            _debecambiar = debeCambiar;
             _legajo = contadorLegajos;
             contadorLegajos++;
             _direccion = direccion;
             _telefono = telefono;
             _clave = claveProvisional;
+        }
+
+
+        public bool Debecambiar
+        {
+            get { return _debecambiar; }
+            set { _debecambiar = value; }
         }
 
         public int Legajo
