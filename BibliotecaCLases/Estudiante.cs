@@ -13,8 +13,11 @@ namespace BibliotecaCLases
         private string _telefono;
         private string _clave;
         private int _legajo;
-        public Estudiante(string nombre, string apellido, string correo, string dni, string direccion, string telefono, string claveProvisional)
-            : base(nombre, apellido, correo, dni, claveProvisional)
+        private bool _debecambiar;
+
+
+        public Estudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
+            : base(nombre, apellido, dni, correo, claveProvisional, "estudiante")
         {
             _legajo = contadorLegajos;
             contadorLegajos++;

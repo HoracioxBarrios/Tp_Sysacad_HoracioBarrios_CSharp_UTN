@@ -17,7 +17,7 @@ namespace BibliotecaCLases
             estudiantesRegistrados = new List<Estudiante>();
             contadorLegajos = 1;
 
-            Estudiante estudianteEjemplo = new Estudiante("Estudiante", "Ejemplo", "ejemplo@correo.com", "123456789", "Direccion", "12345", "clave123");
+            Estudiante estudianteEjemplo = new Estudiante("Estudiante", "Ejemplo", "ejemplo@correo.com", "123456789", "Direccion", "12345", "clave123", true);
             estudiantesRegistrados.Add(estudianteEjemplo);
         }
 
@@ -33,7 +33,7 @@ namespace BibliotecaCLases
                 throw new InvalidOperationException("El número de identificación (DNI) ya está registrado.");
             }
 
-            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional);
+            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, correo, dni, direccion, telefono, claveProvisional, true);
 
             nuevoEstudiante.Legajo = contadorLegajos;
             contadorLegajos++;

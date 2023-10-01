@@ -3,8 +3,11 @@
     public class Administrador : Usuario
     {
 
-        public Administrador(string nombre, string apellido, string correo, string dni, string clave)
-            : base(nombre, apellido, dni,correo, clave)
+
+
+
+        public Administrador(string nombre, string apellido, string dni, string correo, string clave)
+            : base(nombre, apellido, dni,correo ,clave, "administrador")
         {
   
         }
