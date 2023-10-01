@@ -49,7 +49,7 @@ namespace Formularios
             // Agregar elementos al ListBox cuando se carga el formulario
 
             // Agregar el encabezado como primer elemento
-            listBoxCursos.Items.Add("CODIGO        CURSO          DESCRIPCION                        CUPOS MAXIMO");
+            listBoxCursos.Items.Add("CODIGO        CURSO          DESCRIPCION                        CUPO MAXIMO   CUPOS DISPONIBLES");
 
             foreach (Curso curso in listaCursos)
             {

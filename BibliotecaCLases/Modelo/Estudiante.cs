@@ -8,7 +8,6 @@ namespace BibliotecaCLases.Modelo
 {
     public class Estudiante : Usuario
     {
-       
         private static int contadorLegajos = 1;
         private string _direccion;
         private string _telefono;
@@ -16,11 +15,9 @@ namespace BibliotecaCLases.Modelo
         private int _legajo;
         private bool _debecambiar;
 
-
         public Estudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
-            : base(nombre, apellido, dni, correo, claveProvisional)
+            : base(nombre, apellido, dni, correo, claveProvisional, "estudiante")
         {
-
             _debecambiar = debeCambiar;
             _legajo = contadorLegajos;
             contadorLegajos++;

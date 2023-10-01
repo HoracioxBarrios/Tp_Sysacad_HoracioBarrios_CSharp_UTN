@@ -8,13 +8,13 @@ namespace BibliotecaCLases.Modelo
 {
     public class Usuario
     {
-
         private string _nombre;
         private string _apellido;
         private string _correo;
         private string _dni;
         private string _clave;
-        public Usuario(string nombre, string apellido, string dni, string correo, string clave)
+        private string _tipoUsuario;
+        public Usuario(string nombre, string apellido, string dni, string correo, string clave, string tipoUsuario)
         {
            
             _nombre = nombre;
@@ -22,6 +22,7 @@ namespace BibliotecaCLases.Modelo
             _dni = dni;
             _correo = correo;
             _clave = clave;
+            _tipoUsuario = tipoUsuario;
         }
 
         public string Nombre
@@ -52,6 +53,11 @@ namespace BibliotecaCLases.Modelo
         {
             get { return _clave; }
             set { _clave = value; }
+        }
+
+        public string TipoUsuario
+        {
+            get { return _tipoUsuario; }
         }
 
     }

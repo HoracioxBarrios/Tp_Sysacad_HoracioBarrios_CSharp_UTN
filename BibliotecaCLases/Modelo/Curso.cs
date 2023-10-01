@@ -12,6 +12,7 @@ namespace BibliotecaCLases.Modelo
         private string _codigo;
         private string _descripcion;
         private string _cupoMaximo;
+        private string _cuposDisponibles;
 
         public Curso(string nombre, string codigo, string descripcion, string cupoMaximo) 
         { 
@@ -19,11 +20,11 @@ namespace BibliotecaCLases.Modelo
             _codigo = codigo;
             _descripcion = descripcion;
             _cupoMaximo = cupoMaximo;
-
+            _cuposDisponibles = _cupoMaximo;
         }
         public override string ToString()
         {
-            return $"{Codigo,-19} {Nombre,-15} {Descripcion,-18} {CupoMaximo,9} cupos";
+            return $"{Codigo,-19} {Nombre,-15} {Descripcion,-18} {CupoMaximo,9} cupos { CuposDisponibles,15} cupos disponibles";
         }
         public string Nombre
         {
@@ -48,6 +49,11 @@ namespace BibliotecaCLases.Modelo
             set { _cupoMaximo = value; }
         }
 
+        public string CuposDisponibles
+        {
+            get { return _cuposDisponibles; }
+            set { _cuposDisponibles = value; }
+        }
 
     }
 }

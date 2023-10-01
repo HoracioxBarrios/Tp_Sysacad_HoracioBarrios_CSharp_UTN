@@ -38,9 +38,10 @@
             // 
             // BtnAgregarCurso
             // 
-            BtnAgregarCurso.Location = new Point(43, 395);
+            BtnAgregarCurso.Location = new Point(49, 527);
+            BtnAgregarCurso.Margin = new Padding(3, 4, 3, 4);
             BtnAgregarCurso.Name = "BtnAgregarCurso";
-            BtnAgregarCurso.Size = new Size(127, 23);
+            BtnAgregarCurso.Size = new Size(145, 31);
             BtnAgregarCurso.TabIndex = 0;
             BtnAgregarCurso.Text = "Agregar Curso";
             BtnAgregarCurso.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // BtnEditarCursos
             // 
-            BtnEditarCursos.Location = new Point(328, 395);
+            BtnEditarCursos.Location = new Point(375, 527);
+            BtnEditarCursos.Margin = new Padding(3, 4, 3, 4);
             BtnEditarCursos.Name = "BtnEditarCursos";
-            BtnEditarCursos.Size = new Size(118, 23);
+            BtnEditarCursos.Size = new Size(135, 31);
             BtnEditarCursos.TabIndex = 1;
             BtnEditarCursos.Text = "Editar Curso";
             BtnEditarCursos.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // 
             // BtnEliminarCursos
             // 
-            BtnEliminarCursos.Location = new Point(578, 395);
+            BtnEliminarCursos.Location = new Point(661, 527);
+            BtnEliminarCursos.Margin = new Padding(3, 4, 3, 4);
             BtnEliminarCursos.Name = "BtnEliminarCursos";
-            BtnEliminarCursos.Size = new Size(93, 23);
+            BtnEliminarCursos.Size = new Size(106, 31);
             BtnEliminarCursos.TabIndex = 2;
             BtnEliminarCursos.Text = "Eliminar curso";
             BtnEliminarCursos.UseVisualStyleBackColor = true;
@@ -69,10 +72,11 @@
             // listBoxCursos
             // 
             listBoxCursos.FormattingEnabled = true;
-            listBoxCursos.ItemHeight = 15;
-            listBoxCursos.Location = new Point(54, 88);
+            listBoxCursos.ItemHeight = 20;
+            listBoxCursos.Location = new Point(62, 117);
+            listBoxCursos.Margin = new Padding(3, 4, 3, 4);
             listBoxCursos.Name = "listBoxCursos";
-            listBoxCursos.Size = new Size(553, 274);
+            listBoxCursos.Size = new Size(720, 364);
             listBoxCursos.TabIndex = 3;
             listBoxCursos.SelectedIndexChanged += listBoxCursos_SelectedIndexChanged;
             // 
@@ -80,32 +84,33 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(250, 9);
+            label1.Location = new Point(286, 12);
             label1.Name = "label1";
-            label1.Size = new Size(112, 21);
+            label1.Size = new Size(138, 28);
             label1.TabIndex = 4;
             label1.Text = "Lista de cursos";
             // 
             // labelResultado
             // 
             labelResultado.AutoSize = true;
-            labelResultado.Location = new Point(263, 57);
+            labelResultado.Location = new Point(62, 72);
             labelResultado.Name = "labelResultado";
-            labelResultado.Size = new Size(88, 15);
+            labelResultado.Size = new Size(112, 20);
             labelResultado.TabIndex = 5;
             labelResultado.Text = "seleccione algo";
             // 
             // FrmGestionarCursos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(labelResultado);
             Controls.Add(label1);
             Controls.Add(listBoxCursos);
             Controls.Add(BtnEliminarCursos);
             Controls.Add(BtnEditarCursos);
             Controls.Add(BtnAgregarCurso);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmGestionarCursos";
             Text = "Sistemas de Gestion de Cursos";
             Load += FrmGestionarCursos_Load;
