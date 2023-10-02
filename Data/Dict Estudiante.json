@@ -4,11 +4,11 @@
     "Legajo": 1002,
     "Direccion": "calle 5486",
     "Telefono": "966586",
-    "Clave": "45",
     "Nombre": "alexis",
     "Apellido": "anea",
     "Correo": "a@gmail.com",
     "Dni": "78",
+    "Clave": "45",
     "TipoUsuario": "estudiante"
   },
   "1003": {
@@ -16,11 +16,11 @@
     "Legajo": 1003,
     "Direccion": "cale 232",
     "Telefono": "45455",
-    "Clave": "544",
     "Nombre": "hora",
     "Apellido": "barrios",
     "Correo": "barrios@gmail.com",
     "Dni": "544",
+    "Clave": "544",
     "TipoUsuario": "estudiante"
   },
   "1004": {
@@ -28,11 +28,11 @@
     "Legajo": 1004,
     "Direccion": "calle 124",
     "Telefono": "114545",
-    "Clave": "123",
     "Nombre": "Alexis",
     "Apellido": "aranda",
     "Correo": "aranda@gmail.com",
     "Dni": "458",
+    "Clave": "123",
     "TipoUsuario": "estudiante"
   },
   "1005": {
@@ -40,11 +40,11 @@
     "Legajo": 1005,
     "Direccion": "calle 124",
     "Telefono": "114545",
-    "Clave": "123",
     "Nombre": "mati",
     "Apellido": "cantero",
     "Correo": "cantero@gmail.com",
     "Dni": "4568",
+    "Clave": "123",
     "TipoUsuario": "estudiante"
   },
   "1006": {
@@ -52,11 +52,23 @@
     "Legajo": 1006,
     "Direccion": "calle 124",
     "Telefono": "114545",
-    "Clave": "123",
     "Nombre": "dian",
     "Apellido": "dian",
     "Correo": "dian@gmail.com",
     "Dni": "468",
+    "Clave": "123",
+    "TipoUsuario": "estudiante"
+  },
+  "1007": {
+    "Debecambiar": false,
+    "Legajo": 1007,
+    "Direccion": "sdkhsjd",
+    "Telefono": "11111",
+    "Nombre": "dian",
+    "Apellido": "yri",
+    "Correo": "dianyr@gmail.com",
+    "Dni": "123",
+    "Clave": "123",
     "TipoUsuario": "estudiante"
   }
 }

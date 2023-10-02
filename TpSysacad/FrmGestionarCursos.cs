@@ -20,7 +20,8 @@ namespace Formularios
 
         private void BtnAgregarCurso_Click(object sender, EventArgs e)
         {
-
+            FrmAgregarCurso frmAgregarCurso = new FrmAgregarCurso();
+            frmAgregarCurso.Show();
         }
 
         private void BtnEditarCursos_Click(object sender, EventArgs e)

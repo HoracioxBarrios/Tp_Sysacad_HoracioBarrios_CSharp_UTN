@@ -1,0 +1,9 @@
+{
+  "1": {
+    "Nombre": "programacion",
+    "Codigo": "1",
+    "Descripcion": "curso",
+    "CupoMaximo": "20",
+    "CuposDisponibles": "20"
+  }
+}
