@@ -16,7 +16,7 @@ namespace BibliotecaCLases.Modelo
         private bool _debecambiar;
 
         public Estudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
-            : base(nombre, apellido, dni, correo, claveProvisional, "estudiante")
+            : base(nombre, apellido, dni, correo, claveProvisional, 1)
         {
             _debecambiar = debeCambiar;
             _legajo = contadorLegajos;
