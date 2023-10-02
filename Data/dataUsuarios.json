@@ -5,7 +5,7 @@
     "Correo": "correo@nuevo.com",
     "Dni": "011",
     "Clave": "11",
-    "TipoUsuario": "administrador"
+    "TipoUsuario": "Administrador"
   },
   "22": {
     "Nombre": "Dian",
@@ -13,6 +13,6 @@
     "Correo": "correo@nuevo.com",
     "Dni": "022",
     "Clave": "22",
-    "TipoUsuario": "administrador"
+    "TipoUsuario": "Administrador"
   }
 }

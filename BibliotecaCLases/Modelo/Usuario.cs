@@ -13,8 +13,13 @@ namespace BibliotecaCLases.Modelo
         private string _correo;
         private string _dni;
         private string _clave;
-        private string _tipoUsuario;
-        public Usuario(string nombre, string apellido, string dni, string correo, string clave, string tipoUsuario)
+        private enum tipoUsuario
+        {
+            Administrador=0,
+            Estudiante=1
+        }
+        private tipoUsuario _tipoUsuario;
+        public Usuario(string nombre, string apellido, string dni, string correo, string clave, int indiceTipoUsuario)
         {
            
             _nombre = nombre;
@@ -22,7 +27,7 @@ namespace BibliotecaCLases.Modelo
             _dni = dni;
             _correo = correo;
             _clave = clave;
-            _tipoUsuario = tipoUsuario;
+            _tipoUsuario = (tipoUsuario)indiceTipoUsuario;
         }
 
         public string Nombre
@@ -57,7 +62,7 @@ namespace BibliotecaCLases.Modelo
 
         public string TipoUsuario
         {
-            get { return _tipoUsuario; }
+            get { return _tipoUsuario.ToString(); }
         }
 
     }
