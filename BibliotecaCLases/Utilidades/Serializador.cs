@@ -1,12 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using BibliotecaCLases.Modelo;
 using Newtonsoft.Json;
 
 namespace BibliotecaCLases.Utilidades
 {
     public static class Serializador
     {
+        public static void GuardarAJson<T>(Dictionary<int, T> objetoAGuardar, string path)
+        {
+            try
+            {
+                // Serializar el diccionario a formato JSON
+                string json = JsonConvert.SerializeObject(objetoAGuardar, Newtonsoft.Json.Formatting.Indented);
+
+                // Guardar el JSON en el archivo especificado
+                File.WriteAllText(path, json);
+
+                Console.WriteLine($"El diccionario se ha guardado correctamente como JSON en: {path}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar el diccionario como JSON: {ex.Message}");
+            }
+        }
+
         public static void GuardarAJson<T>(List<T> objetoAGuardar, string path)
         {
             try
@@ -24,24 +43,28 @@ namespace BibliotecaCLases.Utilidades
                 Console.WriteLine($"Error al guardar la lista como JSON: {ex.Message}");
             }
         }
-        public static void AgregarUltimoAJson<T>(T objetoAAgregar, string path)
+
+        public static void ActualizarJson<T>(T objetoAAgregar,int id ,string path)
         {
+
             try
             {
-                List<T> objetosExistentes = new List<T>();
+                Dictionary<string, T> objetoExistente = new Dictionary<string, T>();
 
                 // Si el archivo ya existe, lee el contenido actual
                 if (File.Exists(path))
                 {
                     string json = File.ReadAllText(path);
-                    objetosExistentes = JsonConvert.DeserializeObject<List<T>>(json);
+                    objetoExistente = JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
                 }
+                int nuevaClave = id;
+                string nuevaClaveStr = nuevaClave.ToString();
 
-                // Agrega el último objeto a la lista existente
-                objetosExistentes.Add(objetoAAgregar);
+                // Agrega el nuevo objeto al diccionario existente
+                objetoExistente[nuevaClaveStr] = objetoAAgregar;
 
-                // Serializa la lista completa a formato JSON
-                string jsonResult = JsonConvert.SerializeObject(objetosExistentes, Newtonsoft.Json.Formatting.Indented);
+                // Serializa el diccionario completo a formato JSON
+                string jsonResult = JsonConvert.SerializeObject(objetoExistente, Newtonsoft.Json.Formatting.Indented);
 
                 // Guarda el JSON en el archivo especificado
                 File.WriteAllText(path, jsonResult);
@@ -54,31 +77,30 @@ namespace BibliotecaCLases.Utilidades
             }
         }
 
-
-
-
-        public static List<T> LeerJson<T>(string path)
+        public static T LeerJson<T>(string path)
         {
-            if (File.Exists(path))
+            try
             {
-                try
+                if (File.Exists(path))
                 {
                     string jsonString = File.ReadAllText(path);
-                    return JsonConvert.DeserializeObject<List<T>>(jsonString);
+                    return JsonConvert.DeserializeObject<T>(jsonString);
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine($"Error al leer el archivo JSON: {ex.Message}");
+                    Console.WriteLine($"El archivo JSON no existe en la ruta: {path}");
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al leer el archivo JSON: {ex.Message}");
+            }
 
-            return new List<T>();
+            return default(T);
         }
 
-        public static void ActualizarJson() // Puedes implementar esto según tus necesidades.
-        {
-            // Implementa la lógica de actualización si es necesario.
-        }
+
+   
 
         public static void EliminarJson() // Puedes implementar esto según tus necesidades.
         {

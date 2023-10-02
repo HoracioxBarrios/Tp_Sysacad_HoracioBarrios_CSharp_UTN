@@ -1,5 +1,5 @@
-[
-  {
+{
+  "11": {
     "Nombre": "matias",
     "Apellido": "cantero",
     "Correo": "correo@nuevo.com",
@@ -7,7 +7,7 @@
     "Clave": "11",
     "TipoUsuario": "administrador"
   },
-  {
+  "22": {
     "Nombre": "Dian",
     "Apellido": "Iry",
     "Correo": "correo@nuevo.com",
@@ -15,4 +15,4 @@
     "Clave": "22",
     "TipoUsuario": "administrador"
   }
-]
+}
