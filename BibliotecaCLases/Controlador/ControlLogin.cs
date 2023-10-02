@@ -6,7 +6,8 @@ namespace BibliotecaCLases.Controlador
 {
     public class ControlLogin
     {
-        private readonly List<Administrador> usuarios;
+        private readonly Dictionary<int, Administrador> dictUsuarios;
+        private string _path;
         /// <summary>
         /// Inicializa una nueva instancia de la clase ControlLogin.
         /// </summary>
@@ -17,29 +18,24 @@ namespace BibliotecaCLases.Controlador
         /// </remarks>
         public ControlLogin()
         {
-            int nivelesARetroceder = 4; // para hubicar la carperta data
-            // Obtener la ruta del archivo JSON de usuarios
-            string path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
+            int nivelesARetroceder = 4;
+       
+            _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
+            dictUsuarios = Serializador.LeerJson<Dictionary<int, Administrador>>(_path);
 
-            // Intentar cargar la lista de usuarios desde el archivo JSON
-            usuarios = Serializador.LeerJson<Administrador>(path);
-
-            // Verificar si la lista está vacía o si el archivo no existe
-            if (usuarios == null || usuarios.Count == 0)
+            if (dictUsuarios == null || dictUsuarios.Count == 0)
             {
-                // Inicializar una nueva lista de usuarios
-                usuarios = new List<Administrador>();
-
-                // Crear usuarios predeterminados
+                dictUsuarios = new Dictionary<int, Administrador>();
+               
                 Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
                 Administrador administradorDos = new Administrador("Dian", "Iry", "022", "correo@nuevo.com", "22");
 
-                // Agregar usuarios a la lista
-                usuarios.Add(administrador);
-                usuarios.Add(administradorDos);
+                int dniAdmin1 = int.Parse(administrador.Dni);
+                int dniAdmin2 = int.Parse(administradorDos.Dni);
+                dictUsuarios.Add(dniAdmin1,administrador);
+                dictUsuarios.Add(dniAdmin2,administradorDos);
 
-                // Guardar la lista de usuarios en el archivo JSON
-                Serializador.GuardarAJson(usuarios, path);
+                Serializador.GuardarAJson(dictUsuarios, _path);
             }
         }
 
@@ -51,11 +47,10 @@ namespace BibliotecaCLases.Controlador
         /// <returns></returns>
         public bool AutenticarUsuario(string dni, string contrasena)
         {
-            Usuario? admin = usuarios.FirstOrDefault(a => a.Dni == dni);
+            Usuario? admin = dictUsuarios.FirstOrDefault(pair => pair.Value.Dni == dni).Value;
 
             if (admin != null && admin.Clave == contrasena)
             {
-
                 return true;
             }
 

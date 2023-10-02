@@ -26,7 +26,6 @@ namespace BibliotecaCLases.Modelo
             _clave = claveProvisional;
         }
 
-
         public bool Debecambiar
         {
             get { return _debecambiar; }
@@ -49,10 +48,6 @@ namespace BibliotecaCLases.Modelo
             get { return _telefono; }
             set { _telefono = value; }
         }
-        public string Clave
-        {
-            get { return _clave; }
-            set { _clave = value; }
-        }
+
     }
 }
