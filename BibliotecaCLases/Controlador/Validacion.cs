@@ -35,9 +35,9 @@ namespace BibliotecaCLases.Controlador
         {
             if (string.IsNullOrEmpty(nombre))
             {
-                return false; // El nombre no puede estar vacío o nulo
+                return false;
             }
-            string patronNombre = @"^[A-Za-z\s]{1,10}$";
+            string patronNombre = @"^[A-Za-z\s]{1,15}$";
             Regex regex = new Regex(patronNombre);
 
             return regex.IsMatch(nombre);
@@ -46,7 +46,7 @@ namespace BibliotecaCLases.Controlador
         {
             if (string.IsNullOrEmpty(nombre))
             {
-                return false; // El nombre no puede estar vacío o nulo
+                return false;
             }
             string patronNombre = @"^[A-Za-z\s]{1,10}$";
             Regex regex = new Regex(patronNombre);

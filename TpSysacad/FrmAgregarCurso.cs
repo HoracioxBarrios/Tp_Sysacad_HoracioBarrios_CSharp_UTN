@@ -33,8 +33,15 @@ namespace Formularios
             GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
             if (gestorCursos.Validado)
             {
-                gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
-                MessageBox.Show("Curso agregado con éxito.");
+                if (gestorCursos.verificarDatosExistentes())
+                {
+                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
+                    MessageBox.Show("Curso agregado con éxito.");
+                }
+                else
+                {
+                    MessageBox.Show("Error de validación: " + gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
