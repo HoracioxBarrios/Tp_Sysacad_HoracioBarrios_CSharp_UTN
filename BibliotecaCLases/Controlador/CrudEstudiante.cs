@@ -12,6 +12,10 @@ namespace BibliotecaCLases.Controlador
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
         private static int _contadorLegajos = 1000;
         private string _path;
+        public string pathUltimoLegajo;
+        private int _ultimoLegajoEnArchivo;
+
+
 
         /// <summary>
         /// Constructor de la clase CrudEstudiante. Inicializa un nuevo objeto CrudEstudiante
@@ -20,8 +24,10 @@ namespace BibliotecaCLases.Controlador
         public CrudEstudiante()
         {
             dictEstudiantesRegistrados = new Dictionary<int, Estudiante>();
-            _path = PathManager.ObtenerRuta("Data", "Dict Estudiante.json");
+            _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json");
             dictEstudiantesRegistrados = Serializador.LeerJson<Dictionary<int, Estudiante>>(_path);
+            pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
+            _ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
         }
         public string Path
         {
@@ -72,8 +78,11 @@ namespace BibliotecaCLases.Controlador
                 // Obtén el último valor (Estudiante) del diccionario
                 Estudiante ultimoEstudiante = dictEstudiantesRegistrados[dictEstudiantesRegistrados.Keys.Max()];
 
-                int legajo = ultimoEstudiante.Legajo;
-                _contadorLegajos = legajo;
+                _ultimoLegajoEnArchivo ++;
+        
+                string pathLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
+
+                Serializador.GuardarAJson(_ultimoLegajoEnArchivo, pathLegajo);
             }
 
         }
@@ -94,8 +103,7 @@ namespace BibliotecaCLases.Controlador
             this.EncuentraUltimolegajo();
 
             Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
-            _contadorLegajos++;
-            nuevoEstudiante.Legajo = _contadorLegajos;
+            nuevoEstudiante.Legajo = _ultimoLegajoEnArchivo;
 
             dictEstudiantesRegistrados.Add(nuevoEstudiante.Legajo, nuevoEstudiante);
 

@@ -1,19 +1,27 @@
 {
   "11": {
+    "Debecambiar": false,
+    "Legajo": 5,
+    "Direccion": null,
+    "Telefono": null,
     "Nombre": "matias",
     "Apellido": "cantero",
     "Correo": "correo@nuevo.com",
     "Dni": "011",
     "Clave": "11",
-    "TipoUsuario": "Administrador"
+    "TipoUsuario": 0
   },
   "22": {
+    "Debecambiar": false,
+    "Legajo": 6,
+    "Direccion": null,
+    "Telefono": null,
     "Nombre": "Dian",
     "Apellido": "Iry",
     "Correo": "correo@nuevo.com",
     "Dni": "022",
     "Clave": "22",
-    "TipoUsuario": "Administrador"
+    "TipoUsuario": 0
   },
   "1007": {
     "Debecambiar": false,
@@ -25,6 +33,66 @@
     "Correo": "dianyr@gmail.com",
     "Dni": "123",
     "Clave": "123",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": 1
+  },
+  "1008": {
+    "Debecambiar": true,
+    "Legajo": 1008,
+    "Direccion": "salta",
+    "Telefono": "1515",
+    "Nombre": "lio",
+    "Apellido": "messi",
+    "Correo": "lio@gmail.com",
+    "Dni": "3131",
+    "Clave": "3131",
+    "TipoUsuario": 1
+  },
+  "1009": {
+    "Debecambiar": false,
+    "Legajo": 1009,
+    "Direccion": "pepe",
+    "Telefono": "1515",
+    "Nombre": "ronaldo",
+    "Apellido": "crist",
+    "Correo": "ronal@gmail.com",
+    "Dni": "1515",
+    "Clave": "1515",
+    "TipoUsuario": 1
+  },
+  "1010": {
+    "Debecambiar": false,
+    "Legajo": 1010,
+    "Direccion": "lio",
+    "Telefono": "1515",
+    "Nombre": "jui",
+    "Apellido": "jui",
+    "Correo": "juiu@hotmail.com",
+    "Dni": "5151",
+    "Clave": "5151",
+    "TipoUsuario": 1
+  },
+  "1011": {
+    "Debecambiar": false,
+    "Legajo": 1011,
+    "Direccion": "ruta4",
+    "Telefono": "6363",
+    "Nombre": "fer",
+    "Apellido": "tui",
+    "Correo": "fer@gmail.com",
+    "Dni": "6565",
+    "Clave": "6565",
+    "TipoUsuario": 1
+  },
+  "1000": {
+    "Debecambiar": false,
+    "Legajo": 1012,
+    "Direccion": "aCasa",
+    "Telefono": "156565",
+    "Nombre": "gaga",
+    "Apellido": "lady",
+    "Correo": "gaga@gmail.com",
+    "Dni": "4747",
+    "Clave": "4747",
+    "TipoUsuario": 1
   }
 }
