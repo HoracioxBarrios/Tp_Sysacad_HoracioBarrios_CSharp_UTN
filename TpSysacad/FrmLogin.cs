@@ -1,4 +1,5 @@
 using BibliotecaCLases.Controlador;
+using BibliotecaCLases.Modelo;
 
 namespace Formularios
 
@@ -26,12 +27,13 @@ namespace Formularios
                verificado = controlLogin.AutenticarUsuario(dni, contraseña);
                 if (verificado)
                 {
-                    FrmPanelAdmin frmPanelAdmin = new();
-                    frmPanelAdmin.FormClosed += (sender, args) =>
+                    Usuario usuarioActual = controlLogin.GetUsuario;
+                    FormPanelUsuario frmPanelUsuario = new(usuarioActual.TipoUsuario.ToString());
+                    frmPanelUsuario.FormClosed += (sender, args) =>
                     {
                         this.Close();
                     };
-                    frmPanelAdmin.Show();
+                    frmPanelUsuario.Show();
                     this.Hide();
 
                 }

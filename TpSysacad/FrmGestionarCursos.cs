@@ -1,4 +1,5 @@
-﻿using BibliotecaCLases.Modelo;
+﻿using BibliotecaCLases.Controlador;
+using BibliotecaCLases.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,13 @@ namespace Formularios
 {
     public partial class FrmGestionarCursos : Form
     {
-        public FrmGestionarCursos()
+        private string _usuario;
+        public FrmGestionarCursos(string usuario)
         {
+            _usuario = usuario;
             InitializeComponent();
+            MostrarBtn(_usuario);
+
         }
 
         private void BtnAgregarCurso_Click(object sender, EventArgs e)
@@ -72,5 +77,23 @@ namespace Formularios
                 labelResultado.Text = "Seleccionaste: " + elementoSeleccionado;
             }
         }
+        private void MostrarBtn(string usuario)
+        {
+            BtnAgregarCurso.Visible = false;
+            BtnEditarCursos.Visible = false;
+            BtnEliminarCursos.Visible = false;
+            button1.Visible = false;
+            if (usuario == "Estudiante")
+            {
+                button1.Visible = true;
+            }
+            else if(usuario == "Administrador")
+            {
+                BtnAgregarCurso.Visible = true;
+                BtnEditarCursos.Visible = true;
+                BtnEliminarCursos.Visible = true;
+            }
+        }
+
     }
 }

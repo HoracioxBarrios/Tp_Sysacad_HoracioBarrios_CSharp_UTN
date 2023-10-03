@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace Formularios
 {
-    public partial class FrmPanelAdmin : Form
+    public partial class FormPanelUsuario : Form
     {
-        public FrmPanelAdmin()
+        private string _usuario;
+        public FormPanelUsuario(string usuario)
         {
+            _usuario = usuario;
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             FrmRegistroEstudiante frmRegistroEstudiante = new();
 
@@ -32,7 +34,7 @@ namespace Formularios
 
         private void BtnGestionarCursos_Click(object sender, EventArgs e)
         {
-            FrmGestionarCursos frmGestionarCursos = new();
+            FrmGestionarCursos frmGestionarCursos = new(_usuario);
 
             frmGestionarCursos.FormClosed += (sender, args) =>
             {
@@ -41,8 +43,6 @@ namespace Formularios
 
             frmGestionarCursos.Show();
             this.Hide();
-
-
         }
     }
 }

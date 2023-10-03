@@ -13,7 +13,7 @@ namespace BibliotecaCLases.Modelo
         private string _correo;
         private string _dni;
         private string _clave;
-        private enum tipoUsuario
+        public enum tipoUsuario
         {
             Administrador=0,
             Estudiante=1
@@ -60,9 +60,10 @@ namespace BibliotecaCLases.Modelo
             set { _clave = value; }
         }
 
-        public string TipoUsuario
+        public tipoUsuario TipoUsuario
         {
-            get { return _tipoUsuario.ToString(); }
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
         }
 
     }
