@@ -21,7 +21,7 @@ namespace BibliotecaCLases.Controlador
         {
             int nivelesARetroceder = 4;
             _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
-            //dictUsuarios = Serializador.LeerJson<Dictionary<int, Administrador>>(_path);
+            dictUsuarios = Serializador.LeerJson<Dictionary<int, Administrador>>(_path);
             
             _existeUsuario = true;
             if (dictUsuarios == null || dictUsuarios.Count == 0)
