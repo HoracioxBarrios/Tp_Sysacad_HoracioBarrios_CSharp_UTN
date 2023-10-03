@@ -31,8 +31,15 @@ namespace Formularios
         private void button1_Click(object sender, EventArgs e)
         {
             GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
-
-            gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
+            if (gestorCursos.Validado)
+            {
+                gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
+                MessageBox.Show("Curso agregado con éxito.");
+            }
+            else
+            {
+                MessageBox.Show("Error de validación: " + gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
