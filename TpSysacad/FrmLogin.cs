@@ -14,31 +14,41 @@ namespace Formularios
         {
             string dni = textUsuario.Text; // de momento se usa el dni de usuario
             string contraseña = textContraseña.Text;
+            bool verificado= false;
 
-            
 
-            //verificado =  bool control login
             ControlLogin controlLogin = new();
-            bool verificado = controlLogin.AutenticarUsuario(dni, contraseña);
+            bool existeUsuarios = controlLogin.ExisteUsuario;
 
-            if (verificado)
+            if (existeUsuarios)
             {
-                FrmPanelAdmin frmPanelAdmin = new();
-                frmPanelAdmin.FormClosed += (sender, args) =>
-                {
-                    this.Close();
-                };
-                frmPanelAdmin.Show();
-                this.Hide();
 
+               verificado = controlLogin.AutenticarUsuario(dni, contraseña);
+                if (verificado)
+                {
+                    FrmPanelAdmin frmPanelAdmin = new();
+                    frmPanelAdmin.FormClosed += (sender, args) =>
+                    {
+                        this.Close();
+                    };
+                    frmPanelAdmin.Show();
+                    this.Hide();
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña Incorrecta");
+                    textUsuario.Text = string.Empty;
+                    textContraseña.Text = string.Empty;
+
+                }
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña Incorrecta");
-                textUsuario.Text = string.Empty;
-                textContraseña.Text = string.Empty;
-
+                MessageBox.Show("No se puede acceder en estos momentos");
             }
+
         }
 
 

@@ -8,6 +8,7 @@ namespace BibliotecaCLases.Controlador
     {
         private readonly Dictionary<int, Administrador> dictUsuarios;
         private string _path;
+        private bool _existeUsuario;
         /// <summary>
         /// Inicializa una nueva instancia de la clase ControlLogin.
         /// </summary>
@@ -19,24 +20,32 @@ namespace BibliotecaCLases.Controlador
         public ControlLogin()
         {
             int nivelesARetroceder = 4;
-       
             _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
-            dictUsuarios = Serializador.LeerJson<Dictionary<int, Administrador>>(_path);
-
+            //dictUsuarios = Serializador.LeerJson<Dictionary<int, Administrador>>(_path);
+            
+            _existeUsuario = true;
             if (dictUsuarios == null || dictUsuarios.Count == 0)
             {
-                dictUsuarios = new Dictionary<int, Administrador>();
-               
-                Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
-                Administrador administradorDos = new Administrador("Dian", "Iry", "022", "correo@nuevo.com", "22");
+                _existeUsuario = false;
 
-                int dniAdmin1 = int.Parse(administrador.Dni);
-                int dniAdmin2 = int.Parse(administradorDos.Dni);
-                dictUsuarios.Add(dniAdmin1,administrador);
-                dictUsuarios.Add(dniAdmin2,administradorDos);
+                //dictUsuarios = new Dictionary<int, Administrador>();
 
-                Serializador.GuardarAJson(dictUsuarios, _path);
+                //Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
+                //Administrador administradorDos = new Administrador("Dian", "Iry", "022", "correo@nuevo.com", "22");
+
+                //int dniAdmin1 = int.Parse(administrador.Dni);
+                //int dniAdmin2 = int.Parse(administradorDos.Dni);
+                //dictUsuarios.Add(dniAdmin1,administrador);
+                //dictUsuarios.Add(dniAdmin2,administradorDos);
+
+                //Serializador.GuardarAJson(dictUsuarios, _path);
             }
+        }
+
+        public bool ExisteUsuario 
+        {
+            get { return _existeUsuario; }
+
         }
 
         /// <summary>
