@@ -1,7 +1,6 @@
 {
-  "11": {
+  "1001": {
     "Debecambiar": false,
-    "Legajo": 5,
     "Direccion": null,
     "Telefono": null,
     "Nombre": "matias",
@@ -9,90 +8,43 @@
     "Correo": "correo@nuevo.com",
     "Dni": "011",
     "Clave": "11",
-    "TipoUsuario": 0
+    "TipoUsuario": 0,
+    "Legajo": 1001
   },
-  "22": {
+  "1002": {
     "Debecambiar": false,
-    "Legajo": 6,
     "Direccion": null,
     "Telefono": null,
-    "Nombre": "Dian",
-    "Apellido": "Iry",
+    "Nombre": "dian",
+    "Apellido": "iry",
     "Correo": "correo@nuevo.com",
     "Dni": "022",
     "Clave": "22",
-    "TipoUsuario": 0
+    "TipoUsuario": 0,
+    "Legajo": 1002
   },
-  "1007": {
-    "Debecambiar": false,
-    "Legajo": 1007,
-    "Direccion": "sdkhsjd",
-    "Telefono": "11111",
-    "Nombre": "dian",
-    "Apellido": "yri",
-    "Correo": "dianyr@gmail.com",
-    "Dni": "123",
-    "Clave": "123",
-    "TipoUsuario": 1
-  },
-  "1008": {
+  "1000": {
     "Debecambiar": true,
-    "Legajo": 1008,
     "Direccion": "salta",
-    "Telefono": "1515",
+    "Telefono": "151515",
     "Nombre": "lio",
     "Apellido": "messi",
     "Correo": "lio@gmail.com",
-    "Dni": "3131",
-    "Clave": "3131",
-    "TipoUsuario": 1
-  },
-  "1009": {
-    "Debecambiar": false,
-    "Legajo": 1009,
-    "Direccion": "pepe",
-    "Telefono": "1515",
-    "Nombre": "ronaldo",
-    "Apellido": "crist",
-    "Correo": "ronal@gmail.com",
-    "Dni": "1515",
+    "Dni": "313131",
     "Clave": "1515",
-    "TipoUsuario": 1
+    "TipoUsuario": 1,
+    "Legajo": 1003
   },
-  "1010": {
+  "1004": {
     "Debecambiar": false,
-    "Legajo": 1010,
-    "Direccion": "lio",
-    "Telefono": "1515",
-    "Nombre": "jui",
-    "Apellido": "jui",
-    "Correo": "juiu@hotmail.com",
-    "Dni": "5151",
-    "Clave": "5151",
-    "TipoUsuario": 1
-  },
-  "1011": {
-    "Debecambiar": false,
-    "Legajo": 1011,
-    "Direccion": "ruta4",
-    "Telefono": "6363",
-    "Nombre": "fer",
-    "Apellido": "tui",
-    "Correo": "fer@gmail.com",
-    "Dni": "6565",
-    "Clave": "6565",
-    "TipoUsuario": 1
-  },
-  "1000": {
-    "Debecambiar": false,
-    "Legajo": 1012,
-    "Direccion": "aCasa",
-    "Telefono": "156565",
-    "Nombre": "gaga",
-    "Apellido": "lady",
-    "Correo": "gaga@gmail.com",
-    "Dni": "4747",
-    "Clave": "4747",
-    "TipoUsuario": 1
+    "Direccion": "san marcos",
+    "Telefono": "150202",
+    "Nombre": "pepe",
+    "Apellido": "argento",
+    "Correo": "pep@gmail.com",
+    "Dni": "315151",
+    "Clave": "111",
+    "TipoUsuario": 1,
+    "Legajo": 1004
   }
 }
