@@ -6,7 +6,8 @@ namespace BibliotecaCLases.Controlador
 {
     public class ControlLogin
     {
-        private readonly Dictionary<int, Administrador> dictUsuarios;
+        private Usuario? _usuario;
+        private readonly Dictionary<int, Usuario> dictUsuarios;
         private string _path;
         private bool _existeUsuario;
         /// <summary>
@@ -20,9 +21,10 @@ namespace BibliotecaCLases.Controlador
         public ControlLogin()
         {
             int nivelesARetroceder = 4;
-            _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
-            //dictUsuarios = Serializador.LeerJson<Dictionary<int, Administrador>>(_path);
-            
+            //_path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
+            _path = PathManager.ObtenerRuta("Data", "Dict Estudiante.json");
+            dictUsuarios = Serializador.LeerJson<Dictionary<int, Usuario>>(_path);
+
             _existeUsuario = true;
             if (dictUsuarios == null || dictUsuarios.Count == 0)
             {
@@ -42,7 +44,7 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-        public bool ExisteUsuario 
+        public bool ExisteUsuario
         {
             get { return _existeUsuario; }
 
@@ -56,9 +58,9 @@ namespace BibliotecaCLases.Controlador
         /// <returns></returns>
         public bool AutenticarUsuario(string dni, string contrasena)
         {
-            Usuario? admin = dictUsuarios.FirstOrDefault(pair => pair.Value.Dni == dni).Value;
+            _usuario = dictUsuarios.FirstOrDefault(pair => pair.Value.Dni == dni).Value;
 
-            if (admin != null && admin.Clave == contrasena)
+            if (_usuario != null && _usuario.Clave == contrasena)
             {
                 return true;
             }
@@ -66,5 +68,12 @@ namespace BibliotecaCLases.Controlador
             return false;
         }
 
+        public Usuario GetUsuario
+        {
+            get
+            {
+                return _usuario;
+            }
+        }
     }
 }

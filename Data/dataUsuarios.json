@@ -14,5 +14,17 @@
     "Dni": "022",
     "Clave": "22",
     "TipoUsuario": "Administrador"
+  },
+  "1007": {
+    "Debecambiar": false,
+    "Legajo": 1007,
+    "Direccion": "sdkhsjd",
+    "Telefono": "11111",
+    "Nombre": "dian",
+    "Apellido": "yri",
+    "Correo": "dianyr@gmail.com",
+    "Dni": "123",
+    "Clave": "123",
+    "TipoUsuario": "estudiante"
   }
 }

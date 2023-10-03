@@ -9,7 +9,7 @@
     "Correo": "a@gmail.com",
     "Dni": "78",
     "Clave": "45",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": "Estudiante"
   },
   "1003": {
     "Debecambiar": false,
@@ -21,7 +21,7 @@
     "Correo": "barrios@gmail.com",
     "Dni": "544",
     "Clave": "544",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": "Estudiante"
   },
   "1004": {
     "Debecambiar": true,
@@ -33,7 +33,7 @@
     "Correo": "aranda@gmail.com",
     "Dni": "458",
     "Clave": "123",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": "Estudiante"
   },
   "1005": {
     "Debecambiar": true,
@@ -45,7 +45,7 @@
     "Correo": "cantero@gmail.com",
     "Dni": "4568",
     "Clave": "123",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": "Estudiante"
   },
   "1006": {
     "Debecambiar": true,
@@ -57,7 +57,7 @@
     "Correo": "dian@gmail.com",
     "Dni": "468",
     "Clave": "123",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": "Estudiante"
   },
   "1007": {
     "Debecambiar": false,
@@ -69,6 +69,18 @@
     "Correo": "dianyr@gmail.com",
     "Dni": "123",
     "Clave": "123",
-    "TipoUsuario": "estudiante"
+    "TipoUsuario": "Estudiante"
+  },
+  "1008": {
+    "Debecambiar": false,
+    "Legajo": 1008,
+    "Direccion": "calle siempre viva 123",
+    "Telefono": "12313",
+    "Nombre": "asd",
+    "Apellido": "dsa",
+    "Correo": "hola@gmail.com",
+    "Dni": "123123",
+    "Clave": "345",
+    "TipoUsuario": "Estudiante"
   }
 }

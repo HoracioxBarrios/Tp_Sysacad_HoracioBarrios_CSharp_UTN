@@ -34,14 +34,15 @@
             listBoxCursos = new ListBox();
             label1 = new Label();
             labelResultado = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // BtnAgregarCurso
             // 
-            BtnAgregarCurso.Location = new Point(49, 527);
-            BtnAgregarCurso.Margin = new Padding(3, 4, 3, 4);
+            BtnAgregarCurso.Location = new Point(61, 659);
+            BtnAgregarCurso.Margin = new Padding(4, 5, 4, 5);
             BtnAgregarCurso.Name = "BtnAgregarCurso";
-            BtnAgregarCurso.Size = new Size(145, 31);
+            BtnAgregarCurso.Size = new Size(181, 39);
             BtnAgregarCurso.TabIndex = 0;
             BtnAgregarCurso.Text = "Agregar Curso";
             BtnAgregarCurso.UseVisualStyleBackColor = true;
@@ -49,10 +50,10 @@
             // 
             // BtnEditarCursos
             // 
-            BtnEditarCursos.Location = new Point(375, 527);
-            BtnEditarCursos.Margin = new Padding(3, 4, 3, 4);
+            BtnEditarCursos.Location = new Point(469, 659);
+            BtnEditarCursos.Margin = new Padding(4, 5, 4, 5);
             BtnEditarCursos.Name = "BtnEditarCursos";
-            BtnEditarCursos.Size = new Size(135, 31);
+            BtnEditarCursos.Size = new Size(169, 39);
             BtnEditarCursos.TabIndex = 1;
             BtnEditarCursos.Text = "Editar Curso";
             BtnEditarCursos.UseVisualStyleBackColor = true;
@@ -60,10 +61,10 @@
             // 
             // BtnEliminarCursos
             // 
-            BtnEliminarCursos.Location = new Point(661, 527);
-            BtnEliminarCursos.Margin = new Padding(3, 4, 3, 4);
+            BtnEliminarCursos.Location = new Point(826, 659);
+            BtnEliminarCursos.Margin = new Padding(4, 5, 4, 5);
             BtnEliminarCursos.Name = "BtnEliminarCursos";
-            BtnEliminarCursos.Size = new Size(106, 31);
+            BtnEliminarCursos.Size = new Size(132, 39);
             BtnEliminarCursos.TabIndex = 2;
             BtnEliminarCursos.Text = "Eliminar curso";
             BtnEliminarCursos.UseVisualStyleBackColor = true;
@@ -72,11 +73,11 @@
             // listBoxCursos
             // 
             listBoxCursos.FormattingEnabled = true;
-            listBoxCursos.ItemHeight = 20;
-            listBoxCursos.Location = new Point(62, 117);
-            listBoxCursos.Margin = new Padding(3, 4, 3, 4);
+            listBoxCursos.ItemHeight = 25;
+            listBoxCursos.Location = new Point(78, 146);
+            listBoxCursos.Margin = new Padding(4, 5, 4, 5);
             listBoxCursos.Name = "listBoxCursos";
-            listBoxCursos.Size = new Size(720, 364);
+            listBoxCursos.Size = new Size(899, 454);
             listBoxCursos.TabIndex = 3;
             listBoxCursos.SelectedIndexChanged += listBoxCursos_SelectedIndexChanged;
             // 
@@ -84,33 +85,45 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(286, 12);
+            label1.Location = new Point(358, 15);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(138, 28);
+            label1.Size = new Size(169, 32);
             label1.TabIndex = 4;
             label1.Text = "Lista de cursos";
             // 
             // labelResultado
             // 
             labelResultado.AutoSize = true;
-            labelResultado.Location = new Point(62, 72);
+            labelResultado.Location = new Point(78, 90);
+            labelResultado.Margin = new Padding(4, 0, 4, 0);
             labelResultado.Name = "labelResultado";
-            labelResultado.Size = new Size(112, 20);
+            labelResultado.Size = new Size(132, 25);
             labelResultado.TabIndex = 5;
             labelResultado.Text = "seleccione algo";
             // 
+            // button1
+            // 
+            button1.Location = new Point(61, 656);
+            button1.Name = "button1";
+            button1.Size = new Size(181, 42);
+            button1.TabIndex = 6;
+            button1.Text = "inscripcion";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // FrmGestionarCursos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(1142, 750);
+            Controls.Add(button1);
             Controls.Add(labelResultado);
             Controls.Add(label1);
             Controls.Add(listBoxCursos);
             Controls.Add(BtnEliminarCursos);
             Controls.Add(BtnEditarCursos);
             Controls.Add(BtnAgregarCurso);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FrmGestionarCursos";
             Text = "Sistemas de Gestion de Cursos";
             Load += FrmGestionarCursos_Load;
@@ -126,5 +139,6 @@
         private ListBox listBoxCursos;
         private Label label1;
         private Label labelResultado;
+        private Button button1;
     }
 }
