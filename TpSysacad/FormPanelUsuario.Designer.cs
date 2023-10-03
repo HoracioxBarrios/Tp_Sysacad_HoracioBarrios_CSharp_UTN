@@ -32,6 +32,7 @@
             BtnGestionarCursos = new Button();
             label1 = new Label();
             label2 = new Label();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -71,11 +72,22 @@
             label2.TabIndex = 2;
             label2.Text = "Panel";
             // 
+            // button2
+            // 
+            button2.Location = new Point(292, 106);
+            button2.Name = "button2";
+            button2.Size = new Size(186, 34);
+            button2.TabIndex = 3;
+            button2.Text = "Inscripcion a cursos";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FormPanelUsuario
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(BtnGestionarCursos);
@@ -92,5 +104,6 @@
         private Button BtnGestionarCursos;
         private Label label1;
         private Label label2;
+        private Button button2;
     }
 }
