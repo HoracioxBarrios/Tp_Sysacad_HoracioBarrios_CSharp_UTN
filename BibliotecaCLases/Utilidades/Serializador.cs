@@ -26,6 +26,25 @@ namespace BibliotecaCLases.Utilidades
             }
         }
 
+        public static void GuardarAJson(int valorAGuardar, string path)
+        {
+            try
+            {
+                // Serializar el valor a formato JSON
+                string json = JsonConvert.SerializeObject(valorAGuardar, Newtonsoft.Json.Formatting.Indented);
+
+                // Guardar el JSON en el archivo especificado
+                File.WriteAllText(path, json);
+
+                Console.WriteLine($"El valor se ha guardado correctamente como JSON en: {path}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar el valor como JSON: {ex.Message}");
+            }
+        }
+
+
         public static void GuardarAJson<T>(List<T> objetoAGuardar, string path)
         {
             try
