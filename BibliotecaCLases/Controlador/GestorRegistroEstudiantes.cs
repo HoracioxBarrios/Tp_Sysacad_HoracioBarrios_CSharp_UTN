@@ -74,7 +74,7 @@ namespace BibliotecaCLases.Controlador
         ///   <para>true si los datos no existen previamente en el sistema y pueden ser registrados.</para>
         ///   <para>false si el correo electrónico o el DNI ya están registrados, en cuyo caso se establece un mensaje de error.</para>
         /// </returns>
-        public bool verificardatosExistentes()
+        public bool verificarDatosExistentes()
         {
             int numeroError = crudEstudiante.VerificarDatosEstudiante(_correo, _dni);
 

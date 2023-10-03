@@ -26,6 +26,19 @@ namespace BibliotecaCLases.Controlador
             set { _path = value; }
         }
 
+        public int VerificarCodigoCurso(string codigo)
+        {
+            if (dictCursos != null)
+            {
+                if (dictCursos.Any(kv => kv.Value.Codigo == codigo))
+                {
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
             if (int.TryParse(codigo, out int codigoCurso))
@@ -45,10 +58,6 @@ namespace BibliotecaCLases.Controlador
                 {
                     Console.WriteLine("El código ya existe en el diccionario.");
                 }
-            }
-            else
-            {
-                Console.WriteLine("El código no es válido como número entero.");
             }
         }
 

@@ -24,7 +24,7 @@ namespace Formularios
             // Validar los datos y obtener un mensaje de error si falla la validación
             if (gestorEstudiantes.Validado)
             {
-                if (gestorEstudiantes.verificardatosExistentes())
+                if (gestorEstudiantes.verificarDatosExistentes())
                 {
                     DialogResult resultado = MessageBox.Show("¿Desea confirmar el registro del estudiante?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)

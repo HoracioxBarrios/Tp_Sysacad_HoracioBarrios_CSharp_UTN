@@ -5,5 +5,12 @@
     "Descripcion": "curso",
     "CupoMaximo": "20",
     "CuposDisponibles": "20"
+  },
+  "2": {
+    "Nombre": "progra II",
+    "Codigo": "2",
+    "Descripcion": "ssds",
+    "CupoMaximo": "10",
+    "CuposDisponibles": "10"
   }
 }
