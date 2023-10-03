@@ -15,9 +15,7 @@ namespace BibliotecaCLases.Controlador
         string direccion;
         string telefono;
         string claveProvisional;
-        // va a hacer uso de ValidarUsuario
 
-        //
         public ValidadorDatosRegistro(string nombre_ingresado, string apellido_ingresado, string dni_ingresado, string correo_ingresado, string direccion_ingresado, string telefono_ingresado, string claveProvisional_ingresado)
         {
             nombre = nombre_ingresado;
@@ -30,7 +28,7 @@ namespace BibliotecaCLases.Controlador
         }
         public bool Validar(out string mensajeError)
         {
-            mensajeError = string.Empty; // Inicializa el mensaje de error como cadena vacía
+            mensajeError = string.Empty;
 
             if (!Validacion.EsNombreValido(nombre))
             {
@@ -74,7 +72,6 @@ namespace BibliotecaCLases.Controlador
                 return false;
             }
 
-            // Si todos los campos son válidos, devuelve true
             return true;
         }
     }

@@ -21,8 +21,8 @@ namespace BibliotecaCLases.Controlador
         public ControlLogin()
         {
             int nivelesARetroceder = 4;
-            //_path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
-            _path = PathManager.ObtenerRuta("Data", "Dict Estudiante.json");
+            _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
+            //_path = PathManager.ObtenerRuta("Data", "Dict Estudiante.json");
             dictUsuarios = Serializador.LeerJson<Dictionary<int, Usuario>>(_path);
 
             _existeUsuario = true;
