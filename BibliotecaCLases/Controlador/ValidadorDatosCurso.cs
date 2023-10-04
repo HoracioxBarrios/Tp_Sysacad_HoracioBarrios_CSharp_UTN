@@ -14,7 +14,7 @@ namespace BibliotecaCLases.Controlador
         string cupoMaximo;
 
         public ValidadorDatosCurso(string nombre_ingresado, string codigo_ingresado, string descripcion_ingresada, string cupoMaximo_ingresado)
-            : base(nombre_ingresado, "", "", "", "", "", "")
+            : base(nombre_ingresado, "", "", "", "", "")
         {
             nombre = nombre_ingresado;
             codigo = codigo_ingresado;

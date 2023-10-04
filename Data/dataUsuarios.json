@@ -46,5 +46,17 @@
     "Clave": "111",
     "TipoUsuario": 1,
     "Legajo": 1004
+  },
+  "1005": {
+    "Debecambiar": false,
+    "Direccion": "calle 123",
+    "Telefono": "11235",
+    "Nombre": "alexis",
+    "Apellido": "aranda",
+    "Correo": "aran@gmail.com",
+    "Dni": "4578",
+    "Clave": "!sT-eIu$L(",
+    "TipoUsuario": 1,
+    "Legajo": 1005
   }
 }

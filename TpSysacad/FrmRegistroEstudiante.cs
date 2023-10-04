@@ -15,11 +15,11 @@ namespace Formularios
 
             _debeCambiar = false;
         }
-        public bool DebeCambiar { get => _debeCambiar; } 
+        public bool DebeCambiar { get => _debeCambiar; }
         private void BtnRegistro_Click(object sender, EventArgs e)
         {
             GestorRegistroEstudiantes gestorEstudiantes = new GestorRegistroEstudiantes(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
-                textTelefono.Text, textContraseñaProvisional.Text);
+                textTelefono.Text);
 
             // Validar los datos y obtener un mensaje de error si falla la validación
             if (gestorEstudiantes.Validado)
@@ -31,7 +31,7 @@ namespace Formularios
                     {
                         // Llama al método RegistrarEstudiante de CrudEstudiante para registrar al estudiante
                         gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
-                        textTelefono.Text, textContraseñaProvisional.Text, this.DebeCambiar);
+                        textTelefono.Text, this.DebeCambiar);
                         MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
                         Email.Enviar("se te acaba de registrar en el sysacad");
                         MessageBox.Show("Email entregado.");

@@ -36,7 +36,6 @@
             textTelefono = new TextBox();
             textEmail = new TextBox();
             btnRegistro = new Button();
-            textContraseñaProvisional = new TextBox();
             RbtnCambiarcontrasenia = new RadioButton();
             SuspendLayout();
             // 
@@ -108,14 +107,6 @@
             btnRegistro.UseVisualStyleBackColor = true;
             btnRegistro.Click += BtnRegistro_Click;
             // 
-            // textContraseñaProvisional
-            // 
-            textContraseñaProvisional.Location = new Point(284, 326);
-            textContraseñaProvisional.Name = "textContraseñaProvisional";
-            textContraseñaProvisional.PlaceholderText = "Contraseña provisional";
-            textContraseñaProvisional.Size = new Size(137, 23);
-            textContraseñaProvisional.TabIndex = 8;
-            // 
             // RbtnCambiarcontrasenia
             // 
             RbtnCambiarcontrasenia.AutoSize = true;
@@ -134,7 +125,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(RbtnCambiarcontrasenia);
-            Controls.Add(textContraseñaProvisional);
             Controls.Add(btnRegistro);
             Controls.Add(textEmail);
             Controls.Add(textTelefono);
@@ -159,7 +149,6 @@
         private TextBox textTelefono;
         private TextBox textEmail;
         private Button btnRegistro;
-        private TextBox textContraseñaProvisional;
         private RadioButton RbtnCambiarcontrasenia;
     }
 }
