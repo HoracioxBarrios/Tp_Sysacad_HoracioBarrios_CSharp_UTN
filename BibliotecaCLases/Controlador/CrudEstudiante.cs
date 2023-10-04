@@ -16,7 +16,6 @@ namespace BibliotecaCLases.Controlador
         private int _ultimoLegajoEnArchivo;
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
 
-
         /// <summary>
         /// Constructor de la clase CrudEstudiante. Inicializa un nuevo objeto CrudEstudiante
         /// y carga datos de estudiantes registrados desde un archivo JSON si está disponible.
@@ -74,8 +73,8 @@ namespace BibliotecaCLases.Controlador
             _ultimoLegajoEnArchivo++;
             string pathLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
             Serializador.GuardarAJson(_ultimoLegajoEnArchivo, pathLegajo);
-            return _ultimoLegajoEnArchivo;
 
+            return _ultimoLegajoEnArchivo;
         }
 
         static string GenerarContrasenaAleatoria(int longitudMinima, int longitudMaxima)
@@ -176,5 +175,27 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
+        public bool AgregarCursoAEstudiante(int legajoEstudiante, string codigoCurso, out string mensajeError)
+        {
+            Estudiante estudiante = ObtenerEstudiantePorLegajo(legajoEstudiante);
+
+            if (estudiante != null)
+            {
+                if (estudiante.CursosInscriptos.Contains(codigoCurso))
+                {
+                    mensajeError = "El estudiante ya está inscrito en este curso.";
+                    return false;
+                }
+
+                estudiante.CursosInscriptos.Add(codigoCurso);
+                string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
+                Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
+                mensajeError = null;
+                return true;
+            }
+
+            mensajeError = "El estudiante no se encontró.";
+            return false;
+        }
     }
 }

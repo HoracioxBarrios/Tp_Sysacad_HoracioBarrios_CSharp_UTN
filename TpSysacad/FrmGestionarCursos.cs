@@ -25,7 +25,6 @@ namespace Formularios
             _usuario = usuario;
             InitializeComponent();
             MostrarBtn(_usuario);
-
         }
 
         private void BtnAgregarCurso_Click(object sender, EventArgs e)
@@ -38,15 +37,8 @@ namespace Formularios
         {
             if (!string.IsNullOrEmpty(_cursoSeleccionado))
             {
-                // Crear una instancia del formulario de edición y pasar el curso seleccionado
                 FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado);
                 frmEditarCurso.ShowDialog();
-
-                // Actualizar la lista de cursos en ListBox después de la edición (si es necesario)
-                // ...
-
-                // También puedes mostrar un mensaje de éxito o error después de la edición
-                // ...
             }
             else
             {
@@ -85,7 +77,7 @@ namespace Formularios
             if (listBoxCursos.SelectedIndex != -1)
             {
                 string elementoSeleccionado = listBoxCursos.SelectedItem.ToString();
-                //Curso cursoSeleccionado = listBoxCursos.SelectedItem;
+
                 labelResultado.Text = "Seleccionaste: " + elementoSeleccionado;
                 string[] partes = elementoSeleccionado.Split(' ');
 
@@ -122,19 +114,23 @@ namespace Formularios
             else
             {
                 int.TryParse(_usuario.Legajo.ToString(), out int legajo);
-                Estudiante estudiante = crudEstudiante.ObtenerEstudiantePorLegajo(legajo);
+                string mensajeError;
+                bool inscripcionExitosa = crudEstudiante.AgregarCursoAEstudiante(legajo, _cursoSeleccionado, out mensajeError);
 
-                if (estudiante != null)
+                if (inscripcionExitosa)
                 {
-                    estudiante.CursosInscriptos.Add(_cursoSeleccionado);
-                    string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
-                    Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
-
                     MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado}");
                 }
                 else
                 {
-                    MessageBox.Show("Error: No se encontró al estudiante.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!string.IsNullOrEmpty(mensajeError))
+                    {
+                        MessageBox.Show($"Error: {mensajeError}", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: No se encontró al estudiante.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
