@@ -13,6 +13,7 @@ namespace BibliotecaCLases.Modelo
         private string _correo;
         private string _dni;
         private string _clave;
+        private int _legajo;
         public enum tipoUsuario
         {
             Administrador=0,
@@ -64,6 +65,12 @@ namespace BibliotecaCLases.Modelo
         {
             get { return _tipoUsuario; }
             set { _tipoUsuario = value; }
+        }
+
+        public int Legajo
+        {
+            get { return _legajo; }
+            set { _legajo = value; }
         }
 
     }

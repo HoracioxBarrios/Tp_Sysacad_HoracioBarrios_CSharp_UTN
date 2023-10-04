@@ -21,28 +21,40 @@ namespace BibliotecaCLases.Controlador
         public ControlLogin()
         {
             int nivelesARetroceder = 4;
-            _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json", nivelesARetroceder);
+            _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json", nivelesARetroceder);
             //_path = PathManager.ObtenerRuta("Data", "Dict Estudiante.json");
             dictUsuarios = Serializador.LeerJson<Dictionary<int, Usuario>>(_path);
 
             _existeUsuario = true;
             if (dictUsuarios == null || dictUsuarios.Count == 0)
             {
+
+                string pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
+                int ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
+                ultimoLegajoEnArchivo++;
+
                 _existeUsuario = false;
 
-                //dictUsuarios = new Dictionary<int, Administrador>();
+                dictUsuarios = new Dictionary<int, Usuario>();
 
-                //Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
-                //Administrador administradorDos = new Administrador("Dian", "Iry", "022", "correo@nuevo.com", "22");
+                Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
+                Administrador administradorDos = new Administrador("dian", "iry", "022", "correo@nuevo.com", "22");
+                ultimoLegajoEnArchivo++;
+                administrador.Legajo = ultimoLegajoEnArchivo;
+                ultimoLegajoEnArchivo++;
+                administradorDos.Legajo = ultimoLegajoEnArchivo;
+                int dniadmin1 = int.Parse(administrador.Dni);
+                int dniadmin2 = int.Parse(administradorDos.Dni);
+                dictUsuarios.Add(administrador.Legajo, administrador);
+                dictUsuarios.Add(administradorDos.Legajo, administradorDos);
 
-                //int dniAdmin1 = int.Parse(administrador.Dni);
-                //int dniAdmin2 = int.Parse(administradorDos.Dni);
-                //dictUsuarios.Add(dniAdmin1,administrador);
-                //dictUsuarios.Add(dniAdmin2,administradorDos);
-
-                //Serializador.GuardarAJson(dictUsuarios, _path);
+                Serializador.GuardarAJson(ultimoLegajoEnArchivo, pathUltimoLegajo);
+                Serializador.GuardarAJson(dictUsuarios, _path);
             }
+
+
         }
+
 
         public bool ExisteUsuario
         {

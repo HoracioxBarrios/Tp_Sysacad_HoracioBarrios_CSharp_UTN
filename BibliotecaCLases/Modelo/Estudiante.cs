@@ -8,34 +8,26 @@ namespace BibliotecaCLases.Modelo
 {
     public class Estudiante : Usuario
     {
-        private static int contadorLegajos = 1;
         private string _direccion;
         private string _telefono;
         private string _clave;
-        private int _legajo;
         private bool _debecambiar;
+        private List<string> _cursosInscriptos;
 
         public Estudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
             : base(nombre, apellido, dni, correo, claveProvisional, 1)
         {
             _debecambiar = debeCambiar;
-            _legajo = contadorLegajos;
-            contadorLegajos++;
             _direccion = direccion;
             _telefono = telefono;
             _clave = claveProvisional;
+            _cursosInscriptos = new List<string>();
         }
 
         public bool Debecambiar
         {
             get { return _debecambiar; }
             set { _debecambiar = value; }
-        }
-
-        public int Legajo
-        {
-            get { return _legajo; }
-            set { _legajo = value; }
         }
 
         public string Direccion
@@ -49,5 +41,10 @@ namespace BibliotecaCLases.Modelo
             set { _telefono = value; }
         }
 
+        public List<string> CursosInscriptos
+        {
+            get { return _cursosInscriptos; }
+            set { _cursosInscriptos = value; }
+        }
     }
 }
