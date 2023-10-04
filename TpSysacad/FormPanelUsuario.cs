@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BibliotecaCLases.Modelo;
 
 namespace Formularios
 {
     public partial class FormPanelUsuario : Form
     {
-        private string _usuario;
-        public FormPanelUsuario(string usuario)
+        private Usuario _usuario;
+        public FormPanelUsuario(Usuario usuario)
         {
             _usuario = usuario;
             InitializeComponent();
@@ -49,18 +50,18 @@ namespace Formularios
         {
             BtnGestionarCursos_Click(sender, e);
         }
-        private void MostrarBtn(string usuario)
+        private void MostrarBtn(Usuario usuario)
         {
             button2.Visible = false;
             BtnGestionarCursos.Visible = false;
             button1.Visible = false;
             button3.Visible = false;
-            if (usuario == "Estudiante")
+            if (usuario.TipoUsuario.ToString() == "Estudiante")
             {
                 button2.Visible = true;
                 button3.Visible = true;
             }
-            else if (usuario == "Administrador")
+            else if (usuario.TipoUsuario.ToString() == "Administrador")
             {
                 button1.Visible = true;
                 BtnGestionarCursos.Visible = true;
