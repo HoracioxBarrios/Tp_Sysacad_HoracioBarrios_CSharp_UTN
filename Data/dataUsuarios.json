@@ -1,62 +1,20 @@
 {
-  "1001": {
-    "Debecambiar": false,
-    "Direccion": null,
-    "Telefono": null,
+  "1016": {
     "Nombre": "matias",
     "Apellido": "cantero",
     "Correo": "correo@nuevo.com",
     "Dni": "011",
-    "Clave": "11",
+    "Clave": "$2a$08$A1bSO/xlObwJyV5DFL/9gelgPxqy5n.Er0ljA6.gpZZFgiYEn5Epe",
     "TipoUsuario": 0,
-    "Legajo": 1001
+    "Legajo": 1016
   },
-  "1002": {
-    "Debecambiar": false,
-    "Direccion": null,
-    "Telefono": null,
+  "1017": {
     "Nombre": "dian",
     "Apellido": "iry",
     "Correo": "correo@nuevo.com",
     "Dni": "022",
-    "Clave": "22",
+    "Clave": "$2a$08$o5L4UUzH0MARIxLGytgR3uuWQRLkF5ZE8Kg8lPMfiFQ9yeZU.7Ia6",
     "TipoUsuario": 0,
-    "Legajo": 1002
-  },
-  "1000": {
-    "Debecambiar": true,
-    "Direccion": "salta",
-    "Telefono": "151515",
-    "Nombre": "lio",
-    "Apellido": "messi",
-    "Correo": "lio@gmail.com",
-    "Dni": "313131",
-    "Clave": "1515",
-    "TipoUsuario": 1,
-    "Legajo": 1003
-  },
-  "1004": {
-    "Debecambiar": false,
-    "Direccion": "san marcos",
-    "Telefono": "150202",
-    "Nombre": "pepe",
-    "Apellido": "argento",
-    "Correo": "pep@gmail.com",
-    "Dni": "315151",
-    "Clave": "111",
-    "TipoUsuario": 1,
-    "Legajo": 1004
-  },
-  "1005": {
-    "Debecambiar": false,
-    "Direccion": "calle 123",
-    "Telefono": "11235",
-    "Nombre": "alexis",
-    "Apellido": "aranda",
-    "Correo": "aran@gmail.com",
-    "Dni": "4578",
-    "Clave": "!sT-eIu$L(",
-    "TipoUsuario": 1,
-    "Legajo": 1005
+    "Legajo": 1017
   }
 }
