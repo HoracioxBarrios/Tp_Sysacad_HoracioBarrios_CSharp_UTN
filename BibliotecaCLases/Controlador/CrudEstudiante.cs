@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using BibliotecaCLases.Modelo;
 using BibliotecaCLases.Utilidades;
 
@@ -67,9 +68,7 @@ namespace BibliotecaCLases.Controlador
 
             return 0;
         }
-        /// <summary>
-        /// Encuentra el último número de legajo utilizado en el diccionario de estudiantes registrados y actualiza el contador de legajos.
-        /// </summary>
+
         private int ObtieneLegajo()
         {
             _ultimoLegajoEnArchivo++;
@@ -77,9 +76,25 @@ namespace BibliotecaCLases.Controlador
             Serializador.GuardarAJson(_ultimoLegajoEnArchivo, pathLegajo);
             return _ultimoLegajoEnArchivo;
 
-
         }
 
+        static string GenerarContrasenaAleatoria(int longitudMinima, int longitudMaxima)
+        {
+            const string caracteresPermitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=<>?";
+
+            Random random = new Random();
+            int longitud = random.Next(longitudMinima, longitudMaxima + 1); 
+            StringBuilder contrasena = new StringBuilder();
+
+            for (int i = 0; i < longitud; i++)
+            {
+                int indice = random.Next(caracteresPermitidos.Length);
+                char caracterAleatorio = caracteresPermitidos[indice];
+                contrasena.Append(caracterAleatorio);
+            }
+
+            return contrasena.ToString(); // Puedes omitir ToString() aquí
+        }
         /// <summary>
         /// Registra un nuevo estudiante con la información proporcionada y lo agrega al diccionario de estudiantes registrados.
         /// </summary>
@@ -88,15 +103,16 @@ namespace BibliotecaCLases.Controlador
         /// <param name="dni">El DNI del estudiante.</param>
         /// <param name="correo">El correo del estudiante.</param>
         /// <param name="direccion">La dirección del estudiante.</param>
-        /// <param name="telefono">El teléfono del estudiante.</param>
-        /// <param name="claveProvisional">La clave provisional del estudiante.</param>
+        /// <param name="telefono">El teléfono del estudiante.</param>      
+        /// <param name="telefono">El teléfono del estudiante.</param>      
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
-        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
+        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, bool debeCambiar)
         {
 
-
+            string claveProvisional = GenerarContrasenaAleatoria(7, 12);
             Estudiante nuevoEstudiante = new(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
             nuevoEstudiante.Legajo = ObtieneLegajo();
+
             dictEstudiantesRegistrados.Add(nuevoEstudiante.Legajo, nuevoEstudiante);
 
             Serializador.ActualizarJson(nuevoEstudiante, nuevoEstudiante.Legajo, _path);
@@ -145,6 +161,17 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
+        public Estudiante ObtenerEstudiantePorLegajo(int legajo)
+        {
+            if (dictEstudiantesRegistrados.ContainsKey(legajo))
+            {
+                return dictEstudiantesRegistrados[legajo];
+            }
+            else
+            {
+                return null;
+            }
+        }
 
     }
 }

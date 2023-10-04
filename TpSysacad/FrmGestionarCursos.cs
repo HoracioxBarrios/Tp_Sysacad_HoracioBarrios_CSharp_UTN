@@ -1,10 +1,12 @@
 ﻿using BibliotecaCLases.Controlador;
 using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +16,12 @@ namespace Formularios
 {
     public partial class FrmGestionarCursos : Form
     {
-        private string _usuario;
+        private Usuario _usuario;
+        private CrudEstudiante crudEstudiante;
         private string _cursoSeleccionado;
-        public FrmGestionarCursos(string usuario)
+        public FrmGestionarCursos(Usuario usuario)
         {
+            crudEstudiante = new CrudEstudiante();
             _usuario = usuario;
             InitializeComponent();
             MostrarBtn(_usuario);
@@ -68,7 +72,6 @@ namespace Formularios
                 string elementoSeleccionado = listBoxCursos.SelectedItem.ToString();
 
                 labelResultado.Text = "Seleccionaste: " + elementoSeleccionado;
-
                 string[] partes = elementoSeleccionado.Split(' ');
 
                 if (partes.Length >= 2)
@@ -77,17 +80,17 @@ namespace Formularios
                 }
             }
         }
-        private void MostrarBtn(string usuario)
+        private void MostrarBtn(Usuario usuario)
         {
             BtnAgregarCurso.Visible = false;
             BtnEditarCursos.Visible = false;
             BtnEliminarCursos.Visible = false;
             btnInscripcion.Visible = false;
-            if (usuario == "Estudiante")
+            if (usuario.TipoUsuario.ToString() == "Estudiante")
             {
                 btnInscripcion.Visible = true;
             }
-            else if (usuario == "Administrador")
+            else if (usuario.TipoUsuario.ToString() == "Administrador")
             {
                 BtnAgregarCurso.Visible = true;
                 BtnEditarCursos.Visible = true;
@@ -97,7 +100,28 @@ namespace Formularios
 
         private void btnInscripcion_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Curso agregado con éxito: " + _cursoSeleccionado);
+            if (string.IsNullOrEmpty(_cursoSeleccionado))
+            {
+                MessageBox.Show("Debe seleccionar un curso", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int.TryParse(_usuario.Legajo.ToString(), out int legajo);
+                Estudiante estudiante = crudEstudiante.ObtenerEstudiantePorLegajo(legajo);
+
+                if (estudiante != null)
+                {
+                    estudiante.CursosInscriptos.Add(_cursoSeleccionado);
+                    string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
+                    Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
+
+                    MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado}");
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se encontró al estudiante.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
