@@ -8,9 +8,9 @@
     "Apellido": "cantero",
     "Correo": "correo@nuevo.com",
     "Dni": "011",
-    "Clave": "11",
+    "Clave": "$2a$08$A1bSO/xlObwJyV5DFL/9gelgPxqy5n.Er0ljA6.gpZZFgiYEn5Epe",
     "TipoUsuario": 0,
-    "Legajo": 1001
+    "Legajo": 1016
   },
   "1002": {
     "Debecambiar": false,
@@ -21,7 +21,7 @@
     "Apellido": "iry",
     "Correo": "correo@nuevo.com",
     "Dni": "022",
-    "Clave": "22",
+    "Clave": "$2a$08$o5L4UUzH0MARIxLGytgR3uuWQRLkF5ZE8Kg8lPMfiFQ9yeZU.7Ia6",
     "TipoUsuario": 0,
     "Legajo": 1002
   },
