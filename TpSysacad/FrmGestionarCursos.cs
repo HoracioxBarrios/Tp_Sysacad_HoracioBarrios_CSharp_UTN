@@ -47,21 +47,21 @@ namespace Formularios
         private void FrmGestionarCursos_Load(object sender, EventArgs e)
         {
             List<Curso> listaCursos = new List<Curso>();
+            Dictionary<int, Curso> dictCursos;
 
-            Curso curso1 = new Curso("Curso 1", "001", "Descripción del Curso 1", "30");
-            Curso curso2 = new Curso("Curso 2", "002", "Descripción del Curso 2", "25");
-            Curso curso3 = new Curso("Curso 3", "003", "Descripción del Curso 3", "20");
+            dictCursos = new Dictionary<int, Curso>();
+            string path = PathManager.ObtenerRuta("Data", "DictCurso.json");
 
-            listaCursos.Add(curso1);
-            listaCursos.Add(curso2);
-            listaCursos.Add(curso3);
+            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
+
 
             listBoxCursos.Items.Add("CODIGO        CURSO          DESCRIPCION                        CUPO MAXIMO   CUPOS DISPONIBLES");
 
-            foreach (Curso curso in listaCursos)
+            foreach (KeyValuePair<int, Curso> kvp in dictCursos)
             {
-                listBoxCursos.Items.Add(curso);
+                listBoxCursos.Items.Add(kvp.Value);
             }
+
 
         }
 
@@ -70,7 +70,7 @@ namespace Formularios
             if (listBoxCursos.SelectedIndex != -1)
             {
                 string elementoSeleccionado = listBoxCursos.SelectedItem.ToString();
-
+                //Curso cursoSeleccionado = listBoxCursos.SelectedItem;
                 labelResultado.Text = "Seleccionaste: " + elementoSeleccionado;
                 string[] partes = elementoSeleccionado.Split(' ');
 
