@@ -1,6 +1,6 @@
 {
   "1": {
-    "Nombre": "programacion",
+    "Nombre": "cocinaGurmet",
     "Codigo": "1",
     "Descripcion": "curso",
     "CupoMaximo": "20",
@@ -14,7 +14,7 @@
     "CuposDisponibles": "10"
   },
   "6": {
-    "Nombre": "kjfks",
+    "Nombre": "Matematicas",
     "Codigo": "6",
     "Descripcion": "dsfsdf",
     "CupoMaximo": "10",
@@ -23,8 +23,8 @@
   "45": {
     "Nombre": "prueba",
     "Codigo": "45",
-    "Descripcion": "nuevo curso",
-    "CupoMaximo": "1",
+    "Descripcion": "nuevo curso modificado",
+    "CupoMaximo": "100",
     "CuposDisponibles": "1"
   },
   "54": {

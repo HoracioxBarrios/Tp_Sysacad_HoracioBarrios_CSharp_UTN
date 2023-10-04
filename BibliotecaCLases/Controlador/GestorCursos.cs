@@ -20,7 +20,7 @@ namespace BibliotecaCLases.Controlador
 
         public GestorCursos(string nombre, string codigo, string descripcion, string cuposDisponibles)
         {
-            validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cuposDisponibles);
+            ValidadorDatosCurso  validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cuposDisponibles);
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
             if (_validado)
