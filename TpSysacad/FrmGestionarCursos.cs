@@ -36,7 +36,22 @@ namespace Formularios
 
         private void BtnEditarCursos_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(_cursoSeleccionado))
+            {
+                // Crear una instancia del formulario de edición y pasar el curso seleccionado
+                FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado);
+                frmEditarCurso.ShowDialog();
 
+                // Actualizar la lista de cursos en ListBox después de la edición (si es necesario)
+                // ...
+
+                // También puedes mostrar un mensaje de éxito o error después de la edición
+                // ...
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un curso para editar.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnEliminarCursos_Click(object sender, EventArgs e)

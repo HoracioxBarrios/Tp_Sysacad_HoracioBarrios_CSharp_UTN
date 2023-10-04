@@ -62,5 +62,13 @@ namespace BibliotecaCLases.Controlador
         {
             crudCurso.AgregarCurso(nombre, codigo, descripcion, cupoMaximo);
         }
+
+        public string EditarCurso(string nombre, string codigo, string nombreAtributo, string nuevoValor)
+        {
+            string resultadoEdicion = crudCurso.EditarCurso(nombre, codigo, nombreAtributo, nuevoValor);
+            return resultadoEdicion;
+        }
+
+
     }
 }

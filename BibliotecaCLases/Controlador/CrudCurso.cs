@@ -55,36 +55,56 @@ namespace BibliotecaCLases.Controlador
             Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
         }
 
-        public string EditarCurso(string codigo, string nombreAtributo, string nuevoValor)
+        public string EditarCurso(string codigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
         {
             int.TryParse(codigo, out int codigoCurso);
+
+            try
+            {
+                if (dictCursos.ContainsKey(codigoCurso))
+                {
+                    Curso cursoExistente = dictCursos[codigoCurso];
+                    // Realizar validaciones si es necesario y modificar el curso
+                    cursoExistente.Nombre = nuevoNombre;
+                    cursoExistente.Descripcion = nuevaDescripcion;
+                    cursoExistente.CupoMaximo = nuevoCupoMaximo;
+
+                    // Actualizar el archivo JSON con el curso modificado
+                    Serializador.ActualizarJson(cursoExistente, codigoCurso, _path);
+                    return "Se modificó correctamente";
+                }
+                else
+                {
+                    return "El curso no existe en el diccionario.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que ocurra al actualizar el archivo JSON
+                return "Error al guardar los cambios: " + ex.Message;
+            }
+        }
+
+
+
+        public Curso ObtenerCursoPorCodigo(string codigo)
+        {
+            int.TryParse(codigo, out int codigoCurso);
+
             if (dictCursos.ContainsKey(codigoCurso))
             {
-                Curso cursoExistente = dictCursos[codigoCurso];
-                // Realizar validaciones si es necesario y modificar el curso
-                switch (nombreAtributo)
-                {
-                    case "Nombre":
-                        cursoExistente.Nombre = nuevoValor;
-                        break;
-                    case "Descripcion":
-                        cursoExistente.Descripcion = nuevoValor;
-                        break;
-                    case "CupoMaximo":
-                        cursoExistente.CupoMaximo = nuevoValor;
-                        break;
-                    default:
-                        return "El nombre del atributo no es válido.";
-                }
-                // Actualizar el archivo JSON con el curso modificado
-                Serializador.ActualizarJson(cursoExistente, codigoCurso, _path);
-                return "Se modificó correctamente";
+                return dictCursos[codigoCurso];
             }
             else
             {
-                return "El curso no existe en el diccionario.";
+                // En lugar de null, puedes devolver un nuevo objeto Curso vacío o manejar el caso según tus necesidades.
+                return new Curso("", "", "", "");
             }
         }
+
+
+
+
         public string EliminarCurso(string codigo)
         {
             int.TryParse(codigo, out int codigoCurso);
