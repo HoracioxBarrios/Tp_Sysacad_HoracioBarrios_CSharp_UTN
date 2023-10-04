@@ -33,10 +33,10 @@ namespace BibliotecaCLases.Controlador
         /// <param name="direccion">La dirección del estudiante.</param>
         /// <param name="telefono">El teléfono del estudiante.</param>
         /// <param name="claveProvisional">La clave provisional del estudiante.</param>
-        public GestorRegistroEstudiantes(string nombre ,string apellido ,string dni, string correo, string direccion,string telefono , string claveProvisional)
+        public GestorRegistroEstudiantes(string nombre ,string apellido ,string dni, string correo, string direccion,string telefono)
         {
             // aca tener todos los datos mientras vemos si son correctos 
-             validadorDatosRegistro =  new ValidadorDatosRegistro(nombre, apellido,dni, correo, direccion, telefono, claveProvisional);
+             validadorDatosRegistro =  new ValidadorDatosRegistro(nombre, apellido,dni, correo, direccion, telefono);
 
             _validado = validadorDatosRegistro.Validar(out string mensajeError);
          
@@ -49,7 +49,7 @@ namespace BibliotecaCLases.Controlador
                 _correo = correo;
                 _direccion = direccion;
                 _telefono = telefono;
-                _claveProvisional = claveProvisional;
+              
             }
             else
             {
@@ -102,10 +102,10 @@ namespace BibliotecaCLases.Controlador
         /// <param name="telefono">El teléfono del estudiante.</param>
         /// <param name="claveProvisional">La clave provisional del estudiante.</param>
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
-        public void RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
+        public void RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, bool debeCambiar)
         {
             
-            crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
+            crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, debeCambiar);
         }
 
         /// <summary>

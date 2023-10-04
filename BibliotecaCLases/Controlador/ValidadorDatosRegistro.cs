@@ -14,9 +14,9 @@ namespace BibliotecaCLases.Controlador
         string correo;
         string direccion;
         string telefono;
-        string claveProvisional;
+       
 
-        public ValidadorDatosRegistro(string nombre_ingresado, string apellido_ingresado, string dni_ingresado, string correo_ingresado, string direccion_ingresado, string telefono_ingresado, string claveProvisional_ingresado)
+        public ValidadorDatosRegistro(string nombre_ingresado, string apellido_ingresado, string dni_ingresado, string correo_ingresado, string direccion_ingresado, string telefono_ingresado)
         {
             nombre = nombre_ingresado;
             apellido = apellido_ingresado;
@@ -24,7 +24,7 @@ namespace BibliotecaCLases.Controlador
             correo = correo_ingresado;
             direccion = direccion_ingresado;
             telefono = telefono_ingresado;
-            claveProvisional = claveProvisional_ingresado;
+          
         }
         public bool Validar(out string mensajeError)
         {
@@ -66,12 +66,7 @@ namespace BibliotecaCLases.Controlador
                 return false;
             }
 
-            if (string.IsNullOrEmpty(claveProvisional))
-            {
-                mensajeError = "La contraseña provisional no puede estar vacía.";
-                return false;
-            }
-
+    
             return true;
         }
     }
