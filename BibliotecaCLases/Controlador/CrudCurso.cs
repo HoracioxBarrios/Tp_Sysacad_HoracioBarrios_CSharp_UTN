@@ -11,16 +11,16 @@ namespace BibliotecaCLases.Controlador
 {
     public class CrudCurso
     {
-        private Dictionary<string, Curso> dictCursos;
+        private Dictionary<int, Curso> dictCursos;
         private string _path;
 
         public CrudCurso()
         {
-            dictCursos = new Dictionary<string, Curso>();
+            dictCursos = new Dictionary<int, Curso>();
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
 
             // Leer el diccionario desde el archivo JSON 
-            dictCursos = Serializador.LeerJson<Dictionary<string, Curso>>(_path);
+            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
         }
 
         public string Path
@@ -29,9 +29,6 @@ namespace BibliotecaCLases.Controlador
             set { _path = value; }
         }
 
-<<<<<<< HEAD
-        public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
-=======
         public int VerificarCodigoCurso(string codigo)
         {
             if (dictCursos != null)
@@ -46,33 +43,24 @@ namespace BibliotecaCLases.Controlador
         }
 
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
->>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
         {
-            if (!dictCursos.ContainsKey(codigo))
-            {
-                Curso nuevoCurso = new Curso(nombre.ToUpper(), codigo, descripcion, cupoMaximo);
-                dictCursos.Add(codigo, nuevoCurso);
+            int.TryParse(codigo, out int codigoCurso);
+            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo);
 
-                // Actualizar el archivo JSON con el nuevo curso
-                Serializador.ActualizarJson(nuevoCurso, codigo, _path);
-
-                return "Se Agregó correctamente";
-            }
-<<<<<<< HEAD
-            else
+            if (dictCursos != null)
             {
-                return "El código ya existe en el diccionario.";
+                dictCursos.Add(codigoCurso, nuevoCurso);
             }
-=======
->>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
+
+            Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
         }
 
         public string EditarCurso(string codigo, string nombreAtributo, string nuevoValor)
         {
-            if (dictCursos.ContainsKey(codigo))
+            int.TryParse(codigo, out int codigoCurso);
+            if (dictCursos.ContainsKey(codigoCurso))
             {
-                Curso cursoExistente = dictCursos[codigo];
-
+                Curso cursoExistente = dictCursos[codigoCurso];
                 // Realizar validaciones si es necesario y modificar el curso
                 switch (nombreAtributo)
                 {
@@ -88,9 +76,8 @@ namespace BibliotecaCLases.Controlador
                     default:
                         return "El nombre del atributo no es válido.";
                 }
-
                 // Actualizar el archivo JSON con el curso modificado
-                Serializador.ActualizarJson(cursoExistente, codigo, _path);
+                Serializador.ActualizarJson(cursoExistente, codigoCurso, _path);
                 return "Se modificó correctamente";
             }
             else
@@ -98,23 +85,26 @@ namespace BibliotecaCLases.Controlador
                 return "El curso no existe en el diccionario.";
             }
         }
-
         public string EliminarCurso(string codigo)
         {
-            if (dictCursos.ContainsKey(codigo))
+            int.TryParse(codigo, out int codigoCurso);
+            if (dictCursos.ContainsKey(codigoCurso))
             {
                 // Si el curso existe en el diccionario, elimínalo
-                dictCursos.Remove(codigo);
-
+                dictCursos.Remove(codigoCurso);
                 // Actualizar el archivo JSON sin el curso eliminado
                 Serializador.GuardarAJson(dictCursos, _path);
-
                 return "Se Eliminó el curso";
             }
             else
             {
                 return "El curso no existe en el diccionario.";
             }
+        }
+
+        public Dictionary<int, Curso> ObtenerDictCursos()
+        {
+            return dictCursos;
         }
     }
 }
