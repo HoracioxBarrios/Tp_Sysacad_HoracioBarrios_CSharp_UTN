@@ -33,6 +33,7 @@
             label1 = new Label();
             label2 = new Label();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -82,11 +83,22 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(292, 213);
+            button3.Name = "button3";
+            button3.Size = new Size(186, 34);
+            button3.TabIndex = 4;
+            button3.Text = "Consultar Horario";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // FormPanelUsuario
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -105,5 +117,6 @@
         private Label label1;
         private Label label2;
         private Button button2;
+        private Button button3;
     }
 }
