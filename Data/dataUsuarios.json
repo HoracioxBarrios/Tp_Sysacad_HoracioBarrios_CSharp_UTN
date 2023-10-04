@@ -82,17 +82,5 @@
     "Dni": "6565",
     "Clave": "6565",
     "TipoUsuario": 1
-  },
-  "1000": {
-    "Debecambiar": false,
-    "Legajo": 1012,
-    "Direccion": "aCasa",
-    "Telefono": "156565",
-    "Nombre": "gaga",
-    "Apellido": "lady",
-    "Correo": "gaga@gmail.com",
-    "Dni": "4747",
-    "Clave": "4747",
-    "TipoUsuario": 1
   }
 }

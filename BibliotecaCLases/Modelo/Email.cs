@@ -6,33 +6,42 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
+using MailKit;
+using MailKit.Net.Smtp;
+using MimeKit;
+
 namespace BibliotecaCLases.Modelo
 {
     public static class Email
     {
-        public static void SendEmail(string email, string subject, string body)
+        public static void SendMessageSmtp(string email)
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com");
-            smtpClient.Port = 587;
-            smtpClient.Credentials = new NetworkCredential("email@gmail.com", "password");
-            smtpClient.EnableSsl = true;
-
-            var message = new MailMessage();
-            message.From = new MailAddress("email@gmail.com");
-            message.To.Add(new MailAddress(email));
-            message.Subject = subject;
-            message.Body = body;
-
-
-            try
+            // Compose a message
+            MimeMessage mail = new MimeMessage();
+            mail.From.Add(new MailboxAddress("Excited Admin", "foo@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org"));
+            mail.To.Add(new MailboxAddress("Excited User", email));
+            mail.Subject = "Registro de alumno";
+            mail.Body = new TextPart("plain")
             {
-                smtpClient.Send(message);
-            }
-            catch (Exception ex)
+                Text = @"Registro exitoso, bienvenido al nuevo SistemaSysacad",
+            };
+
+            // Send it!
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                Console.WriteLine(ex.Message);
+                // XXX - Should this be a little different?
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                client.Connect("smtp.mailgun.org", 587, false);
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+                client.Authenticate("postmaster@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org", "d5727e5f2d6529b1da2e481d429215a4-77316142-c6d8aaa5");
+
+                client.Send(mail);
+                client.Disconnect(true);
             }
         }
+
+
 
 
         /// <summary>
