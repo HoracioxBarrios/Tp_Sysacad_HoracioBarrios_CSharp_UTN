@@ -21,13 +21,14 @@ namespace Formularios
             desde form login a form panel adm o desde form login a form alumno si es alumno.
             using cierra este form y libera memoria.
              */
-            using(formLogin){
+            using (formLogin)
+            {
                 Application.Run(formLogin);
 
                 formLogin.Close();
 
             }
-            
+
         }
     }
 }

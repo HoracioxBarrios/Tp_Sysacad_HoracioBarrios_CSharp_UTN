@@ -2,6 +2,7 @@
 using BibliotecaCLases.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +11,16 @@ namespace BibliotecaCLases.Controlador
 {
     public class CrudCurso
     {
-        private Dictionary<int, Curso> dictCursos;
+        private Dictionary<string, Curso> dictCursos;
         private string _path;
 
         public CrudCurso()
         {
-            dictCursos = new Dictionary<int, Curso>();
+            dictCursos = new Dictionary<string, Curso>();
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
-            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
+
+            // Leer el diccionario desde el archivo JSON 
+            dictCursos = Serializador.LeerJson<Dictionary<string, Curso>>(_path);
         }
 
         public string Path
@@ -26,6 +29,9 @@ namespace BibliotecaCLases.Controlador
             set { _path = value; }
         }
 
+<<<<<<< HEAD
+        public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+=======
         public int VerificarCodigoCurso(string codigo)
         {
             if (dictCursos != null)
@@ -40,38 +46,75 @@ namespace BibliotecaCLases.Controlador
         }
 
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+>>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
         {
-            if (int.TryParse(codigo, out int codigoCurso))
+            if (!dictCursos.ContainsKey(codigo))
             {
-                if (!dictCursos.ContainsKey(codigoCurso))
-                {
-                    Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo);
+                Curso nuevoCurso = new Curso(nombre.ToUpper(), codigo, descripcion, cupoMaximo);
+                dictCursos.Add(codigo, nuevoCurso);
 
-                    if (dictCursos != null)
-                    {
-                        dictCursos.Add(codigoCurso, nuevoCurso);
-                    }
+                // Actualizar el archivo JSON con el nuevo curso
+                Serializador.ActualizarJson(nuevoCurso, codigo, _path);
 
-                    Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
-                }
-                else
+                return "Se Agregó correctamente";
+            }
+<<<<<<< HEAD
+            else
+            {
+                return "El código ya existe en el diccionario.";
+            }
+=======
+>>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
+        }
+
+        public string EditarCurso(string codigo, string nombreAtributo, string nuevoValor)
+        {
+            if (dictCursos.ContainsKey(codigo))
+            {
+                Curso cursoExistente = dictCursos[codigo];
+
+                // Realizar validaciones si es necesario y modificar el curso
+                switch (nombreAtributo)
                 {
-                    Console.WriteLine("El código ya existe en el diccionario.");
+                    case "Nombre":
+                        cursoExistente.Nombre = nuevoValor;
+                        break;
+                    case "Descripcion":
+                        cursoExistente.Descripcion = nuevoValor;
+                        break;
+                    case "CupoMaximo":
+                        cursoExistente.CupoMaximo = nuevoValor;
+                        break;
+                    default:
+                        return "El nombre del atributo no es válido.";
                 }
+
+                // Actualizar el archivo JSON con el curso modificado
+                Serializador.ActualizarJson(cursoExistente, codigo, _path);
+                return "Se modificó correctamente";
+            }
+            else
+            {
+                return "El curso no existe en el diccionario.";
             }
         }
 
-        public void ModificarCurso(int codigo, string nombre, string descripcion, string cupoMaximo)
+        public string EliminarCurso(string codigo)
         {
-        }
+            if (dictCursos.ContainsKey(codigo))
+            {
+                // Si el curso existe en el diccionario, elimínalo
+                dictCursos.Remove(codigo);
 
-        public void EliminarCurso(int codigo)
-        {
-        }
+                // Actualizar el archivo JSON sin el curso eliminado
+                Serializador.GuardarAJson(dictCursos, _path);
 
-        public Dictionary<int, Curso> ObtenerDictCursos()
-        {
-            return dictCursos;
+                return "Se Eliminó el curso";
+            }
+            else
+            {
+                return "El curso no existe en el diccionario.";
+            }
         }
     }
 }

@@ -6,11 +6,20 @@
     "CupoMaximo": "20",
     "CuposDisponibles": "20"
   },
+<<<<<<< HEAD
+  "1145": {
+    "Nombre": "Cocina",
+    "Codigo": "1145",
+    "Descripcion": "Cocina Mediterranea",
+    "CupoMaximo": "30",
+    "CuposDisponibles": "30"
+=======
   "2": {
     "Nombre": "progra II",
     "Codigo": "2",
     "Descripcion": "ssds",
     "CupoMaximo": "10",
     "CuposDisponibles": "10"
+>>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
   }
 }
