@@ -12,5 +12,26 @@
     "Descripcion": "ssds",
     "CupoMaximo": "10",
     "CuposDisponibles": "10"
+  },
+  "6": {
+    "Nombre": "kjfks",
+    "Codigo": "6",
+    "Descripcion": "dsfsdf",
+    "CupoMaximo": "10",
+    "CuposDisponibles": "10"
+  },
+  "45": {
+    "Nombre": "prueba",
+    "Codigo": "45",
+    "Descripcion": "nuevo curso",
+    "CupoMaximo": "1",
+    "CuposDisponibles": "1"
+  },
+  "54": {
+    "Nombre": "prueba dos",
+    "Codigo": "54",
+    "Descripcion": "sdfdfd",
+    "CupoMaximo": "10",
+    "CuposDisponibles": "10"
   }
 }
