@@ -1,5 +1,5 @@
 {
-  "1001": {
+  "1024": {
     "Debecambiar": false,
     "Direccion": null,
     "Telefono": null,
@@ -8,11 +8,11 @@
     "Apellido": "cantero",
     "Correo": "correo@nuevo.com",
     "Dni": "011",
-    "Clave": "$2a$08$A1bSO/xlObwJyV5DFL/9gelgPxqy5n.Er0ljA6.gpZZFgiYEn5Epe",
+    "Clave": "$2a$08$q8/pWkBMGyoaaNxgo00RhO7mv2vD1vYAPV.b7HrUePOxyRkIDq6Ou",
     "TipoUsuario": 0,
-    "Legajo": 1016
+    "Legajo": 1024
   },
-  "1002": {
+  "1025": {
     "Debecambiar": false,
     "Direccion": null,
     "Telefono": null,
@@ -21,51 +21,21 @@
     "Apellido": "iry",
     "Correo": "correo@nuevo.com",
     "Dni": "022",
-    "Clave": "$2a$08$o5L4UUzH0MARIxLGytgR3uuWQRLkF5ZE8Kg8lPMfiFQ9yeZU.7Ia6",
+    "Clave": "$2a$08$xxpEwu/Ejx8r3jD4lZkLee2H4ZY18FBCTaWVt8Zfi5xs8Edh8gvzi",
     "TipoUsuario": 0,
-    "Legajo": 1002
+    "Legajo": 1025
   },
-  "1000": {
-    "Debecambiar": true,
-    "Direccion": "salta",
-    "Telefono": "151515",
-    "CursosInscriptos": [],
-    "Nombre": "lio",
-    "Apellido": "messi",
-    "Correo": "lio@gmail.com",
-    "Dni": "313131",
-    "Clave": "1515",
-    "TipoUsuario": 1,
-    "Legajo": 1003
-  },
-  "1004": {
-    "Debecambiar": false,
-    "Direccion": "san marcos",
-    "Telefono": "150202",
-    "CursosInscriptos": [
-      "002",
-      "003",
-      "002"
-    ],
-    "Nombre": "pepe",
-    "Apellido": "argento",
-    "Correo": "pep@gmail.com",
-    "Dni": "111",
-    "Clave": "111",
-    "TipoUsuario": 1,
-    "Legajo": 1004
-  },
-  "1005": {
+  "1026": {
     "Debecambiar": false,
     "Direccion": "calle 123",
-    "Telefono": "11235",
+    "Telefono": "1145",
     "CursosInscriptos": [],
-    "Nombre": "alexis",
-    "Apellido": "aranda",
-    "Correo": "aran@gmail.com",
-    "Dni": "4578",
-    "Clave": "!sT-eIu$L(",
+    "Nombre": "Alexis",
+    "Apellido": "Aranda",
+    "Correo": "ara@gmail.com",
+    "Dni": "456",
+    "Clave": "$2a$08$57G84avQLYos8oeO2Qp6Bu9vUM8KqIVBtL1KOP4sJ3pnS2VEHOrzq",
     "TipoUsuario": 1,
-    "Legajo": 1005
+    "Legajo": 1026
   }
 }
