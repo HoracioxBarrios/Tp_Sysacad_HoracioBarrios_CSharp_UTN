@@ -39,7 +39,8 @@ namespace BibliotecaCLases
             nuevoEstudiante.Legajo = contadorLegajos;
             contadorLegajos++;
 
-            // Se agrega nuevoEstudiante a una lista o una base de datos de estudiantes registrados.
+            nuevoEstudiante.CursosInscriptos = new List<string>();
+
             estudiantesRegistrados.Add(nuevoEstudiante);
 
             return nuevoEstudiante;

@@ -12,6 +12,7 @@ namespace BibliotecaCLases.Modelo
         private string _telefono;
         private string _clave;
         private bool _debecambiar;
+        private List<string> _cursosInscriptos;
 
         public Estudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional, bool debeCambiar)
             : base(nombre, apellido, dni, correo, claveProvisional, 1)
@@ -20,6 +21,7 @@ namespace BibliotecaCLases.Modelo
             _direccion = direccion;
             _telefono = telefono;
             _clave = claveProvisional;
+            _cursosInscriptos = new List<string>();
         }
 
         public bool Debecambiar
@@ -27,8 +29,6 @@ namespace BibliotecaCLases.Modelo
             get { return _debecambiar; }
             set { _debecambiar = value; }
         }
-
-
 
         public string Direccion
         {
@@ -41,5 +41,10 @@ namespace BibliotecaCLases.Modelo
             set { _telefono = value; }
         }
 
+        public List<string> CursosInscriptos
+        {
+            get { return _cursosInscriptos; }
+            set { _cursosInscriptos = value; }
+        }
     }
 }

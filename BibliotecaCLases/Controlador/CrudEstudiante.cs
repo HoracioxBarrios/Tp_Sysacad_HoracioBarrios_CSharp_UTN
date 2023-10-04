@@ -161,6 +161,17 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
+        public Estudiante ObtenerEstudiantePorLegajo(int legajo)
+        {
+            if (dictEstudiantesRegistrados.ContainsKey(legajo))
+            {
+                return dictEstudiantesRegistrados[legajo];
+            }
+            else
+            {
+                return null;
+            }
+        }
 
     }
 }
