@@ -10,7 +10,6 @@ namespace BibliotecaCLases.Modelo
     {
         private string _direccion;
         private string _telefono;
-        private string _clave;
         private bool _debecambiar;
         private List<string> _cursosInscriptos;
 
@@ -20,7 +19,7 @@ namespace BibliotecaCLases.Modelo
             _debecambiar = debeCambiar;
             _direccion = direccion;
             _telefono = telefono;
-            _clave = claveProvisional;
+        
             _cursosInscriptos = new List<string>();
         }
 
