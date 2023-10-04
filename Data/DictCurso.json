@@ -5,5 +5,12 @@
     "Descripcion": "curso",
     "CupoMaximo": "20",
     "CuposDisponibles": "20"
+  },
+  "1145": {
+    "Nombre": "Cocina",
+    "Codigo": "1145",
+    "Descripcion": "Cocina Mediterranea",
+    "CupoMaximo": "30",
+    "CuposDisponibles": "30"
   }
 }
