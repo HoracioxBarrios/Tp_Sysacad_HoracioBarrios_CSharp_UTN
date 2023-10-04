@@ -46,5 +46,17 @@
     "Clave": "111",
     "TipoUsuario": 1,
     "Legajo": 1004
+  },
+  "1005": {
+    "Debecambiar": true,
+    "Direccion": "av cordoba",
+    "Telefono": "111111",
+    "Nombre": "dianyeli",
+    "Apellido": "yri",
+    "Correo": "dian@gmail.com",
+    "Dni": "123",
+    "Clave": "123",
+    "TipoUsuario": 1,
+    "Legajo": 1005
   }
 }
