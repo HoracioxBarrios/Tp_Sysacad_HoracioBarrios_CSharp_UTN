@@ -19,7 +19,7 @@ namespace BibliotecaCLases.Controlador
             dictCursos = new Dictionary<string, Curso>();
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
 
-            // Leer el diccionario desde el archivo JSON
+            // Leer el diccionario desde el archivo JSON 
             dictCursos = Serializador.LeerJson<Dictionary<string, Curso>>(_path);
         }
 
@@ -29,7 +29,24 @@ namespace BibliotecaCLases.Controlador
             set { _path = value; }
         }
 
+<<<<<<< HEAD
         public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+=======
+        public int VerificarCodigoCurso(string codigo)
+        {
+            if (dictCursos != null)
+            {
+                if (dictCursos.Any(kv => kv.Value.Codigo == codigo))
+                {
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+
+        public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+>>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
         {
             if (!dictCursos.ContainsKey(codigo))
             {
@@ -41,10 +58,13 @@ namespace BibliotecaCLases.Controlador
 
                 return "Se Agregó correctamente";
             }
+<<<<<<< HEAD
             else
             {
                 return "El código ya existe en el diccionario.";
             }
+=======
+>>>>>>> b25d6af718c6778485904dbc354ea463b1f67eda
         }
 
         public string EditarCurso(string codigo, string nombreAtributo, string nuevoValor)

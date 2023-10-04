@@ -47,16 +47,18 @@ namespace Formularios
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            BtnGestionarCursos_Click( sender,  e);
+            BtnGestionarCursos_Click(sender, e);
         }
         private void MostrarBtn(string usuario)
         {
             button2.Visible = false;
             BtnGestionarCursos.Visible = false;
             button1.Visible = false;
+            button3.Visible = false;
             if (usuario == "Estudiante")
             {
                 button2.Visible = true;
+                button3.Visible = true;
             }
             else if (usuario == "Administrador")
             {
@@ -65,5 +67,9 @@ namespace Formularios
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

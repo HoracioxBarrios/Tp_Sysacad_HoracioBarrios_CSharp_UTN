@@ -46,7 +46,18 @@ namespace BibliotecaCLases.Controlador
         {
             get { return _mensajeError; }
         }
+        public bool verificarDatosExistentes()
+        {
+            int numeroError = crudCurso.VerificarCodigoCurso(_codigo);
 
+            if (numeroError == 1)
+            {
+                _mensajeError = "Error: El código ya está registrado.";
+                return false;
+            }
+
+            return true;
+        }
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
             crudCurso.AgregarCurso(nombre, codigo, descripcion, cupoMaximo);
