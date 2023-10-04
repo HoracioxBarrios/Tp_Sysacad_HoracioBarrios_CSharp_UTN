@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using BibliotecaCLases.Modelo;
 using BibliotecaCLases.Utilidades;
 
@@ -9,12 +10,11 @@ namespace BibliotecaCLases.Controlador
 {
     public class CrudEstudiante
     {
-        private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
         private static int _contadorLegajos = 1000;
         private string _path;
         public string pathUltimoLegajo;
         private int _ultimoLegajoEnArchivo;
-
+        private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
 
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace BibliotecaCLases.Controlador
         public CrudEstudiante()
         {
             dictEstudiantesRegistrados = new Dictionary<int, Estudiante>();
-            _path = PathManager.ObtenerRuta("Data", "dataUsuarios.json");
+            _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
             dictEstudiantesRegistrados = Serializador.LeerJson<Dictionary<int, Estudiante>>(_path);
             pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
             _ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
@@ -68,25 +68,33 @@ namespace BibliotecaCLases.Controlador
 
             return 0;
         }
-        /// <summary>
-        /// Encuentra el último número de legajo utilizado en el diccionario de estudiantes registrados y actualiza el contador de legajos.
-        /// </summary>
-        private void EncuentraUltimolegajo()
+
+        private int ObtieneLegajo()
         {
-            if (dictEstudiantesRegistrados != null && dictEstudiantesRegistrados.Count > 0)
-            {
-                // Obtén el último valor (Estudiante) del diccionario
-                Estudiante ultimoEstudiante = dictEstudiantesRegistrados[dictEstudiantesRegistrados.Keys.Max()];
-
-                _ultimoLegajoEnArchivo ++;
-        
-                string pathLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
-
-                Serializador.GuardarAJson(_ultimoLegajoEnArchivo, pathLegajo);
-            }
+            _ultimoLegajoEnArchivo++;
+            string pathLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
+            Serializador.GuardarAJson(_ultimoLegajoEnArchivo, pathLegajo);
+            return _ultimoLegajoEnArchivo;
 
         }
 
+        static string GenerarContrasenaAleatoria(int longitudMinima, int longitudMaxima)
+        {
+            const string caracteresPermitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=<>?";
+
+            Random random = new Random();
+            int longitud = random.Next(longitudMinima, longitudMaxima + 1); 
+            StringBuilder contrasena = new StringBuilder();
+
+            for (int i = 0; i < longitud; i++)
+            {
+                int indice = random.Next(caracteresPermitidos.Length);
+                char caracterAleatorio = caracteresPermitidos[indice];
+                contrasena.Append(caracterAleatorio);
+            }
+
+            return contrasena.ToString(); // Puedes omitir ToString() aquí
+        }
         /// <summary>
         /// Registra un nuevo estudiante con la información proporcionada y lo agrega al diccionario de estudiantes registrados.
         /// </summary>
@@ -95,19 +103,19 @@ namespace BibliotecaCLases.Controlador
         /// <param name="dni">El DNI del estudiante.</param>
         /// <param name="correo">El correo del estudiante.</param>
         /// <param name="direccion">La dirección del estudiante.</param>
-        /// <param name="telefono">El teléfono del estudiante.</param>
-        /// <param name="claveProvisional">La clave provisional del estudiante.</param>
+        /// <param name="telefono">El teléfono del estudiante.</param>      
+        /// <param name="telefono">El teléfono del estudiante.</param>      
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
-        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, string claveProvisional,bool debeCambiar)
+        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, bool debeCambiar)
         {
-            this.EncuentraUltimolegajo();
 
-            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
-            nuevoEstudiante.Legajo = _ultimoLegajoEnArchivo;
+            string claveProvisional = GenerarContrasenaAleatoria(7, 12);
+            Estudiante nuevoEstudiante = new(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
+            nuevoEstudiante.Legajo = ObtieneLegajo();
 
             dictEstudiantesRegistrados.Add(nuevoEstudiante.Legajo, nuevoEstudiante);
 
-            Serializador.ActualizarJson(nuevoEstudiante,_contadorLegajos,_path);
+            Serializador.ActualizarJson(nuevoEstudiante, nuevoEstudiante.Legajo, _path);
 
         }
 
