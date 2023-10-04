@@ -22,7 +22,7 @@ namespace BibliotecaCLases.Controlador
         {
             int nivelesARetroceder = 4;
             _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json", nivelesARetroceder);
-            //_path = PathManager.ObtenerRuta("Data", "Dict Estudiante.json");
+
             dictUsuarios = Serializador.LeerJson<Dictionary<int, Usuario>>(_path);
 
             _existeUsuario = true;
@@ -36,9 +36,12 @@ namespace BibliotecaCLases.Controlador
                 _existeUsuario = false;
 
                 dictUsuarios = new Dictionary<int, Usuario>();
+                String contrasena  =PasswordHashing.GetHash("11");
+                
+                Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com",contrasena);
+                String contrasenaDos = PasswordHashing.GetHash("11");
 
-                Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com", "11");
-                Administrador administradorDos = new Administrador("dian", "iry", "022", "correo@nuevo.com", "22");
+                Administrador administradorDos = new Administrador("dian", "iry", "022", "correo@nuevo.com", contrasenaDos);
                 ultimoLegajoEnArchivo++;
                 administrador.Legajo = ultimoLegajoEnArchivo;
                 ultimoLegajoEnArchivo++;
@@ -47,6 +50,7 @@ namespace BibliotecaCLases.Controlador
                 int dniadmin2 = int.Parse(administradorDos.Dni);
                 dictUsuarios.Add(administrador.Legajo, administrador);
                 dictUsuarios.Add(administradorDos.Legajo, administradorDos);
+              
 
                 Serializador.GuardarAJson(ultimoLegajoEnArchivo, pathUltimoLegajo);
                 Serializador.GuardarAJson(dictUsuarios, _path);
@@ -72,7 +76,7 @@ namespace BibliotecaCLases.Controlador
         {
             _usuario = dictUsuarios.FirstOrDefault(pair => pair.Value.Dni == dni).Value;
 
-            if (_usuario != null && _usuario.Clave == contrasena)
+            if (PasswordHashing.ValidatePassword(contrasena, _usuario.Clave))
             {
                 return true;
             }
