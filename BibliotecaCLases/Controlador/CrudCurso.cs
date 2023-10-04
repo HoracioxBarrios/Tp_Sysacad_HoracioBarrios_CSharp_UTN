@@ -2,6 +2,7 @@
 using BibliotecaCLases.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace BibliotecaCLases.Controlador
         {
             dictCursos = new Dictionary<int, Curso>();
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
+
+            // Leer el diccionario desde el archivo JSON 
             dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
         }
 

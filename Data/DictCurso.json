@@ -33,5 +33,12 @@
     "Descripcion": "sdfdfd",
     "CupoMaximo": "10",
     "CuposDisponibles": "10"
+  },
+  "55": {
+    "Nombre": "prueba tres",
+    "Codigo": "55",
+    "Descripcion": "sdkjskd",
+    "CupoMaximo": "10",
+    "CuposDisponibles": "10"
   }
 }

@@ -26,6 +26,24 @@ namespace BibliotecaCLases.Utilidades
             }
         }
 
+        public static void GuardarAJson<T>(Dictionary<string, T> objetoAGuardar, string path)
+        {
+            try
+            {
+                // Serializar el diccionario a formato JSON
+                string json = JsonConvert.SerializeObject(objetoAGuardar, Newtonsoft.Json.Formatting.Indented);
+
+                // Guardar el JSON en el archivo especificado
+                File.WriteAllText(path, json);
+
+                Console.WriteLine($"El diccionario se ha guardado correctamente como JSON en: {path}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar el diccionario como JSON: {ex.Message}");
+            }
+        }
+
         public static void GuardarAJson(int valorAGuardar, string path)
         {
             try
@@ -77,6 +95,47 @@ namespace BibliotecaCLases.Utilidades
                     objetoExistente = JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
                 }
                 int nuevaClave = id;
+                string nuevaClaveStr = nuevaClave.ToString();
+
+                // Agrega el nuevo objeto al diccionario existente
+                objetoExistente[nuevaClaveStr] = objetoAAgregar;
+
+                // Serializa el diccionario completo a formato JSON
+                string jsonResult = JsonConvert.SerializeObject(objetoExistente, Newtonsoft.Json.Formatting.Indented);
+
+                // Guarda el JSON en el archivo especificado
+                File.WriteAllText(path, jsonResult);
+
+                Console.WriteLine($"El último dato se ha agregado correctamente al archivo JSON en: {path}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al agregar el último dato al archivo JSON: {ex.Message}");
+            }
+        }
+
+
+        /// <summary>
+        /// sobrecarga del metodo ActualizarJson
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="objetoAAgregar"></param>
+        /// <param name="id"></param>
+        /// <param name="path"></param>
+        public static void ActualizarJson<T>(T objetoAAgregar, string id, string path)
+        {
+
+            try
+            {
+                Dictionary<string, T> objetoExistente = new Dictionary<string, T>();
+
+                // Si el archivo ya existe, lee el contenido actual
+                if (File.Exists(path))
+                {
+                    string json = File.ReadAllText(path);
+                    objetoExistente = JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
+                }
+                string nuevaClave = id;
                 string nuevaClaveStr = nuevaClave.ToString();
 
                 // Agrega el nuevo objeto al diccionario existente
