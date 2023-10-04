@@ -64,7 +64,8 @@ namespace BibliotecaCLases.Controlador
                 if (dictCursos.ContainsKey(codigoCurso))
                 {
                     Curso cursoExistente = dictCursos[codigoCurso];
-                    // Realizar validaciones si es necesario y modificar el curso
+
+                    // Modificar los atributos del curso existente con los nuevos valores
                     cursoExistente.Nombre = nuevoNombre;
                     cursoExistente.Descripcion = nuevaDescripcion;
                     cursoExistente.CupoMaximo = nuevoCupoMaximo;
@@ -84,6 +85,7 @@ namespace BibliotecaCLases.Controlador
                 return "Error al guardar los cambios: " + ex.Message;
             }
         }
+
 
 
 

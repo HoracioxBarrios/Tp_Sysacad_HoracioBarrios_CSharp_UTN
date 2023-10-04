@@ -38,7 +38,7 @@ namespace Formularios
             if (!string.IsNullOrEmpty(_cursoSeleccionado))
             {
                 FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado);
-                frmEditarCurso.ShowDialog();
+                frmEditarCurso.Show();
             }
             else
             {

@@ -25,7 +25,7 @@ namespace Formularios
 
             if (curso != null)
             {
-                // Llenar los campos de entrada de texto con los detalles del curso
+                // Llenar los campos de entrada de texto con los detalles del curso para mostrar
                 textBoxNombre.Text = curso.Nombre;
                 textBoxCodigo.Text = curso.Codigo;
                 textBoxDescripcion.Text = curso.Descripcion;
@@ -37,7 +37,6 @@ namespace Formularios
                 this.Close();
             }
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             // Obtener los valores editados desde los campos de entrada de texto
@@ -46,30 +45,32 @@ namespace Formularios
             string nuevaDescripcion = textBoxDescripcion.Text;
             string nuevoCupoMaximo = textBoxCupoMax.Text;
 
-            // Validar los valores editados utilizando tu GestorCursos
+            // Crear una instancia de GestorCursos
             GestorCursos gestorCursos = new GestorCursos(nuevoNombre, nuevoCodigo, nuevaDescripcion, nuevoCupoMaximo);
 
-            if (gestorCursos.Validado)
+            // Verificar si los nuevos datos son válidos
+            if (!gestorCursos.Validado)
             {
-                if (gestorCursos.verificarDatosExistentes())
-                {
-                    // Aplicar las modificaciones utilizando tu GestorCursos o CrudCurso
-                    string resultadoEdicion = gestorCursos.EditarCurso(_cursoSeleccionado, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
+                MessageBox.Show("Error: " + gestorCursos.MensajeError, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                    if (resultadoEdicion == "Se modificó correctamente")
-                    {
-                        // Mostrar un mensaje de éxito después de la edición
-                        MessageBox.Show("Cambios guardados con éxito.");
+            // Llamar al método para editar el curso existente
+            string resultadoEdicion = gestorCursos.EditarCurso(_cursoSeleccionado, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
 
-                        // Cerrar el formulario de edición después de guardar los cambios
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al guardar los cambios: " + resultadoEdicion, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+            if (resultadoEdicion == "Se modificó correctamente")
+            {
+                // Mostrar un mensaje de éxito después de la edición
+                MessageBox.Show("Cambios guardados con éxito.");
+
+                // Cerrar el formulario de edición después de guardar los cambios
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar los cambios: " + resultadoEdicion, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
