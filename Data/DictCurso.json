@@ -1,18 +1,10 @@
 {
-  "1": {
-    "Nombre": "curso I",
-    "Codigo": "1",
-    "Descripcion": "modifico descripcion",
-    "CupoMaximo": 10,
+  "3": {
+    "Nombre": "curso III",
+    "Codigo": "3",
+    "Descripcion": "",
+    "CupoMaximo": 100,
     "CuposDisponibles": 500,
-    "Activo": true
-  },
-  "12": {
-    "Nombre": "curso III8",
-    "Codigo": "12",
-    "Descripcion": "modifico codigo",
-    "CupoMaximo": 3,
-    "CuposDisponibles": 0,
     "Activo": true
   },
   "2": {
@@ -20,6 +12,14 @@
     "Codigo": "2",
     "Descripcion": "dos",
     "CupoMaximo": 2,
+    "CuposDisponibles": 0,
+    "Activo": true
+  },
+  "1": {
+    "Nombre": "curso I",
+    "Codigo": "1",
+    "Descripcion": "1",
+    "CupoMaximo": 1,
     "CuposDisponibles": 0,
     "Activo": true
   }

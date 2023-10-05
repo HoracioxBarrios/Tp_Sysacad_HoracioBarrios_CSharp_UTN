@@ -10,15 +10,12 @@ namespace Formularios
     {
         private Curso _cursoSeleccionado;
         private string _codigoOriginal;
-        private CrudCurso crudCurso;
         private FrmGestionarCursos _ownerForm;
         private GestorCursos _gestorCursos;
-        private string _resultadoEdicion;
         public FrmEditarCurso(Curso cursoSeleccionado, FrmGestionarCursos ownerForm)
         {
             InitializeComponent();
             _cursoSeleccionado = cursoSeleccionado;
-            crudCurso = new CrudCurso();
             _ownerForm = ownerForm;
             _gestorCursos = new GestorCursos(cursoSeleccionado.Nombre, cursoSeleccionado.Codigo, cursoSeleccionado.Descripcion, cursoSeleccionado.CupoMaximo.ToString());
             _codigoOriginal = cursoSeleccionado.Codigo.ToString();
@@ -48,48 +45,37 @@ namespace Formularios
             string nuevaDescripcion = textBoxDescripcion.Text;
             string nuevoCupoMaximo = textBoxCupoMax.Text;
 
-            if (_gestorCursos.Validado)
+            if (!_gestorCursos.Validado)
             {
-                if (nuevoCodigo != _codigoOriginal)
+                MessageBox.Show(_gestorCursos.MensajeError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (nuevoCodigo != _codigoOriginal)
                 {
-                    bool codigoNoExiste = _gestorCursos.verificarDatosExistentes(nuevoCodigo);
-
-                    if (codigoNoExiste)
-                    {
-                        _resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error de validación: " + _gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
+                if (!_gestorCursos.verificarDatosExistentes(nuevoCodigo))
                 {
-                    _resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
+                    MessageBox.Show("Error de validación: " + _gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+            }
+
+            string resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
+
+            if (resultadoEdicion.StartsWith("Se modificó correctamente"))
+            {
+                MessageBox.Show(resultadoEdicion, "Cambios guardados con éxito.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (_ownerForm != null)
+                {
+                    _ownerForm.ActualizarListaCursos();
                 }
 
-                if (_resultadoEdicion != null)
-                { 
-                    if (_resultadoEdicion.StartsWith("Se modificó correctamente"))
-                    {
-                        MessageBox.Show(_resultadoEdicion, "Cambios guardados con éxito.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        if (_ownerForm != null)
-                        {
-                            _ownerForm.ActualizarListaCursos();
-                        }
-
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show(_resultadoEdicion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                this.Close();
             }
             else
             {
-                MessageBox.Show(_gestorCursos.MensajeError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(resultadoEdicion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
