@@ -19,10 +19,12 @@ namespace Formularios
         private Usuario _usuario;
         private CrudEstudiante crudEstudiante;
         private Curso _cursoSeleccionado;
+        private CrudCurso crudCurso;
         public FrmGestionarCursos(Usuario usuario)
         {
             crudEstudiante = new CrudEstudiante();
             _usuario = usuario;
+            crudCurso = new CrudCurso();
             InitializeComponent();
             MostrarBtn(_usuario);
         }
@@ -49,8 +51,40 @@ namespace Formularios
 
         private void BtnEliminarCursos_Click(object sender, EventArgs e)
         {
+            if (_cursoSeleccionado != null)
+            {
+                // Mostrar un mensaje de confirmación al usuario antes de eliminar
+                DialogResult confirmacion = MessageBox.Show("¿Está seguro de eliminar este curso?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (confirmacion == DialogResult.Yes)
+                {
+                    // Llama al método EliminarCurso del gestor de cursos para realizar la eliminación lógica
+                    string resultadoEliminacion = crudCurso.EliminarCurso(_cursoSeleccionado);
+
+                    // Verifica si la eliminación lógica se realizó con éxito
+                    if (resultadoEliminacion.StartsWith("Se realizó la eliminación lógica"))
+                    {
+                        // Muestra un mensaje al usuario con el resultado de la "baja" lógica
+                        MessageBox.Show(resultadoEliminacion, "Resultado:", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Debes actualizar la interfaz de usuario para reflejar los cambios
+                        // por ejemplo, eliminar el curso de la lista o actualizar la vista.
+                        //ActualizarInterfazUsuario();
+                    }
+                    else
+                    {
+                        // Muestra un mensaje de error si la eliminación lógica no se pudo realizar
+                        MessageBox.Show(resultadoEliminacion, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un curso para eliminar.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private void FrmGestionarCursos_Load(object sender, EventArgs e)
         {
@@ -75,10 +109,14 @@ namespace Formularios
 
                 foreach (KeyValuePair<int, Curso> kvp in dictCursos)
                 {
-                    listBoxCursos.Items.Add(kvp.Value);
+                    if (kvp.Value.Activo) // Verifica si el curso está activo MUESTRO LOS ACTIVOS
+                    {
+                        listBoxCursos.Items.Add(kvp.Value);
+                    }
                 }
             }
         }
+
 
 
 
