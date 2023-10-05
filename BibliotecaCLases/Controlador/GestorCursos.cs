@@ -17,7 +17,6 @@ namespace BibliotecaCLases.Controlador
 
         public GestorCursos(string nombre, string codigo, string descripcion, string cuposDisponibles)
         {
-            // Asigna el resultado de la creación de ValidadorDatosCurso al miembro de la clase
             ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cuposDisponibles);
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
@@ -67,9 +66,6 @@ namespace BibliotecaCLases.Controlador
             }
             catch (Exception ex)
             {
-                // Aquí puedes manejar la excepción de acuerdo a tus necesidades.
-                // Por ejemplo, puedes imprimir un mensaje de error o registrar la excepción en un archivo de registro.
-                // También puedes lanzar una nueva excepción personalizada si es necesario.
                 return "Error al agregar el curso: " + ex.Message;
             }
         }
@@ -83,9 +79,6 @@ namespace BibliotecaCLases.Controlador
             }
             catch (Exception ex)
             {
-                // Aquí puedes manejar la excepción de acuerdo a tus necesidades.
-                // Por ejemplo, puedes imprimir un mensaje de error o registrar la excepción en un archivo de registro.
-                // También puedes lanzar una nueva excepción personalizada si es necesario.
                 return "Error al editar el curso: " + ex.Message;
             }
         }

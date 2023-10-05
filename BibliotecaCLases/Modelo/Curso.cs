@@ -9,11 +9,10 @@ namespace BibliotecaCLases.Modelo
         private string _descripcion;
         private int _cupoMaximo;
         private int _cuposDisponibles;
-        private int _id; // Nuevo atributo para el ID
-        private bool _activo; // Nuevo atributo para el estado activo
-        private static int _ultimoID = 0; // Declaración correcta del campo estático
+        private int _id;
+        private bool _activo;
+        private static int _ultimoID = 0;
 
-        // Constructor para crear un nuevo curso con ID incremental
         public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, int? id = null)
         {
             _nombre = nombre;
@@ -91,14 +90,12 @@ namespace BibliotecaCLases.Modelo
             set { _activo = value; }
         }
 
-        // Método para generar un nuevo ID incremental
         private int GenerarNuevoID()
         {
             _ultimoID++;
             return _ultimoID;
         }
 
-        // Método para obtener el último ID
         public static int GetUltimoID()
         {
             return _ultimoID;

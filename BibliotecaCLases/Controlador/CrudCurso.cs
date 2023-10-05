@@ -18,25 +18,21 @@ namespace BibliotecaCLases.Controlador
 
             if (!File.Exists(_path))
             {
-                // El archivo JSON no existe, crea un nuevo diccionario vacío
                 dictCursos = new Dictionary<int, Curso>();
-                Curso.SetUltimoID(0); // Establecer el último ID en 0
+                Curso.SetUltimoID(0);
             }
             else
             {
-                // Leer el diccionario desde el archivo JSON
                 dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
 
                 if (dictCursos == null || dictCursos.Count == 0)
                 {
-                    // No hay cursos en el archivo JSON o el diccionario es nulo, establecer el primer ID en "1"
                     dictCursos = new Dictionary<int, Curso>();
                     dictCursos.Add(1, new Curso("", "1", "", ""));
-                    Curso.SetUltimoID(1); // Establecer el último ID en 1
+                    Curso.SetUltimoID(1);
                 }
                 else
                 {
-                    // Encontrar el último ID utilizado y actualizar el último ID
                     int ultimoID = dictCursos.Keys.Max();
                     Curso.SetUltimoID(ultimoID);
                 }
@@ -64,20 +60,19 @@ namespace BibliotecaCLases.Controlador
 
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
-            int nuevaID = obtenerSiguienteID(); // Generar ID basado en el último ID utilizado
-            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo, nuevaID); // Pasa el nuevo ID
-            nuevoCurso.Activo = true; // Establecer el estado activo como verdadero por defecto
+            int nuevaID = obtenerSiguienteID();
+            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo, nuevaID);
+            nuevoCurso.Activo = true;
 
             if (dictCursos != null)
             {
-                dictCursos.Add(nuevaID, nuevoCurso); // Usar la nuevaID como clave
-                Serializador.ActualizarJson(nuevoCurso, nuevaID.ToString(), _path); // Actualizar el archivo JSON con el nuevo curso
+                dictCursos.Add(nuevaID, nuevoCurso);
+                Serializador.ActualizarJson(nuevoCurso, nuevaID.ToString(), _path);
             }
         }
 
         private int obtenerSiguienteID()
         {
-            // Obtener el último ID utilizado y agregar 1 para el próximo curso
             int ultimoID = Curso.GetUltimoID();
             return ultimoID + 1;
         }
@@ -94,12 +89,10 @@ namespace BibliotecaCLases.Controlador
                 {
                     Curso cursoExistente = dictCursos[claveCurso];
 
-                    // Modificar los atributos del curso existente con los nuevos valores
                     cursoExistente.Nombre = nuevoNombre;
                     cursoExistente.Descripcion = nuevaDescripcion;
                     cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
 
-                    // Actualizar el archivo JSON con el diccionario completo
                     Serializador.ActualizarJson(dictCursos, _path);
                     return "Se modificó correctamente";
                 }
@@ -110,7 +103,6 @@ namespace BibliotecaCLases.Controlador
             }
             catch (Exception ex)
             {
-                // Manejar cualquier excepción que ocurra al actualizar el archivo JSON
                 return "Error al guardar los cambios: " + ex.Message;
             }
         }
@@ -127,25 +119,20 @@ namespace BibliotecaCLases.Controlador
             }
             else
             {
-                // En lugar de null, puedes devolver un nuevo objeto Curso vacío o manejar el caso según tus necesidades.
                 return new Curso("", "", "", "");
             }
         }
 
         public string EliminarCurso(Curso curso)
         {
-            int idCursoAEliminar = curso.ID; // Obtén el ID del curso que deseas eliminar
+            int idCursoAEliminar = curso.ID;
 
-            // Verifica si el curso existe en el diccionario
             if (dictCursos.ContainsKey(idCursoAEliminar))
             {
-                // Obtiene el curso del diccionario
                 Curso cursoAEliminar = dictCursos[idCursoAEliminar];
 
-                // Actualiza el atributo "Activo" del curso a "false"
                 cursoAEliminar.Activo = false;
 
-                // Actualiza el archivo JSON con el diccionario completo
                 Serializador.ActualizarJson(dictCursos, _path);
 
                 return "Se realizó la eliminación lógica del curso";
@@ -155,10 +142,6 @@ namespace BibliotecaCLases.Controlador
                 return "El curso no existe en el diccionario.";
             }
         }
-
-
-
-
 
         public Dictionary<int, Curso> ObtenerDictCursos()
         {

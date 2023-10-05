@@ -39,7 +39,7 @@ namespace Formularios
         {
             if (_cursoSeleccionado != null)
             {
-                FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado);
+                FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado, this);
                 frmEditarCurso.Show();
             }
             else
@@ -53,18 +53,14 @@ namespace Formularios
         {
             if (_cursoSeleccionado != null)
             {
-                // Mostrar un mensaje de confirmación al usuario antes de eliminar
                 DialogResult confirmacion = MessageBox.Show("¿Está seguro de eliminar este curso?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (confirmacion == DialogResult.Yes)
                 {
-                    // Llama al método EliminarCurso del gestor de cursos para realizar la eliminación lógica
                     string resultadoEliminacion = crudCurso.EliminarCurso(_cursoSeleccionado);
 
-                    // Verifica si la eliminación lógica se realizó con éxito
                     if (resultadoEliminacion.StartsWith("Se realizó la eliminación lógica"))
                     {
-                        // Muestra un mensaje al usuario con el resultado de la "baja" lógica
                         MessageBox.Show(resultadoEliminacion, "Resultado:", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Debes actualizar la interfaz de usuario para reflejar los cambios
@@ -73,7 +69,6 @@ namespace Formularios
                     }
                     else
                     {
-                        // Muestra un mensaje de error si la eliminación lógica no se pudo realizar
                         MessageBox.Show(resultadoEliminacion, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -84,12 +79,9 @@ namespace Formularios
             }
         }
 
-
-
         private void FrmGestionarCursos_Load(object sender, EventArgs e)
         {
-            List<Curso> listaCursos = new List<Curso>();
-            Dictionary<int, Curso> dictCursos = null; // Inicializa el diccionario como nulo
+            Dictionary<int, Curso> dictCursos = null;
 
             string path = PathManager.ObtenerRuta("Data", "DictCurso.json");
 
@@ -99,7 +91,6 @@ namespace Formularios
             }
             catch (FileNotFoundException ex)
             {
-                // Maneja la excepción si el archivo JSON no se encuentra
                 MessageBox.Show($"No se encontró el archivo JSON en la ruta: {path}");
             }
 
@@ -109,16 +100,13 @@ namespace Formularios
 
                 foreach (KeyValuePair<int, Curso> kvp in dictCursos)
                 {
-                    if (kvp.Value.Activo) // Verifica si el curso está activo MUESTRO LOS ACTIVOS
+                    if (kvp.Value.Activo)
                     {
                         listBoxCursos.Items.Add(kvp.Value);
                     }
                 }
             }
         }
-
-
-
 
         private void listBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -177,6 +165,38 @@ namespace Formularios
                     }
                 }
             }
+        }
+
+        public void ActualizarListaCursos()
+        {
+            listBoxCursos.Items.Clear();
+
+            /*Dictionary<int, Curso> dictCursos = null;
+
+            string path = PathManager.ObtenerRuta("Data", "DictCurso.json");
+
+            try
+            {
+                dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"No se encontró el archivo JSON en la ruta: {path}");
+            }*/
+
+            List<Curso> listaCursosActualizada = new List<Curso>();
+
+            foreach (KeyValuePair<int, Curso> kvp in crudCurso.ObtenerDictCursos())
+            {
+                if (kvp.Value.Activo)
+                {
+                    //listaCursosActualizada.Add(kvp.Value);
+                    listBoxCursos.Items.Add(kvp.Value);
+                }
+            }
+
+            listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
+            listBoxCursos.Items.AddRange(listaCursosActualizada.ToArray());
         }
 
     }
