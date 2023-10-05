@@ -26,10 +26,10 @@ namespace Formularios
             if (curso != null)
             {
                 // Llenar los campos de entrada de texto con los detalles del curso para mostrar
-                textBoxNombre.Text = curso.Nombre;
-                textBoxCodigo.Text = curso.Codigo;
-                textBoxDescripcion.Text = curso.Descripcion;
-                textBoxCupoMax.Text = curso.CupoMaximo;
+                textBoxNombre.Text = curso.Nombre.ToString();
+                textBoxCodigo.Text = curso.Codigo.ToString();
+                textBoxDescripcion.Text = curso.Descripcion.ToString();
+                textBoxCupoMax.Text = curso.CupoMaximo.ToString();
             }
             else
             {

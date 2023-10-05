@@ -1,44 +1,47 @@
 {
   "1": {
-    "Nombre": "cocinaGurmet",
-    "Codigo": "1",
-    "Descripcion": "curso",
-    "CupoMaximo": "20",
-    "CuposDisponibles": "20"
+    "Nombre": "Pintura",
+    "Codigo": "1000",
+    "Descripcion": "pintura",
+    "CupoMaximo": 0,
+    "CuposDisponibles": 0,
+    "ID": 1,
+    "Activo": true
   },
   "2": {
-    "Nombre": "progra II",
-    "Codigo": "2",
-    "Descripcion": "ssds",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
+    "Nombre": "CocinaK",
+    "Codigo": "200",
+    "Descripcion": "dfsdf",
+    "CupoMaximo": 0,
+    "CuposDisponibles": 0,
+    "ID": 2,
+    "Activo": true
   },
-  "6": {
-    "Nombre": "Matematicas",
-    "Codigo": "6",
-    "Descripcion": "dsfsdf",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
+  "3": {
+    "Nombre": "Futbol",
+    "Codigo": "300",
+    "Descripcion": "ghfgh",
+    "CupoMaximo": 0,
+    "CuposDisponibles": 0,
+    "ID": 3,
+    "Activo": true
   },
-  "45": {
-    "Nombre": "prueba",
-    "Codigo": "45",
-    "Descripcion": "nuevo curso modificado",
-    "CupoMaximo": "100",
-    "CuposDisponibles": "1"
+  "4": {
+    "Nombre": "Rovk",
+    "Codigo": "300",
+    "Descripcion": "rock",
+    "CupoMaximo": 0,
+    "CuposDisponibles": 0,
+    "ID": 4,
+    "Activo": true
   },
-  "54": {
-    "Nombre": "prueba dos",
-    "Codigo": "54",
-    "Descripcion": "sdfdfd",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
-  },
-  "55": {
-    "Nombre": "prueba tres",
-    "Codigo": "55",
-    "Descripcion": "sdkjskd",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
+  "5": {
+    "Nombre": "Salsa",
+    "Codigo": "222",
+    "Descripcion": "baile",
+    "CupoMaximo": 0,
+    "CuposDisponibles": 0,
+    "ID": 5,
+    "Activo": true
   }
 }

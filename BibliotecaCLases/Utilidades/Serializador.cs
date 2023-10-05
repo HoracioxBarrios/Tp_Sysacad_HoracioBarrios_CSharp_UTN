@@ -81,6 +81,26 @@ namespace BibliotecaCLases.Utilidades
             }
         }
 
+
+        public static void ActualizarJson<T>(Dictionary<int, T> diccionario, string path)
+        {
+            try
+            {
+                // Serializa el diccionario completo a formato JSON
+                string jsonResult = JsonConvert.SerializeObject(diccionario, Newtonsoft.Json.Formatting.Indented);
+
+                // Guarda el JSON en el archivo especificado
+                File.WriteAllText(path, jsonResult);
+
+                Console.WriteLine($"El diccionario se ha actualizado correctamente como JSON en: {path}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar el diccionario como JSON: {ex.Message}");
+            }
+        }
+
+
         public static void ActualizarJson<T>(T objetoAAgregar,int id ,string path)
         {
 
