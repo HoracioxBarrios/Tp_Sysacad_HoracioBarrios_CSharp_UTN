@@ -43,5 +43,23 @@
     "CuposDisponibles": 40,
     "ID": 5,
     "Activo": true
+  },
+  "6": {
+    "Nombre": "Manager",
+    "Codigo": "399",
+    "Descripcion": "Manager IT",
+    "CupoMaximo": 3,
+    "CuposDisponibles": 3,
+    "ID": 6,
+    "Activo": true
+  },
+  "7": {
+    "Nombre": "Modelo",
+    "Codigo": "10",
+    "Descripcion": "90-60-90",
+    "CupoMaximo": 1,
+    "CuposDisponibles": 1,
+    "ID": 7,
+    "Activo": true
   }
 }
