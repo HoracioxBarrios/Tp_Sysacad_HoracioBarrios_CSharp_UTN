@@ -1,8 +1,8 @@
 {
-  "105": {
-    "Nombre": "curso Dianyeli",
-    "Codigo": "105",
-    "Descripcion": "modifico descrip",
+  "10": {
+    "Nombre": "curso I",
+    "Codigo": "10",
+    "Descripcion": "modifico descripcion",
     "CupoMaximo": 500,
     "CuposDisponibles": 500,
     "Activo": true

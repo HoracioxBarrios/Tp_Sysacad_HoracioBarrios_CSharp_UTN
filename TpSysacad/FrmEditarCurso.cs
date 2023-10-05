@@ -9,6 +9,7 @@ namespace Formularios
     public partial class FrmEditarCurso : Form
     {
         private Curso _cursoSeleccionado;
+        private string _codigoOriginal;
         private CrudCurso crudCurso;
         private FrmGestionarCursos _ownerForm;
         private GestorCursos _gestorCursos;
@@ -19,6 +20,7 @@ namespace Formularios
             crudCurso = new CrudCurso();
             _ownerForm = ownerForm;
             _gestorCursos = new GestorCursos(cursoSeleccionado.Nombre, cursoSeleccionado.Codigo, cursoSeleccionado.Descripcion, cursoSeleccionado.CupoMaximo.ToString());
+            _codigoOriginal = cursoSeleccionado.Codigo.ToString();
             CargarDetallesCurso();
         }
 
@@ -45,43 +47,9 @@ namespace Formularios
             string nuevaDescripcion = textBoxDescripcion.Text;
             string nuevoCupoMaximo = textBoxCupoMax.Text;
 
-            /*int idCurso = _cursoSeleccionado.ID;
-
-            Curso cursoEnJson = crudCurso.ObtenerCursoPorCodigo(idCurso.ToString());
-
-            if (cursoEnJson != null)
-            {
-                cursoEnJson.Nombre = nuevoNombre;
-                cursoEnJson.Codigo = nuevoCodigo;
-                cursoEnJson.Descripcion = nuevaDescripcion;
-                if (int.TryParse(nuevoCupoMaximo, out int cupoMaximo))
-                {
-                    cursoEnJson.CupoMaximo = cupoMaximo;
-                }
-                else
-                {
-                    MessageBox.Show("Error: El nuevo cupo máximo no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                Serializador.ActualizarJson(cursoEnJson, idCurso.ToString(), crudCurso.Path);
-                MessageBox.Show("Cambios guardados con éxito.");
-
-                if (_ownerForm != null)
-                {
-                    _ownerForm.ActualizarListaCursos();
-                }
-
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("El curso no se encontró en el JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
-
             if (_gestorCursos.Validado)
             {
-                string resultadoEdicion = _gestorCursos.EditarCurso(nuevoNombre, nuevoCodigo, nuevaDescripcion, nuevoCupoMaximo);
+                string resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
 
                 if (resultadoEdicion.StartsWith("Se modificó correctamente"))
                 {

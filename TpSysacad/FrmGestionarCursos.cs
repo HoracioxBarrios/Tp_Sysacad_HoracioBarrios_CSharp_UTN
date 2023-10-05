@@ -171,19 +171,6 @@ namespace Formularios
         {
             listBoxCursos.Items.Clear();
 
-            /*Dictionary<int, Curso> dictCursos = null;
-
-            string path = PathManager.ObtenerRuta("Data", "DictCurso.json");
-
-            try
-            {
-                dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
-            }
-            catch (FileNotFoundException ex)
-            {
-                MessageBox.Show($"No se encontró el archivo JSON en la ruta: {path}");
-            }*/
-
             List<Curso> listaCursosActualizada = new List<Curso>();
 
             foreach (KeyValuePair<int, Curso> kvp in crudCurso.ObtenerDictCursos())
