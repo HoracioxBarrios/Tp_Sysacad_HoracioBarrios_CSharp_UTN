@@ -1,12 +1,4 @@
 {
-  "3": {
-    "Nombre": "curso III",
-    "Codigo": "3",
-    "Descripcion": "",
-    "CupoMaximo": 100,
-    "CuposDisponibles": 500,
-    "Activo": true
-  },
   "2": {
     "Nombre": "curso II",
     "Codigo": "2",
@@ -18,8 +10,16 @@
   "1": {
     "Nombre": "curso I",
     "Codigo": "1",
-    "Descripcion": "1",
+    "Descripcion": "",
     "CupoMaximo": 1,
+    "CuposDisponibles": 0,
+    "Activo": true
+  },
+  "3": {
+    "Nombre": "curso III",
+    "Codigo": "3",
+    "Descripcion": "3",
+    "CupoMaximo": 3,
     "CuposDisponibles": 0,
     "Activo": true
   }
