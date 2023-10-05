@@ -18,7 +18,7 @@ namespace Formularios
     {
         private Usuario _usuario;
         private CrudEstudiante crudEstudiante;
-        private string _cursoSeleccionado;
+        private Curso _cursoSeleccionado;
         public FrmGestionarCursos(Usuario usuario)
         {
             crudEstudiante = new CrudEstudiante();
@@ -35,7 +35,7 @@ namespace Formularios
 
         private void BtnEditarCursos_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(_cursoSeleccionado))
+            if (_cursoSeleccionado != null)
             {
                 FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado);
                 frmEditarCurso.Show();
@@ -45,6 +45,7 @@ namespace Formularios
                 MessageBox.Show("Debe seleccionar un curso para editar.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void BtnEliminarCursos_Click(object sender, EventArgs e)
         {
@@ -85,15 +86,11 @@ namespace Formularios
         {
             if (listBoxCursos.SelectedIndex != -1)
             {
-                string elementoSeleccionado = listBoxCursos.SelectedItem.ToString();
+                // Obtén el objeto Curso seleccionado en lugar de la cadena
+                _cursoSeleccionado = (Curso)listBoxCursos.SelectedItem;
 
-                labelResultado.Text = "Seleccionaste: " + elementoSeleccionado;
-                string[] partes = elementoSeleccionado.Split(' ');
-
-                if (partes.Length >= 2)
-                {
-                    _cursoSeleccionado = partes[0];
-                }
+                // Actualiza la etiqueta de resultado para mostrar información del curso
+                labelResultado.Text = "Seleccionaste: Código " + _cursoSeleccionado.Codigo + ", Curso " + _cursoSeleccionado.Nombre;
             }
         }
         private void MostrarBtn(Usuario usuario)
@@ -116,7 +113,7 @@ namespace Formularios
 
         private void btnInscripcion_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(_cursoSeleccionado))
+            if (_cursoSeleccionado == null)
             {
                 MessageBox.Show("Debe seleccionar un curso", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -124,11 +121,11 @@ namespace Formularios
             {
                 int.TryParse(_usuario.Legajo.ToString(), out int legajo);
                 string mensajeError;
-                bool inscripcionExitosa = crudEstudiante.AgregarCursoAEstudiante(legajo, _cursoSeleccionado, out mensajeError);
+                bool inscripcionExitosa = crudEstudiante.AgregarCursoAEstudiante(legajo, _cursoSeleccionado.Codigo, out mensajeError);
 
                 if (inscripcionExitosa)
                 {
-                    MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado}");
+                    MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado.Nombre}");
                 }
                 else
                 {
@@ -143,5 +140,6 @@ namespace Formularios
                 }
             }
         }
+
     }
 }
