@@ -9,15 +9,15 @@ namespace BibliotecaCLases.Modelo
         private string _descripcion;
         private int _cupoMaximo;
         private int _cuposDisponibles;
-        private int _id;
         private bool _activo;
-        private static int _ultimoID = 0;
 
-        public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, int? id = null)
+        public Curso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
             _nombre = nombre;
             _codigo = codigo;
             _descripcion = descripcion;
+            _cuposDisponibles = _cupoMaximo;
+            _activo = true;
 
             if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
             {
@@ -25,24 +25,9 @@ namespace BibliotecaCLases.Modelo
             }
             else
             {
-                _cupoMaximo = 0; // Valor predeterminado en caso de que la conversión falle
+                _cupoMaximo = 0;
             }
-
-            if (id.HasValue)
-            {
-                _id = id.Value;
-            }
-            else
-            {
-                _id = GenerarNuevoID(); // Generar un nuevo ID si no se proporciona uno
-            }
-
-
-            _cuposDisponibles = _cupoMaximo;
-            _activo = true; // Por defecto, el curso está activo
         }
-
-
 
         public override string ToString()
         {
@@ -79,32 +64,10 @@ namespace BibliotecaCLases.Modelo
             set { _cuposDisponibles = value; }
         }
 
-        public int ID
-        {
-            get { return _id; }
-        }
-
         public bool Activo
         {
             get { return _activo; }
             set { _activo = value; }
         }
-
-        private int GenerarNuevoID()
-        {
-            _ultimoID++;
-            return _ultimoID;
-        }
-
-        public static int GetUltimoID()
-        {
-            return _ultimoID;
-        }
-
-        public static void SetUltimoID(int ultimoID)
-        {
-            _ultimoID = ultimoID;
-        }
-
     }
 }

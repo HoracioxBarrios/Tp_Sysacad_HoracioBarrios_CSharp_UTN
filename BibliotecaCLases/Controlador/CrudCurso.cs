@@ -15,28 +15,7 @@ namespace BibliotecaCLases.Controlador
         public CrudCurso()
         {
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
-
-            if (!File.Exists(_path))
-            {
-                dictCursos = new Dictionary<int, Curso>();
-                Curso.SetUltimoID(0);
-            }
-            else
-            {
-                dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
-
-                if (dictCursos == null || dictCursos.Count == 0)
-                {
-                    dictCursos = new Dictionary<int, Curso>();
-                    dictCursos.Add(1, new Curso("", "1", "", ""));
-                    Curso.SetUltimoID(1);
-                }
-                else
-                {
-                    int ultimoID = dictCursos.Keys.Max();
-                    Curso.SetUltimoID(ultimoID);
-                }
-            }
+            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
         }
 
         public string Path
@@ -49,7 +28,7 @@ namespace BibliotecaCLases.Controlador
         {
             if (dictCursos != null)
             {
-                if (dictCursos.ContainsKey(int.Parse(codigo)))
+                if (dictCursos.Any(kv => kv.Value.Codigo == codigo))
                 {
                     return 1;
                 }
@@ -60,38 +39,40 @@ namespace BibliotecaCLases.Controlador
 
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
-            int nuevaID = obtenerSiguienteID();
-            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo, nuevaID);
-            nuevoCurso.Activo = true;
+            int.TryParse(codigo, out int codigoCurso);
+            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo);
 
             if (dictCursos != null)
             {
-                dictCursos.Add(nuevaID, nuevoCurso);
-                Serializador.ActualizarJson(nuevoCurso, nuevaID.ToString(), _path);
+                dictCursos.Add(codigoCurso, nuevoCurso);
+                Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
             }
         }
 
-        private int obtenerSiguienteID()
-        {
-            int ultimoID = Curso.GetUltimoID();
-            return ultimoID + 1;
-        }
-
-        public string EditarCurso(string codigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
+        public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
         {
             int.TryParse(codigo, out int codigoCurso);
+            int.TryParse(nuevoCodigo, out int nuevoCodigoCurso);
 
             try
             {
-                int claveCurso = codigoCurso;
-
-                if (dictCursos.ContainsKey(claveCurso))
+                if (dictCursos.ContainsKey(codigoCurso))
                 {
-                    Curso cursoExistente = dictCursos[claveCurso];
+                    Curso cursoExistente = dictCursos[codigoCurso];
 
+                    if (codigoCurso != nuevoCodigoCurso)
+                    {
+                        // Si el código ha cambiado, elimina la entrada anterior y agrega la nueva
+                        dictCursos.Remove(codigoCurso);
+                    }
+
+                    cursoExistente.Codigo = nuevoCodigo;
                     cursoExistente.Nombre = nuevoNombre;
                     cursoExistente.Descripcion = nuevaDescripcion;
                     cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
+
+                    // Agrega o actualiza la entrada con el nuevo código
+                    dictCursos[nuevoCodigoCurso] = cursoExistente;
 
                     Serializador.ActualizarJson(dictCursos, _path);
                     return "Se modificó correctamente";
@@ -100,6 +81,39 @@ namespace BibliotecaCLases.Controlador
                 {
                     return "El curso no existe en el diccionario.";
                 }
+                /*Curso cursoExistente = dictCursos[codigoCurso];
+                if (dictCursos.ContainsKey(codigoCurso))
+                {
+                    cursoExistente.Nombre = nuevoNombre;
+                    cursoExistente.Descripcion = nuevaDescripcion;
+                    cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
+
+                    dictCursos[codigoCurso] = cursoExistente;
+                    Serializador.ActualizarJson(dictCursos, _path);
+                    return "Se modificó correctamente";
+                }
+                else
+                {
+                    if (cursoExistente.Codigo != codigo)
+                    {
+                        dictCursos.Remove(codigoCurso);
+
+                        cursoExistente.Codigo = codigo;
+                        cursoExistente.Nombre = nuevoNombre;
+                        cursoExistente.Descripcion = nuevaDescripcion;
+                        cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
+
+                        int.TryParse(codigo, out int nuevoCodigoCurso);
+                        dictCursos[nuevoCodigoCurso] = cursoExistente;
+                        Serializador.ActualizarJson(dictCursos, _path);
+
+                        return "Se modificó correctamente";
+                    }
+                    else
+                    {
+                        return "El curso no existe en el diccionario.";
+                    }
+                }*/
             }
             catch (Exception ex)
             {
@@ -111,11 +125,9 @@ namespace BibliotecaCLases.Controlador
         {
             int.TryParse(codigo, out int codigoCurso);
 
-            int claveCurso = codigoCurso;
-
-            if (dictCursos.ContainsKey(claveCurso))
+            if (dictCursos.ContainsKey(codigoCurso))
             {
-                return dictCursos[claveCurso];
+                return dictCursos[codigoCurso];
             }
             else
             {
@@ -125,11 +137,11 @@ namespace BibliotecaCLases.Controlador
 
         public string EliminarCurso(Curso curso)
         {
-            int idCursoAEliminar = curso.ID;
+            int.TryParse(curso.Codigo, out int codigoCurso);
 
-            if (dictCursos.ContainsKey(idCursoAEliminar))
+            if (dictCursos.ContainsKey(codigoCurso))
             {
-                Curso cursoAEliminar = dictCursos[idCursoAEliminar];
+                Curso cursoAEliminar = dictCursos[codigoCurso];
 
                 cursoAEliminar.Activo = false;
 
@@ -145,6 +157,7 @@ namespace BibliotecaCLases.Controlador
 
         public Dictionary<int, Curso> ObtenerDictCursos()
         {
+            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
             return dictCursos;
         }
     }

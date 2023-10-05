@@ -70,11 +70,11 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-        public string EditarCurso(string nombre, string codigo, string nombreAtributo, string nuevoValor)
+        public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
         {
             try
             {
-                string resultadoEdicion = crudCurso.EditarCurso(nombre, codigo, nombreAtributo, nuevoValor);
+                string resultadoEdicion = crudCurso.EditarCurso(codigo, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
                 return resultadoEdicion;
             }
             catch (Exception ex)
