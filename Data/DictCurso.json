@@ -1,44 +1,26 @@
 {
-  "1": {
-    "Nombre": "programacion",
-    "Codigo": "1",
-    "Descripcion": "curso",
-    "CupoMaximo": "20",
-    "CuposDisponibles": "20"
-  },
   "2": {
-    "Nombre": "progra II",
+    "Nombre": "curso II",
     "Codigo": "2",
-    "Descripcion": "ssds",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
+    "Descripcion": "dos",
+    "CupoMaximo": 2,
+    "CuposDisponibles": 0,
+    "Activo": true
   },
-  "6": {
-    "Nombre": "kjfks",
-    "Codigo": "6",
-    "Descripcion": "dsfsdf",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
+  "1": {
+    "Nombre": "curso I",
+    "Codigo": "1",
+    "Descripcion": "",
+    "CupoMaximo": 1,
+    "CuposDisponibles": 0,
+    "Activo": true
   },
-  "45": {
-    "Nombre": "prueba",
-    "Codigo": "45",
-    "Descripcion": "nuevo curso",
-    "CupoMaximo": "1",
-    "CuposDisponibles": "1"
-  },
-  "54": {
-    "Nombre": "prueba dos",
-    "Codigo": "54",
-    "Descripcion": "sdfdfd",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
-  },
-  "55": {
-    "Nombre": "prueba tres",
-    "Codigo": "55",
-    "Descripcion": "sdkjskd",
-    "CupoMaximo": "10",
-    "CuposDisponibles": "10"
+  "3": {
+    "Nombre": "curso III",
+    "Codigo": "3",
+    "Descripcion": "3",
+    "CupoMaximo": 3,
+    "CuposDisponibles": 0,
+    "Activo": true
   }
 }

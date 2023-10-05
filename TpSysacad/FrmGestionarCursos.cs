@@ -18,14 +18,15 @@ namespace Formularios
     {
         private Usuario _usuario;
         private CrudEstudiante crudEstudiante;
-        private string _cursoSeleccionado;
+        private Curso _cursoSeleccionado;
+        private CrudCurso crudCurso;
         public FrmGestionarCursos(Usuario usuario)
         {
             crudEstudiante = new CrudEstudiante();
             _usuario = usuario;
+            crudCurso = new CrudCurso();
             InitializeComponent();
             MostrarBtn(_usuario);
-
         }
 
         private void BtnAgregarCurso_Click(object sender, EventArgs e)
@@ -36,48 +37,86 @@ namespace Formularios
 
         private void BtnEditarCursos_Click(object sender, EventArgs e)
         {
-
+            if (_cursoSeleccionado != null)
+            {
+                FrmEditarCurso frmEditarCurso = new FrmEditarCurso(_cursoSeleccionado, this);
+                frmEditarCurso.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un curso para editar.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void BtnEliminarCursos_Click(object sender, EventArgs e)
         {
+            if (_cursoSeleccionado != null)
+            {
+                DialogResult confirmacion = MessageBox.Show("¿Está seguro de eliminar este curso?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (confirmacion == DialogResult.Yes)
+                {
+                    string resultadoEliminacion = crudCurso.EliminarCurso(_cursoSeleccionado);
+
+                    if (resultadoEliminacion.StartsWith("Se realizó la eliminación lógica"))
+                    {
+                        MessageBox.Show(resultadoEliminacion, "Resultado:", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Debes actualizar la interfaz de usuario para reflejar los cambios
+                        // por ejemplo, eliminar el curso de la lista o actualizar la vista.
+                        //ActualizarInterfazUsuario();
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultadoEliminacion, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un curso para eliminar.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FrmGestionarCursos_Load(object sender, EventArgs e)
         {
-            List<Curso> listaCursos = new List<Curso>();
+            Dictionary<int, Curso> dictCursos = null;
 
-            Curso curso1 = new Curso("Curso 1", "001", "Descripción del Curso 1", "30");
-            Curso curso2 = new Curso("Curso 2", "002", "Descripción del Curso 2", "25");
-            Curso curso3 = new Curso("Curso 3", "003", "Descripción del Curso 3", "20");
+            string path = PathManager.ObtenerRuta("Data", "DictCurso.json");
 
-            listaCursos.Add(curso1);
-            listaCursos.Add(curso2);
-            listaCursos.Add(curso3);
-
-            listBoxCursos.Items.Add("CODIGO        CURSO          DESCRIPCION                        CUPO MAXIMO   CUPOS DISPONIBLES");
-
-            foreach (Curso curso in listaCursos)
+            try
             {
-                listBoxCursos.Items.Add(curso);
+                dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"No se encontró el archivo JSON en la ruta: {path}");
             }
 
+            if (dictCursos != null)
+            {
+                listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
+
+                foreach (KeyValuePair<int, Curso> kvp in dictCursos)
+                {
+                    if (kvp.Value.Activo)
+                    {
+                        listBoxCursos.Items.Add(kvp.Value);
+                    }
+                }
+            }
         }
 
         private void listBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxCursos.SelectedIndex != -1)
             {
-                string elementoSeleccionado = listBoxCursos.SelectedItem.ToString();
+                // Obtén el objeto Curso seleccionado en lugar de la cadena
+                _cursoSeleccionado = (Curso)listBoxCursos.SelectedItem;
 
-                labelResultado.Text = "Seleccionaste: " + elementoSeleccionado;
-                string[] partes = elementoSeleccionado.Split(' ');
-
-                if (partes.Length >= 2)
-                {
-                    _cursoSeleccionado = partes[0];
-                }
+                // Actualiza la etiqueta de resultado para mostrar información del curso
+                labelResultado.Text = "Seleccionaste: Código " + _cursoSeleccionado.Codigo + ", Curso " + _cursoSeleccionado.Nombre;
             }
         }
         private void MostrarBtn(Usuario usuario)
@@ -100,28 +139,52 @@ namespace Formularios
 
         private void btnInscripcion_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(_cursoSeleccionado))
+            if (_cursoSeleccionado == null)
             {
                 MessageBox.Show("Debe seleccionar un curso", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 int.TryParse(_usuario.Legajo.ToString(), out int legajo);
-                Estudiante estudiante = crudEstudiante.ObtenerEstudiantePorLegajo(legajo);
+                string mensajeError;
+                bool inscripcionExitosa = crudEstudiante.AgregarCursoAEstudiante(legajo, _cursoSeleccionado.Codigo, out mensajeError);
 
-                if (estudiante != null)
+                if (inscripcionExitosa)
                 {
-                    estudiante.CursosInscriptos.Add(_cursoSeleccionado);
-                    string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
-                    Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
-
-                    MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado}");
+                    MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado.Nombre}");
                 }
                 else
                 {
-                    MessageBox.Show("Error: No se encontró al estudiante.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!string.IsNullOrEmpty(mensajeError))
+                    {
+                        MessageBox.Show($"Error: {mensajeError}", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: No se encontró al estudiante.", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
+
+        public void ActualizarListaCursos()
+        {
+            listBoxCursos.Items.Clear();
+
+            List<Curso> listaCursosActualizada = new List<Curso>();
+
+            foreach (KeyValuePair<int, Curso> kvp in crudCurso.ObtenerDictCursos())
+            {
+                if (kvp.Value.Activo)
+                {
+                    listaCursosActualizada.Add(kvp.Value);
+                    //listBoxCursos.Items.Add(kvp.Value);
+                }
+            }
+
+            listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
+            listBoxCursos.Items.AddRange(listaCursosActualizada.ToArray());
+        }
+
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using BibliotecaCLases.Controlador;
+using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 
 namespace BibliotecaCLases.Controlador
 {
@@ -15,12 +13,11 @@ namespace BibliotecaCLases.Controlador
         private string _codigo;
         private string _descripcion;
         private string _cuposDisponibles;
-        public ValidadorDatosCurso validadorDatosCurso;
         private string _mensajeError;
 
         public GestorCursos(string nombre, string codigo, string descripcion, string cuposDisponibles)
         {
-            validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cuposDisponibles);
+            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cuposDisponibles);
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
             if (_validado)
@@ -46,6 +43,7 @@ namespace BibliotecaCLases.Controlador
         {
             get { return _mensajeError; }
         }
+
         public bool verificarDatosExistentes()
         {
             int numeroError = crudCurso.VerificarCodigoCurso(_codigo);
@@ -58,9 +56,44 @@ namespace BibliotecaCLases.Controlador
 
             return true;
         }
-        public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+
+        public bool verificarDatosExistentes(string codigoNuevo)
         {
-            crudCurso.AgregarCurso(nombre, codigo, descripcion, cupoMaximo);
+            int numeroError = crudCurso.VerificarCodigoCurso(codigoNuevo);
+
+            if (numeroError == 1)
+            {
+                _mensajeError = "Error: El código ya está registrado.";
+                return false;
+            }
+
+            return true;
+        }
+
+        public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+        {
+            try
+            {
+                crudCurso.AgregarCurso(nombre, codigo, descripcion, cupoMaximo);
+                return "Curso agregado correctamente.";
+            }
+            catch (Exception ex)
+            {
+                return "Error al agregar el curso: " + ex.Message;
+            }
+        }
+
+        public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
+        {
+            try
+            {
+                string resultadoEdicion = crudCurso.EditarCurso(codigo, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
+                return resultadoEdicion;
+            }
+            catch (Exception ex)
+            {
+                return "Error al editar el curso: " + ex.Message;
+            }
         }
     }
 }

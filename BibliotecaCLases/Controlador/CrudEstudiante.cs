@@ -16,7 +16,6 @@ namespace BibliotecaCLases.Controlador
         private int _ultimoLegajoEnArchivo;
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
 
-
         /// <summary>
         /// Constructor de la clase CrudEstudiante. Inicializa un nuevo objeto CrudEstudiante
         /// y carga datos de estudiantes registrados desde un archivo JSON si está disponible.
@@ -74,8 +73,8 @@ namespace BibliotecaCLases.Controlador
             _ultimoLegajoEnArchivo++;
             string pathLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
             Serializador.GuardarAJson(_ultimoLegajoEnArchivo, pathLegajo);
-            return _ultimoLegajoEnArchivo;
 
+            return _ultimoLegajoEnArchivo;
         }
 
         static string GenerarContrasenaAleatoria(int longitudMinima, int longitudMaxima)
@@ -108,10 +107,13 @@ namespace BibliotecaCLases.Controlador
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
         public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, bool debeCambiar)
         {
+            int legajo = ObtieneLegajo();
 
             string claveProvisional = GenerarContrasenaAleatoria(7, 12);
-            Estudiante nuevoEstudiante = new(nombre, apellido, dni, correo, direccion, telefono, claveProvisional, debeCambiar);
-            nuevoEstudiante.Legajo = ObtieneLegajo();
+
+            String contrasena = PasswordHashing.GetHash(legajo.ToString());
+            Estudiante nuevoEstudiante = new(nombre, apellido, dni, correo, direccion, telefono, contrasena, debeCambiar);
+            nuevoEstudiante.Legajo = legajo;
 
             dictEstudiantesRegistrados.Add(nuevoEstudiante.Legajo, nuevoEstudiante);
 
@@ -173,5 +175,27 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
+        public bool AgregarCursoAEstudiante(int legajoEstudiante, string codigoCurso, out string mensajeError)
+        {
+            Estudiante estudiante = ObtenerEstudiantePorLegajo(legajoEstudiante);
+
+            if (estudiante != null)
+            {
+                if (estudiante.CursosInscriptos.Contains(codigoCurso))
+                {
+                    mensajeError = "El estudiante ya está inscrito en este curso.";
+                    return false;
+                }
+
+                estudiante.CursosInscriptos.Add(codigoCurso);
+                string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
+                Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
+                mensajeError = null;
+                return true;
+            }
+
+            mensajeError = "El estudiante no se encontró.";
+            return false;
+        }
     }
 }

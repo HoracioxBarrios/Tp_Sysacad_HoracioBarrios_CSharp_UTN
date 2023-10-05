@@ -1,11 +1,9 @@
-﻿using BibliotecaCLases.Modelo;
-using BibliotecaCLases.Utilidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
+using Newtonsoft.Json;
 
 namespace BibliotecaCLases.Controlador
 {
@@ -16,10 +14,7 @@ namespace BibliotecaCLases.Controlador
 
         public CrudCurso()
         {
-            dictCursos = new Dictionary<int, Curso>();
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
-
-            // Leer el diccionario desde el archivo JSON 
             dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
         }
 
@@ -50,51 +45,74 @@ namespace BibliotecaCLases.Controlador
             if (dictCursos != null)
             {
                 dictCursos.Add(codigoCurso, nuevoCurso);
+                Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
             }
-
-            Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
         }
 
-        public string EditarCurso(string codigo, string nombreAtributo, string nuevoValor)
+        public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
         {
             int.TryParse(codigo, out int codigoCurso);
+            int.TryParse(nuevoCodigo, out int nuevoCodigoCurso);
+
+            try
+            {
+                if (dictCursos.ContainsKey(codigoCurso))
+                {
+                    Curso cursoExistente = dictCursos[codigoCurso];
+
+                    if (codigoCurso != nuevoCodigoCurso)
+                    {
+                        dictCursos.Remove(codigoCurso);
+                    }
+
+                    cursoExistente.Codigo = nuevoCodigo;
+                    cursoExistente.Nombre = nuevoNombre;
+                    cursoExistente.Descripcion = nuevaDescripcion;
+                    cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
+
+                    dictCursos[nuevoCodigoCurso] = cursoExistente;
+
+                    Serializador.ActualizarJson(dictCursos, _path);
+                    return "Se modificó correctamente";
+                }
+                else
+                {
+                    return "El curso no existe en el diccionario.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error al guardar los cambios: " + ex.Message;
+            }
+        }
+
+        public Curso ObtenerCursoPorCodigo(string codigo)
+        {
+            int.TryParse(codigo, out int codigoCurso);
+
             if (dictCursos.ContainsKey(codigoCurso))
             {
-                Curso cursoExistente = dictCursos[codigoCurso];
-                // Realizar validaciones si es necesario y modificar el curso
-                switch (nombreAtributo)
-                {
-                    case "Nombre":
-                        cursoExistente.Nombre = nuevoValor;
-                        break;
-                    case "Descripcion":
-                        cursoExistente.Descripcion = nuevoValor;
-                        break;
-                    case "CupoMaximo":
-                        cursoExistente.CupoMaximo = nuevoValor;
-                        break;
-                    default:
-                        return "El nombre del atributo no es válido.";
-                }
-                // Actualizar el archivo JSON con el curso modificado
-                Serializador.ActualizarJson(cursoExistente, codigoCurso, _path);
-                return "Se modificó correctamente";
+                return dictCursos[codigoCurso];
             }
             else
             {
-                return "El curso no existe en el diccionario.";
+                return new Curso("", "", "", "");
             }
         }
-        public string EliminarCurso(string codigo)
+
+        public string EliminarCurso(Curso curso)
         {
-            int.TryParse(codigo, out int codigoCurso);
+            int.TryParse(curso.Codigo, out int codigoCurso);
+
             if (dictCursos.ContainsKey(codigoCurso))
             {
-                // Si el curso existe en el diccionario, elimínalo
-                dictCursos.Remove(codigoCurso);
-                // Actualizar el archivo JSON sin el curso eliminado
-                Serializador.GuardarAJson(dictCursos, _path);
-                return "Se Eliminó el curso";
+                Curso cursoAEliminar = dictCursos[codigoCurso];
+
+                cursoAEliminar.Activo = false;
+
+                Serializador.ActualizarJson(dictCursos, _path);
+
+                return "Se realizó la eliminación lógica del curso";
             }
             else
             {
@@ -104,6 +122,7 @@ namespace BibliotecaCLases.Controlador
 
         public Dictionary<int, Curso> ObtenerDictCursos()
         {
+            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
             return dictCursos;
         }
     }
