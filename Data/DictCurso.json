@@ -56,10 +56,19 @@
   "7": {
     "Nombre": "Modelo",
     "Codigo": "10",
-    "Descripcion": "90-60-90",
+    "Descripcion": "LindaLinda",
     "CupoMaximo": 1,
     "CuposDisponibles": 1,
     "ID": 7,
+    "Activo": true
+  },
+  "8": {
+    "Nombre": "ReparacionPc",
+    "Codigo": "777",
+    "Descripcion": "reparacion",
+    "CupoMaximo": 25,
+    "CuposDisponibles": 25,
+    "ID": 8,
     "Activo": true
   }
 }
