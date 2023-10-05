@@ -1,47 +1,65 @@
 {
   "1": {
-    "Nombre": "Pintura",
-    "Codigo": "1000",
-    "Descripcion": "pintura",
-    "CupoMaximo": 0,
-    "CuposDisponibles": 0,
+    "Nombre": "Carpinteria",
+    "Codigo": "100",
+    "Descripcion": "trabajo sobre maderas",
+    "CupoMaximo": 50,
+    "CuposDisponibles": 50,
     "ID": 1,
     "Activo": true
   },
   "2": {
-    "Nombre": "CocinaK",
-    "Codigo": "200",
-    "Descripcion": "dfsdf",
-    "CupoMaximo": 0,
-    "CuposDisponibles": 0,
+    "Nombre": "Pintura",
+    "Codigo": "120",
+    "Descripcion": "pintira art",
+    "CupoMaximo": 60,
+    "CuposDisponibles": 60,
     "ID": 2,
     "Activo": true
   },
   "3": {
-    "Nombre": "Futbol",
-    "Codigo": "300",
-    "Descripcion": "ghfgh",
-    "CupoMaximo": 0,
-    "CuposDisponibles": 0,
+    "Nombre": "programacion",
+    "Codigo": "130",
+    "Descripcion": "Tecnico programador",
+    "CupoMaximo": 300,
+    "CuposDisponibles": 300,
     "ID": 3,
     "Activo": true
   },
   "4": {
-    "Nombre": "Rovk",
-    "Codigo": "300",
-    "Descripcion": "rock",
-    "CupoMaximo": 0,
-    "CuposDisponibles": 0,
+    "Nombre": "gimnasia",
+    "Codigo": "140",
+    "Descripcion": "gimnasia",
+    "CupoMaximo": 200,
+    "CuposDisponibles": 200,
     "ID": 4,
     "Activo": true
   },
   "5": {
-    "Nombre": "Salsa",
-    "Codigo": "222",
-    "Descripcion": "baile",
-    "CupoMaximo": 0,
-    "CuposDisponibles": 0,
+    "Nombre": "Profesorado",
+    "Codigo": "160",
+    "Descripcion": "profesorado",
+    "CupoMaximo": 40,
+    "CuposDisponibles": 40,
     "ID": 5,
+    "Activo": true
+  },
+  "6": {
+    "Nombre": "Manager",
+    "Codigo": "399",
+    "Descripcion": "Manager IT",
+    "CupoMaximo": 3,
+    "CuposDisponibles": 3,
+    "ID": 6,
+    "Activo": true
+  },
+  "7": {
+    "Nombre": "Modelo",
+    "Codigo": "10",
+    "Descripcion": "90-60-90",
+    "CupoMaximo": 1,
+    "CuposDisponibles": 1,
+    "ID": 7,
     "Activo": true
   }
 }
