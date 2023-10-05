@@ -13,6 +13,7 @@ namespace Formularios
         private CrudCurso crudCurso;
         private FrmGestionarCursos _ownerForm;
         private GestorCursos _gestorCursos;
+        private string _resultadoEdicion;
         public FrmEditarCurso(Curso cursoSeleccionado, FrmGestionarCursos ownerForm)
         {
             InitializeComponent();
@@ -49,22 +50,41 @@ namespace Formularios
 
             if (_gestorCursos.Validado)
             {
-                string resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
-
-                if (resultadoEdicion.StartsWith("Se modificó correctamente"))
+                if (nuevoCodigo != _codigoOriginal)
                 {
-                    MessageBox.Show(resultadoEdicion, "Cambios guardados con éxito.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bool codigoNoExiste = _gestorCursos.verificarDatosExistentes(nuevoCodigo);
 
-                    if (_ownerForm != null)
+                    if (codigoNoExiste)
                     {
-                        _ownerForm.ActualizarListaCursos();
+                        _resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
                     }
-
-                    this.Close();
+                    else
+                    {
+                        MessageBox.Show("Error de validación: " + _gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(resultadoEdicion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
+                }
+
+                if (_resultadoEdicion != null)
+                { 
+                    if (_resultadoEdicion.StartsWith("Se modificó correctamente"))
+                    {
+                        MessageBox.Show(_resultadoEdicion, "Cambios guardados con éxito.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (_ownerForm != null)
+                        {
+                            _ownerForm.ActualizarListaCursos();
+                        }
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(_resultadoEdicion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
