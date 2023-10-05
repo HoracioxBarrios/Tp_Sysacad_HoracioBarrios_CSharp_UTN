@@ -1,83 +1,26 @@
 {
-  "1": {
-    "Nombre": "Carpinteria",
-    "Codigo": "100",
-    "Descripcion": "trabajo sobre maderas",
-    "CupoMaximo": 10,
-    "CuposDisponibles": 50,
-    "ID": 1,
+  "105": {
+    "Nombre": "curso Dianyeli",
+    "Codigo": "105",
+    "Descripcion": "modifico descrip",
+    "CupoMaximo": 500,
+    "CuposDisponibles": 500,
     "Activo": true
   },
   "2": {
-    "Nombre": "Pintura",
-    "Codigo": "120",
-    "Descripcion": "pintira art",
-    "CupoMaximo": 60,
-    "CuposDisponibles": 60,
-    "ID": 2,
-    "Activo": false
-  },
-  "3": {
-    "Nombre": "programacion",
-    "Codigo": "130",
-    "Descripcion": "Tecnico programador",
-    "CupoMaximo": 100,
-    "CuposDisponibles": 300,
-    "ID": 3,
+    "Nombre": "curso II",
+    "Codigo": "2",
+    "Descripcion": "prueba 2",
+    "CupoMaximo": 2,
+    "CuposDisponibles": 2,
     "Activo": true
   },
-  "4": {
-    "Nombre": "gimnasia",
-    "Codigo": "140",
-    "Descripcion": "gimnasiaLAPLATA",
-    "CupoMaximo": 200,
-    "CuposDisponibles": 200,
-    "ID": 4,
-    "Activo": true
-  },
-  "5": {
-    "Nombre": "Profesorado",
-    "Codigo": "160",
-    "Descripcion": "profesorado",
-    "CupoMaximo": 40,
-    "CuposDisponibles": 40,
-    "ID": 5,
-    "Activo": false
-  },
-  "6": {
-    "Nombre": "Manager",
-    "Codigo": "399",
-    "Descripcion": "Manager IT",
-    "CupoMaximo": 3,
-    "CuposDisponibles": 3,
-    "ID": 6,
-    "Activo": false
-  },
-  "7": {
-    "Nombre": "Modelo",
-    "Codigo": "10",
-    "Descripcion": "LindaLinda",
+  "1": {
+    "Nombre": "curso I",
+    "Codigo": "1",
+    "Descripcion": "prueba 1",
     "CupoMaximo": 1,
-    "CuposDisponibles": 1,
-    "ID": 7,
-    "Activo": false
-  },
-  "8": {
-    "Nombre": "ReparacionPc",
-    "Codigo": "777",
-    "Descripcion": "reparacion",
-    "CupoMaximo": 25,
-    "CuposDisponibles": 25,
-    "ID": 8,
-    "Activo": false
-  },
-  "9": {
-    "Nombre": "Astronauta",
-    "Codigo": "4141",
-    "Descripcion": "volar",
-    "CupoMaximo": 100,
-    "CuposDisponibles": 100,
-    "ID": 9,
+    "CuposDisponibles": 0,
     "Activo": true
   }
 }

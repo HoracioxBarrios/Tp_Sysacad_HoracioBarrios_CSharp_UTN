@@ -190,8 +190,8 @@ namespace Formularios
             {
                 if (kvp.Value.Activo)
                 {
-                    //listaCursosActualizada.Add(kvp.Value);
-                    listBoxCursos.Items.Add(kvp.Value);
+                    listaCursosActualizada.Add(kvp.Value);
+                    //listBoxCursos.Items.Add(kvp.Value);
                 }
             }
 

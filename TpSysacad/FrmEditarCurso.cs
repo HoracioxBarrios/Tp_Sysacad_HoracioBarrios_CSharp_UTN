@@ -11,12 +11,14 @@ namespace Formularios
         private Curso _cursoSeleccionado;
         private CrudCurso crudCurso;
         private FrmGestionarCursos _ownerForm;
+        private GestorCursos _gestorCursos;
         public FrmEditarCurso(Curso cursoSeleccionado, FrmGestionarCursos ownerForm)
         {
             InitializeComponent();
             _cursoSeleccionado = cursoSeleccionado;
             crudCurso = new CrudCurso();
             _ownerForm = ownerForm;
+            _gestorCursos = new GestorCursos(cursoSeleccionado.Nombre, cursoSeleccionado.Codigo, cursoSeleccionado.Descripcion, cursoSeleccionado.CupoMaximo.ToString());
             CargarDetallesCurso();
         }
 
@@ -43,7 +45,7 @@ namespace Formularios
             string nuevaDescripcion = textBoxDescripcion.Text;
             string nuevoCupoMaximo = textBoxCupoMax.Text;
 
-            int idCurso = _cursoSeleccionado.ID;
+            /*int idCurso = _cursoSeleccionado.ID;
 
             Curso cursoEnJson = crudCurso.ObtenerCursoPorCodigo(idCurso.ToString());
 
@@ -75,6 +77,31 @@ namespace Formularios
             else
             {
                 MessageBox.Show("El curso no se encontró en el JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+
+            if (_gestorCursos.Validado)
+            {
+                string resultadoEdicion = _gestorCursos.EditarCurso(nuevoNombre, nuevoCodigo, nuevaDescripcion, nuevoCupoMaximo);
+
+                if (resultadoEdicion.StartsWith("Se modificó correctamente"))
+                {
+                    MessageBox.Show(resultadoEdicion, "Cambios guardados con éxito.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (_ownerForm != null)
+                    {
+                        _ownerForm.ActualizarListaCursos();
+                    }
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(resultadoEdicion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(_gestorCursos.MensajeError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
