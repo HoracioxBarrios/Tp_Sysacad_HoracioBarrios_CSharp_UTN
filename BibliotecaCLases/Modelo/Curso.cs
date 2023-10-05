@@ -16,11 +16,18 @@ namespace BibliotecaCLases.Modelo
         // Constructor para crear un nuevo curso con ID incremental
         public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, int? id = null)
         {
-            // ...
-
             _nombre = nombre;
             _codigo = codigo;
             _descripcion = descripcion;
+
+            if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
+            {
+                _cupoMaximo = cupoMaximoValor;
+            }
+            else
+            {
+                _cupoMaximo = 0; // Valor predeterminado en caso de que la conversión falle
+            }
 
             if (id.HasValue)
             {
@@ -31,8 +38,11 @@ namespace BibliotecaCLases.Modelo
                 _id = GenerarNuevoID(); // Generar un nuevo ID si no se proporciona uno
             }
 
+
+            _cuposDisponibles = _cupoMaximo;
             _activo = true; // Por defecto, el curso está activo
         }
+
 
 
         public override string ToString()
