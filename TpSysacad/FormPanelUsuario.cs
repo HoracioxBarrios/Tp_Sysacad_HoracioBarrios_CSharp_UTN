@@ -52,23 +52,30 @@ namespace Formularios
         }
         private void MostrarBtn(Usuario usuario)
         {
-            button2.Visible = false;
-            BtnGestionarCursos.Visible = false;
-            button1.Visible = false;
-            button3.Visible = false;
+            btnInscripcionCurso.Visible = false;
+            btnGestionarCursos.Visible = false;
+            btnRegistrarEstudiante.Visible = false;
+            btnConsultarHorario.Visible = false;
+            btnRealizarPagos.Visible = false;
             if (usuario.TipoUsuario.ToString() == "Estudiante")
             {
-                button2.Visible = true;
-                button3.Visible = true;
+                btnInscripcionCurso.Visible = true;
+                btnConsultarHorario.Visible = true;
+                btnRealizarPagos.Visible = true;
             }
             else if (usuario.TipoUsuario.ToString() == "Administrador")
             {
-                button1.Visible = true;
-                BtnGestionarCursos.Visible = true;
+                btnRegistrarEstudiante.Visible = true;
+                btnGestionarCursos.Visible = true;
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
