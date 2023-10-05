@@ -62,7 +62,6 @@ namespace BibliotecaCLases.Controlador
 
                     if (codigoCurso != nuevoCodigoCurso)
                     {
-                        // Si el código ha cambiado, elimina la entrada anterior y agrega la nueva
                         dictCursos.Remove(codigoCurso);
                     }
 
@@ -71,7 +70,6 @@ namespace BibliotecaCLases.Controlador
                     cursoExistente.Descripcion = nuevaDescripcion;
                     cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
 
-                    // Agrega o actualiza la entrada con el nuevo código
                     dictCursos[nuevoCodigoCurso] = cursoExistente;
 
                     Serializador.ActualizarJson(dictCursos, _path);
@@ -81,39 +79,6 @@ namespace BibliotecaCLases.Controlador
                 {
                     return "El curso no existe en el diccionario.";
                 }
-                /*Curso cursoExistente = dictCursos[codigoCurso];
-                if (dictCursos.ContainsKey(codigoCurso))
-                {
-                    cursoExistente.Nombre = nuevoNombre;
-                    cursoExistente.Descripcion = nuevaDescripcion;
-                    cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
-
-                    dictCursos[codigoCurso] = cursoExistente;
-                    Serializador.ActualizarJson(dictCursos, _path);
-                    return "Se modificó correctamente";
-                }
-                else
-                {
-                    if (cursoExistente.Codigo != codigo)
-                    {
-                        dictCursos.Remove(codigoCurso);
-
-                        cursoExistente.Codigo = codigo;
-                        cursoExistente.Nombre = nuevoNombre;
-                        cursoExistente.Descripcion = nuevaDescripcion;
-                        cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
-
-                        int.TryParse(codigo, out int nuevoCodigoCurso);
-                        dictCursos[nuevoCodigoCurso] = cursoExistente;
-                        Serializador.ActualizarJson(dictCursos, _path);
-
-                        return "Se modificó correctamente";
-                    }
-                    else
-                    {
-                        return "El curso no existe en el diccionario.";
-                    }
-                }*/
             }
             catch (Exception ex)
             {
