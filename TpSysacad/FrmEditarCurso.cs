@@ -11,13 +11,11 @@ namespace Formularios
         private Curso _cursoSeleccionado;
         private string _codigoOriginal;
         private FrmGestionarCursos _ownerForm;
-        private GestorCursos _gestorCursos;
         public FrmEditarCurso(Curso cursoSeleccionado, FrmGestionarCursos ownerForm)
         {
             InitializeComponent();
             _cursoSeleccionado = cursoSeleccionado;
             _ownerForm = ownerForm;
-            _gestorCursos = new GestorCursos(cursoSeleccionado.Nombre, cursoSeleccionado.Codigo, cursoSeleccionado.Descripcion, cursoSeleccionado.CupoMaximo.ToString());
             _codigoOriginal = cursoSeleccionado.Codigo.ToString();
             CargarDetallesCurso();
         }
@@ -45,22 +43,24 @@ namespace Formularios
             string nuevaDescripcion = textBoxDescripcion.Text;
             string nuevoCupoMaximo = textBoxCupoMax.Text;
 
-            if (!_gestorCursos.Validado)
+            GestorCursos gestorCursos = new GestorCursos(nuevoNombre, nuevoCodigo, nuevaDescripcion, nuevoCupoMaximo);
+
+            if (!gestorCursos.Validado)
             {
-                MessageBox.Show(_gestorCursos.MensajeError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(gestorCursos.MensajeError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (nuevoCodigo != _codigoOriginal)
                 {
-                if (!_gestorCursos.verificarDatosExistentes(nuevoCodigo))
+                if (!gestorCursos.verificarDatosExistentes(nuevoCodigo))
                 {
-                    MessageBox.Show("Error de validación: " + _gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error de validación: " + gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                 }
             }
 
-            string resultadoEdicion = _gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
+            string resultadoEdicion = gestorCursos.EditarCurso(_codigoOriginal, nuevoCodigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
 
             if (resultadoEdicion.StartsWith("Se modificó correctamente"))
             {
