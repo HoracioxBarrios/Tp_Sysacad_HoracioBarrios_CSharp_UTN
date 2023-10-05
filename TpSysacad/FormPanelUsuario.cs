@@ -77,7 +77,8 @@ namespace Formularios
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            FrmPago frmPago = new();
+            frmPago.Show();
         }
     }
 }
