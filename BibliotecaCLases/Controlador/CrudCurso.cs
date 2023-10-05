@@ -132,24 +132,33 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-        public string EliminarCurso(string codigo)
+        public string EliminarCurso(Curso curso)
         {
-            int.TryParse(codigo, out int codigoCurso);
-            int claveCurso = codigoCurso;
+            int idCursoAEliminar = curso.ID; // Obtén el ID del curso que deseas eliminar
 
-            if (dictCursos.ContainsKey(claveCurso))
+            // Verifica si el curso existe en el diccionario
+            if (dictCursos.ContainsKey(idCursoAEliminar))
             {
-                // Si el curso existe en el diccionario, elimínalo
-                dictCursos.Remove(claveCurso);
-                // Actualizar el archivo JSON con el diccionario completo
+                // Obtiene el curso del diccionario
+                Curso cursoAEliminar = dictCursos[idCursoAEliminar];
+
+                // Actualiza el atributo "Activo" del curso a "false"
+                cursoAEliminar.Activo = false;
+
+                // Actualiza el archivo JSON con el diccionario completo
                 Serializador.ActualizarJson(dictCursos, _path);
-                return "Se Eliminó el curso";
+
+                return "Se realizó la eliminación lógica del curso";
             }
             else
             {
                 return "El curso no existe en el diccionario.";
             }
         }
+
+
+
+
 
         public Dictionary<int, Curso> ObtenerDictCursos()
         {

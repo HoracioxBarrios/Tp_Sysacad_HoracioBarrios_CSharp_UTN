@@ -29,7 +29,7 @@
   "4": {
     "Nombre": "gimnasia",
     "Codigo": "140",
-    "Descripcion": "gimnasia",
+    "Descripcion": "gimnasiaLAPLATA",
     "CupoMaximo": 200,
     "CuposDisponibles": 200,
     "ID": 4,
@@ -42,7 +42,7 @@
     "CupoMaximo": 40,
     "CuposDisponibles": 40,
     "ID": 5,
-    "Activo": true
+    "Activo": false
   },
   "6": {
     "Nombre": "Manager",
@@ -51,15 +51,33 @@
     "CupoMaximo": 3,
     "CuposDisponibles": 3,
     "ID": 6,
-    "Activo": true
+    "Activo": false
   },
   "7": {
     "Nombre": "Modelo",
     "Codigo": "10",
-    "Descripcion": "90-60-90",
+    "Descripcion": "LindaLinda",
     "CupoMaximo": 1,
     "CuposDisponibles": 1,
     "ID": 7,
+    "Activo": false
+  },
+  "8": {
+    "Nombre": "ReparacionPc",
+    "Codigo": "777",
+    "Descripcion": "reparacion",
+    "CupoMaximo": 25,
+    "CuposDisponibles": 25,
+    "ID": 8,
+    "Activo": false
+  },
+  "9": {
+    "Nombre": "Astronauta",
+    "Codigo": "4141",
+    "Descripcion": "volar alto",
+    "CupoMaximo": 100,
+    "CuposDisponibles": 100,
+    "ID": 9,
     "Activo": true
   }
 }

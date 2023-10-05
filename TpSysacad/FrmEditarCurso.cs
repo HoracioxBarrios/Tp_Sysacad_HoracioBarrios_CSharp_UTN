@@ -1,5 +1,6 @@
 ﻿using BibliotecaCLases.Controlador;
 using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 using System;
 using System.Windows.Forms;
 
@@ -43,22 +44,30 @@ namespace Formularios
             string nuevaDescripcion = textBoxDescripcion.Text;
             string nuevoCupoMaximo = textBoxCupoMax.Text;
 
-            // Crear una instancia de GestorCursos
-            GestorCursos gestorCursos = new GestorCursos(nuevoNombre, nuevoCodigo, nuevaDescripcion, nuevoCupoMaximo);
+            // Obtener la ID del curso que se está editando
+            int idCurso = _cursoSeleccionado.ID;
 
-            // Verificar si los nuevos datos son válidos
-            if (!gestorCursos.Validado)
+            // Buscar el curso en el JSON por su ID
+            Curso cursoEnJson = crudCurso.ObtenerCursoPorCodigo(idCurso.ToString());
+
+            if (cursoEnJson != null)
             {
-                MessageBox.Show("Error: " + gestorCursos.MensajeError, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                // Modificar los atributos del curso en el JSON con los nuevos valores
+                cursoEnJson.Nombre = nuevoNombre;
+                cursoEnJson.Codigo = nuevoCodigo;
+                cursoEnJson.Descripcion = nuevaDescripcion;
+                if (int.TryParse(nuevoCupoMaximo, out int cupoMaximo))
+                {
+                    cursoEnJson.CupoMaximo = cupoMaximo;
+                }
+                else
+                {
+                    MessageBox.Show("Error: El nuevo cupo máximo no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            // Llamar al método para editar el curso existente
-            string resultadoEdicion = gestorCursos.EditarCurso(_cursoSeleccionado.Codigo, nuevoNombre, nuevaDescripcion, nuevoCupoMaximo);
-
-            if (resultadoEdicion == "Se modificó correctamente")
-            {
-                // Mostrar un mensaje de éxito después de la edición
+                // Actualizar el archivo JSON con el diccionario completo
+                Serializador.ActualizarJson(cursoEnJson, idCurso.ToString(), crudCurso.Path);
                 MessageBox.Show("Cambios guardados con éxito.");
 
                 // Cerrar el formulario de edición después de guardar los cambios
@@ -66,8 +75,9 @@ namespace Formularios
             }
             else
             {
-                MessageBox.Show("Error al guardar los cambios: " + resultadoEdicion, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El curso no se encontró en el JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
