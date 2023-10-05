@@ -3,7 +3,7 @@
     "Nombre": "Carpinteria",
     "Codigo": "100",
     "Descripcion": "trabajo sobre maderas",
-    "CupoMaximo": 50,
+    "CupoMaximo": 10,
     "CuposDisponibles": 50,
     "ID": 1,
     "Activo": true
@@ -15,13 +15,13 @@
     "CupoMaximo": 60,
     "CuposDisponibles": 60,
     "ID": 2,
-    "Activo": true
+    "Activo": false
   },
   "3": {
     "Nombre": "programacion",
     "Codigo": "130",
     "Descripcion": "Tecnico programador",
-    "CupoMaximo": 300,
+    "CupoMaximo": 100,
     "CuposDisponibles": 300,
     "ID": 3,
     "Activo": true
@@ -74,7 +74,7 @@
   "9": {
     "Nombre": "Astronauta",
     "Codigo": "4141",
-    "Descripcion": "volar alto",
+    "Descripcion": "volar",
     "CupoMaximo": 100,
     "CuposDisponibles": 100,
     "ID": 9,
