@@ -54,23 +54,32 @@ namespace Formularios
         private void FrmGestionarCursos_Load(object sender, EventArgs e)
         {
             List<Curso> listaCursos = new List<Curso>();
-            Dictionary<int, Curso> dictCursos;
+            Dictionary<int, Curso> dictCursos = null; // Inicializa el diccionario como nulo
 
-            dictCursos = new Dictionary<int, Curso>();
             string path = PathManager.ObtenerRuta("Data", "DictCurso.json");
 
-            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
-
-
-            listBoxCursos.Items.Add("CODIGO        CURSO          DESCRIPCION                        CUPO MAXIMO   CUPOS DISPONIBLES");
-
-            foreach (KeyValuePair<int, Curso> kvp in dictCursos)
+            try
             {
-                listBoxCursos.Items.Add(kvp.Value);
+                dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
+            }
+            catch (FileNotFoundException ex)
+            {
+                // Maneja la excepción si el archivo JSON no se encuentra
+                MessageBox.Show($"No se encontró el archivo JSON en la ruta: {path}");
             }
 
+            if (dictCursos != null)
+            {
+                listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
 
+                foreach (KeyValuePair<int, Curso> kvp in dictCursos)
+                {
+                    listBoxCursos.Items.Add(kvp.Value);
+                }
+            }
         }
+
+
 
         private void listBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
         {

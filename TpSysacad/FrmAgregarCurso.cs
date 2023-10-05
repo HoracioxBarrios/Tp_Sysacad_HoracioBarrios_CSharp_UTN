@@ -37,6 +37,7 @@ namespace Formularios
                 {
                     gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
                     MessageBox.Show("Curso agregado con éxito.");
+                    this.Hide();
                 }
                 else
                 {
