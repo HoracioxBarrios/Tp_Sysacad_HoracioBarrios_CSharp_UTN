@@ -1,4 +1,5 @@
 ﻿using System;
+using static BibliotecaCLases.Modelo.Curso;
 
 namespace BibliotecaCLases.Modelo
 {
@@ -10,6 +11,34 @@ namespace BibliotecaCLases.Modelo
         private int _cupoMaximo;
         private int _cuposDisponibles;
         private bool _activo;
+        private int _medioTiempo = 2;
+        private int _tiempoCompleto = 4;
+        public enum dias
+        {
+            Lunes = 0,
+            Martes = 1,
+            Miercoles = 2,
+            Jueves = 3,
+            Viernes = 4
+        }
+        private dias _dias;
+        public enum aulas
+        {
+            Aula206 = 0,
+            Aula207 = 1,
+            Aula208 = 2,
+            Aula306 = 3,
+            Aula307 = 4,
+            Aula308 = 5,
+        }
+        private aulas _aulas;
+        public enum horarios
+        {
+            Mañana = 0,
+            Tarde = 1,
+            Noche = 2
+        }
+        private horarios _horarios;
 
         public Curso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
@@ -68,6 +97,34 @@ namespace BibliotecaCLases.Modelo
         {
             get { return _activo; }
             set { _activo = value; }
+        }
+
+        public dias Dias
+        {
+            get { return _dias; }
+            set { _dias = value; }
+        }
+        public dias[] TodosLsDias
+        {
+            get { return (dias[])Enum.GetValues(typeof(dias)); }
+        }
+        public horarios Horarios
+        {
+            get { return _horarios; }
+            set { _horarios = value; }
+        }
+        public horarios[] TodosLosHorarios
+        {
+            get { return (horarios[])Enum.GetValues(typeof(horarios)); }
+        }
+        public aulas Aulas
+        {
+            get { return _aulas; }
+            set { _aulas = value; }
+        }
+        public aulas[] TodasLasAulas
+        {
+            get { return (aulas[])Enum.GetValues(typeof(aulas)); }
         }
     }
 }
