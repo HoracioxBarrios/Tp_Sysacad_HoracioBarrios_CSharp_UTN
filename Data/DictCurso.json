@@ -5,15 +5,15 @@
     "Descripcion": "dos",
     "CupoMaximo": 2,
     "CuposDisponibles": 0,
-    "Activo": true
+    "Activo": false
   },
   "1": {
     "Nombre": "curso I",
     "Codigo": "1",
-    "Descripcion": "",
+    "Descripcion": "kjk",
     "CupoMaximo": 1,
     "CuposDisponibles": 0,
-    "Activo": true
+    "Activo": false
   },
   "3": {
     "Nombre": "curso III",

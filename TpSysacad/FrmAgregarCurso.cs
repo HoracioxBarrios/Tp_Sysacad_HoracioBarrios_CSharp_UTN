@@ -13,9 +13,11 @@ namespace Formularios
 {
     public partial class FrmAgregarCurso : Form
     {
-        public FrmAgregarCurso()
+        private FrmGestionarCursos _ownerForm;
+        public FrmAgregarCurso(FrmGestionarCursos ownerForm)
         {
             InitializeComponent();
+            _ownerForm = ownerForm;
         }
 
         private void FrmAgregarCurso_Load(object sender, EventArgs e)
@@ -37,6 +39,10 @@ namespace Formularios
                 {
                     gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
                     MessageBox.Show("Curso agregado con éxito.");
+                    if (_ownerForm != null)
+                    {
+                        _ownerForm.ActualizarListaCursos();
+                    }
                     this.Hide();
                 }
                 else
