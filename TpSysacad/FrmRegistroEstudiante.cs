@@ -30,11 +30,11 @@ namespace Formularios
                     if (resultado == DialogResult.Yes)
                     {
                         // Llama al método RegistrarEstudiante de CrudEstudiante para registrar al estudiante
-                        gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
+                        string mensaje = gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
                         textTelefono.Text, this.DebeCambiar);
                         MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
-                        string mensaje = Email.SendMessageSmtp(textEmail.Text);
-                        MessageBox.Show(mensaje);
+                        //string mensaje = Email.SendMessageSmtp(textEmail.Text);
+                        MessageBox.Show("mail enviado");
                     }
                     else
                     {
