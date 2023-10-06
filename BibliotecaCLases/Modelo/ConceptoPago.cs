@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,5 +29,10 @@ namespace BibliotecaCLases.Modelo
             get { return _monto; } 
             set { _monto = value; }
         }
+        public override string ToString()
+        {
+            return $"{Nombre,-30} - {Monto,-15}";
+        }
+
     }
 }
