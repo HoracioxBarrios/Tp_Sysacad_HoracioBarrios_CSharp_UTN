@@ -18,7 +18,7 @@ namespace BibliotecaCLases.Modelo
         /// Envia un email de confirmacion al usuario registrado
         /// </summary>
         /// <param name="email"></param>
-        public static string SendMessageSmtp(string email)
+        public static string SendMessageSmtp(string email,string contraseña)
         {
             MimeMessage mail = new MimeMessage();
             mail.From.Add(new MailboxAddress("Excited Admin", "foo@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org"));
@@ -26,7 +26,7 @@ namespace BibliotecaCLases.Modelo
             mail.Subject = "Registro de alumno";
             mail.Body = new TextPart("plain")
             {
-                Text = @"Registro exitoso, bienvenido al nuevo SistemaSysacad",
+                Text = @$"Registro exitoso, bienvenido al nuevo SistemaSysacad. Tu contraseña es: {contraseña}",
             };
             try
             {

@@ -30,7 +30,8 @@
     "Direccion": "calle 123",
     "Telefono": "1145",
     "CursosInscriptos": [
-      "100"
+      "100",
+      "1"
     ],
     "Nombre": "Alexis",
     "Apellido": "Aranda",
@@ -39,5 +40,18 @@
     "Clave": "$2a$08$57G84avQLYos8oeO2Qp6Bu9vUM8KqIVBtL1KOP4sJ3pnS2VEHOrzq",
     "TipoUsuario": 1,
     "Legajo": 1026
+  },
+  "1030": {
+    "Debecambiar": false,
+    "Direccion": "asdasd",
+    "Telefono": "23123123",
+    "CursosInscriptos": [],
+    "Nombre": "asdas",
+    "Apellido": "dsadasd",
+    "Correo": "matuk79@gmail.com",
+    "Dni": "123123",
+    "Clave": "$2a$08$JNyGaRTBBgIBfJJpw7wjX.7Hn.gOhRrmFH2.VP6Q8lZOYKu.ptX7O",
+    "TipoUsuario": 1,
+    "Legajo": 1030
   }
 }

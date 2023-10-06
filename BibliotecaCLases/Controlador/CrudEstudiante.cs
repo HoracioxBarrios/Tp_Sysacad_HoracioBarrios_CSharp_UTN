@@ -105,19 +105,20 @@ namespace BibliotecaCLases.Controlador
         /// <param name="telefono">El teléfono del estudiante.</param>      
         /// <param name="telefono">El teléfono del estudiante.</param>      
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
-        public void RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, bool debeCambiar)
+        public string RegistrarEstudiante(string nombre, string apellido, string dni, string correo, string direccion, string telefono, bool debeCambiar)
         {
             int legajo = ObtieneLegajo();
 
             string claveProvisional = GenerarContrasenaAleatoria(7, 12);
-
-            String contrasena = PasswordHashing.GetHash(legajo.ToString());
+            string mensaje = Email.SendMessageSmtp(correo, claveProvisional);
+            String contrasena = PasswordHashing.GetHash(claveProvisional.ToString());
             Estudiante nuevoEstudiante = new(nombre, apellido, dni, correo, direccion, telefono, contrasena, debeCambiar);
             nuevoEstudiante.Legajo = legajo;
 
             dictEstudiantesRegistrados.Add(nuevoEstudiante.Legajo, nuevoEstudiante);
 
             Serializador.ActualizarJson(nuevoEstudiante, nuevoEstudiante.Legajo, _path);
+            return mensaje;
 
         }
 

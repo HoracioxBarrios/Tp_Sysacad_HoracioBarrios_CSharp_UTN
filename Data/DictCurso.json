@@ -21,6 +21,6 @@
     "Descripcion": "3",
     "CupoMaximo": 3,
     "CuposDisponibles": 0,
-    "Activo": true
+    "Activo": false
   }
 }
