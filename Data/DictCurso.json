@@ -55,9 +55,9 @@
     "Horarios": 0,
     "Aulas": 0
   },
-  "1848": {
+  "1850": {
     "Nombre": "Curso Pintura",
-    "Codigo": "1848",
+    "Codigo": "1850",
     "Descripcion": "Pintura art",
     "CupoMaximo": 30,
     "CuposDisponibles": 30,
