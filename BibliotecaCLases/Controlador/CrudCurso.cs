@@ -69,6 +69,10 @@ namespace BibliotecaCLases.Controlador
                     cursoExistente.Nombre = nuevoNombre;
                     cursoExistente.Descripcion = nuevaDescripcion;
                     cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
+                    if (cursoExistente.CuposDisponibles > cursoExistente.CupoMaximo)
+                    {
+                        cursoExistente.CuposDisponibles = int.Parse(nuevoCupoMaximo);
+                    }
 
                     dictCursos[nuevoCodigoCurso] = cursoExistente;
 
@@ -124,6 +128,37 @@ namespace BibliotecaCLases.Controlador
         {
             dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
             return dictCursos;
+        }
+
+        public string InscribirEstudianteEnCurso(string codigo)
+        {
+            if (dictCursos != null)
+            {
+                int.TryParse(codigo, out int codigoCurso);
+                if (dictCursos.ContainsKey(codigoCurso))
+                {
+                    Curso curso = dictCursos[codigoCurso];
+
+                    if (curso.CuposDisponibles > 0)
+                    {
+                        curso.CuposDisponibles--;
+                        Serializador.ActualizarJson(dictCursos, _path);
+                        return "Inscripción exitosa.";
+                    }
+                    else
+                    {
+                        return "No hay cupos disponibles para este curso.";
+                    }
+                }
+                else
+                {
+                    return "El curso no existe en el diccionario.";
+                }
+            }
+            else
+            {
+                return "No se encontraron cursos.";
+            }
         }
     }
 }
