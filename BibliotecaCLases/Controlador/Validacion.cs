@@ -56,11 +56,11 @@ namespace BibliotecaCLases.Controlador
 
 
 
-        public static bool ValidarString(string value)
+        public static bool ValidarAlphanumeric(string value)
         {
             foreach (char c in value)
             {
-                if (!char.IsLetter(c) && !char.IsWhiteSpace(c))
+                if (!char.IsLetter(c) && !char.IsDigit(c))
                 {
                     return false;
                 }

@@ -5,7 +5,13 @@
     "Descripcion": "prueba",
     "CupoMaximo": 500,
     "CuposDisponibles": 0,
-    "Activo": false
+    "Activo": false,
+    "DiaGetSet": null,
+    "HorarioGetSet": null,
+    "AulaGetSet": null,
+    "Dias": 0,
+    "Horarios": 0,
+    "Aulas": 0
   },
   "2": {
     "Nombre": "curso I",
@@ -13,7 +19,13 @@
     "Descripcion": "prueba 2",
     "CupoMaximo": 0,
     "CuposDisponibles": 0,
-    "Activo": true
+    "Activo": true,
+    "DiaGetSet": null,
+    "HorarioGetSet": null,
+    "AulaGetSet": null,
+    "Dias": 0,
+    "Horarios": 0,
+    "Aulas": 0
   },
   "1": {
     "Nombre": "nuevo curso",
@@ -21,7 +33,13 @@
     "Descripcion": "akdjsk",
     "CupoMaximo": 100,
     "CuposDisponibles": 98,
-    "Activo": true
+    "Activo": true,
+    "DiaGetSet": null,
+    "HorarioGetSet": null,
+    "AulaGetSet": null,
+    "Dias": 0,
+    "Horarios": 0,
+    "Aulas": 0
   },
   "5": {
     "Nombre": "programacion I",
@@ -29,6 +47,12 @@
     "Descripcion": "turno mañana",
     "CupoMaximo": 50,
     "CuposDisponibles": 47,
-    "Activo": true
+    "Activo": true,
+    "DiaGetSet": null,
+    "HorarioGetSet": null,
+    "AulaGetSet": null,
+    "Dias": 0,
+    "Horarios": 0,
+    "Aulas": 0
   }
 }

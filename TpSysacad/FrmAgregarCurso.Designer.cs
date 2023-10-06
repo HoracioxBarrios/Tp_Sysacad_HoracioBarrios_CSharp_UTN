@@ -34,48 +34,54 @@
             textCupoMax = new TextBox();
             BtnAgregar = new Button();
             label1 = new Label();
+            cBAula = new ComboBox();
+            cBHorarios = new ComboBox();
+            cBDias = new ComboBox();
             SuspendLayout();
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(317, 77);
+            textNombre.Location = new Point(396, 96);
+            textNombre.Margin = new Padding(4);
             textNombre.Name = "textNombre";
             textNombre.PlaceholderText = "Nombre";
-            textNombre.Size = new Size(125, 27);
+            textNombre.Size = new Size(155, 31);
             textNombre.TabIndex = 0;
             textNombre.TextChanged += textBox1_TextChanged;
             // 
             // textCodigo
             // 
-            textCodigo.Location = new Point(317, 151);
+            textCodigo.Location = new Point(396, 189);
+            textCodigo.Margin = new Padding(4);
             textCodigo.Name = "textCodigo";
             textCodigo.PlaceholderText = "Código";
-            textCodigo.Size = new Size(125, 27);
+            textCodigo.Size = new Size(155, 31);
             textCodigo.TabIndex = 1;
-            textCodigo.TextChanged += textBox2_TextChanged;
             // 
             // textDescripcion
             // 
-            textDescripcion.Location = new Point(317, 228);
+            textDescripcion.Location = new Point(396, 285);
+            textDescripcion.Margin = new Padding(4);
             textDescripcion.Name = "textDescripcion";
             textDescripcion.PlaceholderText = "Descripción";
-            textDescripcion.Size = new Size(125, 27);
+            textDescripcion.Size = new Size(155, 31);
             textDescripcion.TabIndex = 2;
             // 
             // textCupoMax
             // 
-            textCupoMax.Location = new Point(317, 301);
+            textCupoMax.Location = new Point(396, 376);
+            textCupoMax.Margin = new Padding(4);
             textCupoMax.Name = "textCupoMax";
             textCupoMax.PlaceholderText = "Cupo Máximo";
-            textCupoMax.Size = new Size(125, 27);
+            textCupoMax.Size = new Size(155, 31);
             textCupoMax.TabIndex = 3;
-            textCupoMax.TextChanged += textBox4_TextChanged;
             // 
             // BtnAgregar
             // 
-            BtnAgregar.Location = new Point(327, 374);
+            BtnAgregar.Location = new Point(409, 468);
+            BtnAgregar.Margin = new Padding(4);
             BtnAgregar.Name = "BtnAgregar";
-            BtnAgregar.Size = new Size(94, 29);
+            BtnAgregar.Size = new Size(118, 36);
             BtnAgregar.TabIndex = 4;
             BtnAgregar.Text = "Agregar";
             BtnAgregar.UseVisualStyleBackColor = true;
@@ -84,24 +90,58 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(328, 32);
+            label1.Location = new Point(410, 40);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(93, 20);
+            label1.Size = new Size(115, 25);
             label1.TabIndex = 5;
             label1.Text = "Nuevo Curso";
-            label1.Click += label1_Click;
+            // 
+            // cBAula
+            // 
+            cBAula.FormattingEnabled = true;
+            cBAula.Location = new Point(659, 94);
+            cBAula.Name = "cBAula";
+            cBAula.Size = new Size(182, 33);
+            cBAula.TabIndex = 6;
+            cBAula.Text = "Aula";
+            cBAula.KeyPress += cBAula_KeyPress;
+            // 
+            // cBHorarios
+            // 
+            cBHorarios.FormattingEnabled = true;
+            cBHorarios.Location = new Point(659, 187);
+            cBHorarios.Name = "cBHorarios";
+            cBHorarios.Size = new Size(182, 33);
+            cBHorarios.TabIndex = 7;
+            cBHorarios.Text = "Horarios";
+            cBHorarios.KeyPress += cBHorarios_KeyPress;
+            // 
+            // cBDias
+            // 
+            cBDias.FormattingEnabled = true;
+            cBDias.Location = new Point(659, 285);
+            cBDias.Name = "cBDias";
+            cBDias.Size = new Size(182, 33);
+            cBDias.TabIndex = 8;
+            cBDias.Text = "Dias";
+            cBDias.KeyPress += cBDias_KeyPress;
             // 
             // FrmAgregarCurso
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
+            Controls.Add(cBDias);
+            Controls.Add(cBHorarios);
+            Controls.Add(cBAula);
             Controls.Add(label1);
             Controls.Add(BtnAgregar);
             Controls.Add(textCupoMax);
             Controls.Add(textDescripcion);
             Controls.Add(textCodigo);
             Controls.Add(textNombre);
+            Margin = new Padding(4);
             Name = "FrmAgregarCurso";
             Text = "FrmAgregarCurso";
             Load += FrmAgregarCurso_Load;
@@ -117,5 +157,8 @@
         private TextBox textCupoMax;
         private Button BtnAgregar;
         private Label label1;
+        private ComboBox cBAula;
+        private ComboBox cBHorarios;
+        private ComboBox cBDias;
     }
 }
