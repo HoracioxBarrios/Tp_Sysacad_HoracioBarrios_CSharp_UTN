@@ -45,12 +45,12 @@ namespace BibliotecaCLases.Modelo
             _nombre = nombre;
             _codigo = codigo;
             _descripcion = descripcion;
-            _cuposDisponibles = _cupoMaximo;
             _activo = true;
 
             if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
             {
                 _cupoMaximo = cupoMaximoValor;
+                _cuposDisponibles = _cupoMaximo;
             }
             else
             {

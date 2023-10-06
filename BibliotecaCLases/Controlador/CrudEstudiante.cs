@@ -14,6 +14,7 @@ namespace BibliotecaCLases.Controlador
         private string _path;
         public string pathUltimoLegajo;
         private int _ultimoLegajoEnArchivo;
+        private CrudCurso crudCurso;
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
 
         /// <summary>
@@ -27,6 +28,7 @@ namespace BibliotecaCLases.Controlador
             dictEstudiantesRegistrados = Serializador.LeerJson<Dictionary<int, Estudiante>>(_path);
             pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
             _ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
+            crudCurso = new CrudCurso();
         }
         public string Path
         {
@@ -188,11 +190,21 @@ namespace BibliotecaCLases.Controlador
                     return false;
                 }
 
-                estudiante.CursosInscriptos.Add(codigoCurso);
-                string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
-                Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
-                mensajeError = null;
-                return true;
+                string mensaje = crudCurso.InscribirEstudianteEnCurso(codigoCurso);
+
+                if (mensaje == "Inscripción exitosa.")
+                {
+                    estudiante.CursosInscriptos.Add(codigoCurso);
+                    string path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
+                    Serializador.ActualizarJson(estudiante, estudiante.Legajo, path);
+                    mensajeError = null;
+                    return true;
+                }
+                else
+                {
+                    mensajeError = mensaje;
+                    return false;
+                }
             }
 
             mensajeError = "El estudiante no se encontró.";
