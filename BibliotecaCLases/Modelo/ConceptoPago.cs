@@ -11,6 +11,7 @@ namespace BibliotecaCLases.Modelo
     {
         private string _nombre;
         private decimal _monto;
+        private decimal _montoPagar;
 
         public ConceptoPago(string nombre, decimal monto)
         {
@@ -29,10 +30,11 @@ namespace BibliotecaCLases.Modelo
             get { return _monto; } 
             set { _monto = value; }
         }
-        public override string ToString()
-        {
-            return $"{Nombre,-30} - {Monto,-15}";
-        }
+        public decimal MontoPagar
+        { 
+            get { return _montoPagar; }
+            set { _montoPagar = value; } 
+        }  
 
     }
 }
