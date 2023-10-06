@@ -5,21 +5,37 @@
     "Descripcion": "dos",
     "CupoMaximo": 2,
     "CuposDisponibles": 0,
-    "Activo": true
+    "Activo": false
   },
   "1": {
     "Nombre": "curso I",
     "Codigo": "1",
-    "Descripcion": "",
+    "Descripcion": "kjk",
     "CupoMaximo": 1,
     "CuposDisponibles": 0,
-    "Activo": true
+    "Activo": false
   },
   "3": {
     "Nombre": "curso III",
     "Codigo": "3",
     "Descripcion": "3",
     "CupoMaximo": 3,
+    "CuposDisponibles": 0,
+    "Activo": false
+  },
+  "4": {
+    "Nombre": "Curso IV",
+    "Codigo": "4",
+    "Descripcion": "turno mañana",
+    "CupoMaximo": 40,
+    "CuposDisponibles": 0,
+    "Activo": false
+  },
+  "5": {
+    "Nombre": "curso V",
+    "Codigo": "5",
+    "Descripcion": "turno noche",
+    "CupoMaximo": 50,
     "CuposDisponibles": 0,
     "Activo": true
   }

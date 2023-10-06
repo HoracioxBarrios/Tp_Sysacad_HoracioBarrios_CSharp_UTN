@@ -31,7 +31,7 @@ namespace Formularios
 
         private void BtnAgregarCurso_Click(object sender, EventArgs e)
         {
-            FrmAgregarCurso frmAgregarCurso = new FrmAgregarCurso();
+            FrmAgregarCurso frmAgregarCurso = new FrmAgregarCurso(this);
             frmAgregarCurso.Show();
         }
 
@@ -63,9 +63,8 @@ namespace Formularios
                     {
                         MessageBox.Show(resultadoEliminacion, "Resultado:", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Debes actualizar la interfaz de usuario para reflejar los cambios
-                        // por ejemplo, eliminar el curso de la lista o actualizar la vista.
                         //ActualizarInterfazUsuario();
+                        ActualizarListaCursos();
                     }
                     else
                     {
@@ -112,10 +111,8 @@ namespace Formularios
         {
             if (listBoxCursos.SelectedIndex != -1)
             {
-                // Obtén el objeto Curso seleccionado en lugar de la cadena
                 _cursoSeleccionado = (Curso)listBoxCursos.SelectedItem;
 
-                // Actualiza la etiqueta de resultado para mostrar información del curso
                 labelResultado.Text = "Seleccionaste: Código " + _cursoSeleccionado.Codigo + ", Curso " + _cursoSeleccionado.Nombre;
             }
         }
@@ -173,17 +170,14 @@ namespace Formularios
 
             List<Curso> listaCursosActualizada = new List<Curso>();
 
+            listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
             foreach (KeyValuePair<int, Curso> kvp in crudCurso.ObtenerDictCursos())
             {
                 if (kvp.Value.Activo)
                 {
-                    listaCursosActualizada.Add(kvp.Value);
-                    //listBoxCursos.Items.Add(kvp.Value);
+                    listBoxCursos.Items.Add(kvp.Value);
                 }
             }
-
-            listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
-            listBoxCursos.Items.AddRange(listaCursosActualizada.ToArray());
         }
 
     }
