@@ -33,8 +33,8 @@ namespace Formularios
                         gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
                         textTelefono.Text, this.DebeCambiar);
                         MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
-                        //Email.SendMessageSmtp(textEmail.Text);
-                        MessageBox.Show("Email entregado.");
+                        string mensaje = Email.SendMessageSmtp(textEmail.Text);
+                        MessageBox.Show(mensaje);
                     }
                     else
                     {
