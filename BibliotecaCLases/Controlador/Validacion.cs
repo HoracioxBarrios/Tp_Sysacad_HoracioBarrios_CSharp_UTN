@@ -42,23 +42,23 @@ namespace BibliotecaCLases.Controlador
 
             return regex.IsMatch(nombre);
         }
-        public static bool EsApellidoValido(string nombre)
+        public static bool EsApellidoValido(string apellido)
         {
-            if (string.IsNullOrEmpty(nombre))
+            if (string.IsNullOrEmpty(apellido))
             {
                 return false;
             }
             string patronNombre = @"^[A-Za-z\s]{1,10}$";
             Regex regex = new Regex(patronNombre);
 
-            return regex.IsMatch(nombre);
+            return regex.IsMatch(apellido);
         }
 
 
 
-        public static bool ValidarAlphanumeric(string value)
+        public static bool ValidarAlphanumeric(string valor)
         {
-            foreach (char c in value)
+            foreach (char c in valor)
             {
                 if (!char.IsLetter(c) && !char.IsDigit(c))
                 {
@@ -68,9 +68,9 @@ namespace BibliotecaCLases.Controlador
             return true;
 
         }
-        public static bool ValidarDigit(string value)
+        public static bool ValidarDigit(string valor)
         {
-            foreach (char c in value)
+            foreach (char c in valor)
             {
                 if (!char.IsDigit(c))
                 {

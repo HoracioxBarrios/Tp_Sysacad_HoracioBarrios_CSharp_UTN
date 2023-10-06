@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BibliotecaCLases.Modelo;
-using BibliotecaCLases.Utilidades;
+
 
 namespace BibliotecaCLases.Controlador
 {
@@ -13,13 +8,13 @@ namespace BibliotecaCLases.Controlador
     {
         private CrudEstudiante crudEstudiante;
         private bool _validado;
-        public string _nombre;
-        public string _apellido;
-        public string _correo;
-        public string _dni;
-        public string _direccion;
-        public string _telefono;
-        public string _claveProvisional;
+        private string _nombre;
+        private string _apellido;
+        private string _correo;
+        private string _dni;
+        private string _direccion;
+        private string _telefono;
+        private string _claveProvisional;
         public ValidadorDatosRegistro validadorDatosRegistro;
         private string _mensajeError;
 
@@ -40,7 +35,7 @@ namespace BibliotecaCLases.Controlador
 
             _validado = validadorDatosRegistro.Validar(out string mensajeError);
          
-            if (this.Validado)
+            if (Validado)
             {
                 crudEstudiante = new CrudEstudiante();
                 _nombre = nombre;
@@ -57,15 +52,7 @@ namespace BibliotecaCLases.Controlador
             }
 
         }
-        public bool Validado
-        {
-            get { return _validado; }
-        }
 
-        public string MensajeError
-        {
-            get { return _mensajeError; }
-        }
 
         /// <summary>
         /// Verifica si los datos del estudiante ya existen en el sistema a través del correo electrónico y el número de identificación (DNI).
@@ -134,6 +121,50 @@ namespace BibliotecaCLases.Controlador
         public void EliminarEstudiante(int estudiante)
         {          
             crudEstudiante.EliminarEstudiante(estudiante);
+        }
+
+
+        public bool Validado
+        {
+            get { return _validado; }
+            set { _validado = value; }
+        }
+
+        public string MensajeError
+        {
+            get { return _mensajeError; }
+            set { _mensajeError = value; }
+        }
+
+        public string Nombre
+        {
+            get { return _nombre; }
+            set { _nombre = value; }
+        }
+
+        public string Apellido
+        {
+            get { return _apellido; }
+            set { _apellido = value; }
+        }
+
+        public string Direccion
+        {
+            get { return _direccion; }
+            set { _direccion = value; }
+        }
+
+
+        public string Telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
+        }
+
+        public string ClaveProvisional
+        {
+            get { return _claveProvisional; }
+            set { _claveProvisional = value; }
         }
 
     }

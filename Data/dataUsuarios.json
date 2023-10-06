@@ -53,5 +53,31 @@
     "Clave": "$2a$08$JNyGaRTBBgIBfJJpw7wjX.7Hn.gOhRrmFH2.VP6Q8lZOYKu.ptX7O",
     "TipoUsuario": 1,
     "Legajo": 1030
+  },
+  "1032": {
+    "Debecambiar": true,
+    "Direccion": "san martin",
+    "Telefono": "1555",
+    "CursosInscriptos": [],
+    "Nombre": "kio",
+    "Apellido": "kusa",
+    "Correo": "kio@hmail.com",
+    "Dni": "123",
+    "Clave": "$2a$08$YvU6AyUxQ3sXJHyPy0iw0eRT2rHiFieDkaaScFLc2.uxxqRzCmlcy",
+    "TipoUsuario": 1,
+    "Legajo": 1032
+  },
+  "1033": {
+    "Debecambiar": false,
+    "Direccion": "san martin",
+    "Telefono": "1566",
+    "CursosInscriptos": [],
+    "Nombre": "pepe",
+    "Apellido": "pipo",
+    "Correo": "pe@gmail.com",
+    "Dni": "15",
+    "Clave": "$2a$08$rBAoiuvVECm304v0L3f/r.eyA.0VCVZjs69c4CCCW2Z313G1xH2Rm",
+    "TipoUsuario": 1,
+    "Legajo": 1033
   }
 }
