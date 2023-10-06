@@ -37,10 +37,10 @@ namespace BibliotecaCLases.Controlador
             return 0;
         }
 
-        public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+        public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
             int.TryParse(codigo, out int codigoCurso);
-            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo);
+            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo, dia, horario, aula);
 
             if (dictCursos != null)
             {

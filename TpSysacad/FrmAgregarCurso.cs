@@ -1,4 +1,5 @@
 ﻿using BibliotecaCLases.Controlador;
+using BibliotecaCLases.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Formularios
 {
@@ -22,7 +24,32 @@ namespace Formularios
 
         private void FrmAgregarCurso_Load(object sender, EventArgs e)
         {
+            MostrarAulas();
+            MostrarHorarios();
+            MostrarDias();
+        }
+        private void MostrarEnumEnComboBox<T>(System.Windows.Forms.ComboBox comboBox)
+        {
+            T[] enumValues = (T[])Enum.GetValues(typeof(T));
+            foreach (T value in enumValues)
+            {
+                comboBox.Items.Add(value.ToString());
+            }
+        }
 
+        private void MostrarAulas()
+        {
+            MostrarEnumEnComboBox<Curso.aulas>(cBAula);
+        }
+
+        private void MostrarHorarios()
+        {
+            MostrarEnumEnComboBox<Curso.horarios>(cBHorarios);
+        }
+
+        private void MostrarDias()
+        {
+            MostrarEnumEnComboBox<Curso.dias>(cBDias);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -32,12 +59,13 @@ namespace Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
+            string hora = cBHorarios.SelectedItem.ToString();
+            GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text,cBDias.SelectedItem.ToString(),cBHorarios.SelectedItem.ToString(),cBAula.SelectedItem.ToString());
             if (gestorCursos.Validado)
             {
                 if (gestorCursos.verificarDatosExistentes())
                 {
-                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text);
+                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text,cBDias.SelectedItem.ToString(), cBHorarios.SelectedItem.ToString(), cBAula.SelectedItem.ToString());
                     MessageBox.Show("Curso agregado con éxito.");
                     if (_ownerForm != null)
                     {
@@ -56,19 +84,19 @@ namespace Formularios
             }
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void cBAula_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = true;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void cBHorarios_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = true;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void cBDias_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = true;
         }
     }
 }

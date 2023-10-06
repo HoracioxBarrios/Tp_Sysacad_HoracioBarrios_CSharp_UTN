@@ -11,8 +11,9 @@ namespace BibliotecaCLases.Modelo
         private int _cupoMaximo;
         private int _cuposDisponibles;
         private bool _activo;
-        private int _medioTiempo = 2;
-        private int _tiempoCompleto = 4;
+        private string _aula;
+        private string _dia;
+        private string _horario;
         public enum dias
         {
             Lunes = 0,
@@ -40,12 +41,37 @@ namespace BibliotecaCLases.Modelo
         }
         private horarios _horarios;
 
+        public Curso()
+        {
+
+        }
+
         public Curso(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
             _nombre = nombre;
             _codigo = codigo;
             _descripcion = descripcion;
             _activo = true;
+
+            if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
+            {
+                _cupoMaximo = cupoMaximoValor;
+                _cuposDisponibles = _cupoMaximo;
+            }
+            else
+            {
+                _cupoMaximo = 0;
+            }
+        }
+        public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
+        {
+            _nombre = nombre;
+            _codigo = codigo;
+            _descripcion = descripcion;
+            _activo = true;
+            _aula = aula;
+            _horario = horario;
+            _dia = dia;
 
             if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
             {
@@ -99,32 +125,39 @@ namespace BibliotecaCLases.Modelo
             set { _activo = value; }
         }
 
+        public string DiaGetSet
+        {
+            get { return _dia; }
+            set { _dia = value; }
+        }
+
+        public string HorarioGetSet
+        {
+            get { return _horario; }
+            set { _horario = value; }
+        }
+
+        public string AulaGetSet
+        {
+            get { return _aula; }
+            set { _aula = value; }
+        }
+
+
         public dias Dias
         {
             get { return _dias; }
             set { _dias = value; }
-        }
-        public dias[] TodosLsDias
-        {
-            get { return (dias[])Enum.GetValues(typeof(dias)); }
         }
         public horarios Horarios
         {
             get { return _horarios; }
             set { _horarios = value; }
         }
-        public horarios[] TodosLosHorarios
-        {
-            get { return (horarios[])Enum.GetValues(typeof(horarios)); }
-        }
         public aulas Aulas
         {
             get { return _aulas; }
             set { _aulas = value; }
-        }
-        public aulas[] TodasLasAulas
-        {
-            get { return (aulas[])Enum.GetValues(typeof(aulas)); }
         }
     }
 }

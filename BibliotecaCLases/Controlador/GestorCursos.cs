@@ -14,11 +14,14 @@ namespace BibliotecaCLases.Controlador
         private string _descripcion;
         private string _cupoMaximo;
         private string _cuposDisponibles;
+        private string _dia;
+        private string _horario;
+        private string _aula;
         private string _mensajeError;
 
-        public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo)
+        public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
-            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo);
+            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo, dia, aula, horario);
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
             if (_validado)
@@ -28,6 +31,31 @@ namespace BibliotecaCLases.Controlador
                 _codigo = codigo;
                 _descripcion = descripcion;
                 _cupoMaximo = cupoMaximo;
+                _dia = dia;
+                _horario = horario;
+                _aula = aula;
+            }
+            else
+            {
+                _mensajeError = mensajeError;
+            }
+        }
+
+        public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo)
+        {
+            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo, "", "", "");
+
+            _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
+            if (_validado)
+            {
+                crudCurso = new CrudCurso();
+                _nombre = nombre;
+                _codigo = codigo;
+                _descripcion = descripcion;
+                _cupoMaximo = cupoMaximo;
+                _dia = "";
+                _horario = "";
+                _aula = "";
             }
             else
             {
@@ -71,11 +99,11 @@ namespace BibliotecaCLases.Controlador
             return true;
         }
 
-        public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo)
+        public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
             try
             {
-                crudCurso.AgregarCurso(nombre, codigo, descripcion, cupoMaximo);
+                crudCurso.AgregarCurso(nombre, codigo, descripcion, cupoMaximo, dia, horario, aula);
                 return "Curso agregado correctamente.";
             }
             catch (Exception ex)

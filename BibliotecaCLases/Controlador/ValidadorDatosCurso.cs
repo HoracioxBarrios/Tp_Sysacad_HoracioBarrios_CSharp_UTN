@@ -12,14 +12,20 @@ namespace BibliotecaCLases.Controlador
         string codigo;
         string descripcion;
         string cupoMaximo;
+        private string _dia;
+        private string _horario;
+        private string _aula;
 
-        public ValidadorDatosCurso(string nombre_ingresado, string codigo_ingresado, string descripcion_ingresada, string cupoMaximo_ingresado)
-            : base(nombre_ingresado, "", "", "", "", "")
+        public ValidadorDatosCurso(string nombreIngresado, string codigoIngresado, string descripcionIngresada, string cupoMaximoIngresado, string diaIngresado, string aulaIngresada, string horarioIngresado)
+            : base(nombreIngresado, "", "", "", "", "")
         {
-            nombre = nombre_ingresado;
-            codigo = codigo_ingresado;
-            descripcion = descripcion_ingresada;
-            cupoMaximo = cupoMaximo_ingresado;
+            nombre = nombreIngresado;
+            codigo = codigoIngresado;
+            descripcion = descripcionIngresada;
+            cupoMaximo = cupoMaximoIngresado;
+            _dia = diaIngresado;
+            _horario = horarioIngresado;
+            _aula = aulaIngresada;
         }
 
         public bool ValidarCurso(out string mensajeError)
@@ -49,6 +55,24 @@ namespace BibliotecaCLases.Controlador
                 mensajeError = "El cupo máximo del curso no es válido.";
                 return false;
             }
+
+            if (!Validacion.ValidarAlphanumeric(_aula))
+            {
+                mensajeError = "El aula del curso no es válido.";
+                return false;
+            }
+
+            //if (Validacion.ValidarAlphanumeric(_horario))
+            //{
+            //    mensajeError = "El horario del curso no es válido.";
+            //    return false;
+            //}
+
+            //if (Validacion.ValidarAlphanumeric(_dia))
+            //{
+            //    mensajeError = "El horario del curso no es válido.";
+            //    return false;
+            //}
 
             return true;
         }
