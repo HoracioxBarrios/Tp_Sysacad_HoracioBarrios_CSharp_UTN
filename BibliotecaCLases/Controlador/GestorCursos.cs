@@ -12,12 +12,13 @@ namespace BibliotecaCLases.Controlador
         private string _nombre;
         private string _codigo;
         private string _descripcion;
+        private string _cupoMaximo;
         private string _cuposDisponibles;
         private string _mensajeError;
 
-        public GestorCursos(string nombre, string codigo, string descripcion, string cuposDisponibles)
+        public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
-            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cuposDisponibles);
+            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo);
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
             if (_validado)
@@ -26,7 +27,7 @@ namespace BibliotecaCLases.Controlador
                 _nombre = nombre;
                 _codigo = codigo;
                 _descripcion = descripcion;
-                _cuposDisponibles = cuposDisponibles;
+                _cupoMaximo = cupoMaximo;
             }
             else
             {

@@ -1,26 +1,34 @@
 {
-  "2": {
-    "Nombre": "curso II",
-    "Codigo": "2",
-    "Descripcion": "dos",
-    "CupoMaximo": 2,
+  "4": {
+    "Nombre": "Curso IV",
+    "Codigo": "4",
+    "Descripcion": "prueba",
+    "CupoMaximo": 500,
     "CuposDisponibles": 0,
     "Activo": false
+  },
+  "2": {
+    "Nombre": "curso I",
+    "Codigo": "2",
+    "Descripcion": "prueba 2",
+    "CupoMaximo": 0,
+    "CuposDisponibles": 0,
+    "Activo": true
   },
   "1": {
-    "Nombre": "curso I",
+    "Nombre": "nuevo curso",
     "Codigo": "1",
-    "Descripcion": "kjk",
-    "CupoMaximo": 1,
-    "CuposDisponibles": 0,
-    "Activo": false
+    "Descripcion": "akdjsk",
+    "CupoMaximo": 100,
+    "CuposDisponibles": 98,
+    "Activo": true
   },
-  "3": {
-    "Nombre": "curso III",
-    "Codigo": "3",
-    "Descripcion": "3",
-    "CupoMaximo": 3,
-    "CuposDisponibles": 0,
-    "Activo": false
+  "5": {
+    "Nombre": "programacion I",
+    "Codigo": "5",
+    "Descripcion": "turno mañana",
+    "CupoMaximo": 50,
+    "CuposDisponibles": 47,
+    "Activo": true
   }
 }

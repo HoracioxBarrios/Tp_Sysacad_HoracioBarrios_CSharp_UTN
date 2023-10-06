@@ -62,8 +62,6 @@ namespace Formularios
                     if (resultadoEliminacion.StartsWith("Se realizó la eliminación lógica"))
                     {
                         MessageBox.Show(resultadoEliminacion, "Resultado:", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //ActualizarInterfazUsuario();
                         ActualizarListaCursos();
                     }
                     else
@@ -149,6 +147,7 @@ namespace Formularios
                 if (inscripcionExitosa)
                 {
                     MessageBox.Show($"Inscripción exitosa al curso: {_cursoSeleccionado.Nombre}");
+                    ActualizarListaCursos();
                 }
                 else
                 {
@@ -178,6 +177,7 @@ namespace Formularios
                     listBoxCursos.Items.Add(kvp.Value);
                 }
             }
+            _cursoSeleccionado = null;
         }
 
     }
