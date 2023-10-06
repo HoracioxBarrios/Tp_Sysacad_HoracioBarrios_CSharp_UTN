@@ -28,7 +28,7 @@
     "Aulas": 0
   },
   "1": {
-    "Nombre": "nuevo curso",
+    "Nombre": "nuevo curso Ok",
     "Codigo": "1",
     "Descripcion": "akdjsk",
     "CupoMaximo": 100,
@@ -47,10 +47,24 @@
     "Descripcion": "turno mañana",
     "CupoMaximo": 50,
     "CuposDisponibles": 47,
-    "Activo": true,
+    "Activo": false,
     "DiaGetSet": null,
     "HorarioGetSet": null,
     "AulaGetSet": null,
+    "Dias": 0,
+    "Horarios": 0,
+    "Aulas": 0
+  },
+  "1848": {
+    "Nombre": "Curso Pintura",
+    "Codigo": "1848",
+    "Descripcion": "Pintura art",
+    "CupoMaximo": 30,
+    "CuposDisponibles": 30,
+    "Activo": true,
+    "DiaGetSet": "Martes",
+    "HorarioGetSet": "Noche",
+    "AulaGetSet": "Aula208",
     "Dias": 0,
     "Horarios": 0,
     "Aulas": 0
