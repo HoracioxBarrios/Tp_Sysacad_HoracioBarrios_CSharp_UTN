@@ -14,9 +14,12 @@ namespace BibliotecaCLases.Modelo
 {
     public static class Email
     {
-        public static void SendMessageSmtp(string email)
+        /// <summary>
+        /// Envia un email de confirmacion al usuario registrado
+        /// </summary>
+        /// <param name="email"></param>
+        public static string SendMessageSmtp(string email)
         {
-            // Compose a message
             MimeMessage mail = new MimeMessage();
             mail.From.Add(new MailboxAddress("Excited Admin", "foo@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org"));
             mail.To.Add(new MailboxAddress("Excited User", email));
@@ -25,20 +28,26 @@ namespace BibliotecaCLases.Modelo
             {
                 Text = @"Registro exitoso, bienvenido al nuevo SistemaSysacad",
             };
-
-            // Send it!
-            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            try
             {
-                // XXX - Should this be a little different?
-                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                client.Connect("smtp.mailgun.org", 587, false);
-                client.AuthenticationMechanisms.Remove("XOAUTH2");
-                client.Authenticate("postmaster@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org", "d5727e5f2d6529b1da2e481d429215a4-77316142-c6d8aaa5");
+                    client.Connect("smtp.mailgun.org", 587, false);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    client.Authenticate("postmaster@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org", "d5727e5f2d6529b1da2e481d429215a4-77316142-c6d8aaa5");
 
-                client.Send(mail);
-                client.Disconnect(true);
+                    client.Send(mail);
+                    client.Disconnect(true);
+                }
             }
+            catch (Exception)
+            {
+
+                return "El mail registrado no se encuentra valido en mailgun";
+            }
+            return "Email entregado";
         }
 
 
