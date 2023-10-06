@@ -1,4 +1,5 @@
-﻿using BibliotecaCLases.Modelo;
+﻿using BibliotecaCLases.Controlador;
+using BibliotecaCLases.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,15 @@ namespace Formularios
     public partial class FrmPago : Form
     {
 
-        private ConceptoPago[] _conceptosPendientes; 
-        public FrmPago()
+        private GestorPago _gestorPago;
+        private Usuario _estudiante; 
+
+        public FrmPago(Usuario estudiante)
         {
             InitializeComponent();
+
+            _gestorPago = new GestorPago();
+            _estudiante = estudiante;   
 
             CmboxCuota.Visible = false;
             TbxNumeroTarjeta.Visible = false;
@@ -35,6 +41,7 @@ namespace Formularios
 
         private void FrmPago_Load(object sender, EventArgs e)
         {
+            
             MostrarConceptosPagoPendientes();
             MostrarMetodosPAgo();
 
@@ -45,17 +52,16 @@ namespace Formularios
         /// </summary>
         private void MostrarConceptosPagoPendientes()
         {
-
-            _conceptosPendientes = new[]
+            ConceptoPago[] conceptoPagos = new[]
             {
             new ConceptoPago("Matrícula", 500),
             new ConceptoPago("Cargos Administrativos", 600),
             new ConceptoPago("Libros de Texto", 200),
             };
-
+          
 
             dtgvConceptoPago.Rows.Clear();
-            foreach (var concepto in _conceptosPendientes)
+            foreach (var concepto in conceptoPagos)
             {
                 dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.Monto, ""); // La tercera columna está en blanco
             }
@@ -98,6 +104,7 @@ namespace Formularios
                     CmboxCuota.Items.Add("3 cuotas");
                     CmboxCuota.Items.Add("6 cuotas");
                     CmboxCuota.Items.Add("12 cuotas");
+                  
                 }
 
 
@@ -122,10 +129,20 @@ namespace Formularios
             }
 
         }
-        private void dtgvConceptoPago_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvConceptoPago_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+           
+            if (e.ColumnIndex == 2)
+            {             
+                string valorIngresado = dtgvConceptoPago.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
+                MessageBox.Show(valorIngresado);
+            }
         }
+
+
+
+
 
         private void CmboxMetodoPago_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -136,5 +153,7 @@ namespace Formularios
         {
 
         }
+
+  
     }
 }

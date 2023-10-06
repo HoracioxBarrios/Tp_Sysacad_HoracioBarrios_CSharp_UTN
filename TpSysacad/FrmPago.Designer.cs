@@ -43,6 +43,7 @@
             TbxTitularCuenta = new TextBox();
             TbxNumeroReferencia = new TextBox();
             CmboxCuota = new ComboBox();
+            btnPagar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             dtgvConceptoPago.RowTemplate.Height = 25;
             dtgvConceptoPago.Size = new Size(344, 150);
             dtgvConceptoPago.TabIndex = 1;
-            dtgvConceptoPago.CellContentClick += dtgvConceptoPago_CellContentClick;
+            dtgvConceptoPago.CellEndEdit += dtgvConceptoPago_CellEndEdit;
             // 
             // Nombre
             // 
@@ -166,11 +167,21 @@
             CmboxCuota.TabIndex = 10;
             CmboxCuota.Text = "Seleccione cantidad cuota";
             // 
+            // btnPagar
+            // 
+            btnPagar.Location = new Point(565, 303);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(75, 23);
+            btnPagar.TabIndex = 11;
+            btnPagar.Text = "Pagar";
+            btnPagar.UseVisualStyleBackColor = true;
+            // 
             // FrmPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(btnPagar);
             Controls.Add(CmboxCuota);
             Controls.Add(TbxNumeroReferencia);
             Controls.Add(TbxTitularCuenta);
@@ -209,5 +220,6 @@
         private TextBox TbxTitularCuenta;
         private TextBox TbxNumeroReferencia;
         private ComboBox CmboxCuota;
+        private Button btnPagar;
     }
 }

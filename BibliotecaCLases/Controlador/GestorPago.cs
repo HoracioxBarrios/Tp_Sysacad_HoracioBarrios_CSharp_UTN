@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaCLases.Controlador
 {
-    internal class ControlPago
+    public class GestorPago
     {
         private List<Pago> _pagos;
 
-        public ControlPago()
+        public GestorPago()
         {
             _pagos = new List<Pago>();
         }
@@ -21,19 +21,6 @@ namespace BibliotecaCLases.Controlador
             decimal montoTotal = CalcularMontoTotal(conceptosPago);
             Pago nuevoPago = new Pago(estudiante, conceptosPago, metodoPago, montoTotal);
             _pagos.Add(nuevoPago);
-        }
-
-        public void ProcesarReembolso(Pago pago, decimal montoReembolso)
-        {
-            if (montoReembolso <= pago.MontoTotal)
-            {
-                // Lógica para procesar el reembolso aquí
-                // Esto podría incluir la creación de un nuevo registro de pago negativo.
-            }
-            else
-            {
-                Console.WriteLine("El monto de reembolso excede el monto total del pago.");
-            }
         }
 
         public List<Pago> ObtenerHistorialPagos()
