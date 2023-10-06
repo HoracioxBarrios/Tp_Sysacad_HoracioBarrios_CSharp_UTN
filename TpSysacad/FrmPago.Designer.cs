@@ -34,24 +34,32 @@
             Monto = new DataGridViewTextBoxColumn();
             IngresarMonton = new DataGridViewTextBoxColumn();
             CmboxMetodoPago = new ComboBox();
+            TbxNumeroTarjeta = new TextBox();
+            TbxNombreTitular = new TextBox();
+            TbxFechaVencimiento = new TextBox();
+            TbxCvv = new TextBox();
+            TbxNombreBanco = new TextBox();
+            TbxNumeroBancaria = new TextBox();
+            TbxTitularCuenta = new TextBox();
+            TbxNumeroReferencia = new TextBox();
+            CmboxCuota = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(253, 22);
+            label1.Location = new Point(123, 27);
             label1.Name = "label1";
             label1.Size = new Size(105, 15);
             label1.TabIndex = 0;
             label1.Text = "Vista Realizar Pago";
-            label1.Click += label1_Click;
             // 
             // dtgvConceptoPago
             // 
             dtgvConceptoPago.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvConceptoPago.Columns.AddRange(new DataGridViewColumn[] { Nombre, Monto, IngresarMonton });
-            dtgvConceptoPago.Location = new Point(141, 57);
+            dtgvConceptoPago.Location = new Point(12, 79);
             dtgvConceptoPago.Name = "dtgvConceptoPago";
             dtgvConceptoPago.RowTemplate.Height = 25;
             dtgvConceptoPago.Size = new Size(344, 150);
@@ -72,22 +80,106 @@
             // 
             // IngresarMonton
             // 
-            IngresarMonton.HeaderText = "Ingresar monton";
+            IngresarMonton.HeaderText = "Ingresar monto";
             IngresarMonton.Name = "IngresarMonton";
             // 
             // CmboxMetodoPago
             // 
-            CmboxMetodoPago.Location = new Point(150, 236);
+            CmboxMetodoPago.Location = new Point(64, 254);
             CmboxMetodoPago.Name = "CmboxMetodoPago";
             CmboxMetodoPago.Size = new Size(184, 23);
             CmboxMetodoPago.TabIndex = 0;
             CmboxMetodoPago.Text = "Seleccionar método de pago";
+            CmboxMetodoPago.KeyPress += CmboxMetodoPago_KeyPress;
+            // 
+            // TbxNumeroTarjeta
+            // 
+            TbxNumeroTarjeta.Location = new Point(445, 79);
+            TbxNumeroTarjeta.Name = "TbxNumeroTarjeta";
+            TbxNumeroTarjeta.PlaceholderText = "Número de tarjeta";
+            TbxNumeroTarjeta.Size = new Size(139, 23);
+            TbxNumeroTarjeta.TabIndex = 2;
+            // 
+            // TbxNombreTitular
+            // 
+            TbxNombreTitular.Location = new Point(445, 130);
+            TbxNombreTitular.Name = "TbxNombreTitular";
+            TbxNombreTitular.PlaceholderText = "Nombre del titular";
+            TbxNombreTitular.Size = new Size(139, 23);
+            TbxNombreTitular.TabIndex = 3;
+            // 
+            // TbxFechaVencimiento
+            // 
+            TbxFechaVencimiento.Location = new Point(445, 171);
+            TbxFechaVencimiento.Name = "TbxFechaVencimiento";
+            TbxFechaVencimiento.PlaceholderText = "Fecha de vencimiento:";
+            TbxFechaVencimiento.Size = new Size(139, 23);
+            TbxFechaVencimiento.TabIndex = 4;
+            // 
+            // TbxCvv
+            // 
+            TbxCvv.Location = new Point(445, 206);
+            TbxCvv.Name = "TbxCvv";
+            TbxCvv.PlaceholderText = "CVV";
+            TbxCvv.Size = new Size(139, 23);
+            TbxCvv.TabIndex = 5;
+            // 
+            // TbxNombreBanco
+            // 
+            TbxNombreBanco.Location = new Point(410, 82);
+            TbxNombreBanco.Name = "TbxNombreBanco";
+            TbxNombreBanco.PlaceholderText = "Nombre del banco";
+            TbxNombreBanco.Size = new Size(174, 23);
+            TbxNombreBanco.TabIndex = 6;
+            TbxNombreBanco.TextChanged += TbxNombreBanco_TextChanged;
+            // 
+            // TbxNumeroBancaria
+            // 
+            TbxNumeroBancaria.Location = new Point(410, 130);
+            TbxNumeroBancaria.Name = "TbxNumeroBancaria";
+            TbxNumeroBancaria.PlaceholderText = "Número de cuenta bancaria";
+            TbxNumeroBancaria.Size = new Size(174, 23);
+            TbxNumeroBancaria.TabIndex = 7;
+            // 
+            // TbxTitularCuenta
+            // 
+            TbxTitularCuenta.Location = new Point(410, 171);
+            TbxTitularCuenta.Name = "TbxTitularCuenta";
+            TbxTitularCuenta.PlaceholderText = "Nombre del titular de la cuenta";
+            TbxTitularCuenta.Size = new Size(174, 23);
+            TbxTitularCuenta.TabIndex = 8;
+            // 
+            // TbxNumeroReferencia
+            // 
+            TbxNumeroReferencia.Location = new Point(410, 206);
+            TbxNumeroReferencia.Name = "TbxNumeroReferencia";
+            TbxNumeroReferencia.PlaceholderText = " número de referencia";
+            TbxNumeroReferencia.Size = new Size(174, 23);
+            TbxNumeroReferencia.TabIndex = 9;
+            // 
+            // CmboxCuota
+            // 
+            CmboxCuota.FormattingEnabled = true;
+            CmboxCuota.Location = new Point(410, 254);
+            CmboxCuota.Name = "CmboxCuota";
+            CmboxCuota.Size = new Size(174, 23);
+            CmboxCuota.TabIndex = 10;
+            CmboxCuota.Text = "Seleccione cantidad cuota";
             // 
             // FrmPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(CmboxCuota);
+            Controls.Add(TbxNumeroReferencia);
+            Controls.Add(TbxTitularCuenta);
+            Controls.Add(TbxNumeroBancaria);
+            Controls.Add(TbxNombreBanco);
+            Controls.Add(TbxCvv);
+            Controls.Add(TbxFechaVencimiento);
+            Controls.Add(TbxNombreTitular);
+            Controls.Add(TbxNumeroTarjeta);
             Controls.Add(CmboxMetodoPago);
             Controls.Add(dtgvConceptoPago);
             Controls.Add(label1);
@@ -108,5 +200,14 @@
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Monto;
         private DataGridViewTextBoxColumn IngresarMonton;
+        private TextBox TbxNumeroTarjeta;
+        private TextBox TbxNombreTitular;
+        private TextBox TbxFechaVencimiento;
+        private TextBox TbxCvv;
+        private TextBox TbxNombreBanco;
+        private TextBox TbxNumeroBancaria;
+        private TextBox TbxTitularCuenta;
+        private TextBox TbxNumeroReferencia;
+        private ComboBox CmboxCuota;
     }
 }

@@ -15,10 +15,21 @@ namespace Formularios
     public partial class FrmPago : Form
     {
 
-        private ConceptoPago[] _conceptosPendientes;
+        private ConceptoPago[] _conceptosPendientes; 
         public FrmPago()
         {
             InitializeComponent();
+
+            CmboxCuota.Visible = false;
+            TbxNumeroTarjeta.Visible = false;
+            TbxNombreTitular.Visible = false;
+            TbxFechaVencimiento.Visible = false;
+            TbxCvv.Visible = false;
+
+            TbxNombreBanco.Visible = false;
+            TbxNumeroBancaria.Visible = false;
+            TbxTitularCuenta.Visible = false;
+            TbxNumeroReferencia.Visible = false;
 
         }
 
@@ -57,28 +68,73 @@ namespace Formularios
             CmboxMetodoPago.Items.Add("Tarjeta de débito");
             CmboxMetodoPago.Items.Add("Transferencia bancaria");
 
+            CmboxMetodoPago.SelectedIndexChanged += CmboxMetodoPago_SelectedIndexChanged;
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        private void CmboxMetodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
+            string metodoSeleccionado = CmboxMetodoPago.SelectedItem.ToString();
+            CmboxCuota.Visible = false;
 
+            if (metodoSeleccionado == "Tarjeta de crédito" || metodoSeleccionado == "Tarjeta de débito")
+            {
+
+                TbxNombreBanco.Visible = false;
+                TbxNumeroBancaria.Visible = false;
+                TbxTitularCuenta.Visible = false;
+                TbxNumeroReferencia.Visible = false;
+
+                TbxNumeroTarjeta.Visible = true;
+                TbxNombreTitular.Visible = true;
+                TbxFechaVencimiento.Visible = true;
+                TbxCvv.Visible = true;
+
+                if (metodoSeleccionado == "Tarjeta de crédito")
+                {
+
+                    CmboxCuota.Items.Clear();
+                    CmboxCuota.Visible = true;
+                    CmboxCuota.Items.Add("3 cuotas");
+                    CmboxCuota.Items.Add("6 cuotas");
+                    CmboxCuota.Items.Add("12 cuotas");
+                }
+
+
+
+            }
+
+            else if (metodoSeleccionado == "Transferencia bancaria")
+            {
+
+                TbxNumeroTarjeta.Visible = false;
+                TbxNombreTitular.Visible = false;
+                TbxFechaVencimiento.Visible = false;
+                TbxCvv.Visible = false;
+
+                TbxNombreBanco.Visible = true;
+                TbxNumeroBancaria.Visible = true;
+                TbxTitularCuenta.Visible = true;
+                TbxNumeroReferencia.Visible = true;
+
+
+
+            }
+
+        }
         private void dtgvConceptoPago_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
+        private void CmboxMetodoPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
 
+        private void TbxNombreBanco_TextChanged(object sender, EventArgs e)
+        {
 
-        /// <summary>
-        /// Obtiene el concepto de pago que ha sido seleccionado en el control ListBox.
-        /// </summary>
-        /// <returns>El concepto de pago seleccionado.</returns>
-
-
-
-
+        }
     }
 }
