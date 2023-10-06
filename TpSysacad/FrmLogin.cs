@@ -15,7 +15,7 @@ namespace Formularios
         {
             string dni = textUsuario.Text; // de momento se usa el dni de usuario
             string contraseña = textContraseña.Text;
-            bool verificado= false;
+            bool verificado = false;
 
 
             ControlLogin controlLogin = new();
@@ -24,7 +24,7 @@ namespace Formularios
             if (existeUsuarios)
             {
 
-               verificado = controlLogin.AutenticarUsuario(dni, contraseña);
+                verificado = controlLogin.AutenticarUsuario(dni, contraseña);
                 if (verificado)
                 {
                     Usuario usuarioActual = controlLogin.GetUsuario;

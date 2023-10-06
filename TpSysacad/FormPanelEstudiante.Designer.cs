@@ -37,9 +37,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(287, 30);
+            label1.Location = new Point(201, 18);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(282, 32);
+            label1.Size = new Size(186, 21);
             label1.TabIndex = 0;
             label1.Text = "Administrador Estudiante";
             label1.Click += label1_Click;
@@ -48,20 +49,23 @@
             // 
             btnAgregarCurso.BackColor = SystemColors.ButtonHighlight;
             btnAgregarCurso.ForeColor = SystemColors.ActiveCaptionText;
-            btnAgregarCurso.Location = new Point(12, 121);
+            btnAgregarCurso.Location = new Point(8, 73);
+            btnAgregarCurso.Margin = new Padding(2, 2, 2, 2);
             btnAgregarCurso.Name = "btnAgregarCurso";
-            btnAgregarCurso.Size = new Size(193, 34);
+            btnAgregarCurso.Size = new Size(135, 20);
             btnAgregarCurso.TabIndex = 1;
             btnAgregarCurso.Text = "Inscripcion a curso";
             btnAgregarCurso.UseVisualStyleBackColor = false;
             // 
             // FormPanelEstudiante
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 484);
+            ClientSize = new Size(560, 290);
             Controls.Add(btnAgregarCurso);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximizeBox = false;
             Name = "FormPanelEstudiante";
             Text = "FormPanelEstudiante";
             ResumeLayout(false);

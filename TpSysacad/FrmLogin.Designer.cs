@@ -95,6 +95,7 @@
             Controls.Add(BtnLogin);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximizeBox = false;
             Name = "FrmLogin";
             Text = "Sysacad Login";
             ResumeLayout(false);
