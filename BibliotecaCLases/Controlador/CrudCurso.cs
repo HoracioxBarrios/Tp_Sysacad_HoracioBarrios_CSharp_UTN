@@ -2,13 +2,8 @@
 using BibliotecaCLases.Utilidades;
 
 
-
-
-
 namespace BibliotecaCLases.Controlador
 {
-
-
     /// <summary>
     /// Clase que gestiona la operación CRUD (Crear, Leer, Actualizar, Eliminar) de cursos.
     /// </summary>
@@ -16,8 +11,6 @@ namespace BibliotecaCLases.Controlador
     {
         private Dictionary<int, Curso> dictCursos;
         private string _path;
-
-
 
         /// <summary>
         /// Constructor de la clase CrudCurso.
@@ -27,9 +20,6 @@ namespace BibliotecaCLases.Controlador
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
             dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
         }
-
-
-
 
         /// <summary>
         /// Agrega un nuevo curso al diccionario de cursos.
@@ -52,7 +42,6 @@ namespace BibliotecaCLases.Controlador
                 Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
             }
         }
-
 
         /// <summary>
         /// Edita un curso existente en el diccionario de cursos.
@@ -104,9 +93,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
-
         /// <summary>
         /// Elimina un curso de forma lógica, marcándolo como inactivo en el diccionario de cursos.
         /// </summary>
@@ -132,11 +118,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
-
-
-
         /// <summary>
         /// Verifica si un código de curso existe en el diccionario de cursos.
         /// </summary>
@@ -154,9 +135,6 @@ namespace BibliotecaCLases.Controlador
 
             return 0;
         }
-
-
-
 
         /// <summary>
         /// Inscribe un estudiante en un curso si hay cupos disponibles.
@@ -194,9 +172,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
-
         /// <summary>
         /// Obtiene el diccionario de cursos completo.
         /// </summary>
@@ -206,9 +181,6 @@ namespace BibliotecaCLases.Controlador
             dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
             return dictCursos;
         }
-
-
-
 
         /// <summary>
         /// Obtiene un curso por su código.
@@ -228,7 +200,6 @@ namespace BibliotecaCLases.Controlador
                 return new Curso("", "", "", "", "", "", "");
             }
         }
-
 
         /// <summary>
         /// Propiedad para obtener o establecer la ruta del archivo JSON de datos.

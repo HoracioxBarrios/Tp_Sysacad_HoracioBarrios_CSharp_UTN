@@ -14,8 +14,6 @@ namespace BibliotecaCLases.Controlador
         private string _path;
         private bool _existeUsuario;
 
-
-
         /// <summary>
         /// Inicializa una nueva instancia de la clase ControlLogin.
         /// </summary>
@@ -62,10 +60,7 @@ namespace BibliotecaCLases.Controlador
                 Serializador.GuardarAJson(dictUsuarios, _path);
             }
 
-
         }
-
-
 
         /// <summary>
         /// verifica si en la lista usuarios uno que coincide con la contraseña y el dni
@@ -87,10 +82,7 @@ namespace BibliotecaCLases.Controlador
 
         public Usuario GetUsuario
         {
-            get
-            {
-                return _usuario;
-            }
+            get { return _usuario; }
         }
 
         /// <summary>
@@ -101,6 +93,5 @@ namespace BibliotecaCLases.Controlador
             get { return _existeUsuario; }
 
         }
-
     }
 }

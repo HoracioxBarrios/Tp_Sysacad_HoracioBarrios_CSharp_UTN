@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaCLases.Controlador
 {
+    /// <summary>
+    /// Clase que realiza la validación de datos para un curso.
+    /// </summary>
     public class ValidadorDatosCurso : ValidadorDatosRegistro
     {
         string nombre;
@@ -16,6 +19,16 @@ namespace BibliotecaCLases.Controlador
         private string _horario;
         private string _aula;
 
+        /// <summary>
+        /// Constructor de la clase ValidadorDatosCurso.
+        /// </summary>
+        /// <param name="nombreIngresado">Nombre del curso ingresado.</param>
+        /// <param name="codigoIngresado">Código del curso ingresado.</param>
+        /// <param name="descripcionIngresada">Descripción del curso ingresada.</param>
+        /// <param name="cupoMaximoIngresado">Cupo máximo del curso ingresado.</param>
+        /// <param name="diaIngresado">Día del curso ingresado.</param>
+        /// <param name="aulaIngresada">Aula del curso ingresada.</param>
+        /// <param name="horarioIngresado">Horario del curso ingresado.</param>
         public ValidadorDatosCurso(string nombreIngresado, string codigoIngresado, string descripcionIngresada, string cupoMaximoIngresado, string diaIngresado, string aulaIngresada, string horarioIngresado)
             : base(nombreIngresado, "", "", "", "", "")
         {
@@ -28,6 +41,11 @@ namespace BibliotecaCLases.Controlador
             _aula = aulaIngresada;
         }
 
+        /// <summary>
+        /// Realiza la validación de los datos de un curso.
+        /// </summary>
+        /// <param name="mensajeError">Mensaje de error en caso de que la validación falle.</param>
+        /// <returns>True si los datos son válidos; de lo contrario, false.</returns>
         public bool ValidarCurso(out string mensajeError)
         {
             mensajeError = string.Empty;
@@ -61,18 +79,6 @@ namespace BibliotecaCLases.Controlador
                 mensajeError = "El aula del curso no es válido.";
                 return false;
             }
-
-            //if (Validacion.ValidarAlphanumeric(_horario))
-            //{
-            //    mensajeError = "El horario del curso no es válido.";
-            //    return false;
-            //}
-
-            //if (Validacion.ValidarAlphanumeric(_dia))
-            //{
-            //    mensajeError = "El horario del curso no es válido.";
-            //    return false;
-            //}
 
             return true;
         }

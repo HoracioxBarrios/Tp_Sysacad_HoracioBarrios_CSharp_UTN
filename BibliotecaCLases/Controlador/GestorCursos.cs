@@ -5,9 +5,8 @@ using BibliotecaCLases.Utilidades;
 
 namespace BibliotecaCLases.Controlador
 {
-
     /// <summary>
-    /// Clase que gestiona la lógica relacionada con los cursos.
+    /// Clase que gestiona la lógica de negocios para la creación, edición y validación de cursos.
     /// </summary>
     public class GestorCursos
     {
@@ -23,10 +22,16 @@ namespace BibliotecaCLases.Controlador
         private string _aula;
         private string _mensajeError;
 
-
         /// <summary>
-        /// Constructor para un curso con todos los datos.
+        /// Constructor de la clase para la creación de un nuevo curso con todos los detalles.
         /// </summary>
+        /// <param name="nombre">Nombre del curso.</param>
+        /// <param name="codigo">Código del curso.</param>
+        /// <param name="descripcion">Descripción del curso.</param>
+        /// <param name="cupoMaximo">Cupo máximo del curso.</param>
+        /// <param name="dia">Día del curso.</param>
+        /// <param name="horario">Horario del curso.</param>
+        /// <param name="aula">Aula del curso.</param>
         public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
             ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo, dia, aula, horario);
@@ -49,10 +54,14 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
         /// <summary>
-        /// Constructor para un curso con datos mínimos. ( SOBRECARGA CONSTRUCTOR )
+        /// Constructor de la clase para la creación de un nuevo curso básico sin detalles de día, horario y aula.
+        /// (sobrecarga)
         /// </summary>
+        /// <param name="nombre">Nombre del curso.</param>
+        /// <param name="codigo">Código del curso.</param>
+        /// <param name="descripcion">Descripción del curso.</param>
+        /// <param name="cupoMaximo">Cupo máximo del curso.</param>
         public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
             ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo, "", "", "");
@@ -75,14 +84,26 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
-
+        /// <summary>
+        /// Indica si los datos del curso han sido validados con éxito.
+        /// </summary>
+        public bool Validado
+        {
+            get { return _validado; }
+        }
 
         /// <summary>
-        /// Método para verificar si un curso con el mismo código ya existe.
+        /// Obtiene el mensaje de error en caso de que la validación haya fallado.
         /// </summary>
-        /// <returns>True si el código no existe, False si ya existe.</returns>
+        public string MensajeError
+        {
+            get { return _mensajeError; }
+        }
+
+        /// <summary>
+        /// Verifica si ya existe un curso con el mismo código.
+        /// </summary>
+        /// <returns>True si el código no existe, False si el código ya está registrado.</returns>
         public bool verificarDatosExistentes()
         {
             int numeroError = crudCurso.VerificarCodigoCurso(_codigo);
@@ -96,13 +117,11 @@ namespace BibliotecaCLases.Controlador
             return true;
         }
 
-
         /// <summary>
-        /// Sobrecarga del método para verificar si un curso con un código nuevo ya existe.
-        /// ( sobrecarga )
+        /// Verifica si ya existe un curso con el mismo código nuevo.
         /// </summary>
-        /// <param name="codigoNuevo">Código a verificar.</param>
-        /// <returns>True si el código no existe, False si ya existe.</returns>
+        /// <param name="codigoNuevo">Nuevo código a verificar.</param>
+        /// <returns>True si el código no existe, False si el código ya está registrado.</returns>
         public bool verificarDatosExistentes(string codigoNuevo)
         {
             int numeroError = crudCurso.VerificarCodigoCurso(codigoNuevo);
@@ -116,9 +135,17 @@ namespace BibliotecaCLases.Controlador
             return true;
         }
 
-
-
-
+        /// <summary>
+        /// Agrega un nuevo curso.
+        /// </summary>
+        /// <param name="nombre">Nombre del curso.</param>
+        /// <param name="codigo">Código del curso.</param>
+        /// <param name="descripcion">Descripción del curso.</param>
+        /// <param name="cupoMaximo">Cupo máximo del curso.</param>
+        /// <param name="dia">Día del curso.</param>
+        /// <param name="horario">Horario del curso.</param>
+        /// <param name="aula">Aula del curso.</param>
+        /// <returns>Un mensaje que indica si la operación fue exitosa o si hubo un error.</returns>
         public string AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
             try
@@ -132,7 +159,15 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
+        /// <summary>
+        /// Edita un curso existente.
+        /// </summary>
+        /// <param name="codigo">Código del curso a editar.</param>
+        /// <param name="nuevoCodigo">Nuevo código del curso.</param>
+        /// <param name="nuevoNombre">Nuevo nombre del curso.</param>
+        /// <param name="nuevaDescripcion">Nueva descripción del curso.</param>
+        /// <param name="nuevoCupoMaximo">Nuevo cupo máximo del curso.</param>
+        /// <returns>Un mensaje que indica si la operación fue exitosa o si hubo un error.</returns>
         public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
         {
             try
@@ -145,18 +180,5 @@ namespace BibliotecaCLases.Controlador
                 return "Error al editar el curso: " + ex.Message;
             }
         }
-
-
-
-        public bool Validado
-        {
-            get { return _validado; }
-        }
-
-        public string MensajeError
-        {
-            get { return _mensajeError; }
-        }
-
     }
 }
