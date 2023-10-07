@@ -56,6 +56,7 @@ namespace BibliotecaCLases.Controlador
 
         /// <summary>
         /// Constructor de la clase para la creación de un nuevo curso básico sin detalles de día, horario y aula.
+        /// (sobrecarga)
         /// </summary>
         /// <param name="nombre">Nombre del curso.</param>
         /// <param name="codigo">Código del curso.</param>
