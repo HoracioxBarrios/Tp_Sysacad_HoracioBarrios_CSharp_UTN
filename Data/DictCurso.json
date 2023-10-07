@@ -31,5 +31,16 @@
     "Dia": "Jueves",
     "Horario": "Tarde",
     "Aula": "Aula306"
+  },
+  "5": {
+    "Nombre": "SPD",
+    "Codigo": "5",
+    "Descripcion": "Turno Noche - Martes",
+    "CupoMaximo": 5,
+    "CuposDisponibles": 5,
+    "Activo": true,
+    "Dia": "Martes",
+    "Horario": "Noche",
+    "Aula": "Aula307"
   }
 }
