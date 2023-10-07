@@ -79,5 +79,44 @@ namespace BibliotecaCLases.Controlador
             }
             return true;
         }
+        public static bool EsFechaValida(string fechaVencimiento)
+        {
+            if (string.IsNullOrEmpty(fechaVencimiento))
+            {
+                return false;
+            }
+
+            string patronFechaVencimiento = @"^(0[1-9]|1[0-2])\/\d{2}$"; // MM/YY
+            Regex regexFechaVencimiento = new Regex(patronFechaVencimiento);
+
+            return regexFechaVencimiento.IsMatch(fechaVencimiento);
+        }
+
+        public static bool EsTarjetaValida(string numeroTarjeta)
+        {
+            if (string.IsNullOrEmpty(numeroTarjeta))
+            {
+                return false;
+            }
+
+            string patronTarjeta = @"^\d{16}$";
+            Regex regexTarjeta = new Regex(patronTarjeta);
+
+            return regexTarjeta.IsMatch(numeroTarjeta);
+        }
+
+        public static bool EsCVValido(string cvv) 
+        {
+            if (string.IsNullOrEmpty(cvv))
+            {
+                return false;
+            }
+
+            string patronCVV = @"^\d{3}$";
+            Regex regexCVV = new Regex(patronCVV);
+
+            return regexCVV.IsMatch(cvv);
+        }
+
     }
 }

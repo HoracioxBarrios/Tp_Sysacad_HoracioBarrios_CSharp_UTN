@@ -11,7 +11,7 @@ namespace BibliotecaCLases.Modelo
     {
         private string _nombre;
         private decimal _monto;
-        private decimal _montoPagar;
+        private decimal _montoIngresado;
 
         public ConceptoPago(string nombre, decimal monto)
         {
@@ -25,15 +25,15 @@ namespace BibliotecaCLases.Modelo
             set { _nombre = value; }
         }
 
-        public decimal Monto
+        public decimal MontoPagar
         { 
             get { return _monto; } 
             set { _monto = value; }
         }
-        public decimal MontoPagar
+        public decimal MontoIngresado
         { 
-            get { return _montoPagar; }
-            set { _montoPagar = value; } 
+            get { return _montoIngresado; }
+            set { _montoIngresado = value; } 
         }  
 
     }

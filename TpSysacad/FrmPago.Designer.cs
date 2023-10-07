@@ -30,9 +30,6 @@
         {
             label1 = new Label();
             dtgvConceptoPago = new DataGridView();
-            Nombre = new DataGridViewTextBoxColumn();
-            Monto = new DataGridViewTextBoxColumn();
-            IngresarMonton = new DataGridViewTextBoxColumn();
             CmboxMetodoPago = new ComboBox();
             TbxNumeroTarjeta = new TextBox();
             TbxNombreTitular = new TextBox();
@@ -40,6 +37,9 @@
             TbxCvv = new TextBox();
             CmboxCuota = new ComboBox();
             btnPagar = new Button();
+            Nombre = new DataGridViewTextBoxColumn();
+            Monto = new DataGridViewTextBoxColumn();
+            IngresarMonton = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).BeginInit();
             SuspendLayout();
             // 
@@ -62,23 +62,6 @@
             dtgvConceptoPago.Size = new Size(344, 150);
             dtgvConceptoPago.TabIndex = 1;
             dtgvConceptoPago.CellEndEdit += dtgvConceptoPago_CellEndEdit;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            Monto.HeaderText = "Monto";
-            Monto.Name = "Monto";
-            Monto.ReadOnly = true;
-            // 
-            // IngresarMonton
-            // 
-            IngresarMonton.HeaderText = "Ingresar monto";
-            IngresarMonton.Name = "IngresarMonton";
             // 
             // CmboxMetodoPago
             // 
@@ -141,6 +124,23 @@
             btnPagar.UseVisualStyleBackColor = true;
             btnPagar.Click += btnPagar_Click;
             // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            Monto.HeaderText = "Deuda pendiente";
+            Monto.Name = "Monto";
+            Monto.ReadOnly = true;
+            // 
+            // IngresarMonton
+            // 
+            IngresarMonton.HeaderText = "Ingresar monto";
+            IngresarMonton.Name = "IngresarMonton";
+            // 
             // FrmPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -169,14 +169,14 @@
         private Label label1;
         private DataGridView dtgvConceptoPago;
         private ComboBox CmboxMetodoPago;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Monto;
-        private DataGridViewTextBoxColumn IngresarMonton;
         private TextBox TbxNumeroTarjeta;
         private TextBox TbxNombreTitular;
         private TextBox TbxFechaVencimiento;
         private TextBox TbxCvv;
         private ComboBox CmboxCuota;
         private Button btnPagar;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Monto;
+        private DataGridViewTextBoxColumn IngresarMonton;
     }
 }

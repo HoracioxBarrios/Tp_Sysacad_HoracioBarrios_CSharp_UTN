@@ -18,7 +18,7 @@ namespace Formularios
     {
 
         private GestorPagoLogic _gestorPago;
-        private Usuario _estudiante;
+        private Usuario _usuario;
         private int _totalAPagar = 0;
         private List<ConceptoPago> conceptoPagos = new List<ConceptoPago>();
 
@@ -26,11 +26,11 @@ namespace Formularios
         MetodoPago metodoPagoDebito = new("Tarjeta de débito");
         MetodoPago metodoPagoBancaria = new("Transferencia bancaria");
 
-        public FrmPago(Usuario estudiante)
+        public FrmPago(Usuario usuario)
         {
             InitializeComponent();
             _gestorPago = new GestorPagoLogic();
-            _estudiante = estudiante;
+            _usuario = usuario;
 
             CmboxCuota.Visible = false;
             TbxNumeroTarjeta.Visible = false;
@@ -60,7 +60,7 @@ namespace Formularios
             dtgvConceptoPago.Rows.Clear();
             foreach (var concepto in conceptoPagos)
             {
-                dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.Monto, "");
+                dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.MontoPagar, "");
             }
 
         }
@@ -116,16 +116,23 @@ namespace Formularios
         {
             if (e.ColumnIndex == 2 && e.RowIndex >= 0 && e.RowIndex < conceptoPagos.Count)
             {
-                string valorIngresado = dtgvConceptoPago.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                DataGridViewCell cell = dtgvConceptoPago.Rows[e.RowIndex].Cells[e.ColumnIndex];
+               
+                string valorIngresado = cell.EditedFormattedValue.ToString();
 
-                if (decimal.TryParse(valorIngresado, out decimal valorCelda))
+                if (!string.IsNullOrWhiteSpace(valorIngresado))
                 {
-                    conceptoPagos[e.RowIndex].MontoPagar = valorCelda;
-
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, ingrese un valor numérico válido.");
+                    if (decimal.TryParse(valorIngresado, out decimal valorCelda))
+                    {
+                        conceptoPagos[e.RowIndex].MontoIngresado = valorCelda;
+                      
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Por favor, ingrese un valor numérico válido en esta celda.");
+                        dtgvConceptoPago.CancelEdit();
+                        dtgvConceptoPago.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = conceptoPagos[e.RowIndex].MontoIngresado;
+                    }
                 }
             }
         }
@@ -137,7 +144,13 @@ namespace Formularios
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            string metodoSeleccionado = CmboxMetodoPago.SelectedItem.ToString();
+            string metodoSeleccionado = CmboxMetodoPago.SelectedItem?.ToString(); // El operador ? evita una excepción si es nulo
+
+            if (string.IsNullOrEmpty(metodoSeleccionado))
+            {
+                MessageBox.Show("Por favor, seleccione un método de pago válido antes de continuar.");
+                return;
+            }
 
             List<MetodoPago> metodosDePago = new List<MetodoPago>
             {
@@ -149,25 +162,34 @@ namespace Formularios
 
             if (metodoPagoSeleccionado != null)
             {
-                _gestorPago.RegistrarPago(_estudiante, conceptoPagos, metodoPagoSeleccionado);
-                if (metodoSeleccionado != "Transferencia bancaria")
+                if (metodoSeleccionado == "Tarjeta de crédito" || metodoSeleccionado == "Tarjeta de débito")
                 {
-                    MessageBox.Show(_gestorPago.Mostarcomprobante());
+                    string numeroTarjeta = TbxNumeroTarjeta.Text;
+                    string fechaVencimiento = TbxFechaVencimiento.Text;
+                    string cvv = TbxCvv.Text;
 
+                    if (_gestorPago.ValidarDatosTarjeta(numeroTarjeta, fechaVencimiento, cvv))
+                    {
+                        _gestorPago.RegistrarPago(_usuario, conceptoPagos, metodoPagoSeleccionado);
+                        MessageBox.Show(_gestorPago.Mostarcomprobante());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, ingrese datos de tarjeta válidos.");
+                    }
                 }
-                else
+                else if (metodoSeleccionado == "Transferencia bancaria")
                 {
-
+                    _gestorPago.RegistrarPago(_usuario, conceptoPagos, metodoPagoSeleccionado);
                     MessageBox.Show(_gestorPago.MostrarDatosTransferencia());
                 }
-
-
             }
             else
             {
                 MessageBox.Show("Método de pago no válido");
             }
         }
+
 
 
     }
