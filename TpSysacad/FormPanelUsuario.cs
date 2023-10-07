@@ -36,14 +36,14 @@ namespace Formularios
 
         private void BtnGestionarCursos_Click(object sender, EventArgs e)
         {
-            FrmGestionarCursos frmGestionarCursos = new(_usuario);
+            FrmGestionarCursos frmGestionarCurso = new(_usuario);
 
-            frmGestionarCursos.FormClosed += (sender, args) =>
+            frmGestionarCurso.FormClosed += (sender, args) =>
             {
                 this.Close();
             };
 
-            frmGestionarCursos.Show();
+            frmGestionarCurso.Show();
             this.Hide();
         }
         private void button2_Click(object sender, EventArgs e)

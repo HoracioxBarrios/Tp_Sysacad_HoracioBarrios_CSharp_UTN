@@ -13,7 +13,7 @@
   "1": {
     "Nombre": "Programacion I",
     "Codigo": "1",
-    "Descripcion": "Turno mañana",
+    "Descripcion": "Turno mañana - editado",
     "CupoMaximo": 1,
     "CuposDisponibles": 0,
     "Activo": true,
@@ -26,7 +26,7 @@
     "Codigo": "3",
     "Descripcion": "Turno Tarde - Jueves",
     "CupoMaximo": 3,
-    "CuposDisponibles": 1,
+    "CuposDisponibles": 0,
     "Activo": true,
     "Dia": "Jueves",
     "Horario": "Tarde",
