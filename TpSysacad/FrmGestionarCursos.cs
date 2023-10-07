@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +18,19 @@ namespace Formularios
         private Usuario _usuario;
         private CrudEstudiante crudEstudiante;
         private Curso _cursoSeleccionado;
-        private CrudCurso crudCurso;
+        private CrudCurso _crudCurso;
         public FrmGestionarCursos(Usuario usuario)
         {
             crudEstudiante = new CrudEstudiante();
             _usuario = usuario;
-            crudCurso = new CrudCurso();
+            _crudCurso = new CrudCurso();
             InitializeComponent();
             MostrarBtn(_usuario);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void BtnAgregarCurso_Click(object sender, EventArgs e)
@@ -48,7 +52,6 @@ namespace Formularios
             }
         }
 
-
         private void BtnEliminarCursos_Click(object sender, EventArgs e)
         {
             if (_cursoSeleccionado != null)
@@ -57,7 +60,7 @@ namespace Formularios
 
                 if (confirmacion == DialogResult.Yes)
                 {
-                    string resultadoEliminacion = crudCurso.EliminarCurso(_cursoSeleccionado);
+                    string resultadoEliminacion = _crudCurso.EliminarCurso(_cursoSeleccionado);
 
                     if (resultadoEliminacion.StartsWith("Se realizó la eliminación lógica"))
                     {
@@ -76,7 +79,7 @@ namespace Formularios
             }
         }
 
-        private void FrmGestionarCursos_Load(object sender, EventArgs e)
+        private void FrmGestionarCurso_Load(object sender, EventArgs e)
         {
             Dictionary<int, Curso> dictCursos = null;
 
@@ -93,27 +96,29 @@ namespace Formularios
 
             if (dictCursos != null)
             {
-                listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
 
                 foreach (KeyValuePair<int, Curso> kvp in dictCursos)
                 {
                     if (kvp.Value.Activo)
                     {
-                        listBoxCursos.Items.Add(kvp.Value);
+                        dataGridViewCursos.Rows.Add(kvp.Value.Codigo, kvp.Value.Nombre, kvp.Value.Descripcion, kvp.Value.CuposDisponibles, kvp.Value.CupoMaximo);
                     }
                 }
             }
         }
 
-        private void listBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridViewCursos_SelectionChanged(object sender, EventArgs e)
         {
-            if (listBoxCursos.SelectedIndex != -1)
+            if (dataGridViewCursos.SelectedRows.Count > 0)
             {
-                _cursoSeleccionado = (Curso)listBoxCursos.SelectedItem;
+                DataGridViewRow selectedRow = dataGridViewCursos.SelectedRows[0];
 
-                labelResultado.Text = "Seleccionaste: Código " + _cursoSeleccionado.Codigo + ", Curso " + _cursoSeleccionado.Nombre;
+                string codigoCurso = selectedRow.Cells["codigo"].Value.ToString();
+
+                _cursoSeleccionado = _crudCurso.ObtenerCursoPorCodigo(codigoCurso);
             }
         }
+
         private void MostrarBtn(Usuario usuario)
         {
             BtnAgregarCurso.Visible = false;
@@ -165,20 +170,21 @@ namespace Formularios
 
         public void ActualizarListaCursos()
         {
-            listBoxCursos.Items.Clear();
+            dataGridViewCursos.Rows.Clear();
 
-            List<Curso> listaCursosActualizada = new List<Curso>();
-
-            listBoxCursos.Items.Add("CODIGO        CURSO         DESCRIPCION        CUPO MAXIMO      CUPOS DISPONIBLES");
-            foreach (KeyValuePair<int, Curso> kvp in crudCurso.ObtenerDictCursos())
+            foreach (KeyValuePair<int, Curso> kvp in _crudCurso.ObtenerDictCursos())
             {
                 if (kvp.Value.Activo)
                 {
-                    listBoxCursos.Items.Add(kvp.Value);
+                    dataGridViewCursos.Rows.Add(kvp.Value.Codigo, kvp.Value.Nombre, kvp.Value.Descripcion, kvp.Value.CuposDisponibles, kvp.Value.CupoMaximo);
                 }
             }
             _cursoSeleccionado = null;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
