@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaCLases.Controlador
 {
+
+
+    /// <summary>
+    /// Clase que gestiona los pagos de los estudiantes.
+    /// </summary>
     public class GestorPagoLogic
     {
         private List<Pago> _pagos;
@@ -16,9 +21,14 @@ namespace BibliotecaCLases.Controlador
         private Estudiante _estudiante;
         private string _path;   
         private CrudEstudiante _crudEstudiante;
-
         private decimal _totalIngresado = 0;
         private decimal _totalAPagar = 0;
+
+
+
+        /// <summary>
+        /// Constructor de la clase GestorPagoLogic.
+        /// </summary>
         public GestorPagoLogic()
         {
             _crudEstudiante = new CrudEstudiante();
@@ -26,13 +36,16 @@ namespace BibliotecaCLases.Controlador
             _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
 
         }
+
+
+
         /// <summary>
-        /// 
+        /// Valida los datos de una tarjeta de crédito.
         /// </summary>
-        /// <param name="numeroTarjeta"></param>
-        /// <param name="fechaVencimiento"></param>
-        /// <param name="cvv"></param>
-        /// <returns></returns>
+        /// <param name="numeroTarjeta">Número de tarjeta de crédito.</param>
+        /// <param name="fechaVencimiento">Fecha de vencimiento de la tarjeta.</param>
+        /// <param name="cvv">CVV de la tarjeta.</param>
+        /// <returns>True si los datos son válidos, False en caso contrario.</returns>
         public bool ValidarDatosTarjeta(string numeroTarjeta, string fechaVencimiento, string cvv)
         {
             bool esTarjetaValida = Validacion.EsTarjetaValida(numeroTarjeta);
@@ -51,6 +64,13 @@ namespace BibliotecaCLases.Controlador
         }
 
 
+
+        /// <summary>
+        /// Registra un pago realizado por un usuario.
+        /// </summary>
+        /// <param name="usuario">Usuario que realiza el pago.</param>
+        /// <param name="conceptosPago">Lista de conceptos de pago.</param>
+        /// <param name="metodoPago">Método de pago utilizado.</param>
         public void RegistrarPago(Usuario usuario, List<ConceptoPago> conceptosPago, MetodoPago metodoPago)
         {
             _estudiante = _crudEstudiante.ObtenerEstudiantePorLegajo(usuario.Legajo);
@@ -68,11 +88,23 @@ namespace BibliotecaCLases.Controlador
 
         }
 
+
+
+        /// <summary>
+        /// Obtiene el historial de pagos realizados.
+        /// </summary>
+        /// <returns>Lista de pagos.</returns>
         public List<Pago> ObtenerHistorialPagos()
         {
             return _pagos;
         }
 
+
+
+        /// <summary>
+        /// Calcula el monto total ingresado y el monto total a pagar sumando los montos de los conceptos de pago proporcionados.
+        /// </summary>
+        /// <param name="conceptosPago">Lista de conceptos de pago para los cuales se calcularán los montos.</param>
         private void CalcularMontoTotal(List<ConceptoPago> conceptosPago)
         {
 
@@ -84,7 +116,15 @@ namespace BibliotecaCLases.Controlador
            
         }
 
-        public string Mostarcomprobante()
+
+
+
+
+        /// <summary>
+        /// Genera un comprobante de pago en formato de texto.
+        /// </summary>
+        /// <returns>Texto del comprobante de pago o un mensaje si no se realizó el pago.</returns>
+        public string GenerarComprobanteDePago()
         {
 
             if (_pago.MontoTotal != 0)
@@ -113,7 +153,14 @@ namespace BibliotecaCLases.Controlador
                 return "No se realizo el pago";
             }
         }
-        public string MostrarDatosTransferencia()
+
+
+
+        /// <summary>
+        /// Genera los datos de transferencia bancaria en formato de texto.
+        /// </summary>
+        /// <returns>Texto con los datos de la transferencia bancaria o un mensaje si no se ingresó el monto.</returns>
+        public string GenerarDatosTransferenciaBancaria()
         {
             if (_pago.MontoTotal != 0)
             {
