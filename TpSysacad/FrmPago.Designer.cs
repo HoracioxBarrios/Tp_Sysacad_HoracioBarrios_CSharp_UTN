@@ -38,10 +38,6 @@
             TbxNombreTitular = new TextBox();
             TbxFechaVencimiento = new TextBox();
             TbxCvv = new TextBox();
-            TbxNombreBanco = new TextBox();
-            TbxNumeroBancaria = new TextBox();
-            TbxTitularCuenta = new TextBox();
-            TbxNumeroReferencia = new TextBox();
             CmboxCuota = new ComboBox();
             btnPagar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).BeginInit();
@@ -125,39 +121,6 @@
             TbxCvv.Size = new Size(139, 23);
             TbxCvv.TabIndex = 5;
             // 
-            // TbxNombreBanco
-            // 
-            TbxNombreBanco.Location = new Point(410, 82);
-            TbxNombreBanco.Name = "TbxNombreBanco";
-            TbxNombreBanco.PlaceholderText = "Nombre del banco";
-            TbxNombreBanco.Size = new Size(174, 23);
-            TbxNombreBanco.TabIndex = 6;
-            TbxNombreBanco.TextChanged += TbxNombreBanco_TextChanged;
-            // 
-            // TbxNumeroBancaria
-            // 
-            TbxNumeroBancaria.Location = new Point(410, 130);
-            TbxNumeroBancaria.Name = "TbxNumeroBancaria";
-            TbxNumeroBancaria.PlaceholderText = "Número de cuenta bancaria";
-            TbxNumeroBancaria.Size = new Size(174, 23);
-            TbxNumeroBancaria.TabIndex = 7;
-            // 
-            // TbxTitularCuenta
-            // 
-            TbxTitularCuenta.Location = new Point(410, 171);
-            TbxTitularCuenta.Name = "TbxTitularCuenta";
-            TbxTitularCuenta.PlaceholderText = "Nombre del titular de la cuenta";
-            TbxTitularCuenta.Size = new Size(174, 23);
-            TbxTitularCuenta.TabIndex = 8;
-            // 
-            // TbxNumeroReferencia
-            // 
-            TbxNumeroReferencia.Location = new Point(410, 206);
-            TbxNumeroReferencia.Name = "TbxNumeroReferencia";
-            TbxNumeroReferencia.PlaceholderText = " número de referencia";
-            TbxNumeroReferencia.Size = new Size(174, 23);
-            TbxNumeroReferencia.TabIndex = 9;
-            // 
             // CmboxCuota
             // 
             CmboxCuota.FormattingEnabled = true;
@@ -166,6 +129,7 @@
             CmboxCuota.Size = new Size(174, 23);
             CmboxCuota.TabIndex = 10;
             CmboxCuota.Text = "Seleccione cantidad cuota";
+            CmboxCuota.KeyPress += CmboxMetodoPago_KeyPress;
             // 
             // btnPagar
             // 
@@ -175,6 +139,7 @@
             btnPagar.TabIndex = 11;
             btnPagar.Text = "Pagar";
             btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.Click += btnPagar_Click;
             // 
             // FrmPago
             // 
@@ -183,10 +148,6 @@
             ClientSize = new Size(700, 338);
             Controls.Add(btnPagar);
             Controls.Add(CmboxCuota);
-            Controls.Add(TbxNumeroReferencia);
-            Controls.Add(TbxTitularCuenta);
-            Controls.Add(TbxNumeroBancaria);
-            Controls.Add(TbxNombreBanco);
             Controls.Add(TbxCvv);
             Controls.Add(TbxFechaVencimiento);
             Controls.Add(TbxNombreTitular);
@@ -215,10 +176,6 @@
         private TextBox TbxNombreTitular;
         private TextBox TbxFechaVencimiento;
         private TextBox TbxCvv;
-        private TextBox TbxNombreBanco;
-        private TextBox TbxNumeroBancaria;
-        private TextBox TbxTitularCuenta;
-        private TextBox TbxNumeroReferencia;
         private ComboBox CmboxCuota;
         private Button btnPagar;
     }
