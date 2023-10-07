@@ -34,7 +34,7 @@ namespace BibliotecaCLases.Controlador
         /// <param name="aula">Aula del curso.</param>
         public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
-            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo, dia, aula, horario);
+            ValidadorDatos validadorDatosCurso = new ValidadorDatos(nombre, codigo, descripcion, cupoMaximo, dia, aula, horario);
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
             if (_validado)
@@ -64,7 +64,7 @@ namespace BibliotecaCLases.Controlador
         /// <param name="cupoMaximo">Cupo máximo del curso.</param>
         public GestorCursos(string nombre, string codigo, string descripcion, string cupoMaximo)
         {
-            ValidadorDatosCurso validadorDatosCurso = new ValidadorDatosCurso(nombre, codigo, descripcion, cupoMaximo, "", "", "");
+            ValidadorDatos validadorDatosCurso = new ValidadorDatos(nombre, codigo, descripcion, cupoMaximo, "", "", "");
 
             _validado = validadorDatosCurso.ValidarCurso(out string mensajeError);
             if (_validado)

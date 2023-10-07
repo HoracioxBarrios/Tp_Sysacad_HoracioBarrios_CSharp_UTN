@@ -15,7 +15,7 @@ namespace BibliotecaCLases.Controlador
         private string _direccion;
         private string _telefono;
         private string _claveProvisional;
-        public ValidadorDatosRegistro validadorDatosRegistro;
+        public ValidadorDatos validadorDatos;
         private string _mensajeError;
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace BibliotecaCLases.Controlador
         public GestorRegistroEstudiantes(string nombre ,string apellido ,string dni, string correo, string direccion,string telefono)
         {
             // aca tener todos los datos mientras vemos si son correctos 
-             validadorDatosRegistro =  new ValidadorDatosRegistro(nombre, apellido,dni, correo, direccion, telefono);
+             validadorDatos =  new ValidadorDatos(nombre, apellido,dni, correo, direccion, telefono);
 
-            _validado = validadorDatosRegistro.Validar(out string mensajeError);
+            _validado = validadorDatos.Validar(out string mensajeError);
          
             if (Validado)
             {
