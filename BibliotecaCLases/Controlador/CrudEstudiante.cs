@@ -5,8 +5,6 @@ using BibliotecaCLases.Utilidades;
 
 namespace BibliotecaCLases.Controlador
 {
-
-
     /// <summary>
     /// Clase para gestionar operaciones relacionadas con estudiantes.
     /// </summary>
@@ -18,9 +16,6 @@ namespace BibliotecaCLases.Controlador
         private int _ultimoLegajoEnArchivo;
         private CrudCurso crudCurso;
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
-
-
-
 
         /// <summary>
         /// Constructor de la clase CrudEstudiante. Inicializa un nuevo objeto CrudEstudiante
@@ -35,9 +30,6 @@ namespace BibliotecaCLases.Controlador
             _ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
             crudCurso = new CrudCurso();
         }
-
-
-
 
         /// <summary>
         /// Agrega un curso a la lista de cursos inscritos de un estudiante y actualiza los datos en caso de éxito.
@@ -84,8 +76,6 @@ namespace BibliotecaCLases.Controlador
             return false;
         }
 
-
-
         /// <summary>
         /// Modifica el nombre de un estudiante en el diccionario de estudiantes registrados.
         /// </summary>
@@ -105,8 +95,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
         /// <summary>
         /// Elimina un estudiante del diccionario de estudiantes registrados si existe.
         /// </summary>
@@ -122,8 +110,6 @@ namespace BibliotecaCLases.Controlador
                 dictEstudiantesRegistrados.Remove(estudianteId);
             }
         }
-
-
 
         /// <summary>
         /// Verifica si existen datos de un estudiante con un correo o DNI específico en el diccionario de estudiantes registrados.
@@ -153,8 +139,6 @@ namespace BibliotecaCLases.Controlador
             return 0;
         }
 
-
-
         /// <summary>
         /// Incrementa y obtiene el último legajo disponible, actualizando el valor en el archivo json correspondiente.
         /// </summary>
@@ -167,8 +151,6 @@ namespace BibliotecaCLases.Controlador
 
             return _ultimoLegajoEnArchivo;
         }
-
-
 
         /// <summary>
         /// Genera una contraseña aleatoria con la longitud especificada y caracteres permitidos.
@@ -193,10 +175,6 @@ namespace BibliotecaCLases.Controlador
 
             return contrasena.ToString(); // Puedes omitir ToString() aquí
         }
-
-
-
-
 
         /// <summary>
         /// Registra un nuevo estudiante con la información proporcionada y lo agrega al diccionario de estudiantes registrados.
@@ -226,9 +204,6 @@ namespace BibliotecaCLases.Controlador
 
         }
 
-
-
-
         /// <summary>
         /// Obtiene el diccionario de estudiantes registrados.
         /// </summary>
@@ -237,10 +212,6 @@ namespace BibliotecaCLases.Controlador
         {
             return dictEstudiantesRegistrados;
         }
-
-
-
-
 
         /// <summary>
         /// Obtiene un estudiante del diccionario de estudiantes registrados por su número de legajo.
@@ -261,11 +232,6 @@ namespace BibliotecaCLases.Controlador
                 return null;
             }
         }
-
-
-
-
-
 
         /// <summary>
         /// Obtiene o establece la ruta del archivo donde se almacenan los datos de estudiantes.
