@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,15 +17,20 @@ namespace Formularios
     public partial class FrmPago : Form
     {
 
-        private GestorPago _gestorPago;
-        private Usuario _estudiante; 
+        private GestorPagoLogic _gestorPago;
+        private Usuario _estudiante;
+        private int _totalAPagar = 0;
+        private List<ConceptoPago> conceptoPagos = new List<ConceptoPago>();
+
+        MetodoPago metodoPagoCredito = new("Tarjeta de crédito");
+        MetodoPago metodoPagoDebito = new("Tarjeta de débito");
+        MetodoPago metodoPagoBancaria = new("Transferencia bancaria");
 
         public FrmPago(Usuario estudiante)
         {
             InitializeComponent();
-
-            _gestorPago = new GestorPago();
-            _estudiante = estudiante;   
+            _gestorPago = new GestorPagoLogic();
+            _estudiante = estudiante;
 
             CmboxCuota.Visible = false;
             TbxNumeroTarjeta.Visible = false;
@@ -32,16 +38,10 @@ namespace Formularios
             TbxFechaVencimiento.Visible = false;
             TbxCvv.Visible = false;
 
-            TbxNombreBanco.Visible = false;
-            TbxNumeroBancaria.Visible = false;
-            TbxTitularCuenta.Visible = false;
-            TbxNumeroReferencia.Visible = false;
-
         }
 
         private void FrmPago_Load(object sender, EventArgs e)
         {
-            
             MostrarConceptosPagoPendientes();
             MostrarMetodosPAgo();
 
@@ -52,27 +52,23 @@ namespace Formularios
         /// </summary>
         private void MostrarConceptosPagoPendientes()
         {
-            ConceptoPago[] conceptoPagos = new[]
-            {
-            new ConceptoPago("Matrícula", 500),
-            new ConceptoPago("Cargos Administrativos", 600),
-            new ConceptoPago("Libros de Texto", 200),
-            };
-          
+            conceptoPagos.Add(new ConceptoPago("Matrícula", 500));
+            conceptoPagos.Add(new ConceptoPago("Cargos Administrativos", 600));
+            conceptoPagos.Add(new ConceptoPago("Libros de Texto", 200));
+
 
             dtgvConceptoPago.Rows.Clear();
             foreach (var concepto in conceptoPagos)
             {
-                dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.Monto, ""); // La tercera columna está en blanco
+                dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.Monto, "");
             }
 
         }
         private void MostrarMetodosPAgo()
         {
-
-            CmboxMetodoPago.Items.Add("Tarjeta de crédito");
-            CmboxMetodoPago.Items.Add("Tarjeta de débito");
-            CmboxMetodoPago.Items.Add("Transferencia bancaria");
+            CmboxMetodoPago.Items.Add(metodoPagoCredito.Nombre);
+            CmboxMetodoPago.Items.Add(metodoPagoDebito.Nombre);
+            CmboxMetodoPago.Items.Add(metodoPagoBancaria.Nombre);
 
             CmboxMetodoPago.SelectedIndexChanged += CmboxMetodoPago_SelectedIndexChanged;
         }
@@ -85,11 +81,6 @@ namespace Formularios
 
             if (metodoSeleccionado == "Tarjeta de crédito" || metodoSeleccionado == "Tarjeta de débito")
             {
-
-                TbxNombreBanco.Visible = false;
-                TbxNumeroBancaria.Visible = false;
-                TbxTitularCuenta.Visible = false;
-                TbxNumeroReferencia.Visible = false;
 
                 TbxNumeroTarjeta.Visible = true;
                 TbxNombreTitular.Visible = true;
@@ -104,10 +95,8 @@ namespace Formularios
                     CmboxCuota.Items.Add("3 cuotas");
                     CmboxCuota.Items.Add("6 cuotas");
                     CmboxCuota.Items.Add("12 cuotas");
-                  
+
                 }
-
-
 
             }
 
@@ -119,41 +108,67 @@ namespace Formularios
                 TbxFechaVencimiento.Visible = false;
                 TbxCvv.Visible = false;
 
-                TbxNombreBanco.Visible = true;
-                TbxNumeroBancaria.Visible = true;
-                TbxTitularCuenta.Visible = true;
-                TbxNumeroReferencia.Visible = true;
-
-
-
             }
 
         }
+
         private void dtgvConceptoPago_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-           
-            if (e.ColumnIndex == 2)
-            {             
+            if (e.ColumnIndex == 2 && e.RowIndex >= 0 && e.RowIndex < conceptoPagos.Count)
+            {
                 string valorIngresado = dtgvConceptoPago.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
-                MessageBox.Show(valorIngresado);
+                if (decimal.TryParse(valorIngresado, out decimal valorCelda))
+                {
+                    conceptoPagos[e.RowIndex].MontoPagar = valorCelda;
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un valor numérico válido.");
+                }
             }
         }
-
-
-
-
 
         private void CmboxMetodoPago_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void TbxNombreBanco_TextChanged(object sender, EventArgs e)
+        private void btnPagar_Click(object sender, EventArgs e)
         {
+            string metodoSeleccionado = CmboxMetodoPago.SelectedItem.ToString();
 
+            List<MetodoPago> metodosDePago = new List<MetodoPago>
+            {
+                metodoPagoCredito,
+                metodoPagoDebito,
+                metodoPagoBancaria
+            };
+            MetodoPago metodoPagoSeleccionado = metodosDePago.FirstOrDefault(mp => mp.Nombre == metodoSeleccionado);
+
+            if (metodoPagoSeleccionado != null)
+            {
+                _gestorPago.RegistrarPago(_estudiante, conceptoPagos, metodoPagoSeleccionado);
+                if (metodoSeleccionado != "Transferencia bancaria")
+                {
+                    MessageBox.Show(_gestorPago.Mostarcomprobante(0));
+
+                }
+                else
+                {
+
+                    MessageBox.Show(_gestorPago.MostrarDatosTransferencia());
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Método de pago no válido");
+            }
         }
 
-  
+
     }
 }

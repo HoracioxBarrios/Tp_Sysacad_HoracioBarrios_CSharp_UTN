@@ -9,12 +9,12 @@ namespace BibliotecaCLases.Modelo
     public class Pago
     {
         private DateTime _fecha;
-        private Estudiante _estudiante;
+        private Usuario _estudiante;
         private List<ConceptoPago> _conceptosPago;
         private MetodoPago _metodoPago;
         private decimal _montoTotal;
 
-        public Pago(Estudiante estudiante, List<ConceptoPago> conceptosPago, MetodoPago metodoPago, decimal montoTotal)
+        public Pago(Usuario estudiante, List<ConceptoPago> conceptosPago, MetodoPago metodoPago, decimal montoTotal)
         {
             _fecha = DateTime.Now;
             _estudiante = estudiante;
@@ -29,7 +29,7 @@ namespace BibliotecaCLases.Modelo
             set { _fecha = value; }
         }
 
-        public Estudiante Estudiante 
+        public Usuario Estudiante 
         {
             get { return _estudiante; } 
             set { _estudiante = value; }

@@ -30,9 +30,9 @@
     "Direccion": "calle 123",
     "Telefono": "1145",
     "CursosInscriptos": [
-      "2",
-      "3",
-      "1"
+      "5",
+      "1",
+      "1851"
     ],
     "Nombre": "Alexis",
     "Apellido": "Aranda",
@@ -80,5 +80,18 @@
     "Clave": "$2a$08$rBAoiuvVECm304v0L3f/r.eyA.0VCVZjs69c4CCCW2Z313G1xH2Rm",
     "TipoUsuario": 1,
     "Legajo": 1033
+  },
+  "1034": {
+    "Debecambiar": false,
+    "Direccion": "calle 123",
+    "Telefono": "11454684",
+    "CursosInscriptos": [],
+    "Nombre": "Leo",
+    "Apellido": "hola",
+    "Correo": "arandajaraalexis@gmail.com",
+    "Dni": "45000",
+    "Clave": "$2a$08$4uyM3kUxiEo/nNUdyauEkeqQ56/QhbX7ELUuf/xdtPh1/CiS9G2F.",
+    "TipoUsuario": 1,
+    "Legajo": 1034
   }
 }
