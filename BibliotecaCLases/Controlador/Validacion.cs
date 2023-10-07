@@ -7,13 +7,20 @@ using System.Text.RegularExpressions;
 
 namespace BibliotecaCLases.Controlador
 {
+
+    /// <summary>
+    /// Clase de utilidad para validar diferentes tipos de datos, como correos, nombres, apellidos, etc.
+    /// </summary>
     public class Validacion
     {
+
+
+
         /// <summary>
-        /// corrobora si es un correo valido
+        /// Corrobora si una cadena de texto es un correo electrónico válido.
         /// </summary>
-        /// <param name="correo"></param>
-        /// <returns>bool</returns>
+        /// <param name="correo">La cadena que se va a validar como correo electrónico.</param>
+        /// <returns>True si es un correo válido, de lo contrario False.</returns>
         public static bool EsCorreoValido(string correo)
         {
             if (string.IsNullOrEmpty(correo))
@@ -26,11 +33,13 @@ namespace BibliotecaCLases.Controlador
             return regex.IsMatch(correo);
 
         }
+
+
         /// <summary>
-        /// corrobora si es una nombre valido con un max de 10 caracteres
+        /// Corrobora si una cadena de texto es un nombre válido con un máximo de 15 caracteres.
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <returns>bool</returns>
+        /// <param name="nombre">La cadena que se va a validar como nombre.</param>
+        /// <returns>True si es un nombre válido, de lo contrario False.</returns>
         public static bool EsNombreValido(string nombre)
         {
             if (string.IsNullOrEmpty(nombre))
@@ -42,6 +51,13 @@ namespace BibliotecaCLases.Controlador
 
             return regex.IsMatch(nombre);
         }
+
+
+        /// <summary>
+        /// Corrobora si una cadena de texto es un apellido válido con un máximo de 10 caracteres.
+        /// </summary>
+        /// <param name="apellido">La cadena que se va a validar como apellido.</param>
+        /// <returns>True si es un apellido válido, de lo contrario False.</returns>
         public static bool EsApellidoValido(string apellido)
         {
             if (string.IsNullOrEmpty(apellido))
@@ -55,7 +71,11 @@ namespace BibliotecaCLases.Controlador
         }
 
 
-
+        /// <summary>
+        /// Corrobora si una cadena de texto contiene solo caracteres alfanuméricos.
+        /// </summary>
+        /// <param name="valor">La cadena que se va a validar como alfanumérica.</param>
+        /// <returns>True si la cadena contiene solo caracteres alfanuméricos, de lo contrario False.</returns>
         public static bool ValidarAlphanumeric(string valor)
         {
             foreach (char c in valor)
@@ -68,6 +88,12 @@ namespace BibliotecaCLases.Controlador
             return true;
 
         }
+
+        /// <summary>
+        /// Corrobora si una cadena de texto contiene solo dígitos.
+        /// </summary>
+        /// <param name="valor">La cadena que se va a validar como dígitos.</param>
+        /// <returns>True si la cadena contiene solo dígitos, de lo contrario False.</returns>
         public static bool ValidarDigit(string valor)
         {
             foreach (char c in valor)
@@ -79,6 +105,13 @@ namespace BibliotecaCLases.Controlador
             }
             return true;
         }
+
+
+        /// <summary>
+        /// Corrobora si una cadena de texto representa una fecha válida en formato MM/YY (mes/año).
+        /// </summary>
+        /// <param name="fechaVencimiento">La cadena que se va a validar como fecha de vencimiento.</param>
+        /// <returns>True si es una fecha válida en formato MM/YY, de lo contrario False.</returns>
         public static bool EsFechaValida(string fechaVencimiento)
         {
             if (string.IsNullOrEmpty(fechaVencimiento))
@@ -92,6 +125,12 @@ namespace BibliotecaCLases.Controlador
             return regexFechaVencimiento.IsMatch(fechaVencimiento);
         }
 
+
+        /// <summary>
+        /// Corrobora si una cadena de texto representa un número de tarjeta de crédito válido con 16 dígitos.
+        /// </summary>
+        /// <param name="numeroTarjeta">La cadena que se va a validar como número de tarjeta de crédito.</param>
+        /// <returns>True si es un número de tarjeta de crédito válido, de lo contrario False.</returns>
         public static bool EsTarjetaValida(string numeroTarjeta)
         {
             if (string.IsNullOrEmpty(numeroTarjeta))
@@ -105,6 +144,12 @@ namespace BibliotecaCLases.Controlador
             return regexTarjeta.IsMatch(numeroTarjeta);
         }
 
+
+        /// <summary>
+        /// Corrobora si una cadena de texto representa un código de verificación de tarjeta de crédito válido con 3 dígitos.
+        /// </summary>
+        /// <param name="cvv">La cadena que se va a validar como código de verificación de tarjeta de crédito.</param>
+        /// <returns>True si es un código de verificación de tarjeta de crédito válido, de lo contrario False.</returns>
         public static bool EsCVValido(string cvv) 
         {
             if (string.IsNullOrEmpty(cvv))

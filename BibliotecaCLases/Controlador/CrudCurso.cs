@@ -12,6 +12,11 @@ namespace BibliotecaCLases.Controlador
         private Dictionary<int, Curso> dictCursos;
         private string _path;
 
+
+
+
+
+
         /// <summary>
         /// Constructor de la clase CrudCurso.
         /// </summary>
