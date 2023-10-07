@@ -152,7 +152,7 @@ namespace Formularios
                 _gestorPago.RegistrarPago(_estudiante, conceptoPagos, metodoPagoSeleccionado);
                 if (metodoSeleccionado != "Transferencia bancaria")
                 {
-                    MessageBox.Show(_gestorPago.Mostarcomprobante(0));
+                    MessageBox.Show(_gestorPago.Mostarcomprobante());
 
                 }
                 else
