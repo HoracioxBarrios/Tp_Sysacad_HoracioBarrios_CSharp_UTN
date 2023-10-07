@@ -93,5 +93,18 @@
     "Clave": "$2a$08$4uyM3kUxiEo/nNUdyauEkeqQ56/QhbX7ELUuf/xdtPh1/CiS9G2F.",
     "TipoUsuario": 1,
     "Legajo": 1034
+  },
+  "1035": {
+    "Debecambiar": true,
+    "Direccion": "av 9 de julio",
+    "Telefono": "111111111",
+    "CursosInscriptos": [],
+    "Nombre": "Sebastian",
+    "Apellido": "Sanchez",
+    "Correo": "sebas@gamil.com",
+    "Dni": "2",
+    "Clave": "$2a$08$GTV99pDY.VCtwk.9YmaTVe.QdtMdr4fmMaq1XtDxWnIqijQg1MwG2",
+    "TipoUsuario": 1,
+    "Legajo": 1035
   }
 }

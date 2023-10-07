@@ -59,13 +59,23 @@ namespace Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string hora = cBHorarios.SelectedItem.ToString();
-            GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text,cBDias.SelectedItem.ToString(),cBHorarios.SelectedItem.ToString(),cBAula.SelectedItem.ToString());
+            string diaSeleccionado = cBDias.SelectedItem?.ToString();
+            string horarioSeleccionado = cBHorarios.SelectedItem?.ToString();
+            string aulaSeleccionada = cBAula.SelectedItem?.ToString();
+
+            if (string.IsNullOrWhiteSpace(diaSeleccionado) ||
+                string.IsNullOrWhiteSpace(horarioSeleccionado) ||
+                string.IsNullOrWhiteSpace(aulaSeleccionada))
+            {
+                MessageBox.Show("Debe seleccionar un valor en los campos de día, horario y aula.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text, diaSeleccionado, horarioSeleccionado, aulaSeleccionada);
             if (gestorCursos.Validado)
             {
                 if (gestorCursos.verificarDatosExistentes())
                 {
-                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text,cBDias.SelectedItem.ToString(), cBHorarios.SelectedItem.ToString(), cBAula.SelectedItem.ToString());
+                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text,diaSeleccionado, horarioSeleccionado, aulaSeleccionada);
                     MessageBox.Show("Curso agregado con éxito.");
                     if (_ownerForm != null)
                     {
