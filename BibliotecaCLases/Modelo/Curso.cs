@@ -41,28 +41,6 @@ namespace BibliotecaCLases.Modelo
         }
         private horarios _horarios;
 
-        public Curso()
-        {
-
-        }
-
-        public Curso(string nombre, string codigo, string descripcion, string cupoMaximo)
-        {
-            _nombre = nombre;
-            _codigo = codigo;
-            _descripcion = descripcion;
-            _activo = true;
-
-            if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
-            {
-                _cupoMaximo = cupoMaximoValor;
-                _cuposDisponibles = _cupoMaximo;
-            }
-            else
-            {
-                _cupoMaximo = 0;
-            }
-        }
         public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
             _nombre = nombre;
@@ -125,39 +103,22 @@ namespace BibliotecaCLases.Modelo
             set { _activo = value; }
         }
 
-        public string DiaGetSet
+        public string Dia
         {
             get { return _dia; }
             set { _dia = value; }
         }
 
-        public string HorarioGetSet
+        public string Horario
         {
             get { return _horario; }
             set { _horario = value; }
         }
 
-        public string AulaGetSet
+        public string Aula
         {
             get { return _aula; }
             set { _aula = value; }
-        }
-
-
-        public dias Dias
-        {
-            get { return _dias; }
-            set { _dias = value; }
-        }
-        public horarios Horarios
-        {
-            get { return _horarios; }
-            set { _horarios = value; }
-        }
-        public aulas Aulas
-        {
-            get { return _aulas; }
-            set { _aulas = value; }
         }
     }
 }

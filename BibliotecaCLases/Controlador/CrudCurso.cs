@@ -225,7 +225,7 @@ namespace BibliotecaCLases.Controlador
             }
             else
             {
-                return new Curso("", "", "", "");
+                return new Curso("", "", "", "", "", "", "");
             }
         }
 
