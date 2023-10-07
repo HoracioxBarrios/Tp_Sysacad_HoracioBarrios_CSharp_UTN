@@ -72,9 +72,12 @@ namespace BibliotecaCLases.Controlador
         {
             _usuario = dictUsuarios.FirstOrDefault(pair => pair.Value.Dni == dni).Value;
 
-            if (PasswordHashing.ValidatePassword(contrasena, _usuario.Clave))
+            if (_usuario != null)
             {
-                return true;
+                if (PasswordHashing.ValidatePassword(contrasena, _usuario.Clave))
+                {
+                    return true;
+                }
             }
 
             return false;
