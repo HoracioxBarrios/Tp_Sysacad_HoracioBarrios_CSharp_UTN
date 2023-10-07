@@ -72,7 +72,14 @@ namespace Formularios
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FormConsultarHorario frmConsultarHorario = new(_usuario);
 
+            frmConsultarHorario.FormClosed += (sender, args) =>
+            {
+                this.Close();
+            };
+
+            frmConsultarHorario.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
