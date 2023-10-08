@@ -17,12 +17,6 @@ namespace BibliotecaCLases.Controlador
         private CrudCurso crudCurso;
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
 
-
-
-
-
-
-
         /// <summary>
         /// Constructor de la clase CrudEstudiante. Inicializa un nuevo objeto CrudEstudiante
         /// y carga datos de estudiantes registrados desde un archivo JSON si está disponible.

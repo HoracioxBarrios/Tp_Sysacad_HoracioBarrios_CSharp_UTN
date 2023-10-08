@@ -50,9 +50,6 @@ namespace BibliotecaCLases.Modelo
             return "Email entregado";
         }
 
-
-
-
         /// <summary>
         /// Se encarga de enviar un email
         /// </summary> ------------ FALTA LA LOGICA --------------

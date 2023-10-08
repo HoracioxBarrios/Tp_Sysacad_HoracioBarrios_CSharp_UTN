@@ -23,10 +23,6 @@ namespace BibliotecaCLases.Controlador
         public ValidadorDatos validadorDatos;
         private string _mensajeError;
 
-
-
-
-
         /// <summary>
         /// Crea una instancia de la clase GestorRegistroEstudiantes para gestionar el registro de un estudiante.
         /// </summary>
@@ -61,7 +57,6 @@ namespace BibliotecaCLases.Controlador
 
         }
 
-
         /// <summary>
         /// Verifica si los datos del estudiante ya existen en el sistema a través del correo electrónico y el número de identificación (DNI).
         /// </summary>
@@ -87,7 +82,6 @@ namespace BibliotecaCLases.Controlador
             return true;
         }
 
-
         /// <summary>
         /// Registra un nuevo estudiante utilizando el objeto CrudEstudiante.
         /// </summary>
@@ -105,7 +99,6 @@ namespace BibliotecaCLases.Controlador
             return crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, debeCambiar);
         }
 
-
         /// <summary>
         /// Obtiene un diccionario que contiene a los estudiantes registrados utilizando el objeto CrudEstudiante.
         /// </summary>
@@ -114,8 +107,6 @@ namespace BibliotecaCLases.Controlador
         {
             return crudEstudiante.ObtenerEstudiantesRegistrados();
         }
-
-
 
         /// <summary>
         /// Modifica el nombre de un estudiante utilizando el objeto CrudEstudiante.
@@ -126,7 +117,6 @@ namespace BibliotecaCLases.Controlador
         {          
             crudEstudiante.ModificarEstudiante(estudiante, nuevoNombre);
         }
-
         /// <summary>
         /// Elimina un estudiante utilizando el objeto CrudEstudiante.
         /// </summary>
@@ -136,8 +126,6 @@ namespace BibliotecaCLases.Controlador
             crudEstudiante.EliminarEstudiante(estudiante);
         }
 
-
-
         /// <summary>
         /// Indica si los datos del estudiante han sido validados correctamente.
         /// </summary>
@@ -146,7 +134,6 @@ namespace BibliotecaCLases.Controlador
             get { return _validado; }
             set { _validado = value; }
         }
-
 
         /// <summary>
         /// Obtiene o establece el mensaje de error en caso de que la validación de datos falle.
@@ -166,7 +153,6 @@ namespace BibliotecaCLases.Controlador
             set { _nombre = value; }
         }
 
-
         /// <summary>
         /// Obtiene o establece el apellido del estudiante.
         /// </summary>
@@ -175,7 +161,6 @@ namespace BibliotecaCLases.Controlador
             get { return _apellido; }
             set { _apellido = value; }
         }
-
 
         /// <summary>
         /// Obtiene o establece la dirección del estudiante.
@@ -186,7 +171,6 @@ namespace BibliotecaCLases.Controlador
             set { _direccion = value; }
         }
 
-
         /// <summary>
         /// Obtiene o establece el teléfono del estudiante.
         /// </summary>
@@ -195,7 +179,6 @@ namespace BibliotecaCLases.Controlador
             get { return _telefono; }
             set { _telefono = value; }
         }
-
 
         /// <summary>
         /// Obtiene o establece la clave provisional del estudiante.

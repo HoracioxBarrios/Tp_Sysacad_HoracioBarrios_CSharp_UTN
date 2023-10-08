@@ -7,14 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace BibliotecaCLases.Controlador
 {
-
     /// <summary>
     /// Clase de utilidad para validar diferentes tipos de datos, como correos, nombres, apellidos, etc.
     /// </summary>
     public class Validacion
     {
-
-
 
         /// <summary>
         /// Corrobora si una cadena de texto es un correo electrónico válido.
@@ -34,7 +31,6 @@ namespace BibliotecaCLases.Controlador
 
         }
 
-
         /// <summary>
         /// Corrobora si una cadena de texto es un nombre válido con un máximo de 15 caracteres.
         /// </summary>
@@ -52,7 +48,6 @@ namespace BibliotecaCLases.Controlador
             return regex.IsMatch(nombre);
         }
 
-
         /// <summary>
         /// Corrobora si una cadena de texto es un apellido válido con un máximo de 10 caracteres.
         /// </summary>
@@ -69,7 +64,6 @@ namespace BibliotecaCLases.Controlador
 
             return regex.IsMatch(apellido);
         }
-
 
         /// <summary>
         /// Corrobora si una cadena de texto contiene solo caracteres alfanuméricos.
@@ -106,7 +100,6 @@ namespace BibliotecaCLases.Controlador
             return true;
         }
 
-
         /// <summary>
         /// Corrobora si una cadena de texto representa una fecha válida en formato MM/YY (mes/año).
         /// </summary>
@@ -124,7 +117,6 @@ namespace BibliotecaCLases.Controlador
 
             return regexFechaVencimiento.IsMatch(fechaVencimiento);
         }
-
 
         /// <summary>
         /// Corrobora si una cadena de texto representa un número de tarjeta de crédito válido con 16 dígitos.
@@ -144,7 +136,6 @@ namespace BibliotecaCLases.Controlador
             return regexTarjeta.IsMatch(numeroTarjeta);
         }
 
-
         /// <summary>
         /// Corrobora si una cadena de texto representa un código de verificación de tarjeta de crédito válido con 3 dígitos.
         /// </summary>
@@ -162,6 +153,5 @@ namespace BibliotecaCLases.Controlador
 
             return regexCVV.IsMatch(cvv);
         }
-
     }
 }
