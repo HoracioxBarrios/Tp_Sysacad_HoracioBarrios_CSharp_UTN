@@ -83,7 +83,6 @@ namespace BibliotecaCLases.Controlador
             return false;
         }
 
-
         /// <summary>
         /// Obtiene el valor usuraio.
         /// </summary>
