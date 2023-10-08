@@ -85,7 +85,7 @@ namespace BibliotecaCLases.Controlador
                 return false;
             }
 
-            if (!Validacion.ValidarDigit(_dni))
+            if (!Validacion.EsNumeroValido(_dni, 8))
             {
                 mensajeError = "El DNI no es válido.";
                 return false;
@@ -103,7 +103,7 @@ namespace BibliotecaCLases.Controlador
                 return false;
             }
 
-            if (!Validacion.ValidarDigit(_telefono))
+            if (!Validacion.EsNumeroValido(_telefono, 10))
             {
                 mensajeError = "El teléfono no es válido.";
                 return false;

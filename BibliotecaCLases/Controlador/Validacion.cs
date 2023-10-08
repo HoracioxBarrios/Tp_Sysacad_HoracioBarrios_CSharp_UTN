@@ -123,14 +123,15 @@ namespace BibliotecaCLases.Controlador
         /// </summary>
         /// <param name="numeroTarjeta">La cadena que se va a validar como número de tarjeta de crédito.</param>
         /// <returns>True si es un número de tarjeta de crédito válido, de lo contrario False.</returns>
-        public static bool EsTarjetaValida(string numeroTarjeta)
+        public static bool EsNumeroValido(string numeroTarjeta,int cantidadNumeroRecibido)
         {
+            int cantidadNumero = cantidadNumeroRecibido;
             if (string.IsNullOrEmpty(numeroTarjeta))
             {
                 return false;
             }
 
-            string patronTarjeta = @"^\d{16}$";
+            string patronTarjeta = @$"^\d{{{cantidadNumeroRecibido}}}$";
             Regex regexTarjeta = new Regex(patronTarjeta);
 
             return regexTarjeta.IsMatch(numeroTarjeta);
@@ -141,7 +142,7 @@ namespace BibliotecaCLases.Controlador
         /// </summary>
         /// <param name="cvv">La cadena que se va a validar como código de verificación de tarjeta de crédito.</param>
         /// <returns>True si es un código de verificación de tarjeta de crédito válido, de lo contrario False.</returns>
-        public static bool EsCVValido(string cvv) 
+        public static bool EsCVVValido(string cvv) 
         {
             if (string.IsNullOrEmpty(cvv))
             {
