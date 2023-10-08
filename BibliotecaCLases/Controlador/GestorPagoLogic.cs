@@ -43,9 +43,9 @@ namespace BibliotecaCLases.Controlador
         /// <returns>True si los datos son válidos, False en caso contrario.</returns>
         public bool ValidarDatosTarjeta(string numeroTarjeta, string fechaVencimiento, string cvv)
         {
-            bool esTarjetaValida = Validacion.EsTarjetaValida(numeroTarjeta);
+            bool esTarjetaValida = Validacion.EsNumeroValido(numeroTarjeta,16);
             bool esFechaValida = Validacion.EsFechaValida(fechaVencimiento);
-            bool esCVVValido = Validacion.EsCVValido(cvv);
+            bool esCVVValido = Validacion.EsCVVValido(cvv);
 
             if (esTarjetaValida && esFechaValida && esCVVValido)
             {

@@ -40,5 +40,19 @@
     "Clave": "$2a$08$g.HLFxeQFzeltKhJYZgHQ.uGIlKq03WwN94Mlf4tWitBfEqckNydy",
     "TipoUsuario": 1,
     "Legajo": 1006
+  },
+  "1007": {
+    "Debecambiar": false,
+    "Direccion": "matuk79@gmail.com",
+    "Telefono": "12312312",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "asd",
+    "Apellido": "dsa",
+    "Correo": "matuk79@gmail.com",
+    "Dni": "123",
+    "Clave": "$2a$08$cqXJWU7/AiYIAs5tCWCxM.hkUJDM3Uok45gCi2Sd.3p2xq17fJTpa",
+    "TipoUsuario": 1,
+    "Legajo": 1007
   }
 }

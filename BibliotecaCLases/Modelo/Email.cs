@@ -18,11 +18,11 @@ namespace BibliotecaCLases.Modelo
         /// Envia un email de confirmacion al usuario registrado
         /// </summary>
         /// <param name="email"></param>
-        public static string SendMessageSmtp(string email,string contraseña)
+        public static string SendMessageSmtp(string email,string contraseña, string nombre, string apellido)
         {
             MimeMessage mail = new MimeMessage();
-            mail.From.Add(new MailboxAddress("Excited Admin", "foo@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org"));
-            mail.To.Add(new MailboxAddress("Excited User", email));
+            mail.From.Add(new MailboxAddress("Sistema Sysacad", "foo@sandboxa624a102f69e45f99032eb56ad582179.mailgun.org"));
+            mail.To.Add(new MailboxAddress($"{apellido},{nombre}", email));
             mail.Subject = "Registro de alumno";
             mail.Body = new TextPart("plain")
             {
@@ -48,16 +48,6 @@ namespace BibliotecaCLases.Modelo
                 return "El mail registrado no se encuentra valido en mailgun";
             }
             return "Email entregado";
-        }
-
-        /// <summary>
-        /// Se encarga de enviar un email
-        /// </summary> ------------ FALTA LA LOGICA --------------
-        /// <param name="texto"></param>
-        /// <returns>string</returns>
-        public static string Enviar(string texto)
-        {
-            return texto;
         }
     }
 }
