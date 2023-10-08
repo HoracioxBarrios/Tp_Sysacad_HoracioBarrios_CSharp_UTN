@@ -9,6 +9,7 @@ namespace BibliotecaCLases.Controlador
     /// </summary>
     public class ControlLogin
     {
+        Serializador serializador = new Serializador();
         private Usuario? _usuario;
         private readonly Dictionary<int, Usuario> dictUsuarios;
         private string _path;
@@ -27,14 +28,14 @@ namespace BibliotecaCLases.Controlador
             int nivelesARetroceder = 4;
             _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json", nivelesARetroceder);
 
-            dictUsuarios = Serializador.LeerJson<Dictionary<int, Usuario>>(_path);
+            dictUsuarios = serializador.LeerJson<Dictionary<int, Usuario>>(_path);
 
             _existeUsuario = true;
             if (dictUsuarios == null || dictUsuarios.Count == 0)
             {
 
                 string pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
-                int ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
+                int ultimoLegajoEnArchivo = serializador.LeerJson<int>(pathUltimoLegajo);
                 ultimoLegajoEnArchivo++;
 
                 _existeUsuario = false;
@@ -57,7 +58,7 @@ namespace BibliotecaCLases.Controlador
               
 
                 Serializador.GuardarAJson(ultimoLegajoEnArchivo, pathUltimoLegajo);
-                Serializador.GuardarAJson(dictUsuarios, _path);
+                serializador.GuardarAJson(dictUsuarios, _path);
             }
 
         }

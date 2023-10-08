@@ -16,6 +16,7 @@ namespace BibliotecaCLases.Controlador
         private int _ultimoLegajoEnArchivo;
         private CrudCurso crudCurso;
         private Dictionary<int, Estudiante> dictEstudiantesRegistrados;
+        Serializador serializador = new Serializador();
 
         /// <summary>
         /// Constructor de la clase CrudEstudiante. Inicializa un nuevo objeto CrudEstudiante
@@ -25,9 +26,9 @@ namespace BibliotecaCLases.Controlador
         {
             dictEstudiantesRegistrados = new Dictionary<int, Estudiante>();
             _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
-            dictEstudiantesRegistrados = Serializador.LeerJson<Dictionary<int, Estudiante>>(_path);
+            dictEstudiantesRegistrados = serializador.LeerJson<Dictionary<int, Estudiante>>(_path);
             pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
-            _ultimoLegajoEnArchivo = Serializador.LeerJson<int>(pathUltimoLegajo);
+            _ultimoLegajoEnArchivo = serializador.LeerJson<int>(pathUltimoLegajo);
             crudCurso = new CrudCurso();
         }
 

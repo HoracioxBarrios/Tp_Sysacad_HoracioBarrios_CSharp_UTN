@@ -54,5 +54,19 @@
     "Clave": "$2a$08$cqXJWU7/AiYIAs5tCWCxM.hkUJDM3Uok45gCi2Sd.3p2xq17fJTpa",
     "TipoUsuario": 1,
     "Legajo": 1007
+  },
+  "1008": {
+    "Debecambiar": false,
+    "Direccion": "avenida siempre viva 123",
+    "Telefono": "1212121212",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Dianyeli",
+    "Apellido": "Yrigay",
+    "Correo": "hola@gmail.com",
+    "Dni": "21232123",
+    "Clave": "$2a$08$r.y3VXLOL4B/gkPwfHou8u1fea3TxfMnvTQoEn3NvKuXzkY8SykaW",
+    "TipoUsuario": 1,
+    "Legajo": 1008
   }
 }
