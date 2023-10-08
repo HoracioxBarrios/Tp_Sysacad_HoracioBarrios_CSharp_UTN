@@ -23,7 +23,7 @@ namespace Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmRegistroEstudiante frmRegistroEstudiante = new();
+            FrmRegistroEstudiante frmRegistroEstudiante = new(_usuario);
 
             frmRegistroEstudiante.FormClosed += (sender, args) =>
             {
@@ -80,12 +80,27 @@ namespace Formularios
             };
 
             frmConsultarHorario.Show();
+            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             FrmPago frmPago = new(_usuario);
             frmPago.Show();
+            this.Hide();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+
+            frmLogin.FormClosed += (s, args) =>
+            {
+                this.Close();
+            };
+
+            frmLogin.Show();
+            this.Hide();
         }
     }
 }

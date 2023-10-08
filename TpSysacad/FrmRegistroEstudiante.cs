@@ -9,10 +9,11 @@ namespace Formularios
     public partial class FrmRegistroEstudiante : Form
     {
         private bool _debeCambiar;
-        public FrmRegistroEstudiante()
+        private Usuario _usuario;
+        public FrmRegistroEstudiante(Usuario usuario)
         {
             InitializeComponent();
-
+            _usuario = usuario;
             _debeCambiar = false;
         }
         public bool DebeCambiar { get => _debeCambiar; }
@@ -59,6 +60,19 @@ namespace Formularios
         private void RbtnCambiarcontrasenia_CheckedChanged(object sender, EventArgs e)
         {
             _debeCambiar = true;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
+
+            formPanelUsuario.FormClosed += (s, args) =>
+            {
+                this.Close();
+            };
+
+            formPanelUsuario.Show();
+            this.Hide();
         }
     }
 }

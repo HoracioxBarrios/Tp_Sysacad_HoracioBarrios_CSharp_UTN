@@ -37,6 +37,7 @@
             textEmail = new TextBox();
             btnRegistro = new Button();
             RbtnCambiarcontrasenia = new RadioButton();
+            btnVolver = new Button();
             SuspendLayout();
             // 
             // label1
@@ -119,11 +120,22 @@
             RbtnCambiarcontrasenia.UseVisualStyleBackColor = true;
             RbtnCambiarcontrasenia.CheckedChanged += RbtnCambiarcontrasenia_CheckedChanged;
             // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(146, 351);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(75, 23);
+            btnVolver.TabIndex = 10;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // FrmRegistroEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnVolver);
             Controls.Add(RbtnCambiarcontrasenia);
             Controls.Add(btnRegistro);
             Controls.Add(textEmail);
@@ -150,5 +162,6 @@
         private TextBox textEmail;
         private Button btnRegistro;
         private RadioButton RbtnCambiarcontrasenia;
+        private Button btnVolver;
     }
 }

@@ -69,5 +69,18 @@ namespace Formularios
         {
 
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
+
+            formPanelUsuario.FormClosed += (s, args) =>
+            {
+                this.Close();
+            };
+
+            formPanelUsuario.Show();
+            this.Hide();
+        }
     }
 }

@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             dataGridViewHorario = new DataGridView();
-            labelHorario = new Label();
-            label1 = new Label();
-            labelHorarioVacio = new Label();
             dias = new DataGridViewTextBoxColumn();
             turnoManiana = new DataGridViewTextBoxColumn();
             turnoTarde = new DataGridViewTextBoxColumn();
             turnoNoche = new DataGridViewTextBoxColumn();
+            labelHorario = new Label();
+            label1 = new Label();
+            labelHorarioVacio = new Label();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHorario).BeginInit();
             SuspendLayout();
             // 
@@ -45,43 +46,14 @@
             dataGridViewHorario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewHorario.Columns.AddRange(new DataGridViewColumn[] { dias, turnoManiana, turnoTarde, turnoNoche });
             dataGridViewHorario.GridColor = SystemColors.ControlDarkDark;
-            dataGridViewHorario.Location = new Point(34, 101);
+            dataGridViewHorario.Location = new Point(30, 76);
+            dataGridViewHorario.Margin = new Padding(3, 2, 3, 2);
             dataGridViewHorario.Name = "dataGridViewHorario";
             dataGridViewHorario.RowHeadersWidth = 51;
             dataGridViewHorario.RowTemplate.Height = 29;
-            dataGridViewHorario.Size = new Size(690, 254);
+            dataGridViewHorario.Size = new Size(604, 190);
             dataGridViewHorario.TabIndex = 0;
             dataGridViewHorario.CellContentClick += dataGridViewHorario_CellContentClick;
-            // 
-            // labelHorario
-            // 
-            labelHorario.AutoSize = true;
-            labelHorario.Location = new Point(316, 50);
-            labelHorario.Name = "labelHorario";
-            labelHorario.Size = new Size(124, 20);
-            labelHorario.TabIndex = 1;
-            labelHorario.Text = "Horario de clases";
-            labelHorario.Click += label1_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(180, 66);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 20);
-            label1.TabIndex = 2;
-            // 
-            // labelHorarioVacio
-            // 
-            labelHorarioVacio.AutoSize = true;
-            labelHorarioVacio.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelHorarioVacio.Location = new Point(102, 219);
-            labelHorarioVacio.Name = "labelHorarioVacio";
-            labelHorarioVacio.Size = new Size(580, 31);
-            labelHorarioVacio.TabIndex = 3;
-            labelHorarioVacio.Text = "No estás inscrito en ningún curso. Tu horario está vacío.";
-            labelHorarioVacio.TextAlign = ContentAlignment.MiddleCenter;
-            labelHorarioVacio.Click += labelHorarioVacio_Click;
             // 
             // dias
             // 
@@ -115,15 +87,58 @@
             turnoNoche.ReadOnly = true;
             turnoNoche.Width = 170;
             // 
+            // labelHorario
+            // 
+            labelHorario.AutoSize = true;
+            labelHorario.Location = new Point(276, 38);
+            labelHorario.Name = "labelHorario";
+            labelHorario.Size = new Size(97, 15);
+            labelHorario.TabIndex = 1;
+            labelHorario.Text = "Horario de clases";
+            labelHorario.Click += label1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(158, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 15);
+            label1.TabIndex = 2;
+            // 
+            // labelHorarioVacio
+            // 
+            labelHorarioVacio.AutoSize = true;
+            labelHorarioVacio.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelHorarioVacio.Location = new Point(89, 164);
+            labelHorarioVacio.Name = "labelHorarioVacio";
+            labelHorarioVacio.Size = new Size(482, 25);
+            labelHorarioVacio.TabIndex = 3;
+            labelHorarioVacio.Text = "No estás inscrito en ningún curso. Tu horario está vacío.";
+            labelHorarioVacio.TextAlign = ContentAlignment.MiddleCenter;
+            labelHorarioVacio.Click += labelHorarioVacio_Click;
+            // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(262, 303);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(127, 23);
+            btnVolver.TabIndex = 12;
+            btnVolver.TabStop = false;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // FormConsultarHorario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
+            Controls.Add(btnVolver);
             Controls.Add(labelHorarioVacio);
             Controls.Add(label1);
             Controls.Add(labelHorario);
             Controls.Add(dataGridViewHorario);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormConsultarHorario";
             Text = "FormConsultarHorario";
             Load += FormConsultarHorario_Load;
@@ -142,5 +157,6 @@
         private DataGridViewTextBoxColumn turnoManiana;
         private DataGridViewTextBoxColumn turnoTarde;
         private DataGridViewTextBoxColumn turnoNoche;
+        private Button btnVolver;
     }
 }
