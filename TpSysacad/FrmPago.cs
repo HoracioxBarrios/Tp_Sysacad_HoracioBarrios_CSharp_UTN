@@ -117,7 +117,7 @@ namespace Formularios
             if (e.ColumnIndex == 2 && e.RowIndex >= 0 && e.RowIndex < conceptoPagos.Count)
             {
                 DataGridViewCell cell = dtgvConceptoPago.Rows[e.RowIndex].Cells[e.ColumnIndex];
-               
+
                 string valorIngresado = cell.EditedFormattedValue.ToString();
 
                 if (!string.IsNullOrWhiteSpace(valorIngresado))
@@ -125,9 +125,9 @@ namespace Formularios
                     if (decimal.TryParse(valorIngresado, out decimal valorCelda))
                     {
                         conceptoPagos[e.RowIndex].MontoIngresado = valorCelda;
-                      
+
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show("Por favor, ingrese un valor numérico válido en esta celda.");
                         dtgvConceptoPago.CancelEdit();
@@ -190,7 +190,17 @@ namespace Formularios
             }
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
 
+            formPanelUsuario.FormClosed += (s, args) =>
+            {
+                this.Close();
+            };
 
+            formPanelUsuario.Show();
+            this.Hide();
+        }
     }
 }

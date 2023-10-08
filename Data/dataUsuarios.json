@@ -115,5 +115,33 @@
     "Clave": "$2a$08$GTV99pDY.VCtwk.9YmaTVe.QdtMdr4fmMaq1XtDxWnIqijQg1MwG2",
     "TipoUsuario": 1,
     "Legajo": 1035
+  },
+  "1036": {
+    "Debecambiar": true,
+    "Direccion": "av cordoba",
+    "Telefono": "111111",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Ezequiel",
+    "Apellido": "Aranda",
+    "Correo": "ezequiel@gmail.com.ar",
+    "Dni": "5",
+    "Clave": "$2a$08$W.dW/G0w5bjVH5Rdxos6/OFfR2RKYT.SOZs2LBW49ASi6VnbkyMHy",
+    "TipoUsuario": 1,
+    "Legajo": 1036
+  },
+  "1037": {
+    "Debecambiar": true,
+    "Direccion": "av cordoba",
+    "Telefono": "111111",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Ezequiel",
+    "Apellido": "Aranda",
+    "Correo": "dianyrygay@gmail.com",
+    "Dni": "9",
+    "Clave": "$2a$08$upNPeg1elJlTv89R6Pov2uJUx/xvvh3ptOFGYX41JdjyTinoGxRIa",
+    "TipoUsuario": 1,
+    "Legajo": 1037
   }
 }

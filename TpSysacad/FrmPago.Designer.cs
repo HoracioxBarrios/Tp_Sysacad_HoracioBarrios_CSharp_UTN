@@ -30,6 +30,9 @@
         {
             label1 = new Label();
             dtgvConceptoPago = new DataGridView();
+            Nombre = new DataGridViewTextBoxColumn();
+            Monto = new DataGridViewTextBoxColumn();
+            IngresarMonton = new DataGridViewTextBoxColumn();
             CmboxMetodoPago = new ComboBox();
             TbxNumeroTarjeta = new TextBox();
             TbxNombreTitular = new TextBox();
@@ -37,9 +40,7 @@
             TbxCvv = new TextBox();
             CmboxCuota = new ComboBox();
             btnPagar = new Button();
-            Nombre = new DataGridViewTextBoxColumn();
-            Monto = new DataGridViewTextBoxColumn();
-            IngresarMonton = new DataGridViewTextBoxColumn();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).BeginInit();
             SuspendLayout();
             // 
@@ -62,6 +63,23 @@
             dtgvConceptoPago.Size = new Size(344, 150);
             dtgvConceptoPago.TabIndex = 1;
             dtgvConceptoPago.CellEndEdit += dtgvConceptoPago_CellEndEdit;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            Monto.HeaderText = "Deuda pendiente";
+            Monto.Name = "Monto";
+            Monto.ReadOnly = true;
+            // 
+            // IngresarMonton
+            // 
+            IngresarMonton.HeaderText = "Ingresar monto";
+            IngresarMonton.Name = "IngresarMonton";
             // 
             // CmboxMetodoPago
             // 
@@ -124,28 +142,23 @@
             btnPagar.UseVisualStyleBackColor = true;
             btnPagar.Click += btnPagar_Click;
             // 
-            // Nombre
+            // btnVolver
             // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            Monto.HeaderText = "Deuda pendiente";
-            Monto.Name = "Monto";
-            Monto.ReadOnly = true;
-            // 
-            // IngresarMonton
-            // 
-            IngresarMonton.HeaderText = "Ingresar monto";
-            IngresarMonton.Name = "IngresarMonton";
+            btnVolver.Location = new Point(30, 303);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(127, 23);
+            btnVolver.TabIndex = 13;
+            btnVolver.TabStop = false;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
             // 
             // FrmPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(btnVolver);
             Controls.Add(btnPagar);
             Controls.Add(CmboxCuota);
             Controls.Add(TbxCvv);
@@ -178,5 +191,6 @@
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Monto;
         private DataGridViewTextBoxColumn IngresarMonton;
+        private Button btnVolver;
     }
 }
