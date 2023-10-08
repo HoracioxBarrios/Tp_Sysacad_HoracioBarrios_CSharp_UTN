@@ -24,10 +24,6 @@ namespace BibliotecaCLases.Controlador
         private string _dia;
         private string _horario;
 
-
-
-
-
         /// <summary>
         /// Constructor de la clase ValidadorDatos para validar datos de registro genéricos.
         /// </summary>
@@ -67,9 +63,6 @@ namespace BibliotecaCLases.Controlador
             _horario = horarioIngresado;
             _aula = aulaIngresada;
         }
-
-
-
 
         /// <summary>
         /// Realiza la validación de los datos.

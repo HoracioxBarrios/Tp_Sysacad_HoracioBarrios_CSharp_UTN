@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace BibliotecaCLases.Controlador
 {
 
-
     /// <summary>
     /// Clase que gestiona los pagos de los estudiantes.
     /// </summary>
@@ -24,8 +23,6 @@ namespace BibliotecaCLases.Controlador
         private decimal _totalIngresado = 0;
         private decimal _totalAPagar = 0;
 
-
-
         /// <summary>
         /// Constructor de la clase GestorPagoLogic.
         /// </summary>
@@ -36,8 +33,6 @@ namespace BibliotecaCLases.Controlador
             _path = PathManager.ObtenerRuta("Data", "DataUsuarios.json");
 
         }
-
-
 
         /// <summary>
         /// Valida los datos de una tarjeta de crédito.
@@ -63,8 +58,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
         /// <summary>
         /// Registra un pago realizado por un usuario.
         /// </summary>
@@ -88,8 +81,6 @@ namespace BibliotecaCLases.Controlador
 
         }
 
-
-
         /// <summary>
         /// Obtiene el historial de pagos realizados.
         /// </summary>
@@ -99,15 +90,12 @@ namespace BibliotecaCLases.Controlador
             return _pagos;
         }
 
-
-
         /// <summary>
         /// Calcula el monto total ingresado y el monto total a pagar sumando los montos de los conceptos de pago proporcionados.
         /// </summary>
         /// <param name="conceptosPago">Lista de conceptos de pago para los cuales se calcularán los montos.</param>
         private void CalcularMontoTotal(List<ConceptoPago> conceptosPago)
         {
-
             foreach (var concepto in conceptosPago)
             {
                 _totalIngresado += concepto.MontoIngresado;
@@ -115,10 +103,6 @@ namespace BibliotecaCLases.Controlador
             }
            
         }
-
-
-
-
 
         /// <summary>
         /// Genera un comprobante de pago en formato de texto.
@@ -154,8 +138,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
         /// <summary>
         /// Genera los datos de transferencia bancaria en formato de texto.
         /// </summary>
@@ -183,10 +165,6 @@ namespace BibliotecaCLases.Controlador
             {
                 return "Ingrese el monto a tranferir";
             }
-
         }
-
-
-
     }
 }

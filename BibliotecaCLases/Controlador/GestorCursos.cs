@@ -22,10 +22,6 @@ namespace BibliotecaCLases.Controlador
         private string _aula;
         private string _mensajeError;
 
-
-
-
-
         /// <summary>
         /// Constructor de la clase para la creación de un nuevo curso con todos los detalles.
         /// </summary>
@@ -88,8 +84,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-  
-
         /// <summary>
         /// Verifica si ya existe un curso con el mismo código.
         /// </summary>
@@ -106,9 +100,6 @@ namespace BibliotecaCLases.Controlador
 
             return true;
         }
-
-
-
 
         /// <summary>
         /// Verifica si ya existe un curso con el mismo código nuevo.
@@ -127,10 +118,6 @@ namespace BibliotecaCLases.Controlador
 
             return true;
         }
-
-
-
-
 
         /// <summary>
         /// Agrega un nuevo curso.
@@ -178,8 +165,6 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
-
-
         /// <summary>
         /// Indica si los datos del curso han sido validados con éxito.
         /// </summary>
@@ -187,7 +172,6 @@ namespace BibliotecaCLases.Controlador
         {
             get { return _validado; }
         }
-
 
         /// <summary>
         /// Obtiene el mensaje de error en caso de que la validación haya fallado.
