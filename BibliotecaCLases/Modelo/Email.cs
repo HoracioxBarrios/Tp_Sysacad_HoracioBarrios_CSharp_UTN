@@ -26,7 +26,7 @@ namespace BibliotecaCLases.Modelo
             mail.Subject = "Registro de alumno";
             mail.Body = new TextPart("plain")
             {
-                Text = @$"Registro exitoso, bienvenido al nuevo SistemaSysacad. Tu contraseña es: {contraseña}",
+                Text = @$"Registro exitoso, bienvenido al nuevo SistemaSysacad. Tu contraseña es: {contraseña} y tu usario es tu DNI",
             };
             try
             {

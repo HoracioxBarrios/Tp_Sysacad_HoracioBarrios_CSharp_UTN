@@ -30,16 +30,16 @@ namespace Formularios
                     DialogResult resultado = MessageBox.Show("¿Desea confirmar el registro del estudiante?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
                     {
-                        // Llama al método RegistrarEstudiante de CrudEstudiante para registrar al estudiante
+                      
                         string mensaje = gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
                         textTelefono.Text, this.DebeCambiar);
                         MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
-                        //string mensaje = Email.SendMessageSmtp(textEmail.Text);
-                        MessageBox.Show("mail enviado");
+                     
+                        MessageBox.Show(mensaje);
                     }
                     else
                     {
-                        // El administrador eligió cancelar el registro
+                       
                         MessageBox.Show("Registro cancelado.");
                     }
 
@@ -52,7 +52,7 @@ namespace Formularios
             }
             else
             {
-                // Muestra el mensaje de error al usuario
+              
                 MessageBox.Show("Error de validación: " + gestorEstudiantes.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
