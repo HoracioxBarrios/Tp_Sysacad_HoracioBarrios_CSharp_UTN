@@ -4,6 +4,11 @@ using BibliotecaCLases.Modelo;
 
 namespace BibliotecaCLases.Controlador
 {
+
+
+    /// <summary>
+    /// Clase que gestiona el registro de estudiantes en el sistema.
+    /// </summary>
     public class GestorRegistroEstudiantes
     {
         private CrudEstudiante crudEstudiante;
@@ -18,6 +23,10 @@ namespace BibliotecaCLases.Controlador
         public ValidadorDatos validadorDatos;
         private string _mensajeError;
 
+
+
+
+
         /// <summary>
         /// Crea una instancia de la clase GestorRegistroEstudiantes para gestionar el registro de un estudiante.
         /// </summary>
@@ -27,7 +36,6 @@ namespace BibliotecaCLases.Controlador
         /// <param name="correo">El correo del estudiante.</param>
         /// <param name="direccion">La dirección del estudiante.</param>
         /// <param name="telefono">El teléfono del estudiante.</param>
-        /// <param name="claveProvisional">La clave provisional del estudiante.</param>
         public GestorRegistroEstudiantes(string nombre ,string apellido ,string dni, string correo, string direccion,string telefono)
         {
             // aca tener todos los datos mientras vemos si son correctos 
@@ -78,6 +86,8 @@ namespace BibliotecaCLases.Controlador
 
             return true;
         }
+
+
         /// <summary>
         /// Registra un nuevo estudiante utilizando el objeto CrudEstudiante.
         /// </summary>
@@ -87,13 +97,14 @@ namespace BibliotecaCLases.Controlador
         /// <param name="correo">El correo del estudiante.</param>
         /// <param name="direccion">La dirección del estudiante.</param>
         /// <param name="telefono">El teléfono del estudiante.</param>
-        /// <param name="claveProvisional">La clave provisional del estudiante.</param>
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
+        /// <returns>Un mensaje de éxito o error al registrar el estudiante.</returns>
         public string RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, bool debeCambiar)
         {
             
             return crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, debeCambiar);
         }
+
 
         /// <summary>
         /// Obtiene un diccionario que contiene a los estudiantes registrados utilizando el objeto CrudEstudiante.
@@ -103,6 +114,8 @@ namespace BibliotecaCLases.Controlador
         {
             return crudEstudiante.ObtenerEstudiantesRegistrados();
         }
+
+
 
         /// <summary>
         /// Modifica el nombre de un estudiante utilizando el objeto CrudEstudiante.
@@ -124,30 +137,49 @@ namespace BibliotecaCLases.Controlador
         }
 
 
+
+        /// <summary>
+        /// Indica si los datos del estudiante han sido validados correctamente.
+        /// </summary>
         public bool Validado
         {
             get { return _validado; }
             set { _validado = value; }
         }
 
+
+        /// <summary>
+        /// Obtiene o establece el mensaje de error en caso de que la validación de datos falle.
+        /// </summary>
         public string MensajeError
         {
             get { return _mensajeError; }
             set { _mensajeError = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece el nombre del estudiante.
+        /// </summary>
         public string Nombre
         {
             get { return _nombre; }
             set { _nombre = value; }
         }
 
+
+        /// <summary>
+        /// Obtiene o establece el apellido del estudiante.
+        /// </summary>
         public string Apellido
         {
             get { return _apellido; }
             set { _apellido = value; }
         }
 
+
+        /// <summary>
+        /// Obtiene o establece la dirección del estudiante.
+        /// </summary>
         public string Direccion
         {
             get { return _direccion; }
@@ -155,12 +187,19 @@ namespace BibliotecaCLases.Controlador
         }
 
 
+        /// <summary>
+        /// Obtiene o establece el teléfono del estudiante.
+        /// </summary>
         public string Telefono
         {
             get { return _telefono; }
             set { _telefono = value; }
         }
 
+
+        /// <summary>
+        /// Obtiene o establece la clave provisional del estudiante.
+        /// </summary>
         public string ClaveProvisional
         {
             get { return _claveProvisional; }

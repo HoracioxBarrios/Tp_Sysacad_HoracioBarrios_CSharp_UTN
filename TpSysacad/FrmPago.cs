@@ -171,7 +171,7 @@ namespace Formularios
                     if (_gestorPago.ValidarDatosTarjeta(numeroTarjeta, fechaVencimiento, cvv))
                     {
                         _gestorPago.RegistrarPago(_usuario, conceptoPagos, metodoPagoSeleccionado);
-                        MessageBox.Show(_gestorPago.Mostarcomprobante());
+                        MessageBox.Show(_gestorPago.GenerarComprobanteDePago());
                     }
                     else
                     {
@@ -181,7 +181,7 @@ namespace Formularios
                 else if (metodoSeleccionado == "Transferencia bancaria")
                 {
                     _gestorPago.RegistrarPago(_usuario, conceptoPagos, metodoPagoSeleccionado);
-                    MessageBox.Show(_gestorPago.MostrarDatosTransferencia());
+                    MessageBox.Show(_gestorPago.GenerarDatosTransferenciaBancaria());
                 }
             }
             else
