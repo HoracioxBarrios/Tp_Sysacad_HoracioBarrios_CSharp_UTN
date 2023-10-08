@@ -1,5 +1,5 @@
 {
-  "1024": {
+  "1004": {
     "Debecambiar": false,
     "Direccion": null,
     "Telefono": null,
@@ -9,11 +9,11 @@
     "Apellido": "cantero",
     "Correo": "correo@nuevo.com",
     "Dni": "011",
-    "Clave": "$2a$08$q8/pWkBMGyoaaNxgo00RhO7mv2vD1vYAPV.b7HrUePOxyRkIDq6Ou",
+    "Clave": "$2a$08$JNgQ4SujdIMEpIYRRvuaQOwsTuACAjKgq.H1w2MV6qBfEzvfckIuK",
     "TipoUsuario": 0,
-    "Legajo": 1024
+    "Legajo": 1004
   },
-  "1025": {
+  "1005": {
     "Debecambiar": false,
     "Direccion": null,
     "Telefono": null,
@@ -23,125 +23,22 @@
     "Apellido": "iry",
     "Correo": "correo@nuevo.com",
     "Dni": "022",
-    "Clave": "$2a$08$xxpEwu/Ejx8r3jD4lZkLee2H4ZY18FBCTaWVt8Zfi5xs8Edh8gvzi",
+    "Clave": "$2a$08$zJ4jWTxKEU/IJ37qNSU.u.0dj0nbKC8S9S2jhT8CdRCJYt4enghHy",
     "TipoUsuario": 0,
-    "Legajo": 1025
+    "Legajo": 1005
   },
-  "1026": {
+  "1006": {
     "Debecambiar": false,
-    "Direccion": "calle 123",
-    "Telefono": "1145",
-    "CursosInscriptos": [
-      "5",
-      "1",
-      "1851",
-      "3"
-    ],
-    "EstadoDePago": "pagado",
-    "Nombre": "Alexis",
-    "Apellido": "Aranda",
-    "Correo": "ara@gmail.com",
-    "Dni": "1",
-    "Clave": "$2a$08$57G84avQLYos8oeO2Qp6Bu9vUM8KqIVBtL1KOP4sJ3pnS2VEHOrzq",
-    "TipoUsuario": 1,
-    "Legajo": 1026
-  },
-  "1030": {
-    "Debecambiar": false,
-    "Direccion": "asdasd",
-    "Telefono": "23123123",
+    "Direccion": "matl",
+    "Telefono": "12312312",
     "CursosInscriptos": [],
     "EstadoDePago": "pendiente",
-    "Nombre": "asdas",
-    "Apellido": "dsadasd",
-    "Correo": "matuk79@gmail.com",
+    "Nombre": "matias",
+    "Apellido": "cantero",
+    "Correo": "correo@gmail.com",
     "Dni": "123123",
-    "Clave": "$2a$08$JNyGaRTBBgIBfJJpw7wjX.7Hn.gOhRrmFH2.VP6Q8lZOYKu.ptX7O",
+    "Clave": "$2a$08$g.HLFxeQFzeltKhJYZgHQ.uGIlKq03WwN94Mlf4tWitBfEqckNydy",
     "TipoUsuario": 1,
-    "Legajo": 1030
-  },
-  "1032": {
-    "Debecambiar": true,
-    "Direccion": "san martin",
-    "Telefono": "1555",
-    "CursosInscriptos": [],
-    "EstadoDePago": "pendiente",
-    "Nombre": "kio",
-    "Apellido": "kusa",
-    "Correo": "kio@hmail.com",
-    "Dni": "123",
-    "Clave": "$2a$08$YvU6AyUxQ3sXJHyPy0iw0eRT2rHiFieDkaaScFLc2.uxxqRzCmlcy",
-    "TipoUsuario": 1,
-    "Legajo": 1032
-  },
-  "1033": {
-    "Debecambiar": false,
-    "Direccion": "san martin",
-    "Telefono": "1566",
-    "CursosInscriptos": [],
-    "EstadoDePago": "pendiente",
-    "Nombre": "pepe",
-    "Apellido": "pipo",
-    "Correo": "pe@gmail.com",
-    "Dni": "15",
-    "Clave": "$2a$08$rBAoiuvVECm304v0L3f/r.eyA.0VCVZjs69c4CCCW2Z313G1xH2Rm",
-    "TipoUsuario": 1,
-    "Legajo": 1033
-  },
-  "1034": {
-    "Debecambiar": false,
-    "Direccion": "calle 123",
-    "Telefono": "11454684",
-    "CursosInscriptos": [],
-    "EstadoDePago": "pendiente",
-    "Nombre": "Leo",
-    "Apellido": "fgh",
-    "Correo": "arajaraxis@gmail.com",
-    "Dni": "45000",
-    "Clave": "$2a$08$4uyM3kUxiEo/nNUdyauEkeqQ56/QhbX7ELUuf/xdtPh1/CiS9G2F.",
-    "TipoUsuario": 1,
-    "Legajo": 1034
-  },
-  "1035": {
-    "Debecambiar": true,
-    "Direccion": "av 9 de julio",
-    "Telefono": "111111111",
-    "CursosInscriptos": [],
-    "EstadoDePago": "pendiente",
-    "Nombre": "Sebastian",
-    "Apellido": "Sanchez",
-    "Correo": "sebas@gamil.com",
-    "Dni": "2",
-    "Clave": "$2a$08$GTV99pDY.VCtwk.9YmaTVe.QdtMdr4fmMaq1XtDxWnIqijQg1MwG2",
-    "TipoUsuario": 1,
-    "Legajo": 1035
-  },
-  "1036": {
-    "Debecambiar": true,
-    "Direccion": "av cordoba",
-    "Telefono": "111111",
-    "CursosInscriptos": [],
-    "EstadoDePago": "pendiente",
-    "Nombre": "Ezequiel",
-    "Apellido": "Aranda",
-    "Correo": "ezequiel@gmail.com.ar",
-    "Dni": "5",
-    "Clave": "$2a$08$W.dW/G0w5bjVH5Rdxos6/OFfR2RKYT.SOZs2LBW49ASi6VnbkyMHy",
-    "TipoUsuario": 1,
-    "Legajo": 1036
-  },
-  "1037": {
-    "Debecambiar": true,
-    "Direccion": "av cordoba",
-    "Telefono": "111111",
-    "CursosInscriptos": [],
-    "EstadoDePago": "pendiente",
-    "Nombre": "Ezequiel",
-    "Apellido": "Aranda",
-    "Correo": "dianyrygay@gmail.com",
-    "Dni": "9",
-    "Clave": "$2a$08$upNPeg1elJlTv89R6Pov2uJUx/xvvh3ptOFGYX41JdjyTinoGxRIa",
-    "TipoUsuario": 1,
-    "Legajo": 1037
+    "Legajo": 1006
   }
 }
