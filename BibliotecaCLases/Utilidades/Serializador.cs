@@ -9,15 +9,19 @@ namespace BibliotecaCLases.Utilidades
     /// <summary>
     /// Clase que proporciona métodos para la serialización y deserialización de objetos en formato JSON.
     /// </summary>
-    public static class Serializador
+    public class Serializador: Archivo
     {
+        public Serializador()
+        {
+
+        }
         /// <summary>
         /// Guarda un diccionario en formato JSON en el archivo especificado.
         /// </summary>
         /// <typeparam name="T">Tipo de los valores del diccionario.</typeparam>
         /// <param name="objetoAGuardar">Diccionario a guardar.</param>
         /// <param name="path">Ruta del archivo donde se guardará el JSON.</param>
-        public static void GuardarAJson<T>(Dictionary<int, T> objetoAGuardar, string path)
+        public override void GuardarAJson<T>(Dictionary<int, T> objetoAGuardar, string path)
         {
             try
             {
@@ -55,7 +59,7 @@ namespace BibliotecaCLases.Utilidades
         /// <typeparam name="T">Tipo de los valores del diccionario.</typeparam>
         /// <param name="diccionario">Diccionario a actualizar.</param>
         /// <param name="path">Ruta del archivo JSON.</param>
-        public static void ActualizarJson<T>(Dictionary<int, T> diccionario, string path)
+        public override void ActualizarJson<T>(Dictionary<int, T> diccionario, string path)
         {
             try
             {
@@ -105,7 +109,7 @@ namespace BibliotecaCLases.Utilidades
         /// <typeparam name="T">Tipo del objeto a deserializar.</typeparam>
         /// <param name="path">Ruta del archivo JSON.</param>
         /// <returns>El objeto deserializado.</returns>
-        public static T LeerJson<T>(string path)
+        public override T LeerJson<T>(string path)
         {
             try
             {

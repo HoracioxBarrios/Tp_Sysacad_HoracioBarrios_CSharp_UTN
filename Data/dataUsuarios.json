@@ -96,5 +96,19 @@
     "Clave": "$2a$08$1JRyqpDdCYej8/BQhVcoBOVuGZDKtjqF4pvv9anbHmG2XaYYa8Xo.",
     "TipoUsuario": 1,
     "Legajo": 1010
+  },
+  "1011": {
+    "Debecambiar": false,
+    "Direccion": "masterclass",
+    "Telefono": "1234567894",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Pequenio",
+    "Apellido": "orejudo",
+    "Correo": "pequeño@orejudo.com",
+    "Dni": "12122323",
+    "Clave": "$2a$08$gK8HWi283bRVynRGHs4HoucT2B1Qwo5Jk2MyyXfF0TeqOnP/dF5yi",
+    "TipoUsuario": 1,
+    "Legajo": 1011
   }
 }

@@ -15,6 +15,7 @@ namespace Formularios
 {
     public partial class FrmGestionarCursos : Form
     {
+        Serializador serializador = new Serializador();
         private Usuario _usuario;
         private CrudEstudiante crudEstudiante;
         private Curso _cursoSeleccionado;
@@ -87,7 +88,7 @@ namespace Formularios
 
             try
             {
-                dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(path);
+                dictCursos = serializador.LeerJson<Dictionary<int, Curso>>(path);
             }
             catch (FileNotFoundException ex)
             {

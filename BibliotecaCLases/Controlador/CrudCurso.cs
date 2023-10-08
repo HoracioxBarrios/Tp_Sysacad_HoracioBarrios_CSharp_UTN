@@ -9,6 +9,7 @@ namespace BibliotecaCLases.Controlador
     /// </summary>
     public class CrudCurso
     {
+        Serializador serializador = new Serializador();
         private Dictionary<int, Curso> dictCursos;
         private string _path;
 
@@ -18,7 +19,7 @@ namespace BibliotecaCLases.Controlador
         public CrudCurso()
         {
             _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
-            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
+            dictCursos = serializador.LeerJson<Dictionary<int, Curso>>(_path);
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace BibliotecaCLases.Controlador
 
                     dictCursos[nuevoCodigoCurso] = cursoExistente;
 
-                    Serializador.ActualizarJson(dictCursos, _path);
+                    serializador.ActualizarJson(dictCursos, _path);
                     return "Se modificó correctamente";
                 }
                 else
@@ -108,7 +109,7 @@ namespace BibliotecaCLases.Controlador
 
                 cursoAEliminar.Activo = false;
 
-                Serializador.ActualizarJson(dictCursos, _path);
+                serializador.ActualizarJson(dictCursos, _path);
 
                 return "Se realizó la eliminación lógica del curso";
             }
@@ -153,7 +154,7 @@ namespace BibliotecaCLases.Controlador
                     if (curso.CuposDisponibles > 0)
                     {
                         curso.CuposDisponibles--;
-                        Serializador.ActualizarJson(dictCursos, _path);
+                        serializador.ActualizarJson(dictCursos, _path);
                         return "Inscripción exitosa.";
                     }
                     else
@@ -178,7 +179,7 @@ namespace BibliotecaCLases.Controlador
         /// <returns>El diccionario de cursos.</returns>
         public Dictionary<int, Curso> ObtenerDictCursos()
         {
-            dictCursos = Serializador.LeerJson<Dictionary<int, Curso>>(_path);
+            dictCursos = serializador.LeerJson<Dictionary<int, Curso>>(_path);
             return dictCursos;
         }
 

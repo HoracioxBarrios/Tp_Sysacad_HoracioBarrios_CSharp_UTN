@@ -121,12 +121,12 @@ namespace BibliotecaCLases.Controlador
         /// <summary>
         /// Corrobora si una cadena de texto representa un número de tarjeta de crédito válido con 16 dígitos.
         /// </summary>
-        /// <param name="numeroTarjeta">La cadena que se va a validar como número de tarjeta de crédito.</param>
+        /// <param name="numeroAValidar">La cadena que se va a validar como número de tarjeta de crédito.</param>
         /// <returns>True si es un número de tarjeta de crédito válido, de lo contrario False.</returns>
-        public static bool EsNumeroValido(string numeroTarjeta,int cantidadNumeroRecibido)
+        public static bool EsNumeroValido(string numeroAValidar,int cantidadNumeroRecibido)
         {
             int cantidadNumero = cantidadNumeroRecibido;
-            if (string.IsNullOrEmpty(numeroTarjeta))
+            if (string.IsNullOrEmpty(numeroAValidar))
             {
                 return false;
             }
@@ -134,7 +134,7 @@ namespace BibliotecaCLases.Controlador
             string patronTarjeta = @$"^\d{{{cantidadNumeroRecibido}}}$";
             Regex regexTarjeta = new Regex(patronTarjeta);
 
-            return regexTarjeta.IsMatch(numeroTarjeta);
+            return regexTarjeta.IsMatch(numeroAValidar);
         }
 
         /// <summary>
