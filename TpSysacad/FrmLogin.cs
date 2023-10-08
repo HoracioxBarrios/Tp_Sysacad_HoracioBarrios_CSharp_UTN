@@ -29,11 +29,13 @@ namespace Formularios
                 {
                     Usuario usuarioActual = controlLogin.GetUsuario;
                     FormPanelUsuario frmPanelUsuario = new(usuarioActual);
+
                     frmPanelUsuario.FormClosed += (sender, args) =>
                     {
                         this.Close();
                     };
-                    frmPanelUsuario.Show();
+                    frmPanelUsuario.Show();              
+                
                     this.Hide();
 
                 }

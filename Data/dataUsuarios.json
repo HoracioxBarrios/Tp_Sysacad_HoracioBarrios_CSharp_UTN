@@ -54,5 +54,47 @@
     "Clave": "$2a$08$cqXJWU7/AiYIAs5tCWCxM.hkUJDM3Uok45gCi2Sd.3p2xq17fJTpa",
     "TipoUsuario": 1,
     "Legajo": 1007
+  },
+  "1008": {
+    "Debecambiar": false,
+    "Direccion": "Iguazu 1888",
+    "Telefono": "1162458176",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Alexis",
+    "Apellido": "Aranda",
+    "Correo": "arandajaraalexis@gmail.com",
+    "Dni": "12345678",
+    "Clave": "$2a$08$oiFjYp3xJkowTJdJQOd6MeMAfGDHpJoFb0s047nSAki2HE5C6WYdq",
+    "TipoUsuario": 1,
+    "Legajo": 1008
+  },
+  "1009": {
+    "Debecambiar": false,
+    "Direccion": "Iguazu 1888",
+    "Telefono": "1162458176",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Alexis",
+    "Apellido": "Aranda",
+    "Correo": "arandajaraale@gmail.com",
+    "Dni": "12345674",
+    "Clave": "$2a$08$64p5X2Q5dxRqNk5KA/ZV8O9.7IOunM0krmYGDSsNdwq1zXV7WYEm6",
+    "TipoUsuario": 1,
+    "Legajo": 1009
+  },
+  "1010": {
+    "Debecambiar": false,
+    "Direccion": "calle 123",
+    "Telefono": "1162458176",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "ALexis",
+    "Apellido": "aranda",
+    "Correo": "sdddsfad@gmail.com",
+    "Dni": "12345612",
+    "Clave": "$2a$08$1JRyqpDdCYej8/BQhVcoBOVuGZDKtjqF4pvv9anbHmG2XaYYa8Xo.",
+    "TipoUsuario": 1,
+    "Legajo": 1010
   }
 }
