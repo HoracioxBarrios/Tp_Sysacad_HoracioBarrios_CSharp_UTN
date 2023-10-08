@@ -397,3 +397,14 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Excluir archivos de formularios
+*FrmAgregarCurso.cs
+*FormConsultarHorario.cs
+*FormPanelEstudiante.cs
+*FormPanelUsuario.cs
+*FrmEditarCurso.cs
+*FrmGestionarCursos.cs
+*FrmLogin.cs
+*FrmPago.cs
+*FrmRegistroEstudiante.cs
