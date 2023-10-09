@@ -34,8 +34,8 @@ namespace Formularios
                     {
                         this.Close();
                     };
-                    frmPanelUsuario.Show();              
-                
+                    frmPanelUsuario.Show();
+
                     this.Hide();
 
                 }
@@ -55,8 +55,21 @@ namespace Formularios
 
         }
 
+        private void btnAutoCompleAdm_Click(object sender, EventArgs e)
+        {
+            textUsuario.Text = "011";
+            textContraseña.Text = "11";
+        }
 
+        private void btnAutoCompleAlumno_Click(object sender, EventArgs e)
+        {
+            textUsuario.Text = "123";
+            textContraseña.Text = "i43Ia%Jjv";
+        }
 
-
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd", $"/c start https://extensionfra.com.ar");
+        }
     }
 }
