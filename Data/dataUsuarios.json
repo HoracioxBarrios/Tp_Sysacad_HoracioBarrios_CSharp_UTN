@@ -45,7 +45,9 @@
     "Debecambiar": false,
     "Direccion": "matuk79@gmail.com",
     "Telefono": "12312312",
-    "CursosInscriptos": [],
+    "CursosInscriptos": [
+      "1555"
+    ],
     "EstadoDePago": "pendiente",
     "Nombre": "asd",
     "Apellido": "dsa",
@@ -110,5 +112,19 @@
     "Clave": "$2a$08$gK8HWi283bRVynRGHs4HoucT2B1Qwo5Jk2MyyXfF0TeqOnP/dF5yi",
     "TipoUsuario": 1,
     "Legajo": 1011
+  },
+  "1012": {
+    "Debecambiar": true,
+    "Direccion": "San marcos 6365",
+    "Telefono": "1563968745",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Pepe",
+    "Apellido": "Barrios",
+    "Correo": "pp@gmail.com",
+    "Dni": "31465257",
+    "Clave": "$2a$08$aoUtyUjj1th9jjSE8Da6auhW7O4b6MNgMnQAEZJZKX418MLkyr4Zu",
+    "TipoUsuario": 1,
+    "Legajo": 1012
   }
 }

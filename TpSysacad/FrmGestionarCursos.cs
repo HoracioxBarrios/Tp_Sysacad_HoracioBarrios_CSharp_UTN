@@ -190,7 +190,7 @@ namespace Formularios
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
+            FrmPanelUsuario formPanelUsuario = new FrmPanelUsuario(_usuario);
 
             formPanelUsuario.FormClosed += (s, args) =>
             {

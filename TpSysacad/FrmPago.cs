@@ -192,7 +192,7 @@ namespace Formularios
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
+            FrmPanelUsuario formPanelUsuario = new FrmPanelUsuario(_usuario);
 
             formPanelUsuario.FormClosed += (s, args) =>
             {
@@ -201,6 +201,11 @@ namespace Formularios
 
             formPanelUsuario.Show();
             this.Hide();
+        }
+
+        private void CmboxMetodoPago_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

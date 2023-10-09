@@ -1,6 +1,6 @@
 ﻿namespace Formularios
 {
-    partial class FormPanelUsuario
+    partial class FrmPanelUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPanelUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPanelUsuario));
             btnRegistrarEstudiante = new Button();
             btnGestionarCursos = new Button();
             label2 = new Label();
@@ -41,11 +41,12 @@
             // btnRegistrarEstudiante
             // 
             btnRegistrarEstudiante.BackColor = Color.OrangeRed;
+            btnRegistrarEstudiante.Cursor = Cursors.Hand;
             btnRegistrarEstudiante.FlatAppearance.BorderSize = 0;
             btnRegistrarEstudiante.FlatStyle = FlatStyle.Flat;
             btnRegistrarEstudiante.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegistrarEstudiante.ForeColor = Color.White;
-            btnRegistrarEstudiante.Location = new Point(390, 150);
+            btnRegistrarEstudiante.Location = new Point(337, 156);
             btnRegistrarEstudiante.Margin = new Padding(2);
             btnRegistrarEstudiante.Name = "btnRegistrarEstudiante";
             btnRegistrarEstudiante.Size = new Size(150, 25);
@@ -57,11 +58,12 @@
             // btnGestionarCursos
             // 
             btnGestionarCursos.BackColor = Color.OrangeRed;
+            btnGestionarCursos.Cursor = Cursors.Hand;
             btnGestionarCursos.FlatAppearance.BorderSize = 0;
             btnGestionarCursos.FlatStyle = FlatStyle.Flat;
             btnGestionarCursos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnGestionarCursos.ForeColor = Color.White;
-            btnGestionarCursos.Location = new Point(390, 260);
+            btnGestionarCursos.Location = new Point(337, 262);
             btnGestionarCursos.Margin = new Padding(2);
             btnGestionarCursos.Name = "btnGestionarCursos";
             btnGestionarCursos.Size = new Size(150, 25);
@@ -77,7 +79,7 @@
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Crimson;
             label2.ImageAlign = ContentAlignment.TopCenter;
-            label2.Location = new Point(386, 36);
+            label2.Location = new Point(333, 39);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(154, 25);
@@ -87,11 +89,12 @@
             // btnInscripcionCurso
             // 
             btnInscripcionCurso.BackColor = Color.Crimson;
+            btnInscripcionCurso.Cursor = Cursors.Hand;
             btnInscripcionCurso.FlatAppearance.BorderSize = 0;
             btnInscripcionCurso.FlatStyle = FlatStyle.Flat;
             btnInscripcionCurso.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnInscripcionCurso.ForeColor = Color.White;
-            btnInscripcionCurso.Location = new Point(390, 104);
+            btnInscripcionCurso.Location = new Point(337, 102);
             btnInscripcionCurso.Margin = new Padding(2);
             btnInscripcionCurso.Name = "btnInscripcionCurso";
             btnInscripcionCurso.Size = new Size(150, 25);
@@ -103,11 +106,12 @@
             // btnConsultarHorario
             // 
             btnConsultarHorario.BackColor = Color.Crimson;
+            btnConsultarHorario.Cursor = Cursors.Hand;
             btnConsultarHorario.FlatAppearance.BorderSize = 0;
             btnConsultarHorario.FlatStyle = FlatStyle.Flat;
             btnConsultarHorario.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnConsultarHorario.ForeColor = Color.White;
-            btnConsultarHorario.Location = new Point(386, 205);
+            btnConsultarHorario.Location = new Point(337, 206);
             btnConsultarHorario.Margin = new Padding(2);
             btnConsultarHorario.Name = "btnConsultarHorario";
             btnConsultarHorario.Size = new Size(150, 25);
@@ -119,11 +123,12 @@
             // btnRealizarPagos
             // 
             btnRealizarPagos.BackColor = Color.Crimson;
+            btnRealizarPagos.Cursor = Cursors.Hand;
             btnRealizarPagos.FlatAppearance.BorderSize = 0;
             btnRealizarPagos.FlatStyle = FlatStyle.Flat;
             btnRealizarPagos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnRealizarPagos.ForeColor = Color.White;
-            btnRealizarPagos.Location = new Point(386, 307);
+            btnRealizarPagos.Location = new Point(337, 316);
             btnRealizarPagos.Margin = new Padding(2);
             btnRealizarPagos.Name = "btnRealizarPagos";
             btnRealizarPagos.Size = new Size(150, 25);
@@ -135,11 +140,12 @@
             // btnSalir
             // 
             btnSalir.BackColor = Color.Crimson;
+            btnSalir.Cursor = Cursors.Hand;
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(410, 378);
+            btnSalir.Location = new Point(362, 383);
             btnSalir.Margin = new Padding(2);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(107, 25);

@@ -1,6 +1,6 @@
 ﻿namespace Formularios
 {
-    partial class FormConsultarHorario
+    partial class FrmConsultarHorario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultarHorario));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultarHorario));
             dataGridViewHorario = new DataGridView();
             dias = new DataGridViewTextBoxColumn();
             turnoManiana = new DataGridViewTextBoxColumn();
@@ -44,11 +45,19 @@
             // dataGridViewHorario
             // 
             dataGridViewHorario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewHorario.BackgroundColor = SystemColors.Highlight;
+            dataGridViewHorario.BackgroundColor = Color.RoyalBlue;
             dataGridViewHorario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewHorario.Columns.AddRange(new DataGridViewColumn[] { dias, turnoManiana, turnoTarde, turnoNoche });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewHorario.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewHorario.GridColor = SystemColors.ControlDarkDark;
-            dataGridViewHorario.Location = new Point(50, 78);
+            dataGridViewHorario.Location = new Point(54, 80);
             dataGridViewHorario.Margin = new Padding(3, 2, 3, 2);
             dataGridViewHorario.Name = "dataGridViewHorario";
             dataGridViewHorario.RowHeadersWidth = 51;
@@ -95,7 +104,8 @@
             labelHorario.BackColor = Color.Transparent;
             labelHorario.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelHorario.ForeColor = Color.Crimson;
-            labelHorario.Location = new Point(325, 40);
+            labelHorario.ImageAlign = ContentAlignment.TopCenter;
+            labelHorario.Location = new Point(348, 37);
             labelHorario.Name = "labelHorario";
             labelHorario.Size = new Size(157, 25);
             labelHorario.TabIndex = 1;
@@ -114,11 +124,11 @@
             // 
             labelHorarioVacio.AutoSize = true;
             labelHorarioVacio.BackColor = Color.OrangeRed;
-            labelHorarioVacio.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelHorarioVacio.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             labelHorarioVacio.ForeColor = Color.White;
-            labelHorarioVacio.Location = new Point(158, 195);
+            labelHorarioVacio.Location = new Point(140, 227);
             labelHorarioVacio.Name = "labelHorarioVacio";
-            labelHorarioVacio.Size = new Size(482, 25);
+            labelHorarioVacio.Size = new Size(532, 30);
             labelHorarioVacio.TabIndex = 3;
             labelHorarioVacio.Text = "No estás inscrito en ningún curso. Tu horario está vacío.";
             labelHorarioVacio.TextAlign = ContentAlignment.MiddleCenter;
@@ -127,21 +137,22 @@
             // btnVolver
             // 
             btnVolver.BackColor = Color.Crimson;
+            btnVolver.Cursor = Cursors.Hand;
             btnVolver.FlatAppearance.BorderSize = 0;
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnVolver.ForeColor = Color.White;
-            btnVolver.Location = new Point(363, 396);
+            btnVolver.ImageAlign = ContentAlignment.BottomCenter;
+            btnVolver.Location = new Point(363, 398);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(105, 23);
+            btnVolver.Size = new Size(127, 26);
             btnVolver.TabIndex = 12;
             btnVolver.TabStop = false;
             btnVolver.Text = "Volver";
-            btnVolver.TextAlign = ContentAlignment.BottomCenter;
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // FormConsultarHorario
+            // FrmConsultarHorario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -154,8 +165,9 @@
             Controls.Add(dataGridViewHorario);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "FormConsultarHorario";
-            Text = "Consultar Horarios";
+            Name = "FrmConsultarHorario";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Consultar Horario";
             Load += FormConsultarHorario_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewHorario).EndInit();
             ResumeLayout(false);

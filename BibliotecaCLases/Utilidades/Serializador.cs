@@ -108,7 +108,7 @@ namespace BibliotecaCLases.Utilidades
         /// </summary>
         /// <typeparam name="T">Tipo del objeto a deserializar.</typeparam>
         /// <param name="path">Ruta del archivo JSON.</param>
-        /// <returns>El objeto deserializado.</returns>
+        /// <returns>El objeto deserializado.</returns >
         public override T LeerJson<T>(string path)
         {
             try

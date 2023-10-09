@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionarCursos));
             dataGridViewCursos = new DataGridView();
             codigo = new DataGridViewTextBoxColumn();
             curso = new DataGridViewTextBoxColumn();
@@ -45,9 +47,18 @@
             // 
             // dataGridViewCursos
             // 
+            dataGridViewCursos.BackgroundColor = SystemColors.Highlight;
             dataGridViewCursos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCursos.Columns.AddRange(new DataGridViewColumn[] { codigo, curso, descripcion, cuposDisponibles, cupoMaximo });
-            dataGridViewCursos.Location = new Point(93, 88);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCursos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCursos.Location = new Point(82, 88);
             dataGridViewCursos.Margin = new Padding(3, 2, 3, 2);
             dataGridViewCursos.Name = "dataGridViewCursos";
             dataGridViewCursos.RowHeadersWidth = 51;
@@ -100,71 +111,102 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(339, 38);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Crimson;
+            label1.Location = new Point(351, 33);
             label1.Name = "label1";
-            label1.Size = new Size(112, 21);
+            label1.Size = new Size(135, 25);
             label1.TabIndex = 5;
             label1.Text = "Lista de cursos";
             label1.Click += label1_Click;
             // 
             // btnInscripcion
             // 
+            btnInscripcion.BackColor = Color.DarkGreen;
+            btnInscripcion.Cursor = Cursors.Hand;
+            btnInscripcion.FlatAppearance.BorderSize = 0;
+            btnInscripcion.FlatStyle = FlatStyle.Flat;
+            btnInscripcion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInscripcion.ForeColor = Color.White;
             btnInscripcion.Location = new Point(93, 337);
-            btnInscripcion.Margin = new Padding(2, 2, 2, 2);
+            btnInscripcion.Margin = new Padding(2);
             btnInscripcion.Name = "btnInscripcion";
-            btnInscripcion.Size = new Size(127, 26);
+            btnInscripcion.Size = new Size(118, 23);
             btnInscripcion.TabIndex = 7;
             btnInscripcion.Text = "inscripcion";
-            btnInscripcion.UseVisualStyleBackColor = true;
+            btnInscripcion.UseVisualStyleBackColor = false;
             btnInscripcion.Click += btnInscripcion_Click;
             // 
             // BtnEditarCursos
             // 
-            BtnEditarCursos.Location = new Point(354, 340);
+            BtnEditarCursos.BackColor = SystemColors.MenuHighlight;
+            BtnEditarCursos.Cursor = Cursors.Hand;
+            BtnEditarCursos.FlatAppearance.BorderSize = 0;
+            BtnEditarCursos.FlatStyle = FlatStyle.Flat;
+            BtnEditarCursos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BtnEditarCursos.ForeColor = Color.White;
+            BtnEditarCursos.Location = new Point(351, 340);
             BtnEditarCursos.Name = "BtnEditarCursos";
             BtnEditarCursos.Size = new Size(118, 23);
             BtnEditarCursos.TabIndex = 8;
             BtnEditarCursos.Text = "Editar Curso";
-            BtnEditarCursos.UseVisualStyleBackColor = true;
+            BtnEditarCursos.UseVisualStyleBackColor = false;
             BtnEditarCursos.Click += BtnEditarCursos_Click;
             // 
             // BtnEliminarCursos
             // 
-            BtnEliminarCursos.Location = new Point(633, 340);
+            BtnEliminarCursos.BackColor = Color.Red;
+            BtnEliminarCursos.Cursor = Cursors.Hand;
+            BtnEliminarCursos.FlatAppearance.BorderSize = 0;
+            BtnEliminarCursos.FlatStyle = FlatStyle.Flat;
+            BtnEliminarCursos.ForeColor = Color.White;
+            BtnEliminarCursos.Location = new Point(604, 340);
             BtnEliminarCursos.Name = "BtnEliminarCursos";
-            BtnEliminarCursos.Size = new Size(93, 23);
+            BtnEliminarCursos.Size = new Size(118, 23);
             BtnEliminarCursos.TabIndex = 9;
             BtnEliminarCursos.Text = "Eliminar curso";
-            BtnEliminarCursos.UseVisualStyleBackColor = true;
+            BtnEliminarCursos.UseVisualStyleBackColor = false;
             BtnEliminarCursos.Click += BtnEliminarCursos_Click;
             // 
             // BtnAgregarCurso
             // 
+            BtnAgregarCurso.BackColor = Color.DarkGreen;
+            BtnAgregarCurso.Cursor = Cursors.Hand;
+            BtnAgregarCurso.FlatAppearance.BorderSize = 0;
+            BtnAgregarCurso.FlatStyle = FlatStyle.Flat;
+            BtnAgregarCurso.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BtnAgregarCurso.ForeColor = Color.White;
             BtnAgregarCurso.Location = new Point(93, 337);
             BtnAgregarCurso.Name = "BtnAgregarCurso";
-            BtnAgregarCurso.Size = new Size(127, 23);
+            BtnAgregarCurso.Size = new Size(118, 23);
             BtnAgregarCurso.TabIndex = 10;
             BtnAgregarCurso.Text = "Agregar Curso";
-            BtnAgregarCurso.UseVisualStyleBackColor = true;
+            BtnAgregarCurso.UseVisualStyleBackColor = false;
             BtnAgregarCurso.Click += BtnAgregarCurso_Click;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(93, 370);
+            btnVolver.BackColor = Color.Crimson;
+            btnVolver.Cursor = Cursors.Hand;
+            btnVolver.FlatAppearance.BorderSize = 0;
+            btnVolver.FlatStyle = FlatStyle.Flat;
+            btnVolver.ForeColor = Color.White;
+            btnVolver.Location = new Point(110, 408);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(127, 23);
+            btnVolver.Size = new Size(77, 23);
             btnVolver.TabIndex = 11;
             btnVolver.TabStop = false;
             btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
             // FrmGestionarCursos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(824, 405);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(784, 461);
             Controls.Add(btnVolver);
             Controls.Add(BtnAgregarCurso);
             Controls.Add(BtnEliminarCursos);
@@ -172,9 +214,10 @@
             Controls.Add(btnInscripcion);
             Controls.Add(label1);
             Controls.Add(dataGridViewCursos);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmGestionarCursos";
-            Text = "FrmGestionarCurso";
+            Text = "Gestionar Curso";
             Load += FrmGestionarCurso_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewCursos).EndInit();
             ResumeLayout(false);

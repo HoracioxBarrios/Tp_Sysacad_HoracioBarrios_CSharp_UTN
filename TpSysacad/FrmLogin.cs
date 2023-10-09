@@ -28,7 +28,7 @@ namespace Formularios
                 if (verificado)
                 {
                     Usuario usuarioActual = controlLogin.GetUsuario;
-                    FormPanelUsuario frmPanelUsuario = new(usuarioActual);
+                    FrmPanelUsuario frmPanelUsuario = new(usuarioActual);
 
                     frmPanelUsuario.FormClosed += (sender, args) =>
                     {

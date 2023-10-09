@@ -30,16 +30,16 @@ namespace Formularios
                     DialogResult resultado = MessageBox.Show("¿Desea confirmar el registro del estudiante?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
                     {
-                      
+
                         string mensaje = gestorEstudiantes.RegistrarEstudiante(textNombre.Text, textApellido.Text, textDni.Text, textEmail.Text, textDireccion.Text,
                         textTelefono.Text, this.DebeCambiar);
                         MessageBox.Show("Estudiante registrado con éxito. Se ha enviado una notificación al estudiante.");
-                     
+
                         MessageBox.Show(mensaje);
                     }
                     else
                     {
-                       
+
                         MessageBox.Show("Registro cancelado.");
                     }
 
@@ -52,7 +52,7 @@ namespace Formularios
             }
             else
             {
-              
+
                 MessageBox.Show("Error de validación: " + gestorEstudiantes.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -64,7 +64,7 @@ namespace Formularios
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
+            FrmPanelUsuario formPanelUsuario = new FrmPanelUsuario(_usuario);
 
             formPanelUsuario.FormClosed += (s, args) =>
             {
