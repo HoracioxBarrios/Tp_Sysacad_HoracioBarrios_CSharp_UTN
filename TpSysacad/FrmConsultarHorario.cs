@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Formularios
 {
-    public partial class FormConsultarHorario : Form
+    public partial class FrmConsultarHorario : Form
     {
         private Usuario _usuario;
         private CrudEstudiante _crudEstudiante;
         private CrudCurso _crudCurso;
 
-        public FormConsultarHorario(Usuario usuario)
+        public FrmConsultarHorario(Usuario usuario)
         {
             InitializeComponent();
             _usuario = usuario;
@@ -72,7 +72,7 @@ namespace Formularios
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormPanelUsuario formPanelUsuario = new FormPanelUsuario(_usuario);
+            FrmPanelUsuario formPanelUsuario = new FrmPanelUsuario(_usuario);
 
             formPanelUsuario.FormClosed += (s, args) =>
             {

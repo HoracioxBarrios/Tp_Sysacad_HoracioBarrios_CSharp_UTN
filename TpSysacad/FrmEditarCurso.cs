@@ -52,11 +52,11 @@ namespace Formularios
             }
 
             if (nuevoCodigo != _codigoOriginal)
-                {
+            {
                 if (!gestorCursos.verificarDatosExistentes(nuevoCodigo))
                 {
                     MessageBox.Show("Error de validación: " + gestorCursos.MensajeError, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                    return;
                 }
             }
 

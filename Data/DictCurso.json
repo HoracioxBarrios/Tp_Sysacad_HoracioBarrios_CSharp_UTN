@@ -42,5 +42,49 @@
     "Dia": "Martes",
     "Horario": "Noche",
     "Aula": "Aula307"
+  },
+  "1555": {
+    "Nombre": "Cocina",
+    "Codigo": "1555",
+    "Descripcion": "cocina",
+    "CupoMaximo": 30,
+    "CuposDisponibles": 29,
+    "Activo": true,
+    "Dia": "Lunes",
+    "Horario": "Mañana",
+    "Aula": "Aula206"
+  },
+  "1563": {
+    "Nombre": "Folclore",
+    "Codigo": "1563",
+    "Descripcion": "musica",
+    "CupoMaximo": 50,
+    "CuposDisponibles": 50,
+    "Activo": true,
+    "Dia": "Martes",
+    "Horario": "Tarde",
+    "Aula": "Aula207"
+  },
+  "5663": {
+    "Nombre": "Natacion",
+    "Codigo": "5663",
+    "Descripcion": "Nadar",
+    "CupoMaximo": 20,
+    "CuposDisponibles": 20,
+    "Activo": true,
+    "Dia": "Miercoles",
+    "Horario": "Noche",
+    "Aula": "Aula307"
+  },
+  "6989": {
+    "Nombre": "Piruetas",
+    "Codigo": "6989",
+    "Descripcion": "pio",
+    "CupoMaximo": 60,
+    "CuposDisponibles": 60,
+    "Activo": false,
+    "Dia": "Miercoles",
+    "Horario": "Tarde",
+    "Aula": "Aula306"
   }
 }
