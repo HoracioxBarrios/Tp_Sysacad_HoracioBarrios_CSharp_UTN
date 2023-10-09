@@ -408,3 +408,6 @@ FodyWeavers.xsd
 *FrmLogin.cs
 *FrmPago.cs
 *FrmRegistroEstudiante.cs
+/TpSysacad/FrmLogin.resx
+/TpSysacad/FrmLogin.Designer.cs
+/TpSysacad/FormConsultarHorario.resx
