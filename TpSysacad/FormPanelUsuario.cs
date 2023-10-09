@@ -102,5 +102,6 @@ namespace Formularios
             frmLogin.Show();
             this.Hide();
         }
+
     }
 }
