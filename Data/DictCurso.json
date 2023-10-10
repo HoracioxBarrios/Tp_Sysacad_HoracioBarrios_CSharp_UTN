@@ -42,5 +42,27 @@
     "Dia": "Martes",
     "Horario": "Noche",
     "Aula": "Aula307"
+  },
+  "1236": {
+    "Nombre": "Bajo",
+    "Codigo": "1236",
+    "Descripcion": "musica",
+    "CupoMaximo": 50,
+    "CuposDisponibles": 50,
+    "Activo": false,
+    "Dia": "Martes",
+    "Horario": "Tarde",
+    "Aula": "Aula208"
+  },
+  "1452": {
+    "Nombre": "Musicas",
+    "Codigo": "1452",
+    "Descripcion": "musica",
+    "CupoMaximo": 50,
+    "CuposDisponibles": 49,
+    "Activo": true,
+    "Dia": "Jueves",
+    "Horario": "Tarde",
+    "Aula": "Aula208"
   }
 }

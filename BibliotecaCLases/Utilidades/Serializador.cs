@@ -9,7 +9,7 @@ namespace BibliotecaCLases.Utilidades
     /// <summary>
     /// Clase que proporciona métodos para la serialización y deserialización de objetos en formato JSON.
     /// </summary>
-    public class Serializador: Archivo
+    public class Serializador : Archivo
     {
         public Serializador()
         {
@@ -75,7 +75,7 @@ namespace BibliotecaCLases.Utilidades
             }
         }
 
-        public static void ActualizarJson<T>(T objetoAAgregar,int id ,string path)
+        public static void ActualizarJson<T>(T objetoAAgregar, int id, string path)
         {
             try
             {
