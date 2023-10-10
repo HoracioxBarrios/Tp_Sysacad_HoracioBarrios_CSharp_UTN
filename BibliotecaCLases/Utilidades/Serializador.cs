@@ -9,12 +9,13 @@ namespace BibliotecaCLases.Utilidades
     /// <summary>
     /// Clase que proporciona métodos para la serialización y deserialización de objetos en formato JSON.
     /// </summary>
-    public class Serializador: Archivo
+    public class Serializador : Archivo
     {
         public Serializador()
         {
 
         }
+
         /// <summary>
         /// Guarda un diccionario en formato JSON en el archivo especificado.
         /// </summary>
@@ -29,11 +30,11 @@ namespace BibliotecaCLases.Utilidades
 
                 File.WriteAllText(path, json);
 
-                Console.WriteLine($"El diccionario se ha guardado correctamente como JSON en: {path}");
+                throw new Exception($"El diccionario se ha guardado correctamente como JSON en: {path}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al guardar el diccionario como JSON: {ex.Message}");
+                throw new Exception($"Error al guardar el diccionario como JSON: {ex.Message}");
             }
         }
 
@@ -45,11 +46,11 @@ namespace BibliotecaCLases.Utilidades
 
                 File.WriteAllText(path, json);
 
-                Console.WriteLine($"El valor se ha guardado correctamente como JSON en: {path}");
+                throw new Exception($"El valor se ha guardado correctamente como JSON en: {path}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al guardar el valor como JSON: {ex.Message}");
+                throw new Exception($"Error al guardar el valor como JSON: {ex.Message}");
             }
         }
 
@@ -67,15 +68,15 @@ namespace BibliotecaCLases.Utilidades
 
                 File.WriteAllText(path, jsonResult);
 
-                Console.WriteLine($"El diccionario se ha actualizado correctamente como JSON en: {path}");
+                throw new Exception($"El diccionario se ha actualizado correctamente como JSON en: {path}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al actualizar el diccionario como JSON: {ex.Message}");
+                throw new Exception($"Error al actualizar el diccionario como JSON: {ex.Message}");
             }
         }
 
-        public static void ActualizarJson<T>(T objetoAAgregar,int id ,string path)
+        public static void ActualizarJson<T>(T objetoAAgregar, int id, string path)
         {
             try
             {
@@ -95,11 +96,11 @@ namespace BibliotecaCLases.Utilidades
 
                 File.WriteAllText(path, jsonResult);
 
-                Console.WriteLine($"El último dato se ha agregado correctamente al archivo JSON en: {path}");
+                throw new Exception($"El último dato se ha agregado correctamente al archivo JSON en: {path}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al agregar el último dato al archivo JSON: {ex.Message}");
+                throw new Exception($"Error al agregar el último dato al archivo JSON: {ex.Message}");
             }
         }
 
@@ -120,15 +121,14 @@ namespace BibliotecaCLases.Utilidades
                 }
                 else
                 {
-                    Console.WriteLine($"El archivo JSON no existe en la ruta: {path}");
+                    throw new Exception($"El archivo JSON no existe en la ruta: {path}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al leer el archivo JSON: {ex.Message}");
+                throw new Exception($"Error al leer el archivo JSON: {ex.Message}");
             }
-
-            return default(T);
+                        
         }
     }
 }
