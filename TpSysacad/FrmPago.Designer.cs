@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPago));
             label1 = new Label();
             dtgvConceptoPago = new DataGridView();
             Nombre = new DataGridViewTextBoxColumn();
@@ -47,17 +49,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(123, 27);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Crimson;
+            label1.Location = new Point(316, 27);
             label1.Name = "label1";
-            label1.Size = new Size(105, 15);
+            label1.Size = new Size(133, 25);
             label1.TabIndex = 0;
-            label1.Text = "Vista Realizar Pago";
+            label1.Text = "Realizar Pagos";
             // 
             // dtgvConceptoPago
             // 
+            dtgvConceptoPago.BackgroundColor = SystemColors.Highlight;
             dtgvConceptoPago.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvConceptoPago.Columns.AddRange(new DataGridViewColumn[] { Nombre, Monto, IngresarMonton });
-            dtgvConceptoPago.Location = new Point(12, 79);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dtgvConceptoPago.DefaultCellStyle = dataGridViewCellStyle1;
+            dtgvConceptoPago.Location = new Point(54, 79);
             dtgvConceptoPago.Name = "dtgvConceptoPago";
             dtgvConceptoPago.RowTemplate.Height = 25;
             dtgvConceptoPago.Size = new Size(344, 150);
@@ -83,11 +97,13 @@
             // 
             // CmboxMetodoPago
             // 
-            CmboxMetodoPago.Location = new Point(64, 254);
+            CmboxMetodoPago.ForeColor = SystemColors.MenuHighlight;
+            CmboxMetodoPago.Location = new Point(106, 254);
             CmboxMetodoPago.Name = "CmboxMetodoPago";
             CmboxMetodoPago.Size = new Size(184, 23);
             CmboxMetodoPago.TabIndex = 0;
             CmboxMetodoPago.Text = "Seleccionar método de pago";
+            CmboxMetodoPago.SelectedIndexChanged += CmboxMetodoPago_SelectedIndexChanged_1;
             CmboxMetodoPago.KeyPress += CmboxMetodoPago_KeyPress;
             // 
             // TbxNumeroTarjeta
@@ -124,6 +140,8 @@
             // 
             // CmboxCuota
             // 
+            CmboxCuota.BackColor = Color.White;
+            CmboxCuota.ForeColor = SystemColors.MenuHighlight;
             CmboxCuota.FormattingEnabled = true;
             CmboxCuota.Location = new Point(410, 254);
             CmboxCuota.Name = "CmboxCuota";
@@ -134,29 +152,39 @@
             // 
             // btnPagar
             // 
-            btnPagar.Location = new Point(565, 303);
+            btnPagar.BackColor = Color.FromArgb(255, 128, 0);
+            btnPagar.Cursor = Cursors.Hand;
+            btnPagar.FlatAppearance.BorderSize = 0;
+            btnPagar.FlatStyle = FlatStyle.Flat;
+            btnPagar.Location = new Point(509, 303);
             btnPagar.Name = "btnPagar";
             btnPagar.Size = new Size(75, 23);
             btnPagar.TabIndex = 11;
             btnPagar.Text = "Pagar";
-            btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.UseVisualStyleBackColor = false;
             btnPagar.Click += btnPagar_Click;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(30, 303);
+            btnVolver.BackColor = Color.Crimson;
+            btnVolver.Cursor = Cursors.Hand;
+            btnVolver.FlatAppearance.BorderSize = 0;
+            btnVolver.FlatStyle = FlatStyle.Flat;
+            btnVolver.ForeColor = Color.White;
+            btnVolver.Location = new Point(106, 303);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(127, 23);
             btnVolver.TabIndex = 13;
             btnVolver.TabStop = false;
             btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
             // FrmPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(700, 338);
             Controls.Add(btnVolver);
             Controls.Add(btnPagar);
@@ -168,9 +196,10 @@
             Controls.Add(CmboxMetodoPago);
             Controls.Add(dtgvConceptoPago);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmPago";
-            Text = "FrmPago";
+            Text = "Pagos";
             Load += FrmPago_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).EndInit();
             ResumeLayout(false);

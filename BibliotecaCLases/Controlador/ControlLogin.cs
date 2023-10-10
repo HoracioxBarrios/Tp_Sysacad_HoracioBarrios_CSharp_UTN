@@ -33,32 +33,8 @@ namespace BibliotecaCLases.Controlador
             _existeUsuario = true;
             if (dictUsuarios == null || dictUsuarios.Count == 0)
             {
-
-                string pathUltimoLegajo = PathManager.ObtenerRuta("Data", "Legajo.json");
-                int ultimoLegajoEnArchivo = serializador.LeerJson<int>(pathUltimoLegajo);
-                ultimoLegajoEnArchivo++;
-
                 _existeUsuario = false;
 
-                dictUsuarios = new Dictionary<int, Usuario>();
-                String contrasena  =PasswordHashing.GetHash("11");
-                
-                Administrador administrador = new Administrador("matias", "cantero", "011", "correo@nuevo.com",contrasena);
-                String contrasenaDos = PasswordHashing.GetHash("11");
-
-                Administrador administradorDos = new Administrador("dian", "iry", "022", "correo@nuevo.com", contrasenaDos);
-                ultimoLegajoEnArchivo++;
-                administrador.Legajo = ultimoLegajoEnArchivo;
-                ultimoLegajoEnArchivo++;
-                administradorDos.Legajo = ultimoLegajoEnArchivo;
-                int dniadmin1 = int.Parse(administrador.Dni);
-                int dniadmin2 = int.Parse(administradorDos.Dni);
-                dictUsuarios.Add(administrador.Legajo, administrador);
-                dictUsuarios.Add(administradorDos.Legajo, administradorDos);
-              
-
-                Serializador.GuardarAJson(ultimoLegajoEnArchivo, pathUltimoLegajo);
-                serializador.GuardarAJson(dictUsuarios, _path);
             }
 
         }

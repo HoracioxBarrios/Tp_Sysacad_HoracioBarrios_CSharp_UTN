@@ -114,9 +114,9 @@
             btnAutoCompleUser.ForeColor = Color.Red;
             btnAutoCompleUser.Location = new Point(12, 388);
             btnAutoCompleUser.Name = "btnAutoCompleUser";
-            btnAutoCompleUser.Size = new Size(124, 23);
+            btnAutoCompleUser.Size = new Size(170, 23);
             btnAutoCompleUser.TabIndex = 5;
-            btnAutoCompleUser.Text = "AutoCompleAdmin";
+            btnAutoCompleUser.Text = "AutoCompleAdmininstrador";
             btnAutoCompleUser.UseVisualStyleBackColor = false;
             btnAutoCompleUser.Click += btnAutoCompleAdm_Click;
             // 
@@ -129,9 +129,9 @@
             btnAutoCompleAlumno.ForeColor = Color.DodgerBlue;
             btnAutoCompleAlumno.Location = new Point(12, 428);
             btnAutoCompleAlumno.Name = "btnAutoCompleAlumno";
-            btnAutoCompleAlumno.Size = new Size(124, 23);
+            btnAutoCompleAlumno.Size = new Size(170, 23);
             btnAutoCompleAlumno.TabIndex = 6;
-            btnAutoCompleAlumno.Text = "AutoCompleAlumno";
+            btnAutoCompleAlumno.Text = "AutoCompleEstudiante";
             btnAutoCompleAlumno.UseVisualStyleBackColor = false;
             btnAutoCompleAlumno.Click += btnAutoCompleAlumno_Click;
             // 
@@ -162,6 +162,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmLogin";
             Text = "Sistema Academico Sysacad ";

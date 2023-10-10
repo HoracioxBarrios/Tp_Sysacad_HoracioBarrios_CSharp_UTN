@@ -11,10 +11,10 @@ using BibliotecaCLases.Modelo;
 
 namespace Formularios
 {
-    public partial class FormPanelUsuario : Form
+    public partial class FrmPanelUsuario : Form
     {
         private Usuario _usuario;
-        public FormPanelUsuario(Usuario usuario)
+        public FrmPanelUsuario(Usuario usuario)
         {
             _usuario = usuario;
             InitializeComponent();
@@ -72,7 +72,7 @@ namespace Formularios
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormConsultarHorario frmConsultarHorario = new(_usuario);
+            FrmConsultarHorario frmConsultarHorario = new(_usuario);
 
             frmConsultarHorario.FormClosed += (sender, args) =>
             {
