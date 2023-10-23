@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaCLases.Enumerado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,11 @@ namespace BibliotecaCLases.Modelo
         private string _dni;
         private string _clave;
         private int _legajo;
+        private ETipoUsuario _tipoUsuario;
 
-        /// <summary>
-        /// Enumeración que define los tipos de usuario.
-        /// </summary>
-        public enum tipoUsuario
-        {
-            Administrador=0,
-            Estudiante=1
-        }
-        private tipoUsuario _tipoUsuario;
+
+
+
 
         /// <summary>
         /// Constructor de la clase Usuario.
@@ -45,7 +41,7 @@ namespace BibliotecaCLases.Modelo
             _dni = dni;
             _correo = correo;
             _clave = clave;
-            _tipoUsuario = (tipoUsuario)indiceTipoUsuario;
+            _tipoUsuario = (ETipoUsuario)indiceTipoUsuario;
         }
 
         /// <summary>
@@ -96,7 +92,7 @@ namespace BibliotecaCLases.Modelo
         /// <summary>
         /// Propiedad para obtener o establecer el tipo de usuario (Administrador o Estudiante).
         /// </summary>
-        public tipoUsuario TipoUsuario
+        public ETipoUsuario TipoUsuario
         {
             get { return _tipoUsuario; }
             set { _tipoUsuario = value; }

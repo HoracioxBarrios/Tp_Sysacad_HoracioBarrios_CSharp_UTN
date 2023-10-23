@@ -126,5 +126,19 @@
     "Clave": "$2a$08$0QNVqkshQqlGXEuxiNWX0uOgwBOqXSb0wHwefFo6mLFJM0ft3Dv4S",
     "TipoUsuario": 1,
     "Legajo": 1012
+  },
+  "1013": {
+    "Debecambiar": true,
+    "Direccion": "San Fernando 4521",
+    "Telefono": "1526563698",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Juan",
+    "Apellido": "Asert",
+    "Correo": "Juan@hotmail.com",
+    "Dni": "31562236",
+    "Clave": "$2a$08$xbzz/nvDjXNWxE.qF4UcquLoVqVq7JYLF3PRLtuEfpRy6Myf54Crq",
+    "TipoUsuario": 1,
+    "Legajo": 1013
   }
 }
