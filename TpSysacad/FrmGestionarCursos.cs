@@ -114,11 +114,25 @@ namespace Formularios
             {
                 DataGridViewRow selectedRow = dataGridViewCursos.SelectedRows[0];
 
-                string codigoCurso = selectedRow.Cells["codigo"].Value.ToString();
+                // Check if the "codigo" column exists in the DataGridView
+                if (dataGridViewCursos.Columns.Contains("codigo"))
+                {
+                    DataGridViewCell codigoCell = selectedRow.Cells["codigo"];
 
-                _cursoSeleccionado = _crudCurso.ObtenerCursoPorCodigo(codigoCurso);
+                    // Check if the cell and its value exist
+                    if (codigoCell != null && codigoCell.Value != null)
+                    {
+                        string codigoCurso = codigoCell.Value.ToString();
+
+                        // Now you can use codigoCurso as needed
+                        _cursoSeleccionado = _crudCurso.ObtenerCursoPorCodigo(codigoCurso);
+                    }
+ 
+                }
+    
             }
         }
+
 
         private void MostrarBtn(Usuario usuario)
         {
